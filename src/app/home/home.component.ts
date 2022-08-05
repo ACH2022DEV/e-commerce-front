@@ -15,12 +15,15 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public  personnes : Personne[] = [];
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+  /* public  personnes : Personne[] = [];
   public articles:Article[]=[];
   public devi:Devis[]=[];
   public detail:Details[]=[];
   public factures:Facture[]=[];
-  //public personne: any = { id: '', adress: '', nom: '', prenom: '', tel: '' };
+  public personne: any = { id: '', adress: '', nom: '', prenom: '', tel: '' };
     // public personne:any;
   
  // id:any;
@@ -143,6 +146,6 @@ public Deletfactures(id:number):void{
   
 
 }
-
+ 
 
 

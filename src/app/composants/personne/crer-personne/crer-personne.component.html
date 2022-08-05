@@ -1,1 +1,27 @@
-<p>crer-personne works!</p>
+<div class="container mt-5 col-md-6">
+  <form #f="ngForm" (ngSubmit)="addPersonne(f)">
+    <!--div class="form-group">
+      <label for="fname">id:</label>
+      <input class="form-control" type="text" id="id" name="id" ngModel>
+    </div-->
+    <div class="form-group">
+      <label for="fname">adress:</label>
+      <input class="form-control" type="text" id="adress" name="adress" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="fname">name:</label>
+      <input class="form-control" type="text" id="nom" name="nom" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="fname">prenom:</label>
+      <input class="form-control" type="text" id="prenom" name="prenom" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="fname">tel:</label>
+      <input class="form-control" type="text" id="tel" name="tel" ngModel>
+    </div>
+    <hr>
+    <button class="btn btn-primary">save</button>
+    <button routerLink="/" class="btn btn-primary" >retour</button>
+  </form>
+</div>

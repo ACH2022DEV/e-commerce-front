@@ -30,10 +30,10 @@ export class DatabaseService {
     return this.http.post<Personne>(`${this.url}/personne`, personne);
 
   }
-  public UpdatePersonne(id: number, personne: Personne): Observable<Personne> {
-    return this.http.put<Personne>(`${this.url}/personne/${id}`, personne);
-
+  public UpdatePersonne( personne: Personne): Observable<Personne> {
+    return this.http.put<Personne>(`${this.url}/personne`, personne);
   }
+  
   public deletePersonne(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/personne/${id}`);
 
@@ -52,8 +52,8 @@ export class DatabaseService {
     return this.http.post<Details>(`${this.url}/details`, det);
 
   }
-  public UpdateDetails(id: number, detail: Details): Observable<Details> {
-    return this.http.put<Details>(`${this.url}/details/${id}`, detail);
+  public UpdateDetails( detail: Details): Observable<Details> {
+    return this.http.put<Details>(`${this.url}/details`, detail);
 
   }
   public deleteDetails(id: number): Observable<void> {
@@ -74,8 +74,8 @@ export class DatabaseService {
     return this.http.post<Article>(`${this.url}/article`, articl);
 
   }
-  public Updatearticle(id: number, articl: Article): Observable<Article> {
-    return this.http.put<Article>(`${this.url}/article/${id}`, articl);
+  public Updatearticle( articl: Article): Observable<Article> {
+    return this.http.put<Article>(`${this.url}/article`, articl);
 
   }
   public deletearticle(id: number): Observable<void> {
@@ -96,8 +96,8 @@ export class DatabaseService {
     return this.http.post<Facture>(`${this.url}/facture`, fact);
 
   }
-  public Updatefacture(id: number, fact: Facture): Observable<Facture> {
-    return this.http.put<Facture>(`${this.url}/facture/${id}`, fact);
+  public Updatefacture(fact: Facture): Observable<Facture> {
+    return this.http.put<Facture>(`${this.url}/facture`, fact);
 
   }
   public deletefacture(id: number): Observable<void> {
@@ -119,8 +119,8 @@ export class DatabaseService {
     return this.http.post<Devis>(`${this.url}/devis`, fact);
 
   }
-  public Updatedevis(id: number, dev: Devis): Observable<Devis> {
-    return this.http.put<Devis>(`${this.url}/devis/${id}`, dev);
+  public Updatedevis( dev: Devis): Observable<Devis> {
+    return this.http.put<Devis>(`${this.url}/devis`, dev);
 
   }
   public deletedevis(id: number): Observable<void> {

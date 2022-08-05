@@ -4,6 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
+//import { NgForm } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,10 @@ import { VisualiserPersonneComponent } from './composants/personne/visualiser-pe
 import { ListeArticleComponent } from './composants/article/liste-article/liste-article.component';
 import { AppComponent } from './app-component/app.component';
 import { VisualiserArticleComponent } from './composants/article/visualiser-article/visualiser-article.component';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProduitsComponent } from './produits/produits.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -41,6 +46,10 @@ import { VisualiserArticleComponent } from './composants/article/visualiser-arti
     VisualiserPersonneComponent,
     VisualiserArticleComponent,
     ListeArticleComponent,
+    HeaderComponent,
+    NavbarComponent,
+    ProduitsComponent,
+    ContactComponent,
     
   ],
   imports: [
@@ -55,6 +64,7 @@ import { VisualiserArticleComponent } from './composants/article/visualiser-arti
     MatChipsModule,
     FormsModule,
     HttpClientModule,
+    
     
    /* RouterModule.forRoot([
       {path:'',component:''}])*/

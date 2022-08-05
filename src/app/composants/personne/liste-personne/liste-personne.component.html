@@ -1,1 +1,27 @@
-<p>liste-personne works!</p>
+<div class="container mt-5">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">adress</th>
+        <th scope="col">nom</th>
+        <th scope="col">prenom</th>
+        <th scope="col">tel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pers of personnes">
+        <th scope="row">{{pers.id}}</th>
+        <td>{{pers.adress}}</td>
+        <td>{{pers.nom}}</td>
+        <td>{{pers.prenom}}</td>
+        <td>{{pers.tel}}</td>
+        <td><button (click)="deletePersonne(pers.id)" type="button" class="btn btn-danger">Delete</button></td>
+        <td><button [routerLink]="['/edite-personne/', pers.id]" type="button" class="btn btn-success">Update</button>
+        </td>
+        <td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <td><button routerLink="/creer-personne" type="button" class="btn btn-dark">create</button></td>
+</div>

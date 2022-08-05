@@ -1,4 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Personne } from 'src/app/models/personne';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-crer-personne',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrerPersonneComponent implements OnInit {
 
-  constructor() { }
+  personne: any = [];
+
+  constructor(private pesonneService: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+  public addPersonne(f: any) {
+    console.log('creer personne', f.value)
+    let data = f.value;
+    this.pesonneService.addPersonne(data).subscribe(
+      data => {
+        this.personne = new Array<Personne>();
+        this.personne = data;
+        this.router.navigate(['/list-personne']);
+        // redirection 
+      }
+    )
+  }
+
 
 }
