@@ -1,13 +1,13 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgModule } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Personne } from '../Personne';
+import { Article } from '../models/article';
+import { Details } from '../models/detail';
+import { Devis } from '../models/devis';
+import { Facture } from '../models/facture';
+import { Personne } from '../models/personne';
 import { DatabaseService } from '../services/database.service';
-import { article } from '../Article';
-import { devis } from '../DEVIS';
-import { details } from '../Detail';
-import { facture } from '../facture';
+
+
 
 @Component({
   selector: 'app-home',
@@ -16,10 +16,10 @@ import { facture } from '../facture';
 })
 export class HomeComponent implements OnInit {
   public  personnes : Personne[] = [];
-  public articles:article[]=[];
-  public devi:devis[]=[];
-  public detail:details[]=[];
-  public factures:facture[]=[];
+  public articles:Article[]=[];
+  public devi:Devis[]=[];
+  public detail:Details[]=[];
+  public factures:Facture[]=[];
   //public personne: any = { id: '', adress: '', nom: '', prenom: '', tel: '' };
     // public personne:any;
   

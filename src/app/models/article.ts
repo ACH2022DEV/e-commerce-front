@@ -1,4 +1,4 @@
-export interface article{
+export interface Article{
     code_article:number;
     description:string;
     photo:string;

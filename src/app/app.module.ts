@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-//import { MenuComponent } from './menu/menu.component';
+
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +19,14 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { CrerPersonneComponent } from './composants/personne/crer-personne/crer-personne.component';
+import { EditerPersonneComponent } from './composants/personne/editer-personne/editer-personne.component';
+import { ListePersonneComponent } from './composants/personne/liste-personne/liste-personne.component';
+import { VisualiserPersonneComponent } from './composants/personne/visualiser-personne/visualiser-personne.component';
+import { ListeArticleComponent } from './composants/article/liste-article/liste-article.component';
+import { AppComponent } from './app-component/app.component';
+import { VisualiserArticleComponent } from './composants/article/visualiser-article/visualiser-article.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +35,12 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     //NavbarComponent,
     FooterComponent,
+    CrerPersonneComponent,
+    EditerPersonneComponent,
+    ListePersonneComponent,
+    VisualiserPersonneComponent,
+    VisualiserArticleComponent,
+    ListeArticleComponent,
     
   ],
   imports: [

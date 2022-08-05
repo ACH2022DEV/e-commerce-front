@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Personne } from '../Personne';
-import { details } from '../Detail';
-import { article } from '../Article';
-import { facture } from '../facture';
-import { devis } from '../DEVIS';
+import { Personne } from '../models/personne';
+import { Details } from '../models/detail';
+import { Article } from '../models/article';
+import { Facture } from '../models/facture';
+import { Devis } from '../models/devis';
+
 
 @Injectable({
   providedIn: 'root'
@@ -38,21 +39,21 @@ export class DatabaseService {
 
   }
   //les api de details
-  public getAllDetails(): Observable<details[]> {
-    return this.http.get<details[]>(`${this.url}/details`);
+  public getAllDetails(): Observable<Details[]> {
+    return this.http.get<Details[]>(`${this.url}/details`);
 
   }
-  public getDetails(id: number): Observable<details> {
+  public getDetails(id: number): Observable<Details> {
 
-    return this.http.get<details>(`${this.url}/details/${id}`);
-
-  }
-  public addDetails(det: details): Observable<details> {
-    return this.http.post<details>(`${this.url}/details`, det);
+    return this.http.get<Details>(`${this.url}/details/${id}`);
 
   }
-  public UpdateDetails(id: number, detail: details): Observable<details> {
-    return this.http.put<details>(`${this.url}/details/${id}`, detail);
+  public addDetails(det: Details): Observable<Details> {
+    return this.http.post<Details>(`${this.url}/details`, det);
+
+  }
+  public UpdateDetails(id: number, detail: Details): Observable<Details> {
+    return this.http.put<Details>(`${this.url}/details/${id}`, detail);
 
   }
   public deleteDetails(id: number): Observable<void> {
@@ -60,21 +61,21 @@ export class DatabaseService {
 
   }
   //les api d'aticles
-  public getAllArticles(): Observable<article[]> {
-    return this.http.get<article[]>(`${this.url}/article`);
+  public getAllArticles(): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.url}/article`);
 
   }
-  public getarticle(id: number): Observable<article> {
+  public getarticle(id: number): Observable<Article> {
 
-    return this.http.get<article>(`${this.url}/article/${id}`);
-
-  }
-  public addarticle(articl: article): Observable<article> {
-    return this.http.post<article>(`${this.url}/article`, articl);
+    return this.http.get<Article>(`${this.url}/article/${id}`);
 
   }
-  public Updatearticle(id: number, articl: article): Observable<article> {
-    return this.http.put<article>(`${this.url}/article/${id}`, articl);
+  public addarticle(articl: Article): Observable<Article> {
+    return this.http.post<Article>(`${this.url}/article`, articl);
+
+  }
+  public Updatearticle(id: number, articl: Article): Observable<Article> {
+    return this.http.put<Article>(`${this.url}/article/${id}`, articl);
 
   }
   public deletearticle(id: number): Observable<void> {
@@ -82,21 +83,21 @@ export class DatabaseService {
 
   }
   ///les apis des factures
-  public getAllfactures(): Observable<facture[]> {
-    return this.http.get<facture[]>(`${this.url}/facture`);
+  public getAllfactures(): Observable<Facture[]> {
+    return this.http.get<Facture[]>(`${this.url}/facture`);
 
   }
-  public getfacture(id: number): Observable<facture> {
+  public getfacture(id: number): Observable<Facture> {
 
-    return this.http.get<facture>(`${this.url}/facture/${id}`);
-
-  }
-  public addfacture(fact: article): Observable<facture> {
-    return this.http.post<facture>(`${this.url}/facture`, fact);
+    return this.http.get<Facture>(`${this.url}/facture/${id}`);
 
   }
-  public Updatefacture(id: number, fact: facture): Observable<facture> {
-    return this.http.put<facture>(`${this.url}/facture/${id}`, fact);
+  public addfacture(fact: Facture): Observable<Facture> {
+    return this.http.post<Facture>(`${this.url}/facture`, fact);
+
+  }
+  public Updatefacture(id: number, fact: Facture): Observable<Facture> {
+    return this.http.put<Facture>(`${this.url}/facture/${id}`, fact);
 
   }
   public deletefacture(id: number): Observable<void> {
@@ -105,21 +106,21 @@ export class DatabaseService {
   }
   //les apis de devis
 
-  public getAllDevis(): Observable<devis[]> {
-    return this.http.get<devis[]>(`${this.url}/devis`);
+  public getAllDevis(): Observable<Devis[]> {
+    return this.http.get<Devis[]>(`${this.url}/devis`);
 
   }
-  public getdevis(id: number): Observable<devis> {
+  public getdevis(id: number): Observable<Devis> {
 
-    return this.http.get<devis>(`${this.url}/devis/${id}`);
-
-  }
-  public adddevis(fact: devis): Observable<devis> {
-    return this.http.post<devis>(`${this.url}/devis`, fact);
+    return this.http.get<Devis>(`${this.url}/devis/${id}`);
 
   }
-  public Updatedevis(id: number, dev: devis): Observable<devis> {
-    return this.http.put<devis>(`${this.url}/devis/${id}`, dev);
+  public adddevis(fact: Devis): Observable<Devis> {
+    return this.http.post<Devis>(`${this.url}/devis`, fact);
+
+  }
+  public Updatedevis(id: number, dev: Devis): Observable<Devis> {
+    return this.http.put<Devis>(`${this.url}/devis/${id}`, dev);
 
   }
   public deletedevis(id: number): Observable<void> {
