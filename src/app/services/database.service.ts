@@ -11,7 +11,7 @@ import { devis } from '../DEVIS';
   providedIn: 'root'
 })
 export class DatabaseService {
-  private url = "http://localhost:8080/e-commerce-back/v1/api";
+  private url = "http://localhost:8080/e-commerce-back/api/v1";
 
   constructor(private http: HttpClient) { }
 
