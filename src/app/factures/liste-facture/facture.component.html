@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">code</th>
+          <th scope="col"> montantTotal</th>
+          <th scope="col">idDetails</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fact of factures">
+          <th scope="row">{{fact.code}}</th>
+          <td>{{fact.montantTotal}}</td>
+          <td>{{fact.idDetails}}</td>
+          
+          <td><button (click)="deleteFacture(fact.code)" type="button" class="btn btn-danger">Delete</button></td>
+          <td><button [routerLink]="['/editer-facture', fact.code]" type="button" class="btn btn-success">Update</button>
+          </td>
+          <!--<td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>-->
+        </tr>
+      </tbody>
+    </table>
+    <td><button routerLink="/crer-facture" type="button" class="btn btn-dark">create</button></td>
+  </div>

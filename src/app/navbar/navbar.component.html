@@ -1,37 +1,56 @@
-<nav class="navbar navbar-expand-lg bg-info">
+<nav class="navbar navbar-expand-lg ki">
     <div class="container">
-        
-      <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-8 ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" routerLink="/home">Home</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-4  ">
+          
+          <li class="nav-item  ">
+            <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/home">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Role
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/admin">admin</a></li>
+              <li><a class="dropdown-item" routerLink="/employe">employe</a></li>
+             
+            </ul>
+            
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#"routerLink="/produits" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown ">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               PRODUCTS
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" routerLink="/liste-produits">Liste des produits</a></li>
+              <li><a class="dropdown-item" routerLink="/liste-facture">liste des factures</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" routerLink="/liste-devis">liste de devis </a></li>
             </ul>
+            
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#"  routerLink="/contact">Contacts us</a>
+          <li class="nav-item ">
+            <a class="nav-link  text-white "   routerLink="/contact">Contacts us</a>
           </li>
         </ul>
-        <form class="d-flex col-md-4" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
+        
+        <form class=" d-flex col-md-4  " role="search">
+          <input class="search" type="search" placeholder="Search for anything" aria-label="Search">
+          <button class=" search2  btn btn-light  text-dark mx-1" type="submit"> <i class="bi bi-search"></i></button>
+         
+          
         </form>
+        
+        <div class="col-md-4   mx-1  d-flex justify-content-end"><button type="button" class="btn btn-light"><i class="bi bi-cart3"></i></button><button   routerLink="/login" class=" btn btn-light text-dark mx-1 " type="submit"  *ngIf="!loggedIn()">login</button>
+        <button routerLink="/register" class=" btn btn-light  text-dark mx-1" type="submit"  *ngIf="!loggedIn()">register</button>
+        <button (click)="  logout()" type="button" class="btn btn-light mx-1"><i class="bi bi-box-arrow-right"></i></button>
+       
+        
+        </div>
+        
       </div>
     </div>
     

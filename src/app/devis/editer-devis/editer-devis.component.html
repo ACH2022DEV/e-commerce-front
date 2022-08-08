@@ -1,0 +1,21 @@
+<div class="container mt-5  col-md-6">
+    <form #f="ngForm" (ngSubmit)="UpdateDevis(f)">
+      <div class="form-group">
+        <label for="fname"> code_devis:</label>
+        <input class="form-control" type="number" id=" code_devis" [(ngModel)]=" devis.code_devis" name="code_devis" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">codeArticle:</label>
+        <input class="form-control" type="text" id="codeArticle" [(ngModel)]="devis.codeArticle" name="codeArticle" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">quantite:</label>
+        <input class="form-control" type="text" id="quantite" [(ngModel)]="devis.quantite" name="quantite" ngModel>
+      </div>
+      
+      <hr>
+      <button class="btn btn-primary" type="submit">save</button>
+      <button routerLink="/liste-devis" class="btn btn-primary" >retour</button>
+  
+    </form>
+  </div>

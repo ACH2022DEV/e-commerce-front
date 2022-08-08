@@ -4,7 +4,7 @@ export interface Article{
     photo:string;
     remis:number;
     tva:number;
-    quantité:number;
+    quantite:number;
     prix:number;
-    pays_origine:string;
+    paysOrigine:string;
 }

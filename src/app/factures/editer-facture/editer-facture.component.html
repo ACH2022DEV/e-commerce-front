@@ -1,0 +1,21 @@
+<div class="container mt-5  col-md-6">
+    <form #f="ngForm" (ngSubmit)="UpdateFacture(f)">
+      <div class="form-group">
+        <label for="fname"> code:</label>
+        <input class="form-control" type="number" id=" code" [(ngModel)]=" facture.code" name="code" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname"> montantTotal:</label>
+        <input class="form-control" type="text" id=" montantTotal" [(ngModel)]="facture. montantTotal" name=" montantTotal" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">idDetails:</label>
+        <input class="form-control" type="text" id="idDetails" [(ngModel)]="facture.idDetails" name="idDetails" ngModel>
+      </div>
+      
+      <hr>
+      <button class="btn btn-primary" type="submit">save</button>
+      <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
+  
+    </form>
+  </div>

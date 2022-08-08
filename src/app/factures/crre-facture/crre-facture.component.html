@@ -1,0 +1,17 @@
+<div class="container mt-5 col-md-6">
+    <form #f="ngForm" (ngSubmit)="addFacture(f)">
+      
+      <div class="form-group">
+        <label for="fname">montantTotal:</label>
+        <input class="form-control" type="text" id="montantTotal" name="montantTotal" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">idDetails:</label>
+        <input class="form-control" type="text" id="idDetails" name="idDetails" ngModel>
+      </div>
+     
+      <hr>
+      <button class="btn btn-primary" type="submit">save</button>
+      <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
+    </form>
+  </div>

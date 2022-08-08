@@ -1,0 +1,41 @@
+<div class="container mt-5  col-md-6">
+    <form #f="ngForm" (ngSubmit)="UpdateProduit(f)">
+      <div class="form-group">
+        <label for="fname"> code_article:</label>
+        <input class="form-control" type="number" id=" code" [(ngModel)]=" produit.code_article" name="code_article" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname"> description:</label>
+        <input class="form-control" type="text" id=" description" [(ngModel)]="produit. description" name=" description" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">photo:</label>
+        <input class="form-control" type="text" id="photo" [(ngModel)]="produit.photo" name="photo" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">remis:</label>
+        <input class="form-control" type="text" id="remis" [(ngModel)]="produit.remis" name="remis" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">tva:</label>
+        <input class="form-control" type="text" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">quantite:</label>
+        <input class="form-control" type="text" id="quantite" [(ngModel)]="produit.quantite" name="quantite" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">prix:</label>
+        <input class="form-control" type="text" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="fname">paysOrigine:</label>
+        <input class="form-control" type="text" id="paysOrigine" [(ngModel)]="produit.paysOrigine" name="paysOrigine" ngModel>
+      </div>
+      
+      <hr>
+      <button class="btn btn-primary" type="submit">save</button>
+      <button routerLink="/liste-produits" class="btn btn-primary" >retour</button>
+  
+    </form>
+  </div>

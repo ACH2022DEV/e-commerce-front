@@ -127,6 +127,6 @@ export class DatabaseService {
     return this.http.delete<void>(`${this.url}/devis/${id}`);
 
   }
-
+ 
   // développer une méthode qui va appeler le controleur et qui permet de retourner une personne 
 }

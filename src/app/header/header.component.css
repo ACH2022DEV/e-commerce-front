@@ -1,0 +1,26 @@
+.header_top {
+    background-color: #dde4ee;
+    padding: 10px 0;
+}
+.se_fonr1 {
+    justify-content: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+}
+ul.social_icon {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+ul, li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: rgb(229, 163, 30);
+}

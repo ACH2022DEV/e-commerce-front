@@ -1,0 +1,33 @@
+<div class="container mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"> code_article</th>
+          <th scope="col">description</th>
+          <th scope="col">photo</th>
+          <th scope="col">remis</th>
+          <th scope="col">tva</th>
+          <th scope="col">quantite</th>
+          <th scope="col">prix</th>
+          <th scope="col">paysOrigine</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of produits">
+          <th scope="row">{{prod.code_article}}</th>
+          <td>{{prod.description}}</td>
+          <td>{{prod.photo}}</td>
+          <td>{{prod.remis}}</td>
+          <td>{{prod.tva}}</td>
+          <td>{{prod.quantite}}</td>
+          <td>{{prod.prix}}</td>
+          <td>{{prod.paysOrigine}}</td>
+          <td><button (click)="deletePRODUIT(prod.code_article)" type="button" class="btn btn-danger">Delete</button></td>
+          <td><button [routerLink]="['/editer-produits/', prod.code_article]" type="button" class="btn btn-success">Update</button>
+          </td>
+         <!--<td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>--> 
+        </tr>
+      </tbody>
+    </table>
+    <td><button routerLink="/crer-produits" type="button" class="btn btn-dark">create</button></td>
+  </div>

@@ -1,0 +1,46 @@
+.myclass{
+    border: 1px solid #131111;
+    border-radius: 22px;
+  
+
+}
+.kl{
+    background-color: #fff;
+    border: 2px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 6px 0;
+    padding: 10px;
+    width: 100%;
+}
+form{
+    padding: 30px;
+    width: 80%;
+    margin: auto;
+
+}
+button{
+    background-color: #04aa6d;
+    color: #fff;
+    width: 40%;
+    border-radius: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Source Sans Pro,sans-serif;
+    font-size: 18px;
+    background: #183661;
+    
+    
+}
+   button:hover {
+    background-color: #f2c119;
+}
+
+
+a {
+    color: #e2980e;
+    text-decoration: none;
+    outline: none !important;
+    
+}
