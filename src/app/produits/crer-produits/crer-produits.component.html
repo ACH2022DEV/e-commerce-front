@@ -1,35 +1,93 @@
-<div class="container mt-5 col-md-6">
+<div class="container mt-5 mb-5 col-md-6">
     <form #f="ngForm" (ngSubmit)="addProduit(f)">
       
       <div class="form-group">
         <label for="fname">description:</label>
-        <input class="form-control" type="text" id="description" name="description" ngModel>
+        <input class="form-control" type="text" id="description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel">
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="description.errors?.['required']" >
+            La description est obligatoire.
+          </div>
+          <div *ngIf="description.errors?.['pattern']"  >
+            La description doit avoir  au moins  3 caractéres!
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">photo:</label>
-        <input class="form-control" type="text" id="photo" name="photo" ngModel>
-      </div>
+        <input class="form-control" type="text" id="photo" name="photo" ngModel required  #photo="ngModel">
+        <div *ngIf="photo.invalid && (photo.dirty || photo.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="photo.errors?.['required']" >
+            La photo est obligatoire.
+          </div>
+      </div></div>
       <div class="form-group">
         <label for="fname">remis:</label>
-        <input class="form-control" type="text" id="remis" name="remis" ngModel>
+        <input class="form-control" type="text" id="remis" name="remis" ngModel required  #remis="ngModel" pattern="[0-9]{1,10}">
+        <div *ngIf="remis.invalid && (remis.dirty || remis.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="remis.errors?.['required']" >
+            La remis est obligatoire.
+          </div>
+          <div *ngIf="remis.errors?.['pattern']"  >
+            le remis doit avoir  au moins  1 chiffre!
+           </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">tva:</label>
-        <input class="form-control" type="text" id="tva" name="tva" ngModel>
+        <input class="form-control" type="text" id="tva" name="tva" ngModel pattern="[0-9]{1,10}" required  #tva="ngModel">
+        <div *ngIf="tva.invalid && (tva.dirty || tva.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="tva.errors?.['required']" >
+            Le tva est obligatoire.
+          </div>
+          <div *ngIf="tva.errors?.['pattern']"  >
+           le tva doit avoir  au moins  1 chiffre!
+          </div>
+      </div>
       </div><div class="form-group">
         <label for="fname">quantité:</label>
-        <input class="form-control" type="text" id="quantite" name="quantite" ngModel>
+        <input class="form-control" type="text" id="quantite" name="quantite" ngModel pattern="[0-9]{1,10}" required  #quantite="ngModel">
+        <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="quantite.errors?.['required']" >
+            La quantite est obligatoire.
+          </div>
+          <div *ngIf="quantite.errors?.['pattern']"  >
+           la quantite doit avoir  au moins  1 chiffre!
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">prix:</label>
-        <input class="form-control" type="text" id="prix" name="prix" ngModel>
+        <input class="form-control" type="text" id="prix" name="prix" ngModel pattern="[0-9]{1,10}"  required  #prix="ngModel">
+        <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="prix.errors?.['required']" >
+            Le prix est obligatoire.
+          </div>
+          <div *ngIf="prix.errors?.['pattern']"  >
+           le prix doit avoir  au moins  1 chiffre!
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">paysOrigine:</label>
-        <input class="form-control" type="text" id="paysOrigine" name="paysOrigine" ngModel>
-      </div>
+        <input class="form-control" type="text" id="paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
+        <div *ngIf="paysOrigine.invalid && (paysOrigine.dirty || paysOrigine.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="paysOrigine.errors?.['required']" >
+            La paysOrigine est obligatoire.
+          </div>
+          <div *ngIf="paysOrigine.errors?.['pattern']"  >
+            La paysOrigine doit avoir  au moins  3 caractéres!
+          </div>
+      </div></div>
       <hr>
-      <button class="btn btn-primary" type="submit">save</button>
-      <button routerLink="/liste-produits" class="btn btn-primary" >retour</button>
+      <button class="btn btn-primary mx-2" type="submit" [disabled]="f.invalid">save</button>
+      <button routerLink="/adminliste-produit" class="btn btn-primary" >retour</button>
     </form>
   </div>

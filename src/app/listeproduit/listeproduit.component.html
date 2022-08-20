@@ -1,4 +1,6 @@
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
+  <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end">create</button>
+
     <table class="table">
       <thead>
         <tr>
@@ -14,7 +16,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let prod of produits">
-          <th scope="row">{{prod.code_article}}</th>
+          <th scope="row">{{prod.codeArticle}}</th>
           <td>{{prod.description}}</td>
           <td>{{prod.photo}}</td>
           <td>{{prod.remis}}</td>
@@ -22,12 +24,11 @@
           <td>{{prod.quantite}}</td>
           <td>{{prod.prix}}</td>
           <td>{{prod.paysOrigine}}</td>
-          <td><button (click)="deletePRODUIT(prod.code_article)" type="button" class="btn btn-danger">Delete</button></td>
-          <td><button [routerLink]="['/editer-produits/', prod.code_article]" type="button" class="btn btn-success">Update</button>
+          <td><button (click)="deletePRODUIT(prod.codeArticle)" type="button" class="btn btn-danger">Delete</button></td>
+          <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success">Update</button>
           </td>
-         <!--<td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>--> 
+         <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary">visualiser</button></td>
         </tr>
       </tbody>
     </table>
-    <td><button routerLink="/crer-produits" type="button" class="btn btn-dark">create</button></td>
   </div>

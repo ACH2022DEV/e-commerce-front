@@ -6,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-facture',
   templateUrl: './facture.component.html',
-  styleUrls: ['./facture.component.css']
+  styleUrls: ['./facture.component.scss']
 })
 export class FactureComponent implements OnInit {
   public factures: Facture[] = [];

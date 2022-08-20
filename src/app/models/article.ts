@@ -1,5 +1,5 @@
 export interface Article{
-    code_article:number;
+    codeArticle:number;
     description:string;
     photo:string;
     remis:number;

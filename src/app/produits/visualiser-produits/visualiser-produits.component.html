@@ -1,1 +1,17 @@
-<p>visualiser-produits works!</p>
+
+<div class="container col-md-3 mt-5 mb-5">
+    <div class="row">
+        <h2 class="text-danger">Detail d'un produit:</h2>
+        <p><strong class=" text-danger ">codeArticle:</strong> {{produit.codeArticle}}</p> 
+        <p><strong class="text-danger">description:</strong> {{produit.description}}</p>
+        <p><strong class="text-danger ">photo:</strong>  {{produit.photo}}</p>
+        <p><strong class="text-danger ">remis:</strong>  {{produit.remis}}</p>
+        <p><strong class="text-danger ">tva:</strong>  {{produit.tva}}</p>
+        <p><strong class="text-danger ">prix:</strong>  {{produit.prix}}</p>
+        <p><strong class="text-danger ">paysOrigine:</strong>  {{produit.paysOrigine}}</p>
+       
+        
+        
+    </div>
+    <button routerLink="/adminliste-produit" class="btn btn-secondary" >Retour</button>
+</div>

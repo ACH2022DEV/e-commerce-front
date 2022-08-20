@@ -5,12 +5,12 @@ import { Personne } from '../models/personne';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
      jsonStringObj:any={};
      
-  obj: any={email:'',username:'',id:''};
+  obj: any={email:'',username:'',id:'',roles:''};
   
   
   
@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
       this.jsonStringObj = sessionStorage.getItem('session'); 
   
     this.obj = JSON.parse(this.jsonStringObj); 
+    let key:any=this.obj.roles;
+    
     return true;
     
   

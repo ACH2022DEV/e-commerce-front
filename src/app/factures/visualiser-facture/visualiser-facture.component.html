@@ -1,1 +1,13 @@
-<p>visualiser-facture works!</p>
+
+<div class="container col-md-3 mt-5 mb-5">
+    <div class="row">
+        <h2 class="text-danger">Detail d'une facture:</h2>
+        <p><strong class=" text-danger ">code:</strong> {{facture.code}}</p> 
+        <p><strong class="text-danger">montantTotal:</strong> {{facture.montantTotal}}</p>
+        <p><strong class="text-danger ">idDetails:</strong>  {{facture.idDetails}}</p>
+       
+        
+        
+    </div>
+    <button routerLink="/liste-facture" class="btn btn-secondary" >retour</button>
+</div>

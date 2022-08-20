@@ -1,9 +1,10 @@
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
+  <button routerLink="/crer-devis" type="button" class="btn btn-dark btn-lg float-end">create</button>
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">code_devis</th>
+          <th scope="col"> codeDevis</th>
           <th scope="col">  codeArticle</th>
           <th scope="col">quantite</th>
           
@@ -11,16 +12,16 @@
       </thead>
       <tbody>
         <tr *ngFor="let dev of devis">
-          <th scope="row">{{dev.code_devis}}</th>
+          <th scope="row">{{dev. codeDevis}}</th>
           <td>{{dev.codeArticle}}</td>
           <td>{{dev.quantite}}</td>
           
-          <td><button (click)="deleteDevis(dev.code_devis)" type="button" class="btn btn-danger">Delete</button></td>
-          <td><button [routerLink]="['/editer-devis', dev.code_devis]" type="button" class="btn btn-success">Update</button>
+          <td><button (click)="deleteDevis(dev. codeDevis)" type="button" class="btn btn-danger">Delete</button></td>
+          <td><button [routerLink]="['/editer-devis', dev. codeDevis]" type="button" class="btn btn-success">Update</button>
           </td>
-          <!--<td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>-->
+          <td><button [routerLink]="['/visualiser-devis', dev. codeDevis]" type="button" class="btn btn-secondary">visualiser</button></td>
         </tr>
       </tbody>
     </table>
-    <td><button routerLink="/crer-devis" type="button" class="btn btn-dark">create</button></td>
+    
   </div>

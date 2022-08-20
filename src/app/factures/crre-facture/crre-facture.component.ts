@@ -6,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-crre-facture',
   templateUrl: './crre-facture.component.html',
-  styleUrls: ['./crre-facture.component.css']
+  styleUrls: ['./crre-facture.component.scss']
 })
 export class CrreFactureComponent implements OnInit {
 facture:any=[];

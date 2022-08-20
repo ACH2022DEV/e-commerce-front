@@ -1,5 +1,5 @@
 export interface Details{
     code:number;
-    code_article:number;
+    codeArticle:number;
     quantite:number;
 }

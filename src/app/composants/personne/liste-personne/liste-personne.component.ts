@@ -6,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-liste-personne',
   templateUrl: './liste-personne.component.html',
-  styleUrls: ['./liste-personne.component.css']
+  styleUrls: ['./liste-personne.component.scss']
 })
 export class ListePersonneComponent implements OnInit {
   public personnes: Personne[] = [];
@@ -14,7 +14,9 @@ export class ListePersonneComponent implements OnInit {
   constructor(private pesonneService: DatabaseService) { }
 
   ngOnInit(): void {
+    
     this.getAllPersonne();
+    
 
   }
 

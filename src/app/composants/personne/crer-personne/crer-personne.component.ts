@@ -7,7 +7,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-crer-personne',
   templateUrl: './crer-personne.component.html',
-  styleUrls: ['./crer-personne.component.css']
+  styleUrls: ['./crer-personne.component.scss']
 })
 export class CrerPersonneComponent implements OnInit {
 

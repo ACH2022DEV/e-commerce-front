@@ -1,10 +1,11 @@
-.myclass{
+.myclass {
     border: 1px solid #131111;
     border-radius: 22px;
-  
+
 
 }
-.kl{
+
+.kl {
     background-color: #fff;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -13,13 +14,15 @@
     padding: 10px;
     width: 100%;
 }
-form{
+
+form {
     padding: 30px;
     width: 80%;
     margin: auto;
 
 }
-button{
+
+button {
     background-color: #04aa6d;
     color: #fff;
     width: 40%;
@@ -27,12 +30,38 @@ button{
     box-sizing: border-box;
     cursor: pointer;
     display: inline-block;
-    font-family: Source Sans Pro,sans-serif;
+    font-family: Source Sans Pro, sans-serif;
     font-size: 18px;
     background: #183661;
-}button:hover {
+}
+
+button:hover {
     background-color: #f2c119;
 }
 
 
-   
+//@at-root
+
+button{
+
+    &:hover{
+
+    }
+
+    [disabled]{
+
+        sdgfqs
+        &.toto{
+
+        }
+
+    }
+
+}
+button[disabled]{
+    cursor: none;
+}
+button[disabled]:hover{
+    background-color: gray;
+    cursor: none;
+}

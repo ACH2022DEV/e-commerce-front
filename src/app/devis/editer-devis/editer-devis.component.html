@@ -1,20 +1,45 @@
 <div class="container mt-5  col-md-6">
     <form #f="ngForm" (ngSubmit)="UpdateDevis(f)">
       <div class="form-group">
-        <label for="fname"> code_devis:</label>
-        <input class="form-control" type="number" id=" code_devis" [(ngModel)]=" devis.code_devis" name="code_devis" ngModel>
-      </div>
+        <label for="fname">  codeDevis:</label>
+        <input class="form-control" type="number" id=" code_devis" [(ngModel)]=" devis. codeDevis" name=" codeDevis" ngModel pattern="[0-9]{1,10}" required  #codeDevis="ngModel">
+        <div *ngIf="codeDevis.invalid && (codeDevis.dirty || codeDevis.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="codeDevis.errors?.['required']" >
+            Le codeDevis est obligatoire.
+          </div>
+          <div *ngIf="codeDevis.errors?.['pattern']"  >
+            Le codeDevis doit avoir  au moins  1 chiffre!
+          </div>
+      </div> </div>
       <div class="form-group">
         <label for="fname">codeArticle:</label>
-        <input class="form-control" type="text" id="codeArticle" [(ngModel)]="devis.codeArticle" name="codeArticle" ngModel>
+        <input class="form-control" type="text" id="codeArticle" [(ngModel)]="devis.codeArticle" name="codeArticle" ngModel pattern="[0-9]{1,10}" required  #codeArticle="ngModel">
+        <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="codeArticle.errors?.['required']" >
+            Le codeArticle est obligatoire.
+          </div>
+          <div *ngIf="codeArticle.errors?.['pattern']"  >
+            Le codeArticle doit avoir  au moins  1 chiffre!
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">quantite:</label>
-        <input class="form-control" type="text" id="quantite" [(ngModel)]="devis.quantite" name="quantite" ngModel>
-      </div>
+        <input class="form-control" type="text" id="quantite" [(ngModel)]="devis.quantite" name="quantite" ngModel pattern="[0-9]{1,10}" required  #quantite="ngModel">
+        <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="quantite.errors?.['required']" >
+            La quantite est obligatoire.
+          </div>
+          <div *ngIf="quantite.errors?.['pattern']"  >
+           la quantite doit avoir  au moins  1 chiffre!
+          </div>
+      </div> </div>
       
       <hr>
-      <button class="btn btn-primary" type="submit">save</button>
+      <button class="btn btn-primary" type="submit" [disabled]="f.invalid">save</button>
       <button routerLink="/liste-devis" class="btn btn-primary" >retour</button>
   
     </form>

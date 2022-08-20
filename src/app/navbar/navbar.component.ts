@@ -8,11 +8,13 @@ import { Personne } from '../models/personne';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  helper: any;
  
-   
+  jsonStringObj:any={};
+  obj: any={email:'',username:'',id:'',roles:''};
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -26,6 +28,60 @@ export class NavbarComponent implements OnInit {
     public loggedIn(){
       return  sessionStorage.getItem('session');
     }
-   
+    public  getAccestouser():boolean{
+     
+        this.jsonStringObj = sessionStorage.getItem('session'); 
+        this.obj = JSON.parse(this.jsonStringObj); 
+        let key:any=this.obj.roles;
+       
+        if(key[0]=='ROLE_USER'){
+          return true
+        }
+       
+    
+      else {
+       
+        return false;
+         }  
+     } 
+
+  
+     public  getAccestoEmploye():boolean{
+      if(sessionStorage.getItem('session') ){
+        this.jsonStringObj = sessionStorage.getItem('session'); 
+        this.obj = JSON.parse(this.jsonStringObj); 
+        let key:any=this.obj.roles;
+        console.log(key[0])
+        if(key[0]=='ROLE_GERANT'){
+          return true
+        }
+        
+        return false;
+      
+    
+      }else {
+       
+        return false;
+         }  
+     } 
+     public  getAccestoAdmin():boolean{
+      if(sessionStorage.getItem('session') ){
+        this.jsonStringObj = sessionStorage.getItem('session'); 
+        this.obj = JSON.parse(this.jsonStringObj); 
+        let key:any=this.obj.roles;
+        console.log(key[0])
+        if(key[0]=='ROLE_ADMIN'){
+          return true
+        }
+        
+        return false;
+      
+    
+      }else {
+       
+        return false;
+         }  
+     } 
+    
 
 }

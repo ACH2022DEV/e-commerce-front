@@ -6,7 +6,7 @@ import { DatabaseService } from '../services/database.service';
 @Component({
   selector: 'app-listeproduit',
   templateUrl: './listeproduit.component.html',
-  styleUrls: ['./listeproduit.component.css']
+  styleUrls: ['./listeproduit.component.scss']
 })
 export class ListeproduitComponent implements OnInit {
   public produits:Article[]= [];

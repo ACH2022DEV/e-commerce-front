@@ -1,12 +1,12 @@
-<div class="header_top p-4" *ngIf="getData()">
-    <div class="container" >
-       <div class="row"  >
-          <div class="col-md-4 col-sm-12" >
+<div class="header_top p-4 d-none d-sm-block " *ngIf="getData()">
+    <div class="container  " >
+       <div class="row d-flex justify-content-between"  >
+          <div class="col-md-4 mx-0 col-sm-4  " >
              <ul class="conta_icon "  >
-                <li ><a href="#"></a>{{obj.email}} </li>
+                <li ><a href="#"><i class="bi bi-envelope-fill">{{obj.email}}</i></a> </li>
              </ul>
           </div>
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4 col-sm-4 ">
              <ul class="social_icon ">
                 <li> <a href="#"><i class=" mx-2  bi bi-facebook"></i>
                    </a>
@@ -18,7 +18,7 @@
                 </li>
              </ul>
           </div>
-          <div class="col-md-4 ">
+          <div class="col-md-4  col-sm-4 ">
             
                 <ul class="conta_icon float-end"   >
                    <li ><a href="#"  ></a> {{obj.username}}</li>

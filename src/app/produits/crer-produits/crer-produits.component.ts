@@ -6,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-crer-produits',
   templateUrl: './crer-produits.component.html',
-  styleUrls: ['./crer-produits.component.css']
+  styleUrls: ['./crer-produits.component.scss']
 })
 export class CrerProduitsComponent implements OnInit {
   produit: any = [];
@@ -22,7 +22,7 @@ export class CrerProduitsComponent implements OnInit {
       data => {
         this.produit = new Array<Article>();
         this.produit = data;
-        this.router.navigate(['/liste-produits']);
+        this.router.navigate(['/adminliste-produit']);
         // redirection 
       }
     )

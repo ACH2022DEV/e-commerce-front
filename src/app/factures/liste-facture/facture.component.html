@@ -1,4 +1,6 @@
 <div class="container mt-5">
+  <button routerLink="/crer-facture" type="button" class="btn btn-dark btn-lg float-end">create</button>
+
     <table class="table">
       <thead>
         <tr>
@@ -15,11 +17,10 @@
           <td>{{fact.idDetails}}</td>
           
           <td><button (click)="deleteFacture(fact.code)" type="button" class="btn btn-danger">Delete</button></td>
-          <td><button [routerLink]="['/editer-facture', fact.code]" type="button" class="btn btn-success">Update</button>
+          <td><button [routerLink]="['/editer-facture/', fact.code]" type="button" class="btn btn-success">Update</button>
           </td>
-          <!--<td><button routerLink="/visualiser-personne" type="button" class="btn btn-primary">visualiser</button></td>-->
+          <td><button [routerLink]="['/visualiser-facture/', fact.code]" type="button" class="btn btn-secondary">visualiser</button></td>
         </tr>
       </tbody>
     </table>
-    <td><button routerLink="/crer-facture" type="button" class="btn btn-dark">create</button></td>
   </div>

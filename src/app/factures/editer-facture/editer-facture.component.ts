@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Facture } from 'src/app/models/facture';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-editer-facture',
   templateUrl: './editer-facture.component.html',
-  styleUrls: ['./editer-facture.component.css']
+  styleUrls: ['./editer-facture.component.scss']
 })
 export class EditerFactureComponent implements OnInit {
   public facture: any = { id: '' };
+  
   constructor(private pesonneService: DatabaseService,
     private route: ActivatedRoute,
     private router: Router) { }

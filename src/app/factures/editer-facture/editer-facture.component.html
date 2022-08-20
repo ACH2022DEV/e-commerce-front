@@ -2,19 +2,40 @@
     <form #f="ngForm" (ngSubmit)="UpdateFacture(f)">
       <div class="form-group">
         <label for="fname"> code:</label>
-        <input class="form-control" type="number" id=" code" [(ngModel)]=" facture.code" name="code" ngModel>
+        <input class="form-control" type="number" id=" code" [(ngModel)]=" facture.code"  required  name="code" ngModel #code="ngModel">
+        <div *ngIf="code.invalid && (code.dirty || code.touched)" class="p-2 my-1 bg-danger text-white rounded-3"> <div *ngIf="code.errors?.['required']" >
+          Le  code  est obligatoire.
+        </div> </div>
       </div>
       <div class="form-group">
         <label for="fname"> montantTotal:</label>
-        <input class="form-control" type="text" id=" montantTotal" [(ngModel)]="facture. montantTotal" name=" montantTotal" ngModel>
+        <input class="form-control" type="text" id=" montantTotal" [(ngModel)]="facture.montantTotal" required pattern="[0-9]{1,9}" #montantTotal="ngModel" name=" montantTotal" ngModel>
+        <div *ngIf="montantTotal.invalid && (montantTotal.dirty || montantTotal.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="montantTotal.errors?.['required']" >
+            Le montantTotal est obligatoire.
+          </div>
+          <div *ngIf="montantTotal.errors?.['pattern']"  >
+            Le montantTotal doit avoir  au moins  1 chiffres!
+          </div>
+      </div>
       </div>
       <div class="form-group">
         <label for="fname">idDetails:</label>
-        <input class="form-control" type="text" id="idDetails" [(ngModel)]="facture.idDetails" name="idDetails" ngModel>
+        <input class="form-control" type="text" id="idDetails" [(ngModel)]="facture.idDetails" pattern="[0-9]{1,9}"  required name="idDetails" ngModel #idDetails="ngModel">
+        <div *ngIf="idDetails.invalid && (idDetails.dirty || idDetails.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="idDetails.errors?.['required']" >
+            l'idDetails est obligatoire.
+          </div>
+          <div *ngIf="idDetails.errors?.['pattern']"  >
+            l'idDetails doit avoir  au moins  1 chiffres!
+          </div>
+      </div>
       </div>
       
       <hr>
-      <button class="btn btn-primary" type="submit">save</button>
+      <button class="btn btn-primary" type="submit" [disabled]="f.invalid">save</button>
       <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
   
     </form>

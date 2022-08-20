@@ -7,7 +7,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-editer-personne',
   templateUrl: './editer-personne.component.html',
-  styleUrls: ['./editer-personne.component.css']
+  styleUrls: ['./editer-personne.component.scss']
 })
 export class EditerPersonneComponent implements OnInit {
 

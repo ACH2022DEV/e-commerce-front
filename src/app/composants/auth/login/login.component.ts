@@ -6,15 +6,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
   public a:any;
   public login: any = [];
  
+ 
   constructor(private security: SecurityService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
 
@@ -27,18 +29,25 @@ export class LoginComponent implements OnInit {
         console.log(data);
         this.router.navigate(['/list-personne']);
         sessionStorage.setItem('session', JSON.stringify(data));
-      
+        
+        
+        
+       
+       
+        
+        
+        
+       
       }
     )
   }
-  /* public connecter(){
-    if(sessionStorage.getItem('session')){
-      this.a=1
-    }
-    else this.a=2;
-  }
-     */
+
+ 
   
     
   
 }
+function roles(roles: any): string {
+  throw new Error('Function not implemented.');
+}
+

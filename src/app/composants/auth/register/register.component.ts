@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
   register: any = [];
@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
     let data = f.value;
     this.security.register(data).subscribe(
       data => {
+        console.log(data)
         this.register = new Array<Register>();
         this.register = data;
         this.router.navigate(['/login']);

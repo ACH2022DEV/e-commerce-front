@@ -1,5 +1,5 @@
 export interface Devis{
-    code_devis:number;
+    codeDevis:number;
     codeArticle:number;
     quantite:number;
 }

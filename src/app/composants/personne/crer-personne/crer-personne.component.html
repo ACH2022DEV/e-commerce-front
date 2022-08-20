@@ -6,22 +6,60 @@
     </div-->
     <div class="form-group">
       <label for="fname">adress:</label>
-      <input class="form-control" type="text" id="adress" name="adress" ngModel>
-    </div>
+      <input class="form-control" type="text" id="adress" name="adress" ngModel pattern="[a-zA-Z_0-9]{4,}" required  #adress="ngModel">
+      <div *ngIf="adress.invalid && (adress.dirty || adress.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
+
+        <div *ngIf="adress.errors?.['required']" >
+        l'adress est obligatoire.
+        </div>
+        <div *ngIf="adress.errors?.['pattern']" >
+          l'adress doit avoir au moin 4 caractères
+        </div>
+    </div> </div>
     <div class="form-group">
       <label for="fname">name:</label>
-      <input class="form-control" type="text" id="nom" name="nom" ngModel>
+      <input class="form-control" type="text" id="nom" name="nom" ngModel pattern="[a-zA-Z_0-9]{4,10}" required  #nom="ngModel">
+      <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
+
+        <div *ngIf="nom.errors?.['required']" >
+          Le nom est obligatoire.
+        </div>
+        <div *ngIf="nom.errors?.['pattern']" >
+          Le nom doit avoir au min 4 caractères et max 8
+        </div>
+    </div>
     </div>
     <div class="form-group">
       <label for="fname">prenom:</label>
-      <input class="form-control" type="text" id="prenom" name="prenom" ngModel>
+      <input class="form-control" type="text" id="prenom" name="prenom" ngModel pattern="[a-zA-Z_0-9]{4,10}" required  #prenom="ngModel">
+      <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
+
+        <div *ngIf="prenom.errors?.['required']" >
+          Le prenom est obligatoire.
+        </div>
+        <div *ngIf="prenom.errors?.['pattern']" > 
+          Le prenom doit avoir au moin 4 caractères et max 8
+        </div>
+    </div>
     </div>
     <div class="form-group">
       <label for="fname">tel:</label>
-      <input class="form-control" type="text" id="tel" name="tel" ngModel>
+      <input class="form-control" type="text" id="tel" name="tel" ngModel pattern="[0-9]{8,8}" maxlength="8" required  #tel="ngModel">
+      <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
+
+        <div *ngIf="tel.errors?.['required']" >
+          Le numéro de tel est obligatoire.
+        </div>
+        <div *ngIf="tel.errors?.['pattern'] " >
+          Le numéro de tel doit avoir  8 chifres
+        </div>
+        
+
+    </div>
+
     </div>
     <hr>
-    <button class="btn btn-primary"  type="submit">save</button>
+    <button class="btn btn-primary mx-2"  type="submit" [disabled]="f.invalid">save</button>
     <button routerLink="/list-personne" class="btn btn-primary" >retour</button>
   </form>
 </div>

@@ -4,31 +4,85 @@
      
       <div class="form-group fw-bold ">
         <label for="fname ">username:</label>
-        <input class="kl " type="text" id="username" name="username" ngModel>
-      </div>
+        <input class="kl " type="text" id="username" name="username"  required minlength="4" ngModel #username="ngModel">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="username.errors?.['required']" >
+            Le pseudo est obligatoire.
+          </div>
+          <div *ngIf="username.errors?.['minlength']" >
+            Le pseudo doit avoir au moin 4 caractères
+          </div>
+      </div></div>
       
       <div class="form-group fw-bold">
         <label for="fname ">password:</label>
-        <input class="kl" type="password" id="password" name="password" ngModel>
+        <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="password.errors?.['required']" >
+            Le pseudo est obligatoire.
+          </div>
+          <div *ngIf="password.errors?.['minlength']" >
+            Le pseudo doit avoir au moin 4 caractères
+          </div>
+      </div>
       </div>
       <div class="form-group fw-bold">
         <label for="fname ">nom:</label>
-        <input class="kl" type="text" id="nom" name="nom" ngModel>
+        <input class="kl" type="text" id="nom" name="nom" required minlength="4" ngModel #nom="ngModel">
+        <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="nom.errors?.['required']" >
+            Le nom est obligatoire.
+          </div>
+          <div *ngIf="nom.errors?.['minlength']" >
+            Le nom doit avoir au moin 4 caractères
+          </div>
+      </div>
       </div>
       <div class="form-group fw-bold">
         <label for="fname ">prenom:</label>
-        <input class="kl" type="text" id="prenom" name="prenom" ngModel>
+        <input class="kl" type="text" id="prenom" name="prenom" required minlength="4" ngModel #prenom="ngModel">
+        <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="prenom.errors?.['required']" >
+            Le prenom est obligatoire.
+          </div>
+          <div *ngIf="prenom.errors?.['minlength']" >
+            Le prenom doit avoir au moin 4 caractères
+          </div>
+      </div>
       </div>
       <div class="form-group fw-bold ">
         <label for="fname ">email:</label>
-        <input class="kl" type="email" id="email" name="email" ngModel>
+        <input class="kl" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required  ngModel #email="ngModel">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="email.errors?.['required']" >
+             l'email est obligatoire.
+          </div>
+          <div *ngIf="email.errors?.['pattern']" >
+            l'email n'est pas valide
+          </div>
+         
+      </div>
       </div>
       <div class="form-group fw-bold">
         <label for="fname ">role:</label>
-        <input class="kl" type="text" id="role" name="role" ngModel>
+        <input class="kl" type="text" id="role" name="role" required minlength="4" ngModel #role="ngModel" >
+        <div *ngIf="role.invalid && (role.dirty || role.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
+
+          <div *ngIf="role.errors?.['required']" >
+            Le role est obligatoire.
+          </div>
+          <div *ngIf="role.errors?.['minlength']" >
+            Le role doit avoir au moin 4 caractères
+          </div>
+      </div>
       </div>
       <hr>
-      <button class="ms-5 me-2 " type="submit"> register</button>
+      <button class="ms-5 me-2 " type="submit" [disabled]="f.invalid"> register</button>
       <button routerLink="/login" class=" my-2" >Retour</button>
     </form></div>
     

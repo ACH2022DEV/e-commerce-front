@@ -7,7 +7,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-crer-devis',
   templateUrl: './crer-devis.component.html',
-  styleUrls: ['./crer-devis.component.css']
+  styleUrls: ['./crer-devis.component.scss']
 })
 export class CrerDevisComponent implements OnInit {
   devis: any = [];

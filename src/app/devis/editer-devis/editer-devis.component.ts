@@ -5,16 +5,16 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-editer-devis',
   templateUrl: './editer-devis.component.html',
-  styleUrls: ['./editer-devis.component.css']
+  styleUrls: ['./editer-devis.component.scss']
 })
 export class EditerDevisComponent implements OnInit {
-  public devis: any = { id: '' };
+  public devis: any = {  codeDevis: '' };
   constructor(private pesonneService: DatabaseService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.pesonneService.getdevis(this.route.snapshot.params['id']).subscribe(data => {
+    this.pesonneService.getdevis(this.route.snapshot.params[' codeDevis']).subscribe(data => {
       this.devis = data;
     })
   }

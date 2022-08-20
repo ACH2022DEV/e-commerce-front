@@ -6,7 +6,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-liste-deis',
   templateUrl: './liste-deis.component.html',
-  styleUrls: ['./liste-deis.component.css']
+  styleUrls: ['./liste-deis.component.scss']
 })
 export class ListeDeisComponent implements OnInit {
   public devis: Devis[] = [];
