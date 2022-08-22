@@ -70,8 +70,8 @@ export class DatabaseService {
     return this.http.get<Article>(`${this.url}/article/${id}`);
 
   }
-  public addarticle(articl: Article): Observable<Article> {
-    return this.http.post<Article>(`${this.url}/article`, articl);
+  public addarticle(articl: FormData): Observable<any> {
+    return this.http.post<any>(`${this.url}/article`, articl);
 
   }
   public Updatearticle( articl: Article): Observable<Article> {

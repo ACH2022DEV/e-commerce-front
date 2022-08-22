@@ -7,4 +7,5 @@ export interface Article{
     quantite:number;
     prix:number;
     paysOrigine:string;
+    imageDarticle:File[];
 }
