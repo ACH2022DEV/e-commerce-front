@@ -1,16 +1,14 @@
-<div class="container mt-5  mb-5 col-md-6">
-    <form #f="ngForm" (ngSubmit)="UpdateProduit(f)">
+<div class="container row  mt-5  mb-5">
+    <form #f="ngForm" class="col-8 ms-5" (ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
         <label for="fname"> codeArticle:</label>
-        <input class="form-control" type="text" id=" code" [(ngModel)]=" produit.codeArticle"  name="codeArticle" required ngModel pattern="[0-9]{1,9}" #codeArticle="ngModel">
+        <input class="form-control" type="number" id=" code" [(ngModel)]=" produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="codeArticle.errors?.['required']" >
             Le codeArticle est obligatoire.
           </div>
-          <div *ngIf="codeArticle.errors?.['pattern']"  >
-            Le codeArticle est  entre  1 et 9 chiffre!
-          </div>
+          
       </div>
       </div>
       <div class="form-group">
@@ -26,7 +24,7 @@
           </div>
       </div>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="fname">photo:</label>
         <input class="form-control" type="text" id="photo" [(ngModel)]="produit.photo" name="photo" ngModel  required  #photo="ngModel">
         <div *ngIf="photo.invalid && (photo.dirty || photo.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
@@ -35,56 +33,48 @@
             La photo est obligatoire.
           </div>
       </div>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="fname">remis:</label>
-        <input class="form-control" type="text" id="remis" [(ngModel)]="produit.remis" name="remis" ngModel required  #remis="ngModel" pattern="[0-9]{1,10}">
+        <input class="form-control" type="number" id="remis" [(ngModel)]="produit.remis" name="remis" ngModel required  #remis="ngModel" >
         <div *ngIf="remis.invalid && (remis.dirty || remis.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="remis.errors?.['required']" >
             La remis est obligatoire.
           </div>
-          <div *ngIf="remis.errors?.['pattern']"  >
-            le remis doit avoir  au moins  1 chiffre!
-           </div>
+          
       </div>
       </div>
       <div class="form-group">
         <label for="fname">tva:</label>
-        <input class="form-control" type="text" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel pattern="[0-9]{1,10}" required  #tva="ngModel">
+        <input class="form-control" type="number" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel  required  #tva="ngModel">
         <div *ngIf="tva.invalid && (tva.dirty || tva.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="tva.errors?.['required']" >
             Le tva est obligatoire.
           </div>
-          <div *ngIf="tva.errors?.['pattern']"  >
-           le tva doit avoir  au moins  1 chiffre!
-          </div>
+          
       </div>
       </div>
       <div class="form-group">
         <label for="fname">quantite:</label>
-        <input class="form-control" type="text" id="quantite" [(ngModel)]="produit.quantite" name="quantite" ngModel pattern="[0-9]{1,10}" required  #quantite="ngModel">
+        <input class="form-control" type="number" id="quantite" [(ngModel)]="produit.quantite" name="quantite" ngModel  required  #quantite="ngModel">
         <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="quantite.errors?.['required']" >
             La quantite est obligatoire.
           </div>
-          <div *ngIf="quantite.errors?.['pattern']"  >
-           la quantite doit avoir  au moins  1 chiffre!
-          </div>
+         
       </div> </div>
       <div class="form-group">
         <label for="fname">prix:</label>
-        <input class="form-control" type="text" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel pattern="[0-9]{1,10}"  required  #prix="ngModel">
+        <input class="form-control" type="number" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel   required  #prix="ngModel">
         <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="prix.errors?.['required']" >
             Le prix est obligatoire.
           </div>
-          <div *ngIf="prix.errors?.['pattern']"  >
-           le prix doit avoir  au moins  1 chiffre!
-          </div>
+          
       </div>
       </div>
       <div class="form-group">
@@ -100,14 +90,29 @@
           </div>
       </div></div>
       <div class="form-group my-2" >
-        <input type="file"multiple ngModel class="form-control" name="file" required [(ngModel)]="produit.imageDarticle" #file="ngModel">
+        <input type="file"multiple ngModel class="form-control" name="file" (change)="onSelectedFile($event)" required  #file="ngModel">
 
 
       </div>
       
       <hr>
-      <button class="btn btn-primary mx-2" type="submit " [disabled]="f.invalid">save</button>
+      <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modification avac succés</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            vous avez modifié  un produit
+          </div>
+         
+        </div>
+      </div>
+    </div>
       <button routerLink="/adminliste-produit" class="btn btn-primary" >retour</button>
   
     </form>
+    <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" >
   </div>

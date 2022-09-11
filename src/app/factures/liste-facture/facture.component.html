@@ -4,19 +4,50 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">code</th>
-          <th scope="col"> montantTotal</th>
-          <th scope="col">idDetails</th>
+          <th scope="col">personneId</th>
+          <th scope="col"> FactureId</th>
+        
           
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let fact of factures">
-          <th scope="row">{{fact.code}}</th>
-          <td>{{fact.montantTotal}}</td>
-          <td>{{fact.idDetails}}</td>
+          <th scope="row">{{fact.personne.id}}</th>
+          <td>{{fact.code}}</td>
           
-          <td><button (click)="deleteFacture(fact.code)" type="button" class="btn btn-danger">Delete</button></td>
+          
+          <td><button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Delete</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supppression d'un facture</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Voulez-vous vraiment supprimer cette facture?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" (click)="deleteFacture(fact.code)" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-primary">Confirmer</button>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Suppression avac succés</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            vous avez supprimé cette facture
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div></td>
           <td><button [routerLink]="['/editer-facture/', fact.code]" type="button" class="btn btn-success">Update</button>
           </td>
           <td><button [routerLink]="['/visualiser-facture/', fact.code]" type="button" class="btn btn-secondary">visualiser</button></td>

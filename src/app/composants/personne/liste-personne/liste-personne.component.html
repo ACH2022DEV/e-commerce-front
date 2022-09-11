@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5">
   <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end ">create</button>
-  <table class="table">
+  <table class="table table-bordered">
    
     <thead>
       <tr>
@@ -12,18 +12,63 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let pers of personnes">
+      <!-- | paginate: { itemsPerPage: 7, currentPage: pageNo, totalItems: total } -->
+      <tr *ngFor="let pers of personnes ">
         <th scope="row">{{pers.id}}</th>
         <td>{{pers.adress}}</td>
         <td>{{pers.nom}}</td>
         <td>{{pers.prenom}}</td>
         <td>{{pers.tel}}</td>
-        <td><button (click)="deletePersonne(pers.id)" type="button" class="btn btn-danger">Delete</button></td>
+        <td><button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Delete</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title text-center " id="exampleModalLabel">Delete Personne</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Voulez-vous vraiment supprimer ce personne ? </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                  <button type="button" (click)="deletePersonne(pers.id)" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary">Confirmer</button>
+                  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Suppression avec succès</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                         vous avez supprimer cette personne
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        </td>
+
         <td><button [routerLink]="['/edite-personne/', pers.id]" type="button" class="btn btn-success">Update</button>
         </td>
         <td><button  [routerLink]="['/visualiser-personne', pers.id]" type="button" class="btn btn-secondary">visualiser</button></td>
       </tr>
     </tbody>
   </table>
+  <div class="btn-group">
+    <ul class=" nav nav-pills " *ngFor="let p of total ; let i=index">
+                          <li class="nav-item p-1">
+                            <a  class="nav-link" (click)="setPage(i,$event)"[ngClass]="{'active':i==pageNo}"  >{{i}}</a>
+                          </li>
+
+                </ul></div>
+ 
+  <!-- <pagination-controls (pageChange)="pageChangeEvent($event)" ></pagination-controls> -->
   
 </div>

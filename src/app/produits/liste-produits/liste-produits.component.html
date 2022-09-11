@@ -1,24 +1,62 @@
 <div class="container mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 my-3" *ngFor="let prod of produits" >
-            <div class="card " style="width: 16rem; " >
-                <img src="../../../assets/images/img/tisat1.png"   class="card-img-top " alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"></h5>
-                  <p class="card-text">{{prod.description}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">{{prod.prix}}</li>
-                  <li class="list-group-item">{{prod.paysOrigine}}</li>
-                  <li class="list-group-item">{{prod.remis}}</li>
-                </ul>
-                <div class="card-body">
-                  <button class="btn btn-info btn-sm mx-2">Ajouter au pnier</button>
-                  <button class="btn btn-warning btn-sm">Voir details</button>
-                </div>
+  <div class="row ">
+      <div class="col-md-3 my-3 h-30" *ngFor="let prod of produits; index as i" >
+          <div class="card " >
+              <img [src]='convertBase64ToImage(prod.images)'  class="card-img-top " alt="...">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{prod.codeArticle}}</h5>
+                <p class="card-text text-center">{{prod.description}}</p>
               </div>
+                <h5 class="text-center">{{prod.prix }} TND</h5>
+                <h5 class="text-center">{{prod.paysOrigine}}</h5>
+            
+            
+              
+              <div class="card-body " >
+                 
+                <form  #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
+                 
+                  <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne" >
+                  <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="prod.codeArticle" ngModel name="panies.codeArticle" >
 
-        </div>
-    </div>
+                   <input class="form-control my-2 float-Start w-30 " type="hidden" value="1" ngModel name="panies.quantite" >
+                  <button type="submit" class="btn btn-secondary btn-lg w-100 my-1 ">Ajouter au panier<i class="bi bi-cart4 mx-3"></i></button>
+                </form>
+                
+                <button class="btn btn-warning w-100"  [routerLink]="['/details/', prod.codeArticle]">Voir details</button>
+               <!--  <button class="btn btn-secondary btn-lg my-1  w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Votre Avis <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></button>
+                <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLabel">Ajouter votre Avis ici</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form  #f="ngForm" (ngSubmit)="ajouterVotreAvis(f)" > 
+                          <div class="d-flex justify-content-center"><ngx-star-rating  [id]="'rating_'+i"  ></ngx-star-rating></div>
+                         <div class="text-center"><b>Rating: </b>{{form.value.rating}}</div>  
+                    <input class="form-control my-2  " type="text" placeholder="Ajouter Votre Commentaire">
+                     <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Envoyer Votre Avis</button>
+                    </form>   </div>
+                        
+                     
+                    
+                        
+                        
+                 
+                  </div>
+                </div>
 
-</div>
+
+
+
+              </div>
+            </div>
+
+      </div>
+  </div> -->
+  
+
+
+</div> 

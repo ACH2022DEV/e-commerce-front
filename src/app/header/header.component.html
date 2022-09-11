@@ -1,4 +1,4 @@
-<div class="header_top p-4 d-none d-sm-block " *ngIf="getData()">
+<div class="header_top p-3 d-none d-sm-block " *ngIf="getData()">
     <div class="container  " >
        <div class="row d-flex justify-content-between"  >
           <div class="col-md-4 mx-0 col-sm-4  " >
@@ -20,9 +20,20 @@
           </div>
           <div class="col-md-4  col-sm-4 ">
             
-                <ul class="conta_icon float-end"   >
-                   <li ><a href="#"  ></a> {{obj.username}}</li>
-                </ul>
+                <div class="conta_icon float-end"   >
+                  <h6 class="">{{obj.username}}</h6> 
+                     <div class="dropdown">
+                        <a class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           <img src="../../assets/images/img/imageP.jfif" width="40" class="rounded-circle  " alt="NotFound"></a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Voir la photo de profil</a></li>
+                          <li><a class="dropdown-item" href="#">Mettre à jour la photo de profil</a></li>
+                        </ul>
+                      </div>
+                  
+                  
+                 
+                </div>
                 
             
              

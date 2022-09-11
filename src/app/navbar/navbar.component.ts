@@ -1,9 +1,12 @@
 
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SecurityService } from '../composants/auth/services/security.service';
+import { Panier } from '../models/panier';
 
 import { Personne } from '../models/personne';
+import { PanierService } from '../panier/panier.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,76 +15,107 @@ import { Personne } from '../models/personne';
 })
 export class NavbarComponent implements OnInit {
   helper: any;
+  public monpanier:Panier[]=[];
+  public nombredeprod:any;
+  //obje:any={}
+
  
-  jsonStringObj:any={};
-  obj: any={email:'',username:'',id:'',roles:''};
-  constructor(private router:Router) { }
+  jsonStringObj: any = {};
+  obj: any = { email: '', username: '', id: '', roles: '' };
+  constructor(private router: Router,private panierService:PanierService) {
+    
+  
+
+   }
 
   ngOnInit(): void {
-  }
+   
+    this.getAllPaniers()
+   // this.nombredeprod=this.monpanier.length;
+    console.log(this.nombredeprod)
+    this.nombredeprod;
  
-   public logout(){
-  
-    sessionStorage.clear();
-     this.router.navigate(['/login']);
-    } 
-    public loggedIn(){
-      return  sessionStorage.getItem('session');
-    }
-    public  getAccestouser():boolean{
-     
-        this.jsonStringObj = sessionStorage.getItem('session'); 
-        this.obj = JSON.parse(this.jsonStringObj); 
-        let key:any=this.obj.roles;
-       
-        if(key[0]=='ROLE_USER'){
-          return true
-        }
-       
-    
-      else {
-       
-        return false;
-         }  
-     } 
+  }
+//Afficher le nombre de produits
 
+
+
+
+
+////
+
+public getAllPaniers():void{
+  this.panierService.getAllPanier().subscribe(data=>{
+        this.monpanier=data;
+        this.nombredeprod=this.monpanier.length;
+        this.getAllPaniers();
+      
+
+       // console.log(this.monpanier.length)
+      },
+      (error: HttpErrorResponse) => alert(error.message)
+    );
+  }
   
-     public  getAccestoEmploye():boolean{
-      if(sessionStorage.getItem('session') ){
-        this.jsonStringObj = sessionStorage.getItem('session'); 
-        this.obj = JSON.parse(this.jsonStringObj); 
-        let key:any=this.obj.roles;
-        console.log(key[0])
-        if(key[0]=='ROLE_GERANT'){
-          return true
-        }
-        
-        return false;
-      
-    
-      }else {
-       
-        return false;
-         }  
-     } 
-     public  getAccestoAdmin():boolean{
-      if(sessionStorage.getItem('session') ){
-        this.jsonStringObj = sessionStorage.getItem('session'); 
-        this.obj = JSON.parse(this.jsonStringObj); 
-        let key:any=this.obj.roles;
-        console.log(key[0])
-        if(key[0]=='ROLE_ADMIN'){
-          return true
-        }
-        
-        return false;
-      
-    
-      }else {
-       
-        return false;
-         }  
-     } 
-    
+//
+  public logout() {
+
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
+  public loggedIn() {
+    return sessionStorage.getItem('session');
+  }
+
+  public getAccestouser(): boolean {
+
+    this.jsonStringObj = sessionStorage.getItem('session');
+    if (this.jsonStringObj) {
+      this.obj = JSON.parse(this.jsonStringObj);
+      let key: any = this.obj.roles;
+      return key[0] == 'ROLE_USER';
+    }
+    return false;
+
+  }
+
+
+  public getAccestoEmploye(): boolean {
+    if (sessionStorage.getItem('session')) {
+      this.jsonStringObj = sessionStorage.getItem('session');
+      this.obj = JSON.parse(this.jsonStringObj);
+      let key: any = this.obj.roles;
+      console.log(key[0])
+      if (key[0] == 'ROLE_GERANT') {
+        return true
+      }
+
+      return false;
+
+
+    } else {
+
+      return false;
+    }
+  }
+  public getAccestoAdmin(): boolean {
+    if (sessionStorage.getItem('session')) {
+      this.jsonStringObj = sessionStorage.getItem('session');
+      this.obj = JSON.parse(this.jsonStringObj);
+      let key: any = this.obj.roles;
+      console.log(key[0])
+      if (key[0] == 'ROLE_ADMIN') {
+        return true
+      }
+
+      return false;
+
+
+    } else {
+
+      return false;
+    }
+  }
+
 
 }

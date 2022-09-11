@@ -9,15 +9,23 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class VisualiserFactureComponent implements OnInit {
   public facture: any = { code: '' };
-  constructor(private pesonneService: DatabaseService, private route: ActivatedRoute,
+  constructor(private factureService: DatabaseService, private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['code']);
     
-    this.pesonneService.getfacture(this.route.snapshot.params['code']).subscribe(data => {
+    this.factureService.getfacture(this.route.snapshot.params['code']).subscribe(data => {
+      
+      //this.facture = (data as any).recordset;
       this.facture = data;
 
+
+
+
+    /*   console.log('facture: '+ JSON.stringify(this.facture));
+      this.facture= JSON.stringify(data);
+ */
   })
 }
 

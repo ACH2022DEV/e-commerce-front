@@ -9,25 +9,29 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./editer-facture.component.scss']
 })
 export class EditerFactureComponent implements OnInit {
-  public facture: any = { id: '' };
+  public facture: any = { code: '' };
+  public elements : Array<any> = [];
   
-  constructor(private pesonneService: DatabaseService,
+  constructor(private factureService: DatabaseService,
     private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.pesonneService.getfacture(this.route.snapshot.params['id']).subscribe(data => {
+    this.factureService.getfacture(this.route.snapshot.params['code']).subscribe(data => {
       this.facture = data;
     })
   }
   public UpdateFacture(f: any) {
     let data = f.value;
-    this.pesonneService.Updatefacture(data).subscribe(
+    this.factureService.Updatefacture(data).subscribe(
       data => {
         this.facture = data;
         this.router.navigate(['/liste-facture']);
       }
     )
+  }
+  addArticle(){
+    this.elements.push('test');
   }
 
 }

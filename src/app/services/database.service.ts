@@ -6,6 +6,9 @@ import { Details } from '../models/detail';
 import { Article } from '../models/article';
 import { Facture } from '../models/facture';
 import { Devis } from '../models/devis';
+import { CreateDevis } from '../models/CreateDevis';
+import { CreateFacture } from '../models/createFacture';
+
 
 
 @Injectable({
@@ -17,24 +20,24 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
 
 //les api de personne//
-  public getAllPersonne(): Observable<Personne[]> {
-    return this.http.get<Personne[]>(`${this.url}/personne`);
+  public getAllPersonne(pageNo:number): Observable<Personne[]> {
+    return this.http.get<Personne[]>(`${this.url}/personne?pageNo=`+pageNo);
 
   }
-  public getPersonne(id: number): Observable<Personne> {
+  public getPersonne(id:number): Observable<Personne> {
 
     return this.http.get<Personne>(`${this.url}/personne/${id}`);
 
   }
-  public addPersonne(personne: Personne): Observable<Personne> {
-    return this.http.post<Personne>(`${this.url}/personne`, personne);
+  public addPersonne(personne:FormData): Observable<FormData> {
+    return this.http.post<FormData>(`${this.url}/personne`, personne);
 
   }
   public UpdatePersonne( personne: Personne): Observable<Personne> {
     return this.http.put<Personne>(`${this.url}/personne`, personne);
   }
   
-  public deletePersonne(id: number): Observable<void> {
+  public deletePersonne(id:number): Observable<void> {
     return this.http.delete<void>(`${this.url}/personne/${id}`);
 
   }
@@ -70,8 +73,8 @@ export class DatabaseService {
     return this.http.get<Article>(`${this.url}/article/${id}`);
 
   }
-  public addarticle(articl: FormData): Observable<any> {
-    return this.http.post<any>(`${this.url}/article`, articl);
+  public addarticle(articl: FormData): Observable<FormData> {
+    return this.http.post<FormData>(`${this.url}/article`, articl);
 
   }
   public Updatearticle( articl: Article): Observable<Article> {
@@ -110,21 +113,21 @@ export class DatabaseService {
     return this.http.get<Devis[]>(`${this.url}/devis`);
 
   }
-  public getdevis(id: number): Observable<Devis> {
+  public getdevis(codedevis: number): Observable<Devis> {
 
-    return this.http.get<Devis>(`${this.url}/devis/${id}`);
-
-  }
-  public adddevis(fact: Devis): Observable<Devis> {
-    return this.http.post<Devis>(`${this.url}/devis`, fact);
+    return this.http.get<Devis>(`${this.url}/devis/${codedevis}`);
 
   }
-  public Updatedevis( dev: Devis): Observable<Devis> {
-    return this.http.put<Devis>(`${this.url}/devis`, dev);
+  public adddevis(fact: CreateDevis): Observable<CreateDevis> {
+    return this.http.post<CreateDevis>(`${this.url}/devis`, fact);
 
   }
-  public deletedevis(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.url}/devis/${id}`);
+  public Updatedevis( codedevis: Devis): Observable<Devis> {
+    return this.http.put<Devis>(`${this.url}/devis`, codedevis);
+
+  }
+  public deletedevis(codedevis: number): Observable<void> {
+    return this.http.delete<void>(`${this.url}/devis/${codedevis}`);
 
   }
  

@@ -1,35 +1,58 @@
-<div class="container mt-5 col-md-6">
+<div class="container mt-5 mb-5 col-md-6">
     <form #f="ngForm" (ngSubmit)="addFacture(f)">
-      
       <div class="form-group">
-        <label for="fname">montantTotal:</label>
-        <input class="form-control" type="text" id="montantTotal" name="montantTotal" required pattern="[0-9]{1,9}"  ngModel #montantTotal="ngModel">
-        <div *ngIf="montantTotal.invalid && (montantTotal.dirty || montantTotal.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+        <label for="fname" >personneId:</label>
+        <input class="form-control" type="number" id="facture.personne.id" name="facture.personne.id"   required   ngModel #id="ngModel">
+        <div *ngIf="id.invalid && (id.dirty || id.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
-          <div *ngIf="montantTotal.errors?.['required']" >
+          <div *ngIf="id.errors?.['required']" >
+            Le idPersonne est obligatoire.
+          </div>
+         
+      </div>
+      </div>
+      <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
+      <div class="form-group">
+        <label for="fname" >CodeArticle:</label>
+        <input class="form-control" type="number" id="facture.articles.CodeArticle" name="facture.articles.CodeArticle" required   ngModel #CodeArticle="ngModel">
+        <div *ngIf="CodeArticle.invalid && (CodeArticle.dirty || CodeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+
+          <div *ngIf="CodeArticle.errors?.['required']" >
             Le montantTotal est obligatoire.
           </div>
-          <div *ngIf="montantTotal.errors?.['pattern']"  >
-            Le montantTotal doit avoir  que des chiffres!
-          </div>
+         
       </div>
       </div>
       <div class="form-group">
-        <label for="fname">idDetails:</label>
-        <input class="form-control" type="text" id="idDetails" name="idDetails" required pattern="[0-9]{1,9}" ngModel #idDetails="ngModel">
-        <div *ngIf="idDetails.invalid && (idDetails.dirty || idDetails.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+        <label for="fname">quatite:</label>
+        <input class="form-control" type="number" id="facture.articles.quatite" name="articles.quatite" required ngModel #quatite="ngModel">
+        <div *ngIf="quatite.invalid && (quatite.dirty || quatite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
-          <div *ngIf="idDetails.errors?.['required']" >
-            l'idDetails est obligatoire.
+          <div *ngIf="quatite.errors?.['required']" >
+            la quantite est obligatoire.
           </div>
-          <div *ngIf="idDetails.errors?.['pattern']" >
-            l'idDetails doit avoir  que des chiffres!
-          </div>
+          
       </div>
       </div>
+    </div>
      
       <hr>
-      <button class="btn btn-primary" type="submit" [disabled]="f.invalid">save</button>
+      <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
+      <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Creation avac succés</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              vous avez creé une facture
+            </div>
+           
+          </div>
+        </div>
+      </div>
       <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
     </form>
   </div>

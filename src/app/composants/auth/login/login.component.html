@@ -7,12 +7,13 @@
       <div class="form-group fw-bold">
         <label for="fname">username:</label>
         <input class="kl" type="text" id="username" name="username" required minlength="4" ngModel #username="ngModel">
-        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="p-2 fs-6 text bg-danger text-white rounded-3">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)"
+          class="p-2 fs-6 text bg-danger text-white rounded-3">
 
-          <div *ngIf="username.errors?.['required']" >
+          <div *ngIf="username.errors?.['required']">
             Le pseudo est obligatoire.
           </div>
-          <div *ngIf="username.errors?.['minlength']" >
+          <div *ngIf="username.errors?.['minlength']">
             Le pseudo doit avoir au moin 4 caractères
           </div>
         </div>
@@ -21,23 +22,28 @@
 
       <div class="form-group fw-bold ">
         <label for="fname">password:</label>
-        <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel #password="ngModel">
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="p-2 mb-2 fs-6 text bg-danger text-white rounded-3">
+        <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel
+          #password="ngModel">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="p-2 mb-2 fs-6 text bg-danger text-white rounded-3">
 
-          <div *ngIf="password.errors?.['required']" >
+          <div *ngIf="password.errors?.['required']">
             Le Mot de passe est obligatoire.
           </div>
-          <div *ngIf="password.errors?.['minlength']" >
+          <div *ngIf="password.errors?.['minlength']">
             Le Mot de passe doit avoir au moin 4 caractères
           </div>
         </div>
       </div>
+      <div *ngIf="loginError">
+        <span class="text-danger">login ou mot de passe erroné</span>
+      </div>
       <hr>
 
-      <button class="ms-5 me-2 " type="submit" [disabled]="f.invalid">login</button>
-      <button routerLink="/register" class="my-2">Retour</button>
+      <button class="  w-100  " type="submit" [disabled]="f.invalid">login</button>
+
       <a routerLink="/register">
-        <p class="text-center">Forgot password?</p>
+        <p class="text-center my-2">Forgot password?</p>
       </a>
     </form>
   </div>

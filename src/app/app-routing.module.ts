@@ -21,9 +21,11 @@ import { HomeComponent } from './home/home.component';
 import { ListeproduitComponent } from './listeproduit/listeproduit.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageEmployeComponent } from './page-employe/page-employe.component';
+import { PanierComponent } from './panier/panier.component';
 import { CrerProduitsComponent } from './produits/crer-produits/crer-produits.component';
 import { EditerProduitsComponent } from './produits/editer-produits/editer-produits.component';
 import { ListeProduitsComponent } from './produits/liste-produits/liste-produits.component';
+import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
 import { VisualiserProduitsComponent } from './produits/visualiser-produits/visualiser-produits.component';
 
 //import { MenuComponent } from './menu/menu.component';
@@ -45,13 +47,14 @@ const routes: Routes = [
   { path: 'visualiser-facture/:code', component: VisualiserFactureComponent, canActivate: [GuardService] },
 
   { path: 'liste-devis', component: ListeDeisComponent, canActivate: [GuardService] },
-  { path: 'editer-devis/: codeDevis', component: EditerDevisComponent, canActivate: [GuardService] },
+  { path: 'editer-devis/:codedevis', component: EditerDevisComponent, canActivate: [GuardService] },
   { path: 'crer-devis', component: CrerDevisComponent, canActivate: [GuardService] },
-  { path: 'visualiser-devis/: codeDevis', component: VisualiserDevisComponent, canActivate: [GuardService] },
+  { path: 'visualiser-devis/:codedevis', component: VisualiserDevisComponent, canActivate: [GuardService] },
   { path: 'admin', component: PageAdminComponent, canActivate: [GuardService] },
   { path: 'employe', component: PageEmployeComponent, canActivate: [GuardService] },
   { path: 'adminliste-produit', component: ListeproduitComponent, canActivate: [GuardService] },
-  
+  { path: 'Panier', component: PanierComponent, canActivate: [GuardService] },
+  { path: 'details/:codeArticle', component: ProduitsDetailsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: LoginComponent },

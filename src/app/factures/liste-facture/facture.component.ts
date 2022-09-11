@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+
 import { Facture } from 'src/app/models/facture';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -10,20 +11,20 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class FactureComponent implements OnInit {
   public factures: Facture[] = [];
-  constructor(private pesonneService: DatabaseService) { }
+  constructor(private factureService: DatabaseService) { }
 
   ngOnInit(): void {
     this.getAllFacture();
   }
-  public deleteFacture(id:number):void{
-    this.pesonneService.deletefacture(id).subscribe(data=>{
+  public deleteFacture(code:number):void{
+    this.factureService.deletefacture(code).subscribe(data=>{
       this.getAllFacture();
     }
       )
   }
 
   public getAllFacture(): void {
-    this.pesonneService.getAllfactures().subscribe(data => {
+    this.factureService.getAllfactures().subscribe(data => {
       this.factures = data;
     },
       (error: HttpErrorResponse) => alert(error.message)

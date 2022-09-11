@@ -1,17 +1,9 @@
-<div class="container mt-5 mb-5  col-md-6">
-  <form #f="ngForm" (ngSubmit)="UpdatePersonne(f)">
+<div class="container row  mt-5  mb-5">
+  <form #f="ngForm" class="col-8 ms-5" (ngSubmit)="UpdatePersonne(f)">
     <div class="form-group">
       <label for="fname">id:</label>
-      <input class="form-control" type="number" id="id" [(ngModel)]="personne.id" name="id" ngModel pattern="[0-9]{1,}" required  #id="ngModel">
-      <div *ngIf="id.invalid && (id.dirty || id.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
-
-        <div *ngIf="id.errors?.['required']" >
-        l'id est obligatoire.
-        </div>
-        <div *ngIf="id.errors?.['pattern']" >
-          l'id doit avoir au moin 1 chifre
-        </div>
-    </div>
+      <input class="form-control" type="number" id="id" [(ngModel)]="personne.id"  disabled name="id" ngModel   #id="ngModel">
+     
     </div>
     <div class="form-group">
       <label for="fname">adress:</label>
@@ -27,7 +19,7 @@
     </div>
     </div>
     <div class="form-group">
-      <label for="fname">name:</label>
+      <label for="fname">nom:</label>
       <input class="form-control" type="text" id="nom" [(ngModel)]="personne.nom" name="nom" ngModel pattern="[a-zA-Z_0-9]{4,10}" required  #nom="ngModel">
       <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
 
@@ -52,23 +44,44 @@
         </div>
     </div></div>
     <div class="form-group">
-      <label for="fname">tel:</label>
-      <input class="form-control" type="text" id="tel" [(ngModel)]="personne.tel" name="tel" ngModel pattern="[0-9]{8}" maxlength="8" required  #tel="ngModel">
+      <label for="fname">teléphone:</label>
+      <input class="form-control" type="number" id="tel" [(ngModel)]="personne.tel" name="tel" ngModel pattern="\d{8}"   required  #tel="ngModel">
       <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="p-2 my-2 bg-danger text-white rounded-3">
 
         <div *ngIf="tel.errors?.['required']" >
           Le numéro de tel est obligatoire.
         </div>
-        <div *ngIf="tel.errors?.['pattern'] " >
-          Le numéro de tel doit avoir  8 chifres
+        <div *ngIf="tel.errors?.['pattern']" > 
+          Le tel doit avoir au maximum 8 chiffres
         </div>
+        
         
 
     </div>
     </div>
+    <div class="form-group my-2" >
+      <input type="file"multiple ngModel class="form-control" name="file" (change)="onSelectedFile($event)"   >
+
+
+    </div>
     <hr>
-    <button class="btn btn-primary mx-2" type="submit" [disabled]="f.invalid">save</button>
+    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modification avac succés</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              vous avez modifié une personne
+            </div>
+           
+          </div>
+        </div>
+      </div>
     <button routerLink="/list-personne" class="btn btn-primary" >retour</button>
 
   </form>
+  <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" >
 </div>

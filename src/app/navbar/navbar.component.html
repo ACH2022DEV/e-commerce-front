@@ -39,13 +39,13 @@
             
           </li>
           <li class="nav-item ">
-            <a class="nav-link  text-white "   routerLink="/liste-facture"  *ngIf="loggedIn()">FACTURES</a>
+            <a class="nav-link  text-white "   routerLink="/liste-facture"  *ngIf="loggedIn()">FACTURES  </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link  text-white "   routerLink="/liste-devis"   *ngIf="loggedIn()">DEVIS</a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link  text-white "   routerLink="/list-personne"  *ngIf="!getAccestouser() && loggedIn()">PERSONNES</a>
+            <a class="nav-link  text-white "   routerLink="/list-personne"  *ngIf="getAccestouser() && loggedIn()">PERSONNES</a>
           </li>
         </ul>
         
@@ -57,17 +57,17 @@
         </form>
         
         <div class="col-md-3 col-sm-4  mx-1  d-xs-flex justify-content-center    d-flex justify-content-end ">
-          <button *ngIf="loggedIn()" type="button" class="btn btn-light position-relative mx-1">
-            <i class="bi bi-cart3"></i>
+          <button *ngIf="loggedIn()" type="button"  class="btn btn-light position-relative mx-1">
+            <i class="bi bi-cart3" routerLink="/Panier"></i>
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              0+
+              {{this.nombredeprod}}
               <span class="visually-hidden">unread messages</span>
             </span>
           </button>
           <button   routerLink="/login" class=" btn btn-light text-dark mx-1 " type="submit"  *ngIf="!loggedIn()">login</button>
-        <button routerLink="/register" class=" btn btn-light  text-dark mx-1" type="submit"  *ngIf="!loggedIn()">register</button>
+        <button routerLink="/register" class=" btn btn-light  text-dark mx-1" type="submit"  >register</button>
         <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1"><i class="bi bi-box-arrow-right"></i></button>
-        
+       
         
         </div>
         
@@ -75,3 +75,4 @@
     </div>
     
   </nav>
+ 

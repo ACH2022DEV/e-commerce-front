@@ -6,8 +6,7 @@
         <tr>
           <th scope="col"> code_article</th>
           <th scope="col">description</th>
-          <th scope="col">photo</th>
-          <th scope="col">remis</th>
+          <th scope="col">remise</th>
           <th scope="col">tva</th>
           <th scope="col">quantite</th>
           <th scope="col">prix</th>
@@ -18,13 +17,49 @@
         <tr *ngFor="let prod of produits">
           <th scope="row">{{prod.codeArticle}}</th>
           <td>{{prod.description}}</td>
-          <td>{{prod.photo}}</td>
-          <td>{{prod.remis}}</td>
+          <td>{{prod.remise}}</td>
           <td>{{prod.tva}}</td>
           <td>{{prod.quantite}}</td>
           <td>{{prod.prix}}</td>
           <td>{{prod.paysOrigine}}</td>
-          <td><button (click)="deletePRODUIT(prod.codeArticle)" type="button" class="btn btn-danger">Delete</button></td>
+          <td><button  data-bs-toggle="modal" data-bs-target="#exampleModal" type="button" class="btn btn-danger">Delete</button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Supppression d'un produit</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Voulez-vous vraiment supprimer ce produit ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" (click)="deletePRODUIT(prod.codeArticle)" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-primary">Confirmer</button>
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Suppression avac succés</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            vous avez supprimé cette produit
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          
+          
+          
+          
+          </td>
           <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success">Update</button>
           </td>
          <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary">visualiser</button></td>

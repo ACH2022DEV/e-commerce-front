@@ -13,8 +13,10 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class CrerProduitsComponent implements OnInit {
   produit: any = [];
   userfile:any;
+  public imagePath:any;
+  imgURL:any;
 
-  constructor(private pesonneService: DatabaseService,private router: Router,private sanitiser:DomSanitizer) { }
+  constructor(private produitService: DatabaseService,private router: Router,private sanitiser:DomSanitizer) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +25,7 @@ export class CrerProduitsComponent implements OnInit {
     let data = f.value;
     const productFormdata=this.prepareFormdata(data);
     
-    this.pesonneService.addarticle(productFormdata).subscribe(
+    this.produitService.addarticle(productFormdata).subscribe(
       data => {
         this.produit = new Array<Article>();
         this.produit = data;
@@ -44,6 +46,14 @@ export class CrerProduitsComponent implements OnInit {
     if(event.target.files){
        const file=event.target.files[0];
        this.userfile=file;
+        //la nouvelle ligne:
+      var reader=new FileReader();
+      this.imagePath=file;
+      reader.readAsDataURL(file);
+      reader.onload=(event)=>{
+        this.imgURL=reader.result;
+      }
+
 
       
       
@@ -54,8 +64,8 @@ export class CrerProduitsComponent implements OnInit {
 
         
       }
-      this.produit.imageDarticle.push(fileHan);
-
+      this.produit.imageDarticle=fileHan;
+     
      
     }
   }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Article } from 'src/app/models/article';
+import { Picture } from 'src/app/models/mesImages';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -9,15 +12,29 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class VisualiserProduitsComponent implements OnInit {
   public produit: any = { codeArticle: '' };
-  constructor(private pesonneService: DatabaseService, private route: ActivatedRoute,
+  //
+ 
+
+  //
+  constructor(private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
     private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['codeArticle']);
     
-    this.pesonneService.getarticle(this.route.snapshot.params['codeArticle']).subscribe(data => {
+    this.produitService.getarticle(this.route.snapshot.params['codeArticle']).subscribe(data => {
       this.produit = data;
   })
 }
+convertBase64ToImage(images: Picture[]): any {
+    
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if(images.length > 0){
+    base64 =  "data:image/png;base64, "+ images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}
+
 
 }

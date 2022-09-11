@@ -1,11 +1,14 @@
+import { AvisDto } from "./avisDto";
+import { Picture } from "./mesImages";
+
 export interface Article{
     codeArticle:number;
     description:string;
-    photo:string;
-    remis:number;
+    remise:number;
     tva:number;
     quantite:number;
     prix:number;
     paysOrigine:string;
-    imageDarticle:File[];
+    images:Picture[];
+    avis:AvisDto;
 }

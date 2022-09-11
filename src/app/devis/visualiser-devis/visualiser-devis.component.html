@@ -1,10 +1,22 @@
 
 <div class="container col-md-3 mt-5 mb-5">
     <div class="row">
-        <h2 class="text-danger">Detail d'un devis:</h2>
-        <p><strong class=" text-danger ">codeDevis:</strong> {{dev. codeDevis}}</p> 
-        <p><strong class="text-danger">codeArticle:</strong> {{dev.codeArticle}}</p>
-        <p><strong class="text-danger ">quantite:</strong>  {{dev.quantite}}</p>
+        <h2 class="text-danger">Detail d'un devis:{{devis.codedevis}}</h2>
+       <!--  <p><strong class=" text-danger ">codeDevis:</strong> {{devis.codedevis}}</p> 
+        <p><strong class="text-danger">codeArticle:</strong> </p>
+        <p><strong class="text-danger ">quantite:</strong>  {{devis.quantite}}</p> -->
+        <div *ngFor="let f of devis.articles">
+            <p><strong class="text-danger">id: {{f.id}}</strong> </p>
+            <p><strong class="text-danger">codeArticle: {{f.article.codeArticle}}</strong> </p>
+            <p><strong class="text-danger">description: {{f.description}}</strong> </p>
+            <p><strong class="text-danger">paysOrigine: {{f.paysOrigine}}</strong> </p>
+            <p><strong class="text-danger">prix: {{f.prix}}</strong> </p>
+            <p><strong class="text-danger">tva: {{f.tva}}</strong> </p>
+            <p><strong class="text-danger">quatite: {{f.quatite}}</strong> </p>
+            <p><strong class="text-danger"> </strong> </p>
+            <hr>
+
+        </div>
        
         
         

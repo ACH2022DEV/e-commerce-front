@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { FileHandle } from 'src/app/models/file';
 import { Personne } from 'src/app/models/personne';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -12,6 +13,11 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class EditerPersonneComponent implements OnInit {
 
   public personne: any = { id: '' };
+  //nouveau Modification pour l'image de personne
+  userfile: any;
+  imagePath: any;
+  imgURL: any;
+  sanitiser: any;
 
   constructor(private pesonneService: DatabaseService,
     private route: ActivatedRoute,
@@ -34,6 +40,33 @@ export class EditerPersonneComponent implements OnInit {
         this.router.navigate(['/list-personne']);
       }
     )
+  }
+  public onSelectedFile(event:any){
+    if(event.target.files){
+       const file=event.target.files[0];
+       this.userfile=file;
+        //la nouvelle ligne:
+      var reader=new FileReader();
+      this.imagePath=file;
+      reader.readAsDataURL(file);
+      reader.onload=(event)=>{
+        this.imgURL=reader.result;
+      }
+
+
+      
+      
+      const  fileHan:FileHandle={
+        file:file,
+        url:this.sanitiser.bypassSecurityTrustUrl(
+          window.URL.createObjectURL(file)),
+
+        
+      }
+      this.personne.imagepersonne=fileHan;
+     
+     
+    }
   }
 
 

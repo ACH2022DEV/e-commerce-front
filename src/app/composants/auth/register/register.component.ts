@@ -9,6 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  powers = [
+    {value:'ROLE_USER'}, 
+    {value:'ROLE_ADMIN'},
+  {value:'ROLE_EMPLOYE'}
+];
   register: any = [];
   constructor(private security: SecurityService ,private router:Router) { }
 

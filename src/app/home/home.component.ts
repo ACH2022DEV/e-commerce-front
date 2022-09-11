@@ -16,7 +16,7 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+   
   }
  
   

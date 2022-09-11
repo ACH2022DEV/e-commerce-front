@@ -4,7 +4,12 @@ import {MatTableModule} from '@angular/material/table';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 //import { NgForm } from '@angular/forms';
+import { NgxStarRatingModule } from 'ngx-star-rating';
+// pour l'etoile
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +54,9 @@ import { VisualiserDevisComponent } from './devis/visualiser-devis/visualiser-de
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageEmployeComponent } from './page-employe/page-employe.component';
 import { ListeproduitComponent } from './listeproduit/listeproduit.component';
+import { PanierComponent } from './panier/panier.component';
+import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -86,6 +94,10 @@ import { ListeproduitComponent } from './listeproduit/listeproduit.component';
     PageAdminComponent,
     PageEmployeComponent,
     ListeproduitComponent,
+    PanierComponent,
+    ProduitsDetailsComponent,
+    SidebarComponent,
+    
     
   ],
   imports: [
@@ -100,6 +112,9 @@ import { ListeproduitComponent } from './listeproduit/listeproduit.component';
     MatChipsModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule,
+    NgxStarRatingModule,
+    ReactiveFormsModule,
     
     
    /* RouterModule.forRoot([
