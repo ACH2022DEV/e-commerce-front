@@ -10,14 +10,24 @@ import { DatabaseService } from '../services/database.service';
 })
 export class ListeproduitComponent implements OnInit {
   public produits:Article[]= [];
+  public total: Array<number> | undefined;
+  public page:number=0;
+  public size:number=5;
+  //pop up 
+ public popoverTitle :string= 'Confirmation';
+ public popoverMessage :string= 'Are you sure?';
+ confirmClicked = false;
+ cancelClicked = false;
+ //
   constructor(private produitService: DatabaseService) { }
 
   ngOnInit(): void {
     this.getAllProduits();
   }
   public getAllProduits(): void {
-    this.produitService.getAllArticles().subscribe(data => {
-      this.produits = data;
+    this.produitService.getAllArticles(this.page,this.size).subscribe((data:any) => {
+      this.produits = data['content'];
+      this.total =new Array(data['totalPages']);
     },
       (error: HttpErrorResponse) => alert(error.message)
     );
@@ -28,5 +38,9 @@ export class ListeproduitComponent implements OnInit {
     }
       )
   }
+  setPage(i: number,event:any){
+    this.page = i;
+    this.getAllProduits();
+}
 
 }

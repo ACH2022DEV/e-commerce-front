@@ -20,8 +20,8 @@ export class DatabaseService {
   constructor(private http: HttpClient) { }
 
 //les api de personne//
-  public getAllPersonne(pageNo:number): Observable<Personne[]> {
-    return this.http.get<Personne[]>(`${this.url}/personne?pageNo=`+pageNo);
+  public getAllPersonne(pageNo:number,size:number): Observable<Personne[]> {
+    return this.http.get<Personne[]>(`${this.url}/personne?page=${pageNo}&size=${size}`);
 
   }
   public getPersonne(id:number): Observable<Personne> {
@@ -42,8 +42,8 @@ export class DatabaseService {
 
   }
   //les api de details
-  public getAllDetails(): Observable<Details[]> {
-    return this.http.get<Details[]>(`${this.url}/details`);
+  public getAllDetails(pageNo:number,size:number): Observable<Details[]> {
+    return this.http.get<Details[]>(`${this.url}/details?page=${pageNo}&size=${size}`);
 
   }
   public getDetails(id: number): Observable<Details> {
@@ -64,8 +64,8 @@ export class DatabaseService {
 
   }
   //les api d'aticles
-  public getAllArticles(): Observable<Article[]> {
-    return this.http.get<Article[]>(`${this.url}/article`);
+  public getAllArticles(pageNo:number,size:number): Observable<Article[]> {
+    return this.http.get<Article[]>(`${this.url}/article?page=${pageNo}&size=${size}`);
 
   }
   public getarticle(id: number): Observable<Article> {
@@ -86,8 +86,8 @@ export class DatabaseService {
 
   }
   ///les apis des factures
-  public getAllfactures(): Observable<Facture[]> {
-    return this.http.get<Facture[]>(`${this.url}/facture`);
+  public getAllfactures(pageNo:number=0,size:number=2): Observable<Facture[]> {
+    return this.http.get<Facture[]>(`${this.url}/facture?page=${pageNo}&size=${size}`);
 
   }
   public getfacture(id: number): Observable<Facture> {
@@ -95,8 +95,8 @@ export class DatabaseService {
     return this.http.get<Facture>(`${this.url}/facture/${id}`);
 
   }
-  public addfacture(fact: Facture): Observable<Facture> {
-    return this.http.post<Facture>(`${this.url}/facture`, fact);
+  public addfacture(fact: CreateFacture): Observable<CreateFacture> {
+    return this.http.post<CreateFacture>(`${this.url}/facture`, fact);
 
   }
   public Updatefacture(fact: Facture): Observable<Facture> {
@@ -109,8 +109,8 @@ export class DatabaseService {
   }
   //les apis de devis
 
-  public getAllDevis(): Observable<Devis[]> {
-    return this.http.get<Devis[]>(`${this.url}/devis`);
+  public getAllDevis(pageNo:number,size:number): Observable<Devis[]> {
+    return this.http.get<Devis[]>(`${this.url}/devis?page=${pageNo}&size=${size}`);
 
   }
   public getdevis(codedevis: number): Observable<Devis> {

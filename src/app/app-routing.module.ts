@@ -42,9 +42,9 @@ const routes: Routes = [
   { path: 'crer-produits', component:  CrerProduitsComponent, canActivate: [GuardService] },
   { path: 'editer-produits/:codeArticle', component:  EditerProduitsComponent, canActivate: [GuardService] },
   { path: 'liste-facture', component: FactureComponent, canActivate: [GuardService] },
-  { path: 'editer-facture/:code', component: EditerFactureComponent, canActivate: [GuardService] },
+  { path: 'editer-facture/:id', component: EditerFactureComponent, canActivate: [GuardService] },
   { path: 'crer-facture', component: CrreFactureComponent, canActivate: [GuardService] },
-  { path: 'visualiser-facture/:code', component: VisualiserFactureComponent, canActivate: [GuardService] },
+  { path: 'visualiser-facture/:id', component: VisualiserFactureComponent, canActivate: [GuardService] },
 
   { path: 'liste-devis', component: ListeDeisComponent, canActivate: [GuardService] },
   { path: 'editer-devis/:codedevis', component: EditerDevisComponent, canActivate: [GuardService] },

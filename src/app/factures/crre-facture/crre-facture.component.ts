@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ArticleFacture } from 'src/app/models/articleFactureDto';
 import { CreateFacture } from 'src/app/models/createFacture';
 import { Facture } from 'src/app/models/facture';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -10,13 +11,13 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./crre-facture.component.scss']
 })
 export class CrreFactureComponent implements OnInit {
-public facture:Facture[]=[];
+  createFacture:CreateFacture[]=[];
 public elements : Array<any> = [];
   constructor(private factureService: DatabaseService,private router: Router) { }
 
   ngOnInit(): void {
   }
-  public addFacture(f: any) {
+  /* public addFacture(f: any) {
     console.log('creer Facture', f.value)
     let data = f.value;
     this.factureService.addfacture(data).subscribe(
@@ -27,7 +28,32 @@ public elements : Array<any> = [];
         // redirection 
       }
     )
+  } */
+  public addFactures(f: any) {
+    console.log('creer facture', f)
+    let data: CreateFacture = { idPersonne: 0, articles: [] };
+    data.idPersonne = f.controls['idPersonne'].value;
+
+    for (var ctrl in f.controls) {
+      console.log(ctrl)
+      if (ctrl !== 'idPersonne') {
+        let factureArticle: ArticleFacture = {} as any;
+        factureArticle.codeArticle = f.controls[ctrl].controls['codeArticle'].value;
+        factureArticle.remise = f.controls[ctrl].controls['remise'].value;
+        factureArticle.quatite = f.controls[ctrl].controls['quantite'].value
+        data.articles.push(factureArticle);
+      }
+    }
+    this.factureService.addfacture(data).subscribe(
+      data => {
+        this.createFacture= new Array<CreateFacture>();
+        this.createFacture.push(data);
+        this.router.navigate(['/liste-facture']);
+        // redirection 
+      })
   }
+
+
   addArticle(){
     this.elements.push('test');
   }

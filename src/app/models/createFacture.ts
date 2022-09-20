@@ -1,4 +1,4 @@
-import { ArticleFacture } from "./articleFacture";
+import { ArticleFacture } from "./articleFactureDto";
 import { Personne } from "./personne";
 
 export interface CreateFacture{

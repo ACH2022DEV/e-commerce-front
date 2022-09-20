@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreateDevis } from 'src/app/models/CreateDevis';
 
-import { Devis } from 'src/app/models/devis';
+import { DevisArticle } from 'src/app/models/devisArticle';
 import { DatabaseService } from 'src/app/services/database.service';
 
 
@@ -13,19 +13,35 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class CrerDevisComponent implements OnInit {
   createdevis: CreateDevis[] = [];
-  public elements : Array<any> = [];
+  public elements: Array<any> = [];
 
-  constructor(private devisService: DatabaseService,private router: Router) { }
+  constructor(private devisService: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
   }
+
+
   public addDevis(f: any) {
-    console.log('creer devis', f.value)
-    let data = f.value;
+    console.log('creer devis', f)
+    let data: CreateDevis = { idPersonne: 0, articles: [] };
+    data.idPersonne = f.controls['idPersonne'].value;
+
+    for (var ctrl in f.controls) {
+      console.log(ctrl)
+      if (ctrl !== 'idPersonne') {
+        let devisArticle: DevisArticle = {} as any;
+        devisArticle.article.codeArticle = f.controls[ctrl].controls['codeArticle'].value;
+        devisArticle.remise = f.controls[ctrl].controls['remise'].value;
+        //devisArticle.remise = 0;
+        devisArticle.quatite = f.controls[ctrl].controls['quantite'].value
+        data.articles.push(devisArticle);
+      }
+    }
+    
     this.devisService.adddevis(data).subscribe(
       data => {
-        this.createdevis= new Array<CreateDevis>();
-        this.createdevis.push(data) ;
+        this.createdevis = new Array<CreateDevis>();
+        this.createdevis.push(data);
         this.router.navigate(['/liste-devis']);
         // redirection 
       }
@@ -34,7 +50,7 @@ export class CrerDevisComponent implements OnInit {
 
 
 
-  addArticle(){
+  addArticle() {
     this.elements.push('test');
   }
 

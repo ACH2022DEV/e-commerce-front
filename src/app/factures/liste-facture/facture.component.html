@@ -11,12 +11,23 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let fact of factures">
+        <tr *ngFor="let fact of factures | paginate :{itemsPerPage:5,currentPage:page}
+          ;let i=index">
           <th scope="row">{{fact.personne.id}}</th>
-          <td>{{fact.code}}</td>
+          <td>{{fact.id}}</td>
+          <td><button
+            class="btn btn-danger "
+            mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="left"
+            (confirm)="deleteFacture(fact.id)"
+            (cancel)="cancelClicked = true"
+          >
+          <i class="bi bi-trash3-fill"></i>
+          </button></td>
           
-          
-          <td><button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Delete</button>
+          <!-- <td><button  type="'button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger">Delete</button>
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -25,11 +36,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    Voulez-vous vraiment supprimer cette facture?
+                    Voulez-vous vraiment supprimer cette facture({{fact.id}})?
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button" (click)="deleteFacture(fact.code)" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-primary">Confirmer</button>
+                    <button type="button" (click)="deleteFacture(fact.id)" data-bs-toggle="modal" data-bs-target="#exampleModal3" class="btn btn-primary">Confirmer</button>
                     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
@@ -38,7 +49,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            vous avez supprimé cette facture
+                            vous avez supprimé cette facture ({{fact.id}}).
                           </div>
                          
                         </div>
@@ -47,11 +58,42 @@
                   </div>
                 </div>
               </div>
-            </div></td>
-          <td><button [routerLink]="['/editer-facture/', fact.code]" type="button" class="btn btn-success">Update</button>
+            </div> </td> -->
+          <td><button [routerLink]="['/editer-facture/',fact.id]" type="button" class="btn btn-success">Update</button>
           </td>
-          <td><button [routerLink]="['/visualiser-facture/', fact.code]" type="button" class="btn btn-secondary">visualiser</button></td>
+          <td><button [routerLink]="['/visualiser-facture/',fact.id]" type="button" class="btn btn-secondary">visualiser</button></td>
         </tr>
       </tbody>
     </table>
+  <!--   <div class="btn-group">
+      <ul class=" nav nav-pills pointer " *ngFor="let p of total ; let i=index">
+                            <li class="nav-item p-1">
+                              <a  class="nav-link" (click)="setPage(i,$event)"[ngClass]="{'active':i==page}"  >{{i}}</a>
+                            </li>
+  
+                  </ul></div> -->
+                <!--   <div class="d-flex justify-content-center mt-5">  <nav aria-label="Page navigation example " >
+                    <ul class="pagination pointer " >
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous" click=" previous()">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                    
+                        <li class="page-item" *ngFor="let p of total ; let i=index">
+                        <a  class="page-link" (click)="setPage(i,$event)"[ngClass]="{'active':i==page}">{{i}}</a>
+                       </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next"  click="Next()">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav></div> -->
+                        
+                        <div>  
+       <pagination-controls  previousLabel="Prev" nextLabel="Next" (pageChange)="page= $event" ></pagination-controls>
+                         </div>
+                 
+                  
   </div>

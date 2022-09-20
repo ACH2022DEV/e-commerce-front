@@ -24,17 +24,17 @@ export class NavbarComponent implements OnInit {
   obj: any = { email: '', username: '', id: '', roles: '' };
   constructor(private router: Router,private panierService:PanierService) {
     
+    this.getAllPaniers()
+    // this.nombredeprod=this.monpanier.length;
+     console.log(this.nombredeprod)
+     this.nombredeprod;
   
 
    }
 
   ngOnInit(): void {
    
-    this.getAllPaniers()
-   // this.nombredeprod=this.monpanier.length;
-    console.log(this.nombredeprod)
-    this.nombredeprod;
- 
+  
   }
 //Afficher le nombre de produits
 

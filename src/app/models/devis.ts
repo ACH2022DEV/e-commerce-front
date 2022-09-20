@@ -3,7 +3,7 @@ import { Personne } from "./personne";
 
 export interface Devis {
 
-      codedevis:number;
-    personne: Personne;
-    articles: DevisArticle[];
+  codedevis: number;
+  personne: Personne;
+  articles: DevisArticle[];
 }

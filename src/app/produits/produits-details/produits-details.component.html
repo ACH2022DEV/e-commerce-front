@@ -1,51 +1,75 @@
-<div id="carouselExampleCaptions" class="carousel slide w-70  py-2 ms-3 me-3" data-bs-ride="false">
-    <div class="carousel-indicators" >
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2" ></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner"  *ngFor="let ima of produit.images" >
-      <div class="carousel-item active" >
-        <img [src]='convertBase64ToImage(ima.picbyte)' height="500" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>{{ima.id}}</h5>
-          <p>{{ima.name}}</p>
-        </div>
+<!--div id="carouselExampleCaptions" class="carousel slide w-70  py-2 ms-3 me-3" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner" *ngFor="let ima of produit.images">
+    <div class="carousel-item active">
+      <img [src]='convertBase64ToImage(ima.picbyte)' height="500" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{ima.id}}</h5>
+        <p>{{ima.name}}</p>
       </div>
-      
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
   </div>
-  <h1 class="text-center " >Les Commentaires des clients</h1>
-  <div class="container card w-50 mb-3 bg-light ">
-    <h5 class=" bg-light text-center">Ajouter votre Avis ici</h5>
-    <form  #f="ngForm" (ngSubmit)="ajouterVotreAvis(f)" > 
-      <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne" >
-      <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="produit.codeArticle" ngModel name="avis.codeArticle" >
-     <form [formGroup]="form"><div class="d-flex justify-content-center"><ngx-star-rating formControlName="rating" [id]="'rating'"  ></ngx-star-rating></div></form> 
-     <!-- <div class="text-center"><b>Rating: </b>{{form.value.rating}}</div>   -->
-     <!-- Completer le nombre d'étoile-->
-     <input class="form-control my-2  " type="hidden" value="{{form.value.rating}}" ngModel name="avis.etoile">
-    <input class="form-control my-2 text-center " type="text" placeholder="Ajouter Votre Commentaire" ngModel name="avis.message">
- <button type="submit" class="btn btn-secondary w-100  mb-2" >Envoyer Votre Avis</button>
-</form>  
-  </div>
-  
-  <hr>
- <div class="container">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<h1 class="text-center ">Les Commentaires des clients</h1>
+<div class="container card w-50 mb-3 bg-light ">
+  <h5 class=" bg-light text-center">Ajouter votre Avis ici</h5>
+  <form #f="ngForm" (ngSubmit)="ajouterVotreAvis(f)">
+    <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne">
+    <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="produit.codeArticle" ngModel
+      name="avis.codeArticle">
+    <form [formGroup]="form">
+      <div class="d-flex justify-content-center">
+        <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+      </div>
+    </form>
+    <!-- <div class="text-center"><b>Rating: </b>{{form.value.rating}}</div>   -->
+    <!-- Completer le nombre d'étoile-->
+    <input class="form-control my-2  " type="hidden" value="{{form.value.rating}}" ngModel name="avis.etoile">
+    <input class="form-control my-2 text-center " type="text" placeholder="Ajouter Votre Commentaire" ngModel
+      name="avis.message">
+    <button type="submit" class="btn btn-secondary w-100  mb-2">Envoyer Votre Avis</button>
+  </form>
+</div>
+
+<hr>
+<div class="container">
   <div class="row">
     <div class="col-3">
       <h5><b>Commentaires client:</b></h5>
-      <div class="stars d-flex justify-content-start ms-0 "><ngx-star-rating    [disabled] ="true"></ngx-star-rating> </div>
-      <p>x évaluations</p>
-      <div class=""><a  href="">5 étoiles <div class="progress">
+      <form [formGroup]="form">
+        <div class="stars d-flex justify-content-start ms-0  "><a routerLink="/">
+            <ngx-star-rating formControlName="rating5" [id]="'rating5'" [disabled]="true"></ngx-star-rating>
+          </a></div>
+        <div class="stars d-flex justify-content-start ms-0  "><a routerLink="/">
+            <ngx-star-rating formControlName="rating4" [id]="'rating4'" [disabled]="true"></ngx-star-rating>
+          </a> </div>
+        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+            <ngx-star-rating formControlName="rating3" [id]="'rating3'" [disabled]="true"></ngx-star-rating>
+          </a></div>
+        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+            <ngx-star-rating formControlName="rating2" [id]="'rating2'" [disabled]="true"></ngx-star-rating>
+          </a></div>
+        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+            <ngx-star-rating formControlName="rating1" [id]="'rating1'" [disabled]="true"></ngx-star-rating>
+          </a></div>
+      </form>
+      <p class="text-dark">Nombre totale des commentaires: <span class="text-danger">{{this.nombreCommentaire}}</span>
+      </p>
+      <!-- <div class=""><a  href="">5 étoiles <div class="progress">
         <div class="progress-bar progress-bar-striped bg-warning  " role="progressbar" aria-label="Warning striped example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
       </div> </a></div>
       <div class=""><a href="">4 étoiles<div class="progress">
@@ -59,23 +83,29 @@
       </div></a></div>
      <div><a href="">1 étoiles<div class="progress">
         <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-label="Warning striped example" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div></a></div> 
+      </div></a></div>  -->
       <div class="accordion " id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button text-success my-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              
+            <button class="accordion-button text-success my-3" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
               Comment fonctionnent les avis et les évaluations des clients
-            
+
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              Les avis clients, y compris le nombre d’étoiles du produit, aident les clients à en savoir plus sur le produit et à décider s'il leur convient.
+              Les avis clients, y compris le nombre d’étoiles du produit, aident les clients à en savoir plus sur le
+              produit et à décider s'il leur convient.
 
-Pour calculer le nombre global d’étoiles et la ventilation en pourcentage par étoile, nous n'utilisons pas une simple moyenne. Au lieu de cela, notre système prend en compte des éléments tels que la date récente d'un commentaire et si l'auteur de l'avis a acheté l'article sur Amazon. Les avis sont également analysés pour vérifier leur fiabilité.
+              Pour calculer le nombre global d’étoiles et la ventilation en pourcentage par étoile, nous n'utilisons pas
+              une simple moyenne. Au lieu de cela, notre système prend en compte des éléments tels que la date récente
+              d'un commentaire et si l'auteur de l'avis a acheté l'article sur Amazon. Les avis sont également analysés
+              pour vérifier leur fiabilité.
 
-En savoir plus sur le fonctionnement des avis clients sur Maison Modern
+              En savoir plus sur le fonctionnement des avis clients sur Maison Modern
 
             </div>
           </div>
@@ -83,19 +113,25 @@ En savoir plus sur le fonctionnement des avis clients sur Maison Modern
 
 
 
-    </div></div>
-    <div class="col-8"><div class="container card w-75  mb-3 bg-light " *ngFor="let avis of produit.avis; index as i">
-      <div class="card-body">
-        
-        <h5 class="card-title"><img src="../../../assets/images/img/inconnuPerso.jpg" class="rounded-circle" width="50" height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5>
-        <p>Commenté le {{avis.dateAvis |  date:'fullDate'}}</p>
-        <div class="stars d-flex justify-content-start"><ngx-star-rating [(ngModel)]=avis.etoile  [id]="'rating1'+i" [disabled] ="true"></ngx-star-rating></div>
-        <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
-        <p class="card-text">Message: {{avis.message}}.</p>
       </div>
-    </div></div>
+    </div>
+    <div class="col-8">
+      <div class="container  w-75  mb-3 bg-light " *ngFor="let avis of produit.avis; index as i">
+        <div>
+          <p>{{i}}</p>
+          <h5 class="p-1"><img src="../../../assets/images/img/inconnuPerso.jpg" class="rounded-circle" width="50"
+              height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5>
+          <div class="stars d-flex justify-content-start ">
+            <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
+          </div>
+
+          <p>Commenté le {{avis.dateAvis | date:'fullDate'}}</p>
+          <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
+          <p class="card-text">Message: {{avis.message}}.</p>
+
+        </div>
+      </div>
+    </div>
     <div class="col-1"></div>
   </div>
- </div>
-
-  
+</div>

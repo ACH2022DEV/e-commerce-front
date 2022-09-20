@@ -11,12 +11,22 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class ListePersonneComponent implements OnInit {
   public personnes: Personne[] = [];
   //public personnes:any;
- public pageNo:number=0;
+ //public pageNo:number=0;
  
  public total: Array<number> | undefined;
+ public page:number=0;
+ public size:number=5;
+ 
+//  public totalitems:any;
+public currentPage:any;
+ 
 
 
-  constructor(private pesonneService: DatabaseService) { }
+
+  constructor(private pesonneService: DatabaseService) {
+   
+   
+   }
 
   ngOnInit(): void {
     
@@ -25,25 +35,42 @@ export class ListePersonneComponent implements OnInit {
 
   }
 
-  public deletePersonne(id:number):void{
+/*   public deletePersonne(id:number):void{
     this.pesonneService.deletePersonne(id).subscribe(data=>{
       this.getAllPersonne();
     }
       )
-  }
+  } */
 
   public getAllPersonne(): void {
-    this.pesonneService.getAllPersonne(this.pageNo).subscribe((response) => {
-      this.personnes =response;
-      this.total =new Array(response['length']);//il faut utiliser le totalPages
-      console.log(response.findIndex)
+    this.pesonneService.getAllPersonne(this.page,this.size).subscribe((response:any) => {
+      this.personnes =response['content'];
+      console.log(response);
+       this.total =new Array(response['totalPages']);//il faut utiliser le totalPages
+      //  this.totalitems =new Array(response['totalElements']);
+     
     },
       (error: HttpErrorResponse) => alert(error.message)
     );
   }
   setPage(i: number,event:any){
-    this.pageNo = i;
+    this.page = i;
+    //this.currentPage=i;
+    
+
     this.getAllPersonne();
+}
+
+public Next(): void {
+ 
+
+  }
+    // some checks
+   
+
+public previous(): void {
+  // some checks
+   --this.page ;
 }
 
 }

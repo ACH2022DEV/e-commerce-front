@@ -1,8 +1,8 @@
 <div class="container mt-5 mb-5 col-md-6">
-    <form #f="ngForm" (ngSubmit)="addFacture(f)">
+    <form #f="ngForm" (ngSubmit)="addFactures(f)">
       <div class="form-group">
         <label for="fname" >personneId:</label>
-        <input class="form-control" type="number" id="facture.personne.id" name="facture.personne.id"   required   ngModel #id="ngModel">
+        <input class="form-control" type="number" id="facture.idPersonne" name="idPersonne"   required   ngModel #id="ngModel">
         <div *ngIf="id.invalid && (id.dirty || id.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="id.errors?.['required']" >
@@ -14,7 +14,7 @@
       <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
       <div class="form-group">
         <label for="fname" >CodeArticle:</label>
-        <input class="form-control" type="number" id="facture.articles.CodeArticle" name="facture.articles.CodeArticle" required   ngModel #CodeArticle="ngModel">
+        <input class="form-control" type="number" id="facture.articles.CodeArticle" name="codeArticle" required   ngModel #CodeArticle="ngModel">
         <div *ngIf="CodeArticle.invalid && (CodeArticle.dirty || CodeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="CodeArticle.errors?.['required']" >
@@ -24,8 +24,21 @@
       </div>
       </div>
       <div class="form-group">
+        <label for="fname">Remise:</label>
+        <input class="form-control" type="number" id="remise" name="remise" ngModel required
+          #remise="ngModel">
+        <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
+          class="p-2 my-1 bg-danger text-white rounded-3">
+  
+          <div *ngIf="remise.errors?.['required']">
+            La Remise est obligatoire.
+          </div>
+  
+        </div>
+      </div>
+      <div class="form-group">
         <label for="fname">quatite:</label>
-        <input class="form-control" type="number" id="facture.articles.quatite" name="articles.quatite" required ngModel #quatite="ngModel">
+        <input class="form-control" type="number" id="facture.articles.quatite" name="quatite" required ngModel #quatite="ngModel">
         <div *ngIf="quatite.invalid && (quatite.dirty || quatite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="quatite.errors?.['required']" >

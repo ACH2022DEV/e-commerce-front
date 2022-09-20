@@ -12,6 +12,16 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class ListeDeisComponent implements OnInit {
   public devis: Devis[]=[];
+  public total: Array<number> | undefined;
+ public page:number=0;
+ public size:number=5;
+ //pop up 
+ public popoverTitle :string= 'Confirmation';
+ public popoverMessage :string= 'Are you sure?';
+ confirmClicked = false;
+ cancelClicked = false;
+ //
+
   constructor(private devisService: DatabaseService) { }
 
   ngOnInit(): void {
@@ -25,10 +35,15 @@ export class ListeDeisComponent implements OnInit {
   }
 
   public getAllDevis(): void {
-    this.devisService.getAllDevis().subscribe(data => {
-      this.devis = data;
+    this.devisService.getAllDevis(this.page,this.size).subscribe((data:any) => {
+      this.devis = data['content'];
+      this.total =new Array(data['totalPages']);
     },
       (error: HttpErrorResponse) => alert(error.message)
     );
   }
+  setPage(i: number,event:any){
+    this.page = i;
+    this.getAllDevis();
+}
 }

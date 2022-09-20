@@ -9,7 +9,7 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./editer-facture.component.scss']
 })
 export class EditerFactureComponent implements OnInit {
-  public facture: any = { code: '' };
+  public facture: any = { id: '' };
   public elements : Array<any> = [];
   
   constructor(private factureService: DatabaseService,
@@ -17,7 +17,7 @@ export class EditerFactureComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.factureService.getfacture(this.route.snapshot.params['code']).subscribe(data => {
+    this.factureService.getfacture(this.route.snapshot.params['id']).subscribe(data => {
       this.facture = data;
     })
   }

@@ -1,66 +1,71 @@
 <div class="container mt-5 mb-5 col-md-6">
   <form #f="ngForm" (ngSubmit)="addDevis(f)">
     <div class="form-group">
-      <label for="fname" >personneId:</label>
-      <input class="form-control" type="number" id="createdevis.idPersonne" name="createdevis.idPersonne"   required   ngModel #idPersonne="ngModel">
-      <div *ngIf="idPersonne.invalid && (idPersonne.dirty || idPersonne.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+      <label for="fname">personneId:</label>
+      <input class="form-control" type="number" id="createdevis.idPersonne" name="idPersonne" required ngModel
+        #idPersonne="ngModel">
+      <div *ngIf="idPersonne.invalid && (idPersonne.dirty || idPersonne.touched)"
+        class="p-2 my-1 bg-danger text-white rounded-3">
 
-        <div *ngIf="idPersonne.errors?.['required']" >
+        <div *ngIf="idPersonne.errors?.['required']">
           Le idPersonne est obligatoire.
         </div>
-       
-    </div>
+
+      </div>
     </div>
 
-    
+
 
     <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
 
-    <div class="form-group">
-      <label for="fname">codeArticle:</label>
-      <input class="form-control" type="number" id="createdevis.articles.codeArticle" name="createdevis.articles.codeArticle" ngModel required  
-        #codeArticle="ngModel">
-      <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
-        class="p-2 my-1 bg-danger text-white rounded-3">
+      <div class="form-group">
+        <label for="fname">codeArticle:</label>
+        <input class="form-control" type="number" id="codeArticle" name="codeArticle" ngModel
+          required #codeArticle="ngModel">
+        <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
+          class="p-2 my-1 bg-danger text-white rounded-3">
 
-        <div *ngIf="codeArticle.errors?.['required']">
-          Le codeArticle est obligatoire.
+          <div *ngIf="codeArticle.errors?.['required']">
+            Le codeArticle est obligatoire.
+          </div>
+
         </div>
-
       </div>
-    </div>
-    <div class="form-group">
-      <label for="fname">quantite:</label>
-      <input class="form-control" type="number" id="createdevis.articles.quantite" name="createdevis.articles.quantite" ngModel required #quantite="ngModel">
-      <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
-        class="p-2 my-1 bg-danger text-white rounded-3">
-
-        <div *ngIf="quantite.errors?.['required']">
-          La quantite est obligatoire.
-        </div>
-
-      </div>
-    </div>
-    <!-- <div class="form-group">
+       <div class="form-group">
       <label for="fname">Remise:</label>
-      <input class="form-control" type="number" id="Remise" name="Remise" ngModel required
-        #Remise="ngModel">
-      <div *ngIf="Remise.invalid && (Remise.dirty || Remise.touched)"
+      <input class="form-control" type="number" id="remise" name="remise" ngModel required
+        #remise="ngModel">
+      <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
         class="p-2 my-1 bg-danger text-white rounded-3">
 
-        <div *ngIf="Remise.errors?.['required']">
+        <div *ngIf="remise.errors?.['required']">
           La Remise est obligatoire.
         </div>
 
       </div>
-    </div> -->
+    </div>
+      <div class="form-group">
+        <label for="fname">quantite:</label>
+        <input class="form-control" type="number" id="createdevis.articles.quantite" name="quantite" ngModel required
+          #quantite="ngModel">
+        <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
+          class="p-2 my-1 bg-danger text-white rounded-3">
 
-  </div>
+          <div *ngIf="quantite.errors?.['required']">
+            La quantite est obligatoire.
+          </div>
+
+        </div>
+      </div>
+     
+
+    </div>
 
 
     <hr>
-    <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
-    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+    <button class="btn btn-primary mx-2" type="button" (click)="addArticle()">ajout article</button>
+    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit"
+      [disabled]="f.invalid">save</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -71,7 +76,7 @@
           <div class="modal-body">
             vous avez creé un devis
           </div>
-         
+
         </div>
       </div>
     </div>

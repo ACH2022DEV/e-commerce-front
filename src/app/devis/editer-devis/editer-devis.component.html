@@ -1,76 +1,82 @@
 <div class="container mt-5 mb-5 col-md-6">
-    <form #f="ngForm" (ngSubmit)="UpdateDevis(f)">
-      <div class="form-group">
-        <label for="fname">  codedevis:</label>
-        <input class="form-control" type="number" id="codedevis" [(ngModel)]="devis.codedevis" name="codedevis" ngModel   disabled  #codedevis="ngModel">
-         </div>
-         <div *ngFor="let f of devis.articles">
-          <div class="form-group">
-        <label for="fname" >codeArticle:</label>
-        <input class="form-control" type="number" id="codeArticle" [(ngModel)]="f.article.codeArticle" name="codeArticle" ngModel  required  #codeArticle="ngModel">
-        <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+  <form #f="ngForm" (ngSubmit)="UpdateDevis(f)">
+    <div class="form-group">
+      <label for="fname"> codedevis:</label>
+      <input class="form-control" type="number" id="codedevis" [(ngModel)]="devis.codedevis" name="codedevis" ngModel
+        disabled #codedevis="ngModel">
+    </div>
+    <div *ngFor="let devisArticle of devis.articles; let i = index;">
 
-          <div *ngIf="codeArticle.errors?.['required']" >
-            Le codeArticle est obligatoire.
-          </div>
-          
-     
-      </div></div>
-          
-      <div class="form-group" >
-        <label for="fname">quantite:</label>
-        <input class="form-control" type="number" id="quantite" [(ngModel)]="f.quatite" name="quantite" ngModel  required  #quantite="ngModel">
-        <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
-
-          <div *ngIf="quantite.errors?.['required']" >
-            La quantite est obligatoire.
-          </div>
-         
-      </div> </div></div> 
-      
-     
-      <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
+      <div [ngModelGroup]="i+''">
         <div class="form-group">
-          <label for="fname" >codeArticle:</label>
-          <input class="form-control" type="number" id="codeArticle" [(ngModel)]="devis.codeArticle" name="codeArticle" ngModel  required  #codeArticle="ngModel">
-          <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
-  
-            <div *ngIf="codeArticle.errors?.['required']" >
+          <label for="fname">codeArticle:</label>
+          <input class="form-control" type="number" [id]="i+'.codeArticle'"
+            [(ngModel)]="devis.articles[i].article.codeArticle" name="codeArticle" ngModel required
+            #codeArticle="ngModel">
+          <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
+            class="p-2 my-1 bg-danger text-white rounded-3">
+
+            <div *ngIf="codeArticle.errors?.['required']">
               Le codeArticle est obligatoire.
             </div>
-            
+
+
+          </div>
         </div>
+        <div class="form-group">
+          <label for="fname">Remise:</label>
+          <input class="form-control" type="number" [id]="i+'.remise'" [(ngModel)]="devis.articles[i].remise"
+            name="remise" ngModel required #remise="ngModel">
+          <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
+            class="p-2 my-1 bg-danger text-white rounded-3">
+
+            <div *ngIf="remise.errors?.['required']">
+              Le remise est obligatoire.
+            </div>
+
+
+          </div>
         </div>
         <div class="form-group">
           <label for="fname">quantite:</label>
-          <input class="form-control" type="number" id="quantite" [(ngModel)]="devis.quantite" name="quantite" ngModel  required  #quantite="ngModel">
-          <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
-  
-            <div *ngIf="quantite.errors?.['required']" >
+          <input class="form-control" type="number" [id]="i+'.quantite'" [(ngModel)]="devis.articles[i].quatite"
+            name="quantite" ngModel required #quantite="ngModel">
+          <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
+            class="p-2 my-1 bg-danger text-white rounded-3">
+
+            <div *ngIf="quantite.errors?.['required']">
               La quantite est obligatoire.
             </div>
-           
-        </div> </div>
-      </div>
-      
-      <hr>
-      <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
-      <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
-      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modification avac succés</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              vous avez modifié un devis
-            </div>
-           
+
           </div>
         </div>
+
       </div>
-      <button routerLink="/liste-devis" class="btn btn-primary" >retour</button>
-  
-    </form>
-  </div>
+
+
+    </div>
+
+
+
+    <hr>
+    <button class="btn btn-primary mx-2" type="button" (click)="addArticle()">ajout article</button>
+    <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3"
+      type="submit">save</button>
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modification avac succés</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            vous avez modifié un devis
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <button routerLink="/liste-devis" class="btn btn-primary">retour</button>
+
+  </form>
+</div>

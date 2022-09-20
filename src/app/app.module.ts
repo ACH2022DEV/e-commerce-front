@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
 
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,6 +59,8 @@ import { ListeproduitComponent } from './listeproduit/listeproduit.component';
 import { PanierComponent } from './panier/panier.component';
 import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+
+
 
 
 @NgModule({
@@ -115,6 +119,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     NgxPaginationModule,
     NgxStarRatingModule,
     ReactiveFormsModule,
+    ConfirmationPopoverModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', // set defaults here
+    }),
     
     
    /* RouterModule.forRoot([
