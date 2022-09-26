@@ -5,6 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AvisService } from 'src/app/avis.service';
 import { Avis } from 'src/app/models/avis';
+import { AvisDto } from 'src/app/models/avisDto';
 import { CreateAvis } from 'src/app/models/createAvis';
 import { Picture } from 'src/app/models/mesImages';
 import { PanierService } from 'src/app/panier/panier.service';
@@ -77,7 +78,14 @@ export class ProduitsDetailsComponent implements OnInit {
   ////////////////////////////////
   //ajouter un avis d'un client
   public ajouterVotreAvis(f: any) {
-    let data = f.value;
+    console.log('creer avis', f)
+    let data: CreateAvis = { idPersonne: 0, avis: [] };
+    data.idPersonne = f.controls['idPersonne'].value;
+        let avisDto: AvisDto = {} as any;
+        avisDto.codeArticle = f.controls['codeArticle'].value;
+        avisDto.message = f.controls['message'].value;
+        avisDto.etoile = f.controls['etoile'].value
+        data.avis.push(avisDto);
     this.avisService.addAvis(data).subscribe(data => {
       this.nouveauAvis = new Array<CreateAvis>();
       //console.log(data)
@@ -95,42 +103,21 @@ export class ProduitsDetailsComponent implements OnInit {
   lecodeArticle: number = this.produit.codeArticle;
 
 
+  convertBase64ToImage1(images: Picture[]): any {
 
-  convertBase64ToImage(images: Picture[]): any {
-
-    //the first try
     let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
-
-    /* if(this.produit[this.lecodeArticle].images.length > 0){
-     for(let i=0;i<this.produit[this.lecodeArticle].images.id;i++){
-        base64 =  "data:image/png;base64, "+images[i].picbyte;
-   }
-    
-    }  */
-
-    //the second try()
-    for (let i = this.lecodeArticle; i < this.produit.codeArticle.length; i++) {
-      for (let j = 1; j < this.produit[i].images.id; j++) {
-        base64 = "data:image/png;base64," + this.produit.codeArticle[i].image[j].picbyte;
-        console.log(base64)
-      }
-
-
-
+    if (images.length > 0) {
+      base64 = "data:image/png;base64, " + images[0].picbyte;
     }
-
-    //the third try
-    /* for(let i=this.lecodeArticle;i <this.produit.length;i++){
-      for(let j=this.produit.images.length;j <this.produit[i].images;j++){
-     
-        base64 =  "data:image/png;base64, "+ this.produit[i].images[j].picbyte;
-    
-      
-     }} */
-
-
     return this.sanitizer.bypassSecurityTrustUrl(base64);
 
-  }
-
+  }  
+  convertBase64ToImage(images: Picture[]): any {
+    let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+     for(let i=this.lecodeArticle;i <this.produit.length;i++){
+      for(let j=this.produit.images.length;j <this.produit[i].images.id;j++){
+        base64 =  "data:image/png;base64, "+ this.produit[i].images[j].picbyte;
+     }} 
+    return this.sanitizer.bypassSecurityTrustUrl(base64);
+  } 
 }

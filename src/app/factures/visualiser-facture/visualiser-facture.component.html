@@ -7,10 +7,17 @@
 
         <div *ngFor="let f of facture.articles">
             <p><strong class="text-danger">id: {{f.id}}</strong> </p>
-            
+            <p><strong class="text-danger">montantTotal: {{f.montantTotal}}</strong> </p>
             <p><strong class="text-danger">codeArticle: {{f.article.codeArticle}}</strong> </p>
-            <p><strong class="text-danger">quatite: {{f.article.quantite}}</strong> </p>
+            <p><strong class="text-danger">description: {{f.article.description}}</strong> </p>
+            <p><strong class="text-danger">paysOrigine: {{f.article.paysOrigine}}</strong> </p>
+            <p><strong class="text-danger">prix: {{f.article.prix}}</strong> </p>
+            <p><strong class="text-danger">tva: {{f.article.tva}}</strong> </p>
             <p><strong class="text-danger">remise: {{f.article.remise}}</strong> </p>
+            <p><strong class="text-danger">quantite: {{f.quatite}}</strong> </p>
+            <p><strong class="text-danger">remises: {{f.remise}}</strong> </p>
+            <p><strong class="text-danger">dateEdition: {{f.dateEdition |  date:'short'}}</strong> </p>
+
             <hr>
 
         </div>

@@ -1,8 +1,8 @@
-import { DevisArticle } from "./devisArticle";
+import { devisArticleDto } from "./devisAricleDto";
 import { Personne } from "./personne";
 
 export interface CreateDevis{
     //  personne:Personne;
     idPersonne:number;
-    articles:DevisArticle[];
+    articles:devisArticleDto[];
 }

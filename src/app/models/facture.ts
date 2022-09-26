@@ -1,9 +1,10 @@
-import { ArticleFacture } from "./articleFactureDto";
+
+import { ArticleFacture } from "./articleFacture";
 import { Personne } from "./personne";
 
 export interface Facture{
      id:number;
-     dateEdition:Date;
+     //dateEdition:Date;
      montantTotal:number;
      personne:Personne;
      articles: ArticleFacture[];

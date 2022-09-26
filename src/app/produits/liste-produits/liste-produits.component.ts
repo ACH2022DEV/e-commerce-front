@@ -21,7 +21,7 @@ export class ListeProduitsComponent implements OnInit {
   public lepanier: CreatePanier[] = [];
   public total: Array<number> | undefined;
   public page: number = 0;
-  public size: number = 5;
+  public size: number = 8;
   public monpanier:Panier[]=[];
 
   public poductExist:boolean=false;
@@ -77,9 +77,12 @@ export class ListeProduitsComponent implements OnInit {
       data.paniers.codeArticle=f.value.codeArticle;
       data.paniers.quantity=f.value.quantity;
       this.code=data.paniers.codeArticle;
+
       this.panierService.addPanier(data).subscribe(data => {
           this.lepanier = new Array<CreatePanier>();
+         
              this.lepanier.push(data);
+            
           
          
         })

@@ -1,36 +1,37 @@
-<div id="carouselExampleCaptions" class="carousel slide w-70  py-2 ms-3 me-3" data-bs-ride="false">
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-      aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button *ngFor="let image of produit.images; let index = index" type="button"
+      data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="index" class="active" aria-current="true"
+      [attr.aria-label]="'Slide'+ index"></button>
+    <!--button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button-->
   </div>
-  <div class="carousel-inner" *ngFor="let ima of produit.images">
-    <div class="carousel-item active">
-      <img [src]='convertBase64ToImage(ima.picbyte)' height="500" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>{{ima.id}}</h5>
-        <p>{{ima.name}}</p>
+  <div class="carousel-inner">
+    <div class="col-6 d-flex justify-content-center">
+      <div *ngFor="let image of produit.images; let first = first" class="carousel-item" [ngClass]="{'active': first}">
+        <img [src]='convertBase64ToImage(image.picbyte)'  class="d-block w-100" [alt]="produit.name">
       </div>
     </div>
 
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+
+
 <h1 class="text-center ">Les Commentaires des clients</h1>
 <div class="container card w-50 mb-3 bg-light ">
   <h5 class=" bg-light text-center">Ajouter votre Avis ici</h5>
   <form #f="ngForm" (ngSubmit)="ajouterVotreAvis(f)">
     <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne">
     <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="produit.codeArticle" ngModel
-      name="avis.codeArticle">
+      name="codeArticle">
     <form [formGroup]="form">
       <div class="d-flex justify-content-center">
         <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
@@ -38,9 +39,9 @@
     </form>
     <!-- <div class="text-center"><b>Rating: </b>{{form.value.rating}}</div>   -->
     <!-- Completer le nombre d'étoile-->
-    <input class="form-control my-2  " type="hidden" value="{{form.value.rating}}" ngModel name="avis.etoile">
+    <input class="form-control my-2  " type="hidden"  [(ngModel)]="form.value.rating" ngModel name="etoile">
     <input class="form-control my-2 text-center " type="text" placeholder="Ajouter Votre Commentaire" ngModel
-      name="avis.message">
+      name="message">
     <button type="submit" class="btn btn-secondary w-100  mb-2">Envoyer Votre Avis</button>
   </form>
 </div>
@@ -119,8 +120,8 @@
       <div class="container  w-75  mb-3 bg-light " *ngFor="let avis of produit.avis; index as i">
         <div>
           <p>{{i}}</p>
-          <h5 class="p-1"><img src="../../../assets/images/img/inconnuPerso.jpg" class="rounded-circle" width="50"
-              height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5>
+          <h5 class="p-1"><img [src]='convertBase64ToImage(avis.picbyte)' class="rounded-circle" width="50"
+            height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5>
           <div class="stars d-flex justify-content-start ">
             <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
           </div>

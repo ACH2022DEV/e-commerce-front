@@ -1,8 +1,8 @@
-<div class="container row  mt-5  mb-5">
-    <form #f="ngForm" class="col-8 ms-5" (ngSubmit)="UpdateProduit(f)">
+<div class="container col-md-4 mt-5  mb-5">
+    <form #f="ngForm"  (ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
         <label for="fname"> codeArticle:</label>
-        <input class="form-control" type="number" id=" code" [(ngModel)]=" produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
+        <input class="form-control" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="codeArticle.errors?.['required']" >
@@ -13,7 +13,7 @@
       </div>
       <div class="form-group">
         <label for="fname"> description:</label>
-        <input class="form-control" type="text" id=" description" [(ngModel)]="produit.description" name=" description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel">
+        <input class="form-control" type="text" id="description" [(ngModel)]="produit.description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel">
         <div *ngIf="description.invalid && (description.dirty || description.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="description.errors?.['required']" >
@@ -36,10 +36,10 @@
       </div> -->
       <div class="form-group">
         <label for="fname">remis:</label>
-        <input class="form-control" type="number" id="remis" [(ngModel)]="produit.remis" name="remis" ngModel required  #remis="ngModel" >
-        <div *ngIf="remis.invalid && (remis.dirty || remis.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+        <input class="form-control" type="number" id="remise" [(ngModel)]="produit.remise" name="remise" ngModel required  #remise="ngModel" >
+        <div *ngIf="remise.invalid && (remise.dirty || remise.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
-          <div *ngIf="remis.errors?.['required']" >
+          <div *ngIf="remise.errors?.['required']" >
             La remis est obligatoire.
           </div>
           
@@ -89,11 +89,11 @@
             La paysOrigine doit avoir  au moins  3 caractéres!
           </div>
       </div></div>
-      <div class="form-group my-2" >
+      <!-- <div class="form-group my-2" >
         <input type="file"multiple ngModel class="form-control" name="file" (change)="onSelectedFile($event)" required  #file="ngModel">
 
 
-      </div>
+      </div> -->
       
       <hr>
       <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
@@ -114,5 +114,5 @@
       <button routerLink="/adminliste-produit" class="btn btn-primary" >retour</button>
   
     </form>
-    <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" >
+    <!-- <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" > -->
   </div>

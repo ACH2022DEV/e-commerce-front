@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ArticleFacture } from 'src/app/models/articleFacture';
 import { Facture } from 'src/app/models/facture';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -9,7 +10,7 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./editer-facture.component.scss']
 })
 export class EditerFactureComponent implements OnInit {
-  public facture: any = { id: '' };
+  public facture: Facture = { id: 0, personne: {} as any, articles: {} as any,montantTotal:0 };
   public elements : Array<any> = [];
   
   constructor(private factureService: DatabaseService,
@@ -30,8 +31,10 @@ export class EditerFactureComponent implements OnInit {
       }
     )
   }
-  addArticle(){
-    this.elements.push('test');
+  addArticle() {
+    let newArtcile1: ArticleFacture = {} as any;
+    newArtcile1.article = {} as any;
+    this.facture.articles.push(newArtcile1)
   }
 
 }

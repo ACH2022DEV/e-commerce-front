@@ -14,10 +14,10 @@
       <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
       <div class="form-group">
         <label for="fname" >CodeArticle:</label>
-        <input class="form-control" type="number" id="facture.articles.CodeArticle" name="codeArticle" required   ngModel #CodeArticle="ngModel">
-        <div *ngIf="CodeArticle.invalid && (CodeArticle.dirty || CodeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+        <input class="form-control" type="number" id="codeArticle" name="codeArticle" required   ngModel #codeArticle="ngModel">
+        <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
-          <div *ngIf="CodeArticle.errors?.['required']" >
+          <div *ngIf="codeArticle.errors?.['required']" >
             Le montantTotal est obligatoire.
           </div>
          

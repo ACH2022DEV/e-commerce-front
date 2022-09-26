@@ -44,7 +44,7 @@ export class CrerPersonneComponent implements OnInit {
     const formData=new FormData();
     formData.append('personne',new Blob([JSON.stringify(personne)],{type:'application/json'}));
    
-      formData.append('file',this.userfile );
+      formData.append('files',this.userfile );
       
     return formData;
   }

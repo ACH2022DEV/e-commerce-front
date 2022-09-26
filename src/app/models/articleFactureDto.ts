@@ -1,7 +1,7 @@
 import { Article } from "./article";
 import { Facture } from "./facture";
 
-export interface ArticleFacture{
+export interface articleFactureDto{
        codeArticle:number;
       quatite:number;
       remise:number;

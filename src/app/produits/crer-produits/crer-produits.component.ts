@@ -3,6 +3,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { FileHandle } from 'src/app/models/file';
+import { Picture } from 'src/app/models/mesImages';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -13,18 +14,29 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class CrerProduitsComponent implements OnInit {
   produit: any = [];
   userfile:any;
+  userfile2:any;
   public imagePath:any;
   imgURL:any;
+  images :string[]= [];
+  public elements : Array<any> = [] ;
+ 
+   public fileList : FileList[] | undefined
+   public formData2=new FormData();
+ 
 
   constructor(private produitService: DatabaseService,private router: Router,private sanitiser:DomSanitizer) { }
 
   ngOnInit(): void {
   }
+  addimage(){
+    this.elements.push('test');
+  }
+
+  
   public addProduit(f: any) {
-    console.log('creer produit', f.value)
+    console.log('this is data', f.value)
     let data = f.value;
     const productFormdata=this.prepareFormdata(data);
-    
     this.produitService.addarticle(productFormdata).subscribe(
       data => {
         this.produit = new Array<Article>();
@@ -35,38 +47,37 @@ export class CrerProduitsComponent implements OnInit {
     )
   }
   prepareFormdata(article:Article):FormData{
-    const formData=new FormData();
-    formData.append('produit',new Blob([JSON.stringify(article)],{type:'application/json'}));
-   
-      formData.append('file',this.userfile );
-      
-    return formData;
+   // const formData=new FormData();
+   this.formData2.append('article',new Blob([JSON.stringify(article)],{type:'application/json'}));
+ 
+  // this.formData2.append('files', this.userfile);
+     // formData.append('files', this.userfile2);
+     
+    return this.formData2;
   }
- public onSelectedFile(event:any){
-    if(event.target.files){
-       const file=event.target.files[0];
-       this.userfile=file;
-        //la nouvelle ligne:
+  public onSelectedFile(event:any){
+    if(event.target.files && event.target.files[0]){
+       var file= event.target.files.length;
+       var files= event.target.files;
+        for (let i = 0; i < file; i++) {
+          this.userfile=files[i];
+          this.formData2.append('files',this.userfile);
+          console.log( 'this.formData2',this.formData2)
       var reader=new FileReader();
-      this.imagePath=file;
-      reader.readAsDataURL(file);
-      reader.onload=(event)=>{
-        this.imgURL=reader.result;
+      reader.onload = (event:any) => {
+        this.images.push(event.target.result); 
       }
+      reader.readAsDataURL(event.target.files[i]);
+
+    } }}
+    removeImage(i: number) {
+      this.images.splice(i, 1);
+    }
 
 
-      
-      
-      const  fileHan:FileHandle={
-        file:file,
-        url:this.sanitiser.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)),
+  
+ 
+  
 
         
       }
-      this.produit.imageDarticle=fileHan;
-     
-     
-    }
-  }
-}

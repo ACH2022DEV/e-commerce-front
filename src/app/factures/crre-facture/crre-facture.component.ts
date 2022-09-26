@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ArticleFacture } from 'src/app/models/articleFactureDto';
+import { ArticleFacture } from 'src/app/models/articleFacture';
 import { CreateFacture } from 'src/app/models/createFacture';
 import { Facture } from 'src/app/models/facture';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -30,7 +30,7 @@ public elements : Array<any> = [];
     )
   } */
   public addFactures(f: any) {
-    console.log('creer facture', f)
+    console.log('creer facture', f.value)
     let data: CreateFacture = { idPersonne: 0, articles: [] };
     data.idPersonne = f.controls['idPersonne'].value;
 
@@ -40,7 +40,7 @@ public elements : Array<any> = [];
         let factureArticle: ArticleFacture = {} as any;
         factureArticle.codeArticle = f.controls[ctrl].controls['codeArticle'].value;
         factureArticle.remise = f.controls[ctrl].controls['remise'].value;
-        factureArticle.quatite = f.controls[ctrl].controls['quantite'].value
+        factureArticle.quatite = f.controls[ctrl].controls['quatite'].value
         data.articles.push(factureArticle);
       }
     }

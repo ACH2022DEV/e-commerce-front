@@ -5,52 +5,59 @@
         <input class="form-control" type="number" id=" code" [(ngModel)]=" facture.id"   disabled   name="id" ngModel #code="ngModel">
        
       </div>
-      <div class="form-group">
-        <label for="fname" >CodeArticle:</label>
-        <input class="form-control" type="number" id="facture.articles.CodeArticle" name="facture.articles.CodeArticle" required   ngModel #CodeArticle="ngModel">
-        <div *ngIf="CodeArticle.invalid && (CodeArticle.dirty || CodeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+      <div *ngFor="let articleFacture of facture.articles; let i = index;">
 
-          <div *ngIf="CodeArticle.errors?.['required']" >
-            Le montantTotal est obligatoire.
-          </div>
-         
-      </div>
-      </div>
-      <div class="form-group">
-        <label for="fname">quatite:</label>
-        <input class="form-control" type="number" id="facture.articles.quatite" name="articles.quatite" required ngModel #quatite="ngModel">
-        <div *ngIf="quatite.invalid && (quatite.dirty || quatite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
-
-          <div *ngIf="quatite.errors?.['required']" >
-            la quantite est obligatoire.
-          </div>
-          
-      </div>
-      </div>
-      <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
-        <div class="form-group">
-          <label for="fname" >CodeArticle:</label>
-          <input class="form-control" type="number" id="facture.articles.CodeArticle" name="facture.articles.CodeArticle" required   ngModel #CodeArticle="ngModel">
-          <div *ngIf="CodeArticle.invalid && (CodeArticle.dirty || CodeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+        <div [ngModelGroup]="i+''">
+          <div class="form-group">
+            <label for="fname">codeArticle:</label>
+            <input class="form-control" type="number" [id]="i+'.codeArticle'"
+              [(ngModel)]="facture.articles[i].article.codeArticle" name="codeArticle" ngModel required
+              #codeArticle="ngModel">
+            <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
+              class="p-2 my-1 bg-danger text-white rounded-3">
   
-            <div *ngIf="CodeArticle.errors?.['required']" >
-              Le montantTotal est obligatoire.
-            </div>
-           
-        </div>
-        </div>
-        <div class="form-group">
-          <label for="fname">quatite:</label>
-          <input class="form-control" type="number" id="facture.articles.quatite" name="articles.quatite" required ngModel #quatite="ngModel">
-          <div *ngIf="quatite.invalid && (quatite.dirty || quatite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
+              <div *ngIf="codeArticle.errors?.['required']">
+                Le codeArticle est obligatoire.
+              </div>
   
-            <div *ngIf="quatite.errors?.['required']" >
-              la quantite est obligatoire.
+  
             </div>
-            
+          </div>
+          <div class="form-group">
+            <label for="fname">Remise:</label>
+            <input class="form-control" type="number" [id]="i+'.remise'" [(ngModel)]="facture.articles[i].remise"
+              name="remise" ngModel required #remise="ngModel">
+            <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
+              class="p-2 my-1 bg-danger text-white rounded-3">
+  
+              <div *ngIf="remise.errors?.['required']">
+                Le remise est obligatoire.
+              </div>
+  
+  
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fname">quantite:</label>
+            <input class="form-control" type="number" [id]="i+'.quantite'" [(ngModel)]="facture.articles[i].quatite"
+              name="quantite" ngModel required #quantite="ngModel">
+            <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
+              class="p-2 my-1 bg-danger text-white rounded-3">
+  
+              <div *ngIf="quantite.errors?.['required']">
+                La quantite est obligatoire.
+              </div>
+  
+            </div>
+          </div>
+  
         </div>
-        </div>
+  
+  
       </div>
+  
+  
+  
        
       
       

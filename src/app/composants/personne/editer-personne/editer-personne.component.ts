@@ -12,12 +12,15 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class EditerPersonneComponent implements OnInit {
 
-  public personne: any = { id: '' };
+  public personne: Personne = { id:0,nom:'',prenom:'',
+  adress:'',tel:'',username:'',email:'',password:'',paniers:{}as any, images:{}as any};
+     
+    
   //nouveau Modification pour l'image de personne
   userfile: any;
-  imagePath: any;
+ /*  imagePath: any;
   imgURL: any;
-  sanitiser: any;
+  sanitiser: any; */
 
   constructor(private pesonneService: DatabaseService,
     private route: ActivatedRoute,
@@ -33,15 +36,14 @@ export class EditerPersonneComponent implements OnInit {
   }
 
   public UpdatePersonne(f: any) {
-    let data = f.value;
-    this.pesonneService.UpdatePersonne(data).subscribe(
+    this.pesonneService.UpdatePersonne(this.personne).subscribe(
       data => {
         this.personne = data;
         this.router.navigate(['/list-personne']);
       }
     )
   }
-  public onSelectedFile(event:any){
+  /* public onSelectedFile(event:any){
     if(event.target.files){
        const file=event.target.files[0];
        this.userfile=file;
@@ -69,7 +71,7 @@ export class EditerPersonneComponent implements OnInit {
     }
   }
 
-
+ */
 
 
 

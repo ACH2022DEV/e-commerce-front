@@ -15,49 +15,49 @@ import { PanierService } from '../panier/panier.service';
 })
 export class NavbarComponent implements OnInit {
   helper: any;
-  public monpanier:Panier[]=[];
-  public nombredeprod:any;
+  public monpanier: Panier[] = [];
+  public nombredeprod: any;
   //obje:any={}
 
- 
+
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
-  constructor(private router: Router,private panierService:PanierService) {
-    
+  constructor(private router: Router, private panierService: PanierService) {
+
     this.getAllPaniers()
     // this.nombredeprod=this.monpanier.length;
-     console.log(this.nombredeprod)
-     this.nombredeprod;
-  
+    console.log(this.nombredeprod)
+    this.nombredeprod;
 
-   }
+
+  }
 
   ngOnInit(): void {
-   
-  
+
+
   }
-//Afficher le nombre de produits
+  //Afficher le nombre de produits
 
 
 
 
 
-////
+  ////
 
-public getAllPaniers():void{
-  this.panierService.getAllPanier().subscribe(data=>{
-        this.monpanier=data;
-        this.nombredeprod=this.monpanier.length;
-        this.getAllPaniers();
-      
+  public getAllPaniers(): void {
+    this.panierService.getAllPanier().subscribe(data => {
+      this.monpanier = data;
+      this.nombredeprod = this.monpanier.length;
+      this.getAllPaniers();
 
-       // console.log(this.monpanier.length)
-      },
+
+      // console.log(this.monpanier.length)
+    },
       (error: HttpErrorResponse) => alert(error.message)
     );
   }
-  
-//
+
+  //
   public logout() {
 
     sessionStorage.clear();

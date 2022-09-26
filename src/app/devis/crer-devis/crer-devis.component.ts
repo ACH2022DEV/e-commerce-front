@@ -30,7 +30,7 @@ export class CrerDevisComponent implements OnInit {
       console.log(ctrl)
       if (ctrl !== 'idPersonne') {
         let devisArticle: DevisArticle = {} as any;
-        devisArticle.article.codeArticle = f.controls[ctrl].controls['codeArticle'].value;
+        devisArticle.codeArticle = f.controls[ctrl].controls['codeArticle'].value;
         devisArticle.remise = f.controls[ctrl].controls['remise'].value;
         //devisArticle.remise = 0;
         devisArticle.quatite = f.controls[ctrl].controls['quantite'].value

@@ -10,11 +10,19 @@ import { DatabaseService } from 'src/app/services/database.service';
   styleUrls: ['./editer-produits.component.scss']
 })
 export class EditerProduitsComponent implements OnInit {
-  public produit: any = { codeArticle: '' };
-  userfile: any;
+  public produit: Article = { codeArticle:0, description:'',remise:0,tva:0, quantite:0,prix:0,paysOrigine:'',
+    images:{}as any,avis:{}as any};
+  
+  
+ 
+  
+ 
+ 
+  
+ /*  userfile: any;
   imagePath: any;
   imgURL: any;
-  sanitiser: any;
+  sanitiser: any; */
  
   constructor(private produitService: DatabaseService,
     private route: ActivatedRoute,
@@ -27,8 +35,7 @@ export class EditerProduitsComponent implements OnInit {
     })
   }
   public UpdateProduit(f: any) {
-    let data = f.value;
-    this.produitService.Updatearticle(data).subscribe(
+    this.produitService.Updatearticle(this.produit).subscribe(
       data => {
         this.produit = data;
         this.router.navigate(['/adminliste-produit']);
@@ -37,7 +44,7 @@ export class EditerProduitsComponent implements OnInit {
     )
   }
   //this code is for update the new image(check of it)
-  public onSelectedFile(event:any){
+/*   public onSelectedFile(event:any){
     if(event.target.files){
        const file=event.target.files[0];
        this.userfile=file;
@@ -64,5 +71,5 @@ export class EditerProduitsComponent implements OnInit {
      
     }
   }
-
+ */
 }
