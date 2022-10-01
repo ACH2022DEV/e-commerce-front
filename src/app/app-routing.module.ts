@@ -26,6 +26,7 @@ import { CrerProduitsComponent } from './produits/crer-produits/crer-produits.co
 import { EditerProduitsComponent } from './produits/editer-produits/editer-produits.component';
 import { ListeProduitsComponent } from './produits/liste-produits/liste-produits.component';
 import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
+import { SearchResultsComponent } from './produits/search-results/search-results.component';
 import { VisualiserProduitsComponent } from './produits/visualiser-produits/visualiser-produits.component';
 
 //import { MenuComponent } from './menu/menu.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent, canActivate: [GuardService] },
   { path: 'liste-produits', component: ListeProduitsComponent },
+  { path: 'search/:searchText', component: ListeProduitsComponent },
   { path: 'visualiser-produits/:codeArticle', component: VisualiserProduitsComponent, canActivate: [GuardService] },
   { path: 'crer-produits', component:  CrerProduitsComponent, canActivate: [GuardService] },
   { path: 'editer-produits/:codeArticle', component:  EditerProduitsComponent, canActivate: [GuardService] },
@@ -55,6 +57,7 @@ const routes: Routes = [
   { path: 'adminliste-produit', component: ListeproduitComponent, canActivate: [GuardService] },
   { path: 'Panier', component: PanierComponent, canActivate: [GuardService] },
   { path: 'details/:codeArticle', component: ProduitsDetailsComponent },
+  { path: 'searchProduct/:searchText', component: SearchResultsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: LoginComponent },

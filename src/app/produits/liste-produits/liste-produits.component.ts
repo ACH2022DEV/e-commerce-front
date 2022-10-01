@@ -10,6 +10,7 @@ import { Picture } from 'src/app/models/mesImages';
 import { Panier } from 'src/app/models/panier';
 import { PanierService } from 'src/app/panier/panier.service';
 import { DatabaseService } from 'src/app/services/database.service';
+import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-liste-produits',
@@ -23,6 +24,13 @@ export class ListeProduitsComponent implements OnInit {
   public page: number = 0;
   public size: number = 8;
   public monpanier:Panier[]=[];
+  //search
+ /*  public searchText:string='';
+  public results:any=[]; */
+  
+
+
+  //fin search
 
   public poductExist:boolean=false;
   jsonStringObj: any = {};
@@ -36,7 +44,7 @@ export class ListeProduitsComponent implements OnInit {
   public prodi:boolean=false;
  // public disabled:boolean=false;
   constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer, private panierService: PanierService,
-    private fb: FormBuilder, private avisClient: AvisService) {
+    private fb: FormBuilder, private avisClient: AvisService,private search:SearchService,private route: ActivatedRoute,private router: Router) {
      //verifier
      for(let i in this.monpanier){
       if(this.monpanier[i].article.codeArticle==this.code.paniers.codeArticle){
@@ -60,6 +68,20 @@ export class ListeProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduits();
+    //search
+    /* this.route.params.subscribe(params=>{
+      if(params['searchText'])
+      this.searchText=params['searchText']
+    
+    })
+    console.log(this.route.snapshot.params['searchText']);
+    this.search.Search(this.page,this.size,this.route.snapshot.params['searchText']).subscribe(data => {
+      this.results = data;
+  }) */
+
+
+
+    //fin search
 
   }
 

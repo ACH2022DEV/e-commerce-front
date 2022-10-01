@@ -1,8 +1,13 @@
 <div class="container mt-5 mb-5 " >
 
   <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end ">create</button>
-  <input class="form-control w-50" type="search"  placeholder="Search for Personnes" aria-label="Search">
-
+  <form #f="ngForm" class=" w-100"(ngSubmit)="searchTerm(f)">
+    <div class=" d-flex col-md-6  search-hero  " >
+      <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+       <button class=" search2  btn btn-light  text-dark mx-1" type="submit"   > 
+         <i class="bi bi-search"></i></button>
+     </div>
+   </form>
   <table class="table table-bordered">
    
     <thead>

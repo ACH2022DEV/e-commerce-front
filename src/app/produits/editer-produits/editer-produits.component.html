@@ -1,5 +1,5 @@
-<div class="container col-md-4 mt-5  mb-5">
-    <form #f="ngForm"  (ngSubmit)="UpdateProduit(f)">
+<div class="container row mt-5  mb-5">
+    <form #f="ngForm" class="col-6 ms-5"(ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
         <label for="fname"> codeArticle:</label>
         <input class="form-control" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
@@ -89,12 +89,15 @@
             La paysOrigine doit avoir  au moins  3 caractéres!
           </div>
       </div></div>
-      <!-- <div class="form-group my-2" >
-        <input type="file"multiple ngModel class="form-control" name="file" (change)="onSelectedFile($event)" required  #file="ngModel">
+<!-- 
+      <div class="form-group my-2" *ngFor="let prod of produit.images" >
+     
+        <input #input class="form-control"  type="file" [value]="prod.picbyte" (change)="onSelectedFile($event)" [(ngModel)] ="prod.picbyte" ngModel #file="ngModel" />
 
-
-      </div> -->
-      
+      </div>  -->
+        <div class="form-group my-2">
+        <input type="file"multiple class="form-control" value="select"(change)="onSelectedFile($event)" ngModel name="file"  #file="ngModel">
+      </div> 
       <hr>
       <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -114,5 +117,11 @@
       <button routerLink="/adminliste-produit" class="btn btn-primary" >retour</button>
   
     </form>
-    <!-- <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" > -->
-  </div>
+    <div class="col-4  ">
+      <div class="d-flex flex-column"> 
+       <div  *ngFor="let url of images; let i=index">
+       <div class="position-relative"> <div class="position-absolute  p-2 mt-0">
+           <button class="btn btn-dark" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
+    </div>
+           <img   [src]="url" class="rounded my-1 mx-1 " width="180"></div></div>
+   </div>

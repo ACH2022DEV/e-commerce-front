@@ -14,12 +14,21 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class CrerDevisComponent implements OnInit {
   createdevis: CreateDevis[] = [];
   public elements: Array<any> = [];
+  public personnes:any=[];
+public size:any;
+public page:any;
 
   constructor(private devisService: DatabaseService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getAllPersonne();
   }
-
+  public getAllPersonne(){
+    this.devisService.getAllPersonne(this.page=0,this.size=1000).subscribe((data:any)=>{
+      this.personnes =data['content'];
+      console.log('idPersonne',data)
+    })
+  }
 
   public addDevis(f: any) {
     console.log('creer devis', f)

@@ -8,15 +8,17 @@
     width: 100%;
 
 }
-.search2{
+/* .search2{
     border: 2px solid #131111;
     border-radius: 90px;
 
-}
+} */
 /* :hover {
     background-color: #f2c119;
 }   */
 .dropdown:hover .dropdown-menu{
     display: block;
 }
-
+.form-control::placeholder  {
+    font-family: FontAwesome;
+  }

@@ -59,6 +59,7 @@ import { ListeproduitComponent } from './listeproduit/listeproduit.component';
 import { PanierComponent } from './panier/panier.component';
 import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SearchResultsComponent } from './produits/search-results/search-results.component';
 
 
 
@@ -101,6 +102,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     PanierComponent,
     ProduitsDetailsComponent,
     SidebarComponent,
+    SearchResultsComponent,
     
     
   ],

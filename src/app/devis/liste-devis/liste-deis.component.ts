@@ -15,6 +15,7 @@ export class ListeDeisComponent implements OnInit {
   public total: Array<number> | undefined;
  public page:number=0;
  public size:number=5;
+ public searchText:string='';
  //pop up 
  public popoverTitle :string= 'Confirmation';
  public popoverMessage :string= 'Are you sure?';
@@ -45,5 +46,10 @@ export class ListeDeisComponent implements OnInit {
   setPage(i: number,event:any){
     this.page = i;
     this.getAllDevis();
+}
+
+
+searchTerm(f:any){
+
 }
 }

@@ -13,6 +13,7 @@ export class ListeproduitComponent implements OnInit {
   public total: Array<number> | undefined;
   public page:number=0;
   public size:number=5;
+  public searchText:string='';
   //pop up 
  public popoverTitle :string= 'Confirmation';
  public popoverMessage :string= 'Are you sure?';
@@ -42,5 +43,7 @@ export class ListeproduitComponent implements OnInit {
     this.page = i;
     this.getAllProduits();
 }
+public searchTerm(f:any){
 
+}
 }

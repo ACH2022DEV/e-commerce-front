@@ -78,8 +78,8 @@ export class DatabaseService {
 
   }
   
-  public Updatearticle( articl: Article): Observable<Article> {
-    return this.http.put<Article>(`${this.url}/article`, articl);
+  public Updatearticle( articl: FormData): Observable<FormData> {
+    return this.http.put<FormData>(`${this.url}/article`, articl);
 
   }
   public deletearticle(id: number): Observable<void> {

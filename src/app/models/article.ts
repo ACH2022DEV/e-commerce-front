@@ -2,6 +2,7 @@ import { AvisDto } from "./avisDto";
 import { Picture } from "./mesImages";
 
 export interface Article{
+   
    // imageDarticle: import("c:/work/pfa/git/e-commerce-front/src/app/models/file").FileHandle;
     codeArticle:number;
     description:string;

@@ -1,12 +1,13 @@
 
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SecurityService } from '../composants/auth/services/security.service';
 import { Panier } from '../models/panier';
 
 import { Personne } from '../models/personne';
 import { PanierService } from '../panier/panier.service';
+import { SearchService } from '../produits/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,11 +19,18 @@ export class NavbarComponent implements OnInit {
   public monpanier: Panier[] = [];
   public nombredeprod: any;
   //obje:any={}
+//search
+public searchText:string='';
+public results:any=[];
+public size=1000;
+public page=0;
 
+
+//
 
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
-  constructor(private router: Router, private panierService: PanierService) {
+  constructor(private search:SearchService,private route: ActivatedRoute,private router: Router, private panierService: PanierService) {
 
     this.getAllPaniers()
     // this.nombredeprod=this.monpanier.length;
@@ -34,10 +42,23 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
+   /*  this.route.params.subscribe(params=>{
+      if(params['/search'])
+      this.searchText=params['/search']
+    
+    }) */
+    console.log(this.route.snapshot.params['searchText']);
+    this.search.Search(this.page,this.size,this.route.snapshot.params['searchText']).subscribe(data => {
+      this.results = data;
+  })
 
   }
   //Afficher le nombre de produits
+  public searchtext(){
+    /* if(this.searchText)
+    this.router.navigateByUrl('/search/'+this.searchText) */
 
+  }
 
 
 

@@ -72,6 +72,7 @@ export class CrerProduitsComponent implements OnInit {
     } }}
     removeImage(i: number) {
       this.images.splice(i, 1);
+      
     }
 
 

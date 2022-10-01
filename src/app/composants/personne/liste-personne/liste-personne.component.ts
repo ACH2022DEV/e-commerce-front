@@ -17,7 +17,7 @@ export class ListePersonneComponent implements OnInit {
  public page:number=0;
  public size:number=5;
  
-//  public totalitems:any;
+  public searchText:string='';
 public currentPage:any;
  
 
@@ -62,15 +62,22 @@ public currentPage:any;
 }
 
 public Next(): void {
- 
-
   }
     // some checks
-   
-
 public previous(): void {
   // some checks
    --this.page ;
 }
+
+public searchTerm(f:any){
+
+}
+
+
+
+
+
+
+
 
 }

@@ -16,9 +16,9 @@ export class FactureComponent implements OnInit {
   public total: Array<number> | undefined;
  public page:number=0;
  public size:number=5;
-/*  public tablesize:number=10;
- public tablesizes:any=[5,10,15,20];
- public count:number=10; */
+ public searchText:string='';
+ //public tablesizes:any=[5,10,15,20];
+ //public count:number=10; 
  //pop up 
  public popoverTitle :string= 'Confirmation';
  public popoverMessage :string= 'Are you sure?';
@@ -63,4 +63,9 @@ export class FactureComponent implements OnInit {
 } */
 
 //
+
+
+public searchTerm(f:any){
+
+}
 }
