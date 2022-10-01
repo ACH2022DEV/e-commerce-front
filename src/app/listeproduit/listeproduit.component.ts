@@ -43,7 +43,5 @@ export class ListeproduitComponent implements OnInit {
     this.page = i;
     this.getAllProduits();
 }
-public searchTerm(f:any){
 
-}
 }

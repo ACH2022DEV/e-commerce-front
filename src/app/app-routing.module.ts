@@ -6,7 +6,9 @@ import { GuardService } from './composants/auth/services/guard.service';
 import { CrerPersonneComponent } from './composants/personne/crer-personne/crer-personne.component';
 import { EditerPersonneComponent } from './composants/personne/editer-personne/editer-personne.component';
 import { ListePersonneComponent } from './composants/personne/liste-personne/liste-personne.component';
+import { SearchPersonneComponent } from './composants/personne/search-personne/search-personne.component';
 import { VisualiserPersonneComponent } from './composants/personne/visualiser-personne/visualiser-personne.component';
+import { SearchAdminArtComponent } from './composants/search-admin-art/search-admin-art.component';
 import { ContactComponent } from './contact/contact.component';
 import { CrerDevisComponent } from './devis/crer-devis/crer-devis.component';
 import { EditerDevisComponent } from './devis/editer-devis/editer-devis.component';
@@ -33,13 +35,14 @@ import { VisualiserProduitsComponent } from './produits/visualiser-produits/visu
 
 const routes: Routes = [
   { path: 'list-personne', component: ListePersonneComponent, canActivate: [GuardService] },
+  { path: 'searchPersonne/:searchPersonne', component: SearchPersonneComponent, canActivate: [GuardService] },
   { path: 'visualiser-personne/:id', component: VisualiserPersonneComponent, canActivate: [GuardService] },
   { path: 'edite-personne/:id', component: EditerPersonneComponent, canActivate: [GuardService] },
   { path: 'creer-personne', component: CrerPersonneComponent, canActivate: [GuardService] },
   { path: 'home', component: HomeComponent },
   { path: 'contact', component: ContactComponent, canActivate: [GuardService] },
   { path: 'liste-produits', component: ListeProduitsComponent },
-  { path: 'search/:searchText', component: ListeProduitsComponent },
+  // { path: 'search/:searchText', component: ListeProduitsComponent },
   { path: 'visualiser-produits/:codeArticle', component: VisualiserProduitsComponent, canActivate: [GuardService] },
   { path: 'crer-produits', component:  CrerProduitsComponent, canActivate: [GuardService] },
   { path: 'editer-produits/:codeArticle', component:  EditerProduitsComponent, canActivate: [GuardService] },
@@ -55,6 +58,7 @@ const routes: Routes = [
   { path: 'admin', component: PageAdminComponent, canActivate: [GuardService] },
   { path: 'employe', component: PageEmployeComponent, canActivate: [GuardService] },
   { path: 'adminliste-produit', component: ListeproduitComponent, canActivate: [GuardService] },
+  { path: 'searchAdminPro/:searchText', component: SearchAdminArtComponent, canActivate: [GuardService] },
   { path: 'Panier', component: PanierComponent, canActivate: [GuardService] },
   { path: 'details/:codeArticle', component: ProduitsDetailsComponent },
   { path: 'searchProduct/:searchText', component: SearchResultsComponent },

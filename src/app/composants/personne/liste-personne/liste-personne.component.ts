@@ -17,11 +17,11 @@ export class ListePersonneComponent implements OnInit {
  public page:number=0;
  public size:number=5;
  
-  public searchText:string='';
+  public searchPersonne:string='';
 public currentPage:any;
  
 
-
+//public searchText2:any;
 
   constructor(private pesonneService: DatabaseService) {
    
@@ -35,12 +35,7 @@ public currentPage:any;
 
   }
 
-/*   public deletePersonne(id:number):void{
-    this.pesonneService.deletePersonne(id).subscribe(data=>{
-      this.getAllPersonne();
-    }
-      )
-  } */
+
 
   public getAllPersonne(): void {
     this.pesonneService.getAllPersonne(this.page,this.size).subscribe((response:any) => {
@@ -69,9 +64,7 @@ public previous(): void {
    --this.page ;
 }
 
-public searchTerm(f:any){
 
-}
 
 
 

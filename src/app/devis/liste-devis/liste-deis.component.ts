@@ -49,7 +49,5 @@ export class ListeDeisComponent implements OnInit {
 }
 
 
-searchTerm(f:any){
 
-}
 }

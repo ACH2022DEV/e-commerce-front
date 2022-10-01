@@ -15,9 +15,8 @@ import { SearchService } from '../search.service';
 export class SearchResultsComponent implements OnInit {
   
 public searchText:any='';
-public searchKey:any='';
 public results:Article[]=[];
-public size=1000;
+public size=8;
 public page=0;
 public code:any;
 public ProductNotFound:boolean=false;
@@ -27,6 +26,7 @@ jsonStringObj: any = {};
 
 obj: any = { email: '', username: '', id: '', roles: '' };
 public key: any;
+public total: Array<number> | undefined;
 
   constructor(  private sanitizer: DomSanitizer,private panierService: PanierService,private route: ActivatedRoute, private router: Router,private searchservice:SearchService) { 
     this.jsonStringObj = sessionStorage.getItem('session');
@@ -43,6 +43,7 @@ this.route.params.subscribe(params=>{
   this.searchservice.Search(this.page,this.size, this.searchText).subscribe((data:any)=> {
     this.results = data['content'];
     console.log('this.results',data)
+    this.total = new Array(data['totalPages']);
    
 
 
@@ -79,8 +80,15 @@ public ajouterAuPanier(f: any) {
       return this.sanitizer.bypassSecurityTrustUrl(base64);
   
     }
+    setPage(i: number, event: any) {
+      this.page = i;
+      this.searchservice.Search(this.page,this.size, this.searchText).subscribe((data:any)=> {
+        this.results = data['content'];
+       
+    
+    })
 
-
+  }
 
 
 

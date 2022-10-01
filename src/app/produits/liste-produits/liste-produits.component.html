@@ -1,6 +1,6 @@
 <div class="container  mt-5 mb-5">
   <div class="row ">
-    <div class="col-md-3 my-3 h-30" *ngFor="let prod of produits; index as i">
+    <div class="col-md-3 my-3 h-30" *ngFor="let prod of produits; index as i ">
       <div class="card ">
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top " alt="...">
         <div class="card-body">

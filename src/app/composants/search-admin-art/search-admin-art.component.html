@@ -1,0 +1,78 @@
+<div class="container mt-5 mb-5">
+    <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end">create</button>
+   
+   
+      <div class=" d-flex col-md-6 mb-2 search-hero  " >
+         <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Product"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+         <button class=" search2  btn btn-light  text-dark mx-1" type="submit"   [routerLink]="['/searchAdminPro/', searchText]" > 
+           <i class="bi bi-search"></i></button>
+       </div>
+     
+     <!-- <div class=" d-flex col-md-6 mb-2 search-hero  " >
+      <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Product"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+     </div> -->
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"> code_article</th>
+            <th scope="col">description</th>
+            <th scope="col">remise</th>
+            <th scope="col">tva</th>
+            <th scope="col">quantite</th>
+            <th scope="col">prix</th>
+            <th scope="col">paysOrigine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of results ">
+            <th scope="row">{{prod.codeArticle}}</th>
+            <td>{{prod.description}}</td>
+            <td>{{prod.remise}}</td>
+            <td>{{prod.tva}}</td>
+            <td>{{prod.quantite}}</td>
+            <td>{{prod.prix}}</td>
+            <td>{{prod.paysOrigine}}</td>
+            <td><button
+              class="btn btn-danger "
+              mwlConfirmationPopover
+              [popoverTitle]="popoverTitle"
+              [popoverMessage]="popoverMessage"
+              placement="left"
+              (confirm)="deletePRODUIT(prod.codeArticle)"
+              (cancel)="cancelClicked = true"
+            >
+            <i class="bi bi-trash3-fill"></i>
+            </button> </td>
+         
+            <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success">Update</button>
+            </td>
+           <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary">visualiser</button></td>
+          </tr>
+        </tbody>
+      </table>
+    <!--   <div class="btn-group">
+        <ul class=" nav nav-pills pointer " *ngFor="let p of total ; let i=index">
+                              <li class="nav-item p-1">
+                                <a  class="nav-link" (click)="setPage(i,$event)"[ngClass]="{'active':i==page}">{{i}}</a>
+                              </li>
+    
+                    </ul></div> -->
+                    <div class="d-flex justify-content-center mt-5">  <nav aria-label="Page navigation example " >
+                      <ul class="pagination pointer " >
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous" click=" previous()">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                      
+                          <li class="page-item" *ngFor="let p of total ; let i=index">
+                          <a  class="page-link" (click)="setPage(i,$event)"[ngClass]="{'active':i==page}">{{i}}</a>
+                         </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next"  click="Next()">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav></div>
+    </div>

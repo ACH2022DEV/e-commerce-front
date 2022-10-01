@@ -9,6 +9,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxStarRatingModule } from 'ngx-star-rating';
 // pour l'etoile
 import { ReactiveFormsModule } from '@angular/forms';
+// search module
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
@@ -60,6 +62,8 @@ import { PanierComponent } from './panier/panier.component';
 import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SearchResultsComponent } from './produits/search-results/search-results.component';
+import { SearchPersonneComponent } from './composants/personne/search-personne/search-personne.component';
+import { SearchAdminArtComponent } from './composants/search-admin-art/search-admin-art.component';
 
 
 
@@ -103,6 +107,8 @@ import { SearchResultsComponent } from './produits/search-results/search-results
     ProduitsDetailsComponent,
     SidebarComponent,
     SearchResultsComponent,
+    SearchPersonneComponent,
+    SearchAdminArtComponent,
     
     
   ],
@@ -122,6 +128,7 @@ import { SearchResultsComponent } from './produits/search-results/search-results
     NgxStarRatingModule,
     ReactiveFormsModule,
     ConfirmationPopoverModule,
+    Ng2SearchPipeModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),

@@ -42,23 +42,8 @@ public page=0;
 
   ngOnInit(): void {
 
-   /*  this.route.params.subscribe(params=>{
-      if(params['/search'])
-      this.searchText=params['/search']
-    
-    }) */
-    console.log(this.route.snapshot.params['searchText']);
-    this.search.Search(this.page,this.size,this.route.snapshot.params['searchText']).subscribe(data => {
-      this.results = data;
-  })
-
   }
-  //Afficher le nombre de produits
-  public searchtext(){
-    /* if(this.searchText)
-    this.router.navigateByUrl('/search/'+this.searchText) */
-
-  }
+ 
 
 
 

@@ -1,13 +1,16 @@
 <div class="container mt-5 mb-5 " >
 
   <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end ">create</button>
-  <form #f="ngForm" class=" w-100"(ngSubmit)="searchTerm(f)">
+  
     <div class=" d-flex col-md-6  search-hero  " >
-      <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchText"  aria-label="Search" >
-       <button class=" search2  btn btn-light  text-dark mx-1" type="submit"   > 
+      <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchPersonne"  aria-label="Search" >
+       <button class=" search2  btn btn-light  text-dark mx-1" type="submit" [routerLink]="['/searchPersonne/',searchPersonne]"  > 
          <i class="bi bi-search"></i></button>
      </div>
-   </form>
+ 
+  <!--  <div class=" d-flex col-md-6  search-hero  " >
+    <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+   </div> -->
   <table class="table table-bordered">
    
     <thead>
@@ -21,7 +24,7 @@
     </thead>
     <tbody>
       <!-- | paginate: { itemsPerPage: 7, currentPage: pageNo, totalItems: total } -->
-      <tr *ngFor="let pers of personnes ">
+      <tr *ngFor="let pers of personnes">
         <th scope="row">{{pers.id}}</th>
         <td>{{pers.adress}}</td>
         <td>{{pers.nom}}</td>
