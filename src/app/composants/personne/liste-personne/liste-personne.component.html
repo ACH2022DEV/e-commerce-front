@@ -1,6 +1,6 @@
 <div class="container mt-5 mb-5 " >
 
-  <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end ">create</button>
+  <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end mb-2" >create</button>
   
     <div class=" d-flex col-md-6  search-hero  " >
       <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchPersonne"  aria-label="Search" >
@@ -15,11 +15,11 @@
    
     <thead>
       <tr>
-        <th scope="col">id</th>
-        <th scope="col">adress</th>
-        <th scope="col">nom</th>
-        <th scope="col">prenom</th>
-        <th scope="col">tel</th>
+        <th scope="col">Id</th>
+        <th scope="col">Adress</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Numero de Télephone</th>
       </tr>
     </thead>
     <tbody>
@@ -66,9 +66,9 @@
         
         </td>
 
-        <td><button [routerLink]="['/edite-personne/', pers.id]" type="button" class="btn btn-success">Update</button>
+        <td><button [routerLink]="['/edite-personne/', pers.id]" type="button" class="btn btn-success" tooltip="Editer" placement="top"><i class="bi bi-pencil-square"></i></button>
         </td>
-        <td><button  [routerLink]="['/visualiser-personne', pers.id]" type="button" class="btn btn-secondary">visualiser</button></td>
+        <td><button  [routerLink]="['/visualiser-personne', pers.id]" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" tooltip="Visualiser" placement="top"><i class="bi bi-zoom-in"></i></button></td>
       </tr>
     </tbody>
   </table>
@@ -102,3 +102,4 @@
   <!-- <pagination-controls (pageChange)="page = $event" >{{page}}</pagination-controls> -->
   
 </div>
+ 

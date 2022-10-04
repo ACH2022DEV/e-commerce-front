@@ -19,7 +19,11 @@ export class ListePersonneComponent implements OnInit {
  
   public searchPersonne:string='';
 public currentPage:any;
- 
+ //tooltip initialisation
+   
+
+
+ //
 
 //public searchText2:any;
 

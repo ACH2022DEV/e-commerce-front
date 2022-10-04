@@ -1,0 +1,6 @@
+{
+    "produits" : "products" ,
+    "factures" : "invoice",
+    "Utilisateur":"user",
+    "devis":"quotation"
+}

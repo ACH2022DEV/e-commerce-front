@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <button routerLink="/crer-facture" type="button" class="btn btn-dark btn-lg float-end">create</button>
+  <button routerLink="/crer-facture" type="button" class="btn btn-dark btn-lg float-end mb-2">create</button>
 
   <form #f="ngForm" class=" w-100"(ngSubmit)="searchTerm(f)">
     <div class=" d-flex col-md-6 search-hero " >
@@ -11,7 +11,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">personneId</th>
+          <th scope="col">Nom de Client</th>
           <th scope="col"> FactureId</th>
         
           
@@ -19,9 +19,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let fact of factures ;let i=index">
-          <th scope="row">{{fact.personne.id}}</th>
+          <th scope="row">{{fact.personne.nom}}</th>
           <td>{{fact.id}}</td>
           <td><button
+            tooltip="Delete" placement="top"
             class="btn btn-danger "
             mwlConfirmationPopover
             [popoverTitle]="popoverTitle"
@@ -65,9 +66,12 @@
                 </div>
               </div>
             </div> </td> -->
-          <td><button [routerLink]="['/editer-facture/',fact.id]" type="button" class="btn btn-success">Update</button>
+          <td><button [routerLink]="['/editer-facture/',fact.id]" type="button" class="btn btn-success"tooltip="Editer" placement="top"
+            ><i class="bi bi-pencil-square"></i>
+          </button>
           </td>
-          <td><button [routerLink]="['/visualiser-facture/',fact.id]" type="button" class="btn btn-secondary">visualiser</button></td>
+          <td><button [routerLink]="['/visualiser-facture/',fact.id]" type="button" class="btn btn-secondary"tooltip="Visualiser" placement="top"
+            ><i class="bi bi-zoom-in"></i></button></td>
         </tr>
       </tbody>
     </table>

@@ -1,3 +1,4 @@
+import { Avis } from "./avis";
 import { Picture } from "./mesImages";
 import { Panier } from "./panier";
 
@@ -13,4 +14,5 @@ export interface Personne {
     //role:RoleEntity;
    paniers:Panier[];
    images:Picture[];
+   //avis:Avis[];
 }

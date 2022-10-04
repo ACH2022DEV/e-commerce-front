@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-5">
-  <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end">create</button>
+  <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end mb-2">create</button>
  
  
     <div class=" d-flex col-md-6 mb-2 search-hero  " >
@@ -14,13 +14,13 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col"> code_article</th>
-          <th scope="col">description</th>
-          <th scope="col">remise</th>
-          <th scope="col">tva</th>
-          <th scope="col">quantite</th>
-          <th scope="col">prix</th>
-          <th scope="col">paysOrigine</th>
+          <th scope="col"> Code Article</th>
+          <th scope="col">Description</th>
+          <th scope="col">Remise</th>
+          <th scope="col">Tva</th>
+          <th scope="col">Quantite</th>
+          <th scope="col">Prix</th>
+          <th scope="col">PaysOrigine</th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +33,7 @@
           <td>{{prod.prix}}</td>
           <td>{{prod.paysOrigine}}</td>
           <td><button
+            tooltip="Delete" placement="top"
             class="btn btn-danger "
             mwlConfirmationPopover
             [popoverTitle]="popoverTitle"
@@ -80,9 +81,12 @@
           
           
           </td> -->
-          <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success">Update</button>
+          <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success"tooltip="Editer" placement="top"
+            ><i class="bi bi-pencil-square"></i>
+          </button>
           </td>
-         <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary">visualiser</button></td>
+         <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary"tooltip="Visualiser" placement="top"
+          ><i class="bi bi-zoom-in"></i></button></td>
         </tr>
       </tbody>
     </table>

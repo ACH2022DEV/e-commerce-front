@@ -27,7 +27,7 @@ import { HomeComponent } from './home/home.component';
 //import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { CrerPersonneComponent } from './composants/personne/crer-personne/crer-personne.component';
 import { EditerPersonneComponent } from './composants/personne/editer-personne/editer-personne.component';
@@ -64,8 +64,17 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SearchResultsComponent } from './produits/search-results/search-results.component';
 import { SearchPersonneComponent } from './composants/personne/search-personne/search-personne.component';
 import { SearchAdminArtComponent } from './composants/search-admin-art/search-admin-art.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 
+
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -129,9 +138,18 @@ import { SearchAdminArtComponent } from './composants/search-admin-art/search-ad
     ReactiveFormsModule,
     ConfirmationPopoverModule,
     Ng2SearchPipeModule,
+    TooltipModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
+    
     
     
    /* RouterModule.forRoot([
