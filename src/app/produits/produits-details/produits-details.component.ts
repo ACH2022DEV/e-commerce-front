@@ -25,6 +25,7 @@ export class ProduitsDetailsComponent implements OnInit {
   obj: any = { email: '', username: '', id: '', roles: '' };
   public key: any;
   public nombreCommentaire: any;
+  
 
 
   constructor(private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
@@ -103,7 +104,7 @@ export class ProduitsDetailsComponent implements OnInit {
   lecodeArticle: number = this.produit.codeArticle;
 
 
-  convertBase64ToImage1(images: Picture[]): any {
+  convertBase64ToImage(images: Picture[]): any {
 
     let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
     if (images.length > 0) {
@@ -112,7 +113,7 @@ export class ProduitsDetailsComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustUrl(base64);
 
   }  
-  convertBase64ToImage(images: Picture[]): any {
+  convertBase64ToImages(images: Picture[]): any {
     let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
      for(let i=this.lecodeArticle;i <this.produit.length;i++){
       for(let j=this.produit.images.length;j <this.produit[i].images.id;j++){

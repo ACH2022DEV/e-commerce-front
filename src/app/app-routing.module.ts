@@ -28,6 +28,7 @@ import { CrerProduitsComponent } from './produits/crer-produits/crer-produits.co
 import { EditerProduitsComponent } from './produits/editer-produits/editer-produits.component';
 import { ListeProduitsComponent } from './produits/liste-produits/liste-produits.component';
 import { ProduitsDetailsComponent } from './produits/produits-details/produits-details.component';
+import { SearchAvisComponent } from './produits/search-avis/search-avis.component';
 import { SearchResultsComponent } from './produits/search-results/search-results.component';
 import { VisualiserProduitsComponent } from './produits/visualiser-produits/visualiser-produits.component';
 
@@ -61,6 +62,7 @@ const routes: Routes = [
   { path: 'searchAdminPro/:searchText', component: SearchAdminArtComponent, canActivate: [GuardService] },
   { path: 'Panier', component: PanierComponent, canActivate: [GuardService] },
   { path: 'details/:codeArticle', component: ProduitsDetailsComponent },
+  { path: 'avisSearch/:searchAvis', component: SearchAvisComponent },
   { path: 'searchProduct/:searchText', component: SearchResultsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

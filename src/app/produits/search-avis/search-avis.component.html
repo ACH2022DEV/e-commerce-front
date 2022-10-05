@@ -1,0 +1,19 @@
+
+<div class="col-8">
+    <div class="container  w-75  mb-3 bg-light " *ngFor="let avis of results; index as i">
+      <div>
+       
+        <a [routerLink]="['/visualiser-personne/',avis.personne.id]"> <h5 class="p-1"><img [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
+          height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5></a>
+        <div class="stars d-flex justify-content-start ">
+          <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
+        </div>
+
+        <p>Commenté le {{avis.dateAvis | date:'fullDate'}}</p>
+        <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
+        <p class="card-text">Message: {{avis.message}}.</p>
+
+      </div>
+    </div>
+  </div>
+  <!--[src]='convertBase64ToImage(avis.personne.images.picbyte)'-->

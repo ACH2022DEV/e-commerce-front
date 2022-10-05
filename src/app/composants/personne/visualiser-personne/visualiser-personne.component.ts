@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Picture } from 'src/app/models/mesImages';
 import { Personne } from 'src/app/models/personne';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -14,7 +16,7 @@ export class VisualiserPersonneComponent implements OnInit {
   public personne: any = { id: '' };
  
   constructor(private pesonneService: DatabaseService, private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['id']);
@@ -25,6 +27,15 @@ export class VisualiserPersonneComponent implements OnInit {
 
   })
 }
+convertBase64ToImage(images: Picture[]): any {
+
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if (images.length > 0) {
+    base64 = "data:image/png;base64, " + images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}  
 
 
 

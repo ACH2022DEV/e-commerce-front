@@ -13,7 +13,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class EditerPersonneComponent implements OnInit {
 
   public personne: Personne = { id:0,nom:'',prenom:'',
-  adress:'',tel:'',username:'',email:'',password:'',paniers:{}as any, images:{}as any};
+  adress:'',tel:'',username:'',email:'',password:'',avis:{}as any,paniers:{}as any, images:{}as any};
      
     
   //nouveau Modification pour l'image de personne

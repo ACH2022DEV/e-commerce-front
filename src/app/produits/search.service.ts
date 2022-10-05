@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Article } from '../models/article';
+import { Avis } from '../models/avis';
 import { Personne } from '../models/personne';
 
 @Injectable({
@@ -10,6 +11,7 @@ import { Personne } from '../models/personne';
 export class SearchService {
   private url = "http://localhost:8080/e-commerce-back/api/v1/article";
   private url2 = "http://localhost:8080/e-commerce-back/api/v1/personne";
+  private search="http://localhost:8080/e-commerce-back/api/v1/avis";
 
 
   constructor(private http: HttpClient) { }
@@ -18,5 +20,8 @@ export class SearchService {
   }
   public SearchPersonne(pageNo:number,size:number,searchPersonne:string): Observable<Personne[]>{
     return this.http.get<Personne[]>(`${this.url2}/search?page=${pageNo}&size=${size}&search=${searchPersonne}`);
+  }
+  public SearchAvis(pageNo:number,size:number,searchAvis:any): Observable<Avis[]>{
+    return this.http.get<Avis[]>(`${this.search}/search?page=${pageNo}&size=${size}&Nbetoile=${searchAvis}`);
   }
 }

@@ -67,6 +67,7 @@ import { SearchAdminArtComponent } from './composants/search-admin-art/search-ad
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { SearchAvisComponent } from './produits/search-avis/search-avis.component';
 
 
 
@@ -118,6 +119,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchResultsComponent,
     SearchPersonneComponent,
     SearchAdminArtComponent,
+    SearchAvisComponent,
     
     
   ],

@@ -9,7 +9,7 @@
   <div class="carousel-inner">
     <div class="col-6 d-flex justify-content-center">
       <div *ngFor="let image of produit.images; let first = first" class="carousel-item" [ngClass]="{'active': first}">
-        <img [src]='convertBase64ToImage(image.picbyte)'  class="d-block w-100" [alt]="produit.name">
+        <img [src]='convertBase64ToImage(image)'  class="d-block w-100" [alt]="produit.name">
       </div>
     </div>
 
@@ -52,19 +52,19 @@
     <div class="col-3">
       <h5><b>Commentaires client:</b></h5>
       <form [formGroup]="form">
-        <div class="stars d-flex justify-content-start ms-0  "><a routerLink="/">
+        <div class="stars d-flex justify-content-start ms-0  "><a  [routerLink]="['/avisSearch/',5]">
             <ngx-star-rating formControlName="rating5" [id]="'rating5'" [disabled]="true"></ngx-star-rating>
           </a></div>
-        <div class="stars d-flex justify-content-start ms-0  "><a routerLink="/">
+        <div class="stars d-flex justify-content-start ms-0  "><a [routerLink]="['/avisSearch/', 4]">
             <ngx-star-rating formControlName="rating4" [id]="'rating4'" [disabled]="true"></ngx-star-rating>
           </a> </div>
-        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+        <div class="stars d-flex justify-content-start ms-0 "><a [routerLink]="['/avisSearch/', 3]">
             <ngx-star-rating formControlName="rating3" [id]="'rating3'" [disabled]="true"></ngx-star-rating>
           </a></div>
-        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+        <div class="stars d-flex justify-content-start ms-0 "><a [routerLink]="['/avisSearch/', 2]">
             <ngx-star-rating formControlName="rating2" [id]="'rating2'" [disabled]="true"></ngx-star-rating>
           </a></div>
-        <div class="stars d-flex justify-content-start ms-0 "><a routerLink="/">
+        <div class="stars d-flex justify-content-start ms-0 "><a [routerLink]="['/avisSearch/', 1]">
             <ngx-star-rating formControlName="rating1" [id]="'rating1'" [disabled]="true"></ngx-star-rating>
           </a></div>
       </form>
@@ -119,9 +119,9 @@
     <div class="col-8">
       <div class="container  w-75  mb-3 bg-light " *ngFor="let avis of produit.avis; index as i">
         <div>
-          <p>{{i}}</p>
-          <h5 class="p-1"><img [src]='convertBase64ToImage(avis.picbyte)' class="rounded-circle" width="50"
-            height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5>
+         
+          <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-1"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
+            height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5></a>
           <div class="stars d-flex justify-content-start ">
             <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
           </div>

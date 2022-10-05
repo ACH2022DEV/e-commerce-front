@@ -14,5 +14,5 @@ export interface Personne {
     //role:RoleEntity;
    paniers:Panier[];
    images:Picture[];
-   //avis:Avis[];
+   avis:Avis[];
 }
