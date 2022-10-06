@@ -14,9 +14,11 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class VisualiserPersonneComponent implements OnInit {
  
   public personne: any = { id: '' };
- 
+ avislenght:any;
   constructor(private pesonneService: DatabaseService, private route: ActivatedRoute,
-    private router: Router, private sanitizer: DomSanitizer) { }
+    private router: Router, private sanitizer: DomSanitizer) { 
+     
+    }
 
   ngOnInit(): void {
     console.log(this.route.snapshot.params['id']);
@@ -24,7 +26,8 @@ export class VisualiserPersonneComponent implements OnInit {
     // get by id 
     this.pesonneService.getPersonne(this.route.snapshot.params['id']).subscribe(data => {
       this.personne = data;
-
+      this.avislenght=this.personne.avis.length;
+      console.log(' this.avilenght',this.avislenght)
   })
 }
 convertBase64ToImage(images: Picture[]): any {

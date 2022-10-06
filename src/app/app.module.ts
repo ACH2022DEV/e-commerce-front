@@ -68,6 +68,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { TooltipModule } from 'ng2-tooltip-directive';
 import { SearchAvisComponent } from './produits/search-avis/search-avis.component';
+import { EntrepriseComponent } from './entreprise/entreprise.component';
 
 
 
@@ -120,6 +121,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchPersonneComponent,
     SearchAdminArtComponent,
     SearchAvisComponent,
+    EntrepriseComponent,
     
     
   ],

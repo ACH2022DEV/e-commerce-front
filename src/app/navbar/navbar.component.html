@@ -21,20 +21,33 @@
             </ul>
             
           </li> -->
-        <li class="nav-item dropdown  " *ngIf="getAccestouser()">
+          <!--*ngIf="getAccestouser() && logout() &&  loggedIn()"-->
+          <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
+            <a class="nav-link  text-white" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+             Entreprise
+            </a>
+          </li>
+          <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
+            <a class="nav-link  text-white" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+             Contact
+            </a>
+          </li>
+         <!--  <li *ngIf=" getAccestouser() " >
+            <a class="nav-link  text-white" href="https://www.acem.tn/Catalogue"  role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+             Catalogue
+            </a>
+          </li> -->
+        <li class="nav-item dropdown  " *ngIf="(getAccestoAdmin() || getAccestouser())  &&  loggedIn()" >
           <a class="nav-link  text-white" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{'produits' | translate}}
           </a>
-          <!--  <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/liste-produits">Liste des produits</a></li>
-              <li><a class="dropdown-item" routerLink="/liste-facture">liste des factures</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" routerLink="/liste-devis">liste de devis </a></li>
-            </ul> -->
-
         </li>
-        <li class="nav-item dropdown  " *ngIf="getAccestouser() &&  loggedIn()">
+       
+        <li class="nav-item dropdown  " *ngIf="getAccestoAdmin() &&  loggedIn()">
           <a class="nav-link  text-white" href="#" routerLink="/adminliste-produit" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             {{'produits' | translate}}
@@ -42,18 +55,18 @@
 
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-white " routerLink="/liste-facture" *ngIf="loggedIn()">{{'factures' |translate}} </a>
+          <a class="nav-link  text-white " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-white " routerLink="/liste-devis" *ngIf="loggedIn()">{{'devis'|translate}}</a>
+          <a class="nav-link  text-white " routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
         </li>
         <li class="nav-item ">
           <a class="nav-link  text-white " routerLink="/list-personne"
-            *ngIf="getAccestouser() && loggedIn()">{{'Utilisateur'|translate}}</a>
+            *ngIf="getAccestoAdmin() && loggedIn()">{{'Utilisateur'|translate}}</a>
         </li>
       </ul>
 
-      <div class=" d-flex   col-sm-10 col-md-4 col-xl-4  " role="search">
+      <div class=" d-flex   col-sm-10 col-md-4 col-xl-4  " role="search" *ngIf=" loggedIn()">
         <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Products" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
         <button  class=" search2  btn btnColor  text-dark mx-1 "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
           <i class="bi bi-search"></i></button>
@@ -62,11 +75,19 @@
       </div>
 
       <div class="col-md-3 col-sm-4  mx-1  d-xs-flex justify-content-center    d-flex justify-content-end ">
-        <button *ngIf="loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Votre Panier" placement="top"
+        <button *ngIf=" getAccestouser() && loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Votre Panier" placement="top"
         >
           <i class="bi bi-cart3" routerLink="/Panier"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{this.nombredeprod}}
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </button>
+        <button *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Notifications" placement="top"
+        >
+          <i class="bi bi-bell" routerLink="/"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+           +99
             <span class="visually-hidden">unread messages</span>
           </span>
         </button>

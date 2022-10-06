@@ -1,6 +1,80 @@
-<div class="container  mt-5 mb-5">
+<img src="../../../assets/images/img/mobilier.png" class=" w-100 "height="200px"  alt="Mobiliers">
+<div class="container-fluid  mt-5 mb-5">
   <div class="row ">
-    <div class="col-md-3 my-3 h-30" *ngFor="let prod of produits; index as i ">
+    <div class="col-md-3 ">
+      <div  class="panel-heading sidebar p-4">
+      <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Mobiliers D'atelier   <i class="bi bi-caret-down-square mx-3"></i>
+      </h4>
+    <div class="collapse" id="collapseExample">
+      <div class=" card-body">
+      <a class="dropdown-item" href="#">Action</a>
+     <a class="dropdown-item" href="#">Another action</a>
+       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+    </div>
+    <div  class="panel-heading sidebar p-4">
+      <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
+        Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+      </h4>
+    <div class="collapse" id="collapseExample2">
+      <div class=" card-body">
+      <a class="dropdown-item" href="#">Action</a>
+     <a class="dropdown-item" href="#">Another action</a>
+       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+    </div>
+    <div  class="panel-heading sidebar p-4">
+      <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
+        Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+      </h4>
+    <div class="collapse" id="collapseExample3">
+      <div class=" card-body">
+      <a class="dropdown-item" href="#">Action</a>
+     <a class="dropdown-item" href="#">Another action</a>
+       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+      </div> 
+      <div  class="panel-heading sidebar p-4">
+        <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
+          Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+        </h4>
+      <div class="collapse" id="collapseExample4">
+        <div class=" card-body">
+        <a class="dropdown-item" href="#">Action</a>
+       <a class="dropdown-item" href="#">Another action</a>
+         <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+        </div>
+        <div  class="panel-heading sidebar p-4">
+          <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample">
+            Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+          </h4>
+        <div class="collapse" id="collapseExample5">
+          <div class=" card-body">
+          <a class="dropdown-item" href="#">Action</a>
+         <a class="dropdown-item" href="#">Another action</a>
+           <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+          </div>
+          <div  class="panel-heading sidebar p-4">
+            <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample">
+              Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+            </h4>
+          <div class="collapse" id="collapseExample6">
+            <div class=" card-body">
+            <a class="dropdown-item" href="#">Action</a>
+           <a class="dropdown-item" href="#">Another action</a>
+             <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+            </div>
+            <div  class="panel-heading sidebar p-4">
+              <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample">
+                Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
+              </h4>
+            <div class="collapse" id="collapseExample7">
+              <div class=" card-body">
+              <a class="dropdown-item" href="#">>Action</a>
+             <a class="dropdown-item" href="#">>Another action</a>
+               <a class="dropdown-item" href="#">>Something else here</a>   </div>  </div>
+              </div>
+              
+    </div>
+    <div class="col-md-2 my-3 h-30" *ngFor="let prod of produits; index as i ">
       <div class="card ">
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top " alt="...">
         <div class="card-body">

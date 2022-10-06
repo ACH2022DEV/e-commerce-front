@@ -14,6 +14,7 @@ import { CrerDevisComponent } from './devis/crer-devis/crer-devis.component';
 import { EditerDevisComponent } from './devis/editer-devis/editer-devis.component';
 import { ListeDeisComponent } from './devis/liste-devis/liste-deis.component';
 import { VisualiserDevisComponent } from './devis/visualiser-devis/visualiser-devis.component';
+import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { CrreFactureComponent } from './factures/crre-facture/crre-facture.component';
 import { EditerFactureComponent } from './factures/editer-facture/editer-facture.component';
 import { FactureComponent } from './factures/liste-facture/facture.component';
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'edite-personne/:id', component: EditerPersonneComponent, canActivate: [GuardService] },
   { path: 'creer-personne', component: CrerPersonneComponent, canActivate: [GuardService] },
   { path: 'home', component: HomeComponent },
+  { path: 'entreprise', component: EntrepriseComponent },
   { path: 'contact', component: ContactComponent, canActivate: [GuardService] },
   { path: 'liste-produits', component: ListeProduitsComponent },
   // { path: 'search/:searchText', component: ListeProduitsComponent },

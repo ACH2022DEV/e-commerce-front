@@ -32,16 +32,17 @@ public page=0;
   obj: any = { email: '', username: '', id: '', roles: '' };
   constructor(private search:SearchService,private route: ActivatedRoute,private router: Router, private panierService: PanierService) {
 
-    this.getAllPaniers()
-    // this.nombredeprod=this.monpanier.length;
-    console.log(this.nombredeprod)
-    this.nombredeprod;
+    
+    this.getAllPaniers();
+   
 
 
   }
 
   ngOnInit(): void {
-
+   
+    //console.log(this.nombredeprod)
+   // this.nombredeprod;
   }
  
 
@@ -91,7 +92,7 @@ public page=0;
       this.jsonStringObj = sessionStorage.getItem('session');
       this.obj = JSON.parse(this.jsonStringObj);
       let key: any = this.obj.roles;
-      console.log(key[0])
+      //console.log(key[0])
       if (key[0] == 'ROLE_GERANT') {
         return true
       }
@@ -109,7 +110,7 @@ public page=0;
       this.jsonStringObj = sessionStorage.getItem('session');
       this.obj = JSON.parse(this.jsonStringObj);
       let key: any = this.obj.roles;
-      console.log(key[0])
+     // console.log(key[0])
       if (key[0] == 'ROLE_ADMIN') {
         return true
       }

@@ -1,8 +1,15 @@
 .myclass {
-    border: 1px solid #131111;
+    border: 1px solid #eeeaea;
     border-radius: 22px;
 
 
+}
+.margin{
+    margin-top:5%;
+    margin-bottom: 10%;
+}
+.color {
+    background-color: #f0f2f6;
 }
 
 .kl {
@@ -10,20 +17,19 @@
     border: 1px solid #ced4da;
     border-radius: 4px;
     box-sizing: border-box;
-    margin: 6px 0;
-    padding: 10px;
+    margin: 2px 0;
+    padding: 9px;
     width: 100%;
 }
 
 form {
-    padding: 30px;
     width: 80%;
     margin: auto;
 
 }
 
 button {
-    background-color: #04aa6d;
+  
     color: #fff;
     width: 40%;
     border-radius: 25px;
@@ -32,7 +38,7 @@ button {
     display: inline-block;
     font-family: Source Sans Pro, sans-serif;
     font-size: 18px;
-    background: #183661;
+  
 }
 
 button:hover {

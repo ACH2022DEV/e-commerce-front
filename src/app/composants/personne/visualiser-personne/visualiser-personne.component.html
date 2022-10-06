@@ -1,14 +1,38 @@
+<button routerLink="/list-personne" class="btn btn-secondary style mt-5 ms-5" ><i class="bi bi-arrow-left"></i></button>
 <div class="container col-md-3 mt-5 mb-5">
-    <div class="row">
-        <button routerLink="/list-personne" class="btn btn-secondary" >retour</button>
+ 
+ <!--    <div class="row bg-light">
+     
 
-        <h2 class="text-danger">Detail d'une personne:</h2>
+       <img  [src]='convertBase64ToImage(personne.images)' class="rounded-circle">
+     
         <p><strong class=" text-danger ">id:</strong> {{personne.id}}</p> 
         <p><strong class="text-danger">Adress:</strong> {{personne.adress}}</p>
         <p><strong class="text-danger ">Nom:</strong>  {{personne.nom}}</p>
         <p><strong class="text-danger ">Prenom:</strong> {{personne.prenom}}</p>
         <p><strong class="text-danger ">Tel:</strong> {{personne.tel}}</p>
+</div> -->
 </div>
+<div class="card mb-3 col-md-6 offset-md-3 bg-light border border-5 rounded" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img  [src]='convertBase64ToImage(personne.images)' class="rounded-circle" width="250px">
+    </div>
+    <div class="col-md-8 mt-4">
+      <div class="card-body">
+        <h5 class="card-title">{{personne.nom}} {{personne.prenom}}</h5>
+        <p class="card-text">{{personne.adress}}</p>
+        <p class="card-text">{{personne.tel}}</p>
+        <p class="card-text">{{personne.email}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card col-md-6 offset-md-3 bg-light border border-5 rounded mb-2">
+  <div class="card-body">
+    <h5 class="card-title">Activité</h5>
+    <p class="card-text"><h1>{{this.avislenght}}</h1><p  class="fst-italic">Commentaires.</p>
+  </div>
 </div>
 
 <div class=" row">

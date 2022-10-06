@@ -1,11 +1,13 @@
-<div class="container mt-5 my-5 col-md-6 col-xs-12 col-xl-4    myclass">
-  <div>
+
+<div class="row  color">
+<div class="container  margin">
+  <div class="bg-white col-md-6 offset-md-3 card myclass " >
     <h1 class="text-center"><strong>Login</strong></h1>
-    <form #f="ngForm" (ngSubmit)="entrerlogin(f)">
+    <form #f="ngForm" (ngSubmit)="entrerlogin(f)" class="p-1" >
 
 
       <div class="form-group fw-bold">
-        <label for="fname">username:</label>
+        <label for="fname">username</label>
         <input class="kl" type="text" id="username" name="username" required minlength="4" ngModel #username="ngModel">
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
           class="p-2 fs-6 text bg-danger text-white rounded-3">
@@ -21,7 +23,7 @@
 
 
       <div class="form-group fw-bold ">
-        <label for="fname">password:</label>
+        <label for="fname">password</label>
         <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel
           #password="ngModel">
         <div *ngIf="password.invalid && (password.dirty || password.touched)"
@@ -38,13 +40,14 @@
       <div *ngIf="loginError">
         <span class="text-danger">login ou mot de passe erroné</span>
       </div>
-      <hr>
+    <hr>
 
-      <button class="  w-100  " type="submit" [disabled]="f.invalid">login</button>
+      <button class=" btn btn-secondary w-100" type="submit" [disabled]="f.invalid">login</button>
 
       <a routerLink="/register">
         <p class="text-center my-2">Forgot password?</p>
       </a>
+    
     </form>
   </div>
-</div>
+</div></div>

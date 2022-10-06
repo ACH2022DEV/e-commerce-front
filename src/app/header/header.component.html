@@ -1,12 +1,12 @@
-<div class="header_top p-3 d-none d-sm-block " *ngIf="getData()">
+<div class="header_top  d-none d-sm-block " *ngIf="getData()">
     <div class="container  " >
        <div class="row d-flex justify-content-between"  >
-          <div class="col-md-4 mx-0 col-sm-4  " >
+          <div class="col-md-4 mx-0 col-sm-4  p-4 " >
              <ul class="conta_icon "  >
                 <li ><a href="#"><i class="bi bi-envelope-fill">{{obj.email}}</i></a> </li>
              </ul>
           </div>
-          <div class="col-md-4 col-sm-4 ">
+          <div class="col-md-4 col-sm-4 p-4">
              <ul class="social_icon ">
                 <li> <a href="#"><i class=" mx-2  bi bi-facebook"></i>
                    </a>
@@ -18,13 +18,14 @@
                 </li>
              </ul>
           </div>
-          <div class="col-md-4  col-sm-4 ">
-            
-                <div class="conta_icon float-end"   >
-                  <h6 class="">{{obj.username}}</h6> 
+          <div class="col-md-4  col-sm-4  ">
+                <div class="conta_icon float-end p-1"   >
+              
                      <div class="dropdown">
-                        <a class=" dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                           <img  [src]='convertBase64ToImage(client.images)' class="rounded-circle" >
+                        <a class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- <div *ngFor="let img of client2"> [src]='convertBase64ToImage()'-->
+                           <img [src]='convertBase64ToImage(client.images)' class="rounded-circle   " width="50px">
+                           <h6 class="dropdown-toggle">{{obj.username}}</h6>
                            </a>
                          <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="#">Voir la photo de profil</a></li>

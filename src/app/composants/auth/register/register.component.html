@@ -1,5 +1,7 @@
-<div class="container mt-5 my-5 col-md-6 col-sm-6 myclass">
-  <div > <h1  class="text-center"><strong>Register</strong></h1>
+<div class="row  color">
+  <div class="container  margin"> 
+    <div class="bg-white col-md-6 offset-md-3 card myclass p-1">
+    <h1  class="text-center"><strong>Register</strong></h1>
     <form  #f="ngForm" (ngSubmit)="onRegistre(f)">
      
       <div class="form-group fw-bold ">
@@ -94,8 +96,8 @@
     
 
       <hr>
-      <button class="ms-5 me-2 " type="submit" [disabled]="f.invalid"> register</button>
-      <button routerLink="/login" class=" my-2" >Retour</button>
+      <button class=" btn btn-secondary  ms-5 me-2 " type="submit" [disabled]="f.invalid"> register</button>
+      <button routerLink="/login" class=" my-2  btn btn-secondary" >Retour</button>
     </form></div>
-   
+  </div>
   </div>
