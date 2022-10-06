@@ -11,5 +11,9 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ public contact(f:any){
+  let data=f.value;
+  console.log('value',f)
 
+  }
 }

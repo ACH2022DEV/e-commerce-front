@@ -21,20 +21,20 @@
              </ul>
         </div>
         <div class="col-6">
-          <form><div class="col-12">
+          <form #f="ngForm" (ngSubmit)="contact(f)"><div class="col-12">
             <input class="form-control" placeholder="desitinateur"></div>
             <div class="d-flex justify-content-evenly mt-2">
-                <input class="form-control mx-3" placeholder="Nom & Prénom"> <input class="form-control mx-3" placeholder="E-mail"> <input class="form-control mx-3" placeholder="Tel"></div>
+                <input class="form-control mx-3" name="nom" ngModel placeholder="Nom & Prénom"> 
+                <input class="form-control mx-3 " name="email" ngModel placeholder="E-mail">
+                 <input class="form-control mx-3" name="Tel" ngModel placeholder="Tel"></div>
                 <div class="row mt-2">
-                    <div class="col-4"><input class="form-control mx-3" placeholder="Sujet"></div>
-                    <div class="col-7"><input class="form-control mx-3" placeholder="Adress"></div>
+                    <div class="col-4"><input class="form-control mx-3" name="Sujet" ngModel placeholder="Sujet"></div>
+                    <div class="col-7"><input class="form-control mx-3"name="Adress" ngModel placeholder="Adress"></div>
                 </div>
                 <div class=" container mb-3 mt-2">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
+                    <textarea class="form-control" name="Message" ngModel id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
                   </div>
-                  <button type="submit" class="btn  position-relative mb-3 style">
-                  Envoyer
-                  </button>
+                  <button class="btn  position-relative mb-3 style"  type="submit" [disabled]="f.invalid"> Envoyer</button>  
           </form>
         </div>
       </div>
