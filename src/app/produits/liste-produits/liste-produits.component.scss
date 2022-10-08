@@ -1,6 +1,19 @@
-.card img:hover{
-    transition: 0.3 ease-in-out;
-    transform: scale(1.1);
+.animate :hover{
+    transition: 0.1 ease-in-out;
+    transform: scale(1.02);
+  
+    
+}
+
+.animate2{
+   // border: 1px solid #f1eded;
+    border-radius: 22px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.animate{
+    border: 1px solid #f1eded;
+    border-radius: 22px;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 .sidebar{
 border-top: 1px solid #dddddd;}

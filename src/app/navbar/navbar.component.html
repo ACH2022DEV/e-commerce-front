@@ -2,12 +2,12 @@
 <!-- fixed-top-->
 <nav class="navbar margintop   navbar-expand-lg ki">
   <div class="container ">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-5   col-sm-4 ">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-5 col-xl-5   col-sm-4 ">
 
         <li class="nav-item  ">
           <a class="nav-link active text-dark" aria-current="page" href="#" routerLink="/home">Accueil</a>
@@ -68,15 +68,15 @@
         </li>
       </ul>
 
-      <div class=" d-flex   col-sm-10 col-md-4 col-xl-4  " role="search" *ngIf=" loggedIn()">
-        <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Products" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
-        <button  class=" search2  btn btnColor  text-dark mx-1 "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
-          <i class="bi bi-search"></i></button>
+      <div class=" d-flex   col-sm-10 col-md-4 col-xl-6  " role="search" *ngIf=" loggedIn()">
+        <input class="form-control " type="search" name="search" placeholder="&#61442; Search for Products" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
+        <button  class=" search2  btn   text-dark mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
+       <h6 class=" mt-1 " style="color: #fff;">RECHERCHER</h6> </button>
 
 
       </div>
 
-      <div class="col-md-3 col-sm-4  mx-1  d-xs-flex justify-content-center    d-flex justify-content-end ">
+      <div class="col-md-3 col-sm-4  col-xl-2  mx-1  d-xs-flex justify-content-center    d-flex justify-content-end ">
         <button *ngIf=" getAccestouser() && loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Votre Panier" placement="top"
         >
           <i class="bi bi-cart3" routerLink="/Panier"></i>

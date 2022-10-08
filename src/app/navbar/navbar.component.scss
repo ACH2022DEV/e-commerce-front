@@ -4,15 +4,17 @@
 .search{
     border: 2px solid #131111;
     border-radius: 25px;
-    padding: 10px;
-    width: 100%;
+   /*  padding: 10px;
+    width: 100%; */
+   // box-sizing: border-box;
 
 }
-/* .search2{
-    border: 2px solid #131111;
-    border-radius: 90px;
+.btnColor{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    background-color: #f68b1e;
+    height: 40px;
 
-} */
+}
 /* :hover {
     background-color: #f2c119;
 }   */
@@ -21,10 +23,16 @@
 }
 .form-control::placeholder  {
     font-family: FontAwesome;
+   
   }
-.btnColor{
+  .form-control{
+    box-sizing: border-box;
+    //width: 400px;
+    height: 41px;
+  }
+/* .btnColor{
     background-color: rgb(206, 201, 201);
-}
+} */
 /* .margintop{
     margin-top: 60px;
 } */
