@@ -22,6 +22,7 @@ import { VisualiserFactureComponent } from './factures/visualiser-facture/visual
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ListeproduitComponent } from './listeproduit/listeproduit.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { PageEmployeComponent } from './page-employe/page-employe.component';
 import { PanierComponent } from './panier/panier.component';
@@ -53,7 +54,7 @@ const routes: Routes = [
   { path: 'editer-facture/:id', component: EditerFactureComponent, canActivate: [GuardService] },
   { path: 'crer-facture', component: CrreFactureComponent, canActivate: [GuardService] },
   { path: 'visualiser-facture/:id', component: VisualiserFactureComponent, canActivate: [GuardService] },
-
+  { path: 'notifications', component: NotificationsComponent, canActivate: [GuardService] },
   { path: 'liste-devis', component: ListeDeisComponent, canActivate: [GuardService] },
   { path: 'editer-devis/:codedevis', component: EditerDevisComponent, canActivate: [GuardService] },
   { path: 'crer-devis', component: CrerDevisComponent, canActivate: [GuardService] },

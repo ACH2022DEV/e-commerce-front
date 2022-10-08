@@ -1,11 +1,16 @@
 
 <div class="row  color">
-<div class="container  margin">
-  <div class="bg-white col-md-6 offset-md-3 card myclass " >
+<div class="container  margin ">
+  <div class="row">
+  <div class="col-md-4 mt-5 ms-3"><h1 class="fst-italic text-secondary mb-3 mt-5" style="font-size: 45px;">Maison Modern</h1>
+  <!-- <img src="../../../../assets/images/img/logo.jpg" class=" rounded-4 " width="300px" height="250px"> -->
+  <h3 class=" fst-normal mt-2">Avec Maison Moderne  Suivez,Achetez En Ligne</h3>
+  </div><!--offset-md-4-->
+  <div class="bg-white col-md-5  card myclass offset-md-2 mt-5 rounded-pill" >
     <h1 class="text-center p-3 text-dark "><strong>Login</strong></h1>
     <form #f="ngForm" (ngSubmit)="entrerlogin(f)" class="p-1" >
       <div class="form-group fw-bold">
-        <label for="fname">username</label>
+        <!-- <label for="fname">username</label> -->
         <input class="kl" type="text" id="username" name="username" required minlength="4" ngModel #username="ngModel">
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
           class="p-2 fs-6 text bg-danger text-white rounded-3">
@@ -21,7 +26,7 @@
 
 
       <div class="form-group fw-bold ">
-        <label for="fname">password</label>
+        <!-- <label for="fname">password</label> -->
         <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel
           #password="ngModel">
         <div *ngIf="password.invalid && (password.dirty || password.touched)"
@@ -48,4 +53,4 @@
     
     </form>
   </div>
-</div></div>
+</div></div></div>

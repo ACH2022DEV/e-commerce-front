@@ -1,0 +1,26 @@
+<div class="container">
+    <h6 class="text-center fs-1 p-5 fst-italic text-secondary">Votre Contact</h6>
+<div class="con mb-3 mt-5 mb-5 offset-md-2 bg-light " *ngFor="let contact of contacts" >
+    <div class="row g-5 ">
+      <div class="col-md-4  ">
+        
+        <img [src]='convertBase64ToImage(contact.personne.images)' class="img-fluid rounded-start rounded-pill" width="250px" alt="...">
+        <p class="card-text text-center fs-1 fst-italic">{{contact.personne.nom}} {{contact.personne.prenom}}</p>
+    </div>
+      <div class="col-md-8  ">
+        <div class="card-body ">
+          <p class=" text-start fs-0"><strong class="card-title fs-1">Sujet</strong>  {{contact.sujet}}</p>
+          <p class="card-text">messages: {{contact.message}}</p>
+          <p class="card-text">Vers destinateur: {{contact.destinateur}}</p>
+          <p class="card-text"> DATE: {{contact.dateContact}}</p>
+          <a href="#" class="text-end"><p>Vu</p></a>
+          
+
+        </div>
+      </div>
+    </div>
+  </div></div>
+
+
+
+  

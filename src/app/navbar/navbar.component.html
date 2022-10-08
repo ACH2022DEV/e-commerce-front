@@ -1,4 +1,6 @@
-<nav class="navbar navbar-expand-lg ki">
+
+<!-- fixed-top-->
+<nav class="navbar margintop   navbar-expand-lg ki">
   <div class="container ">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,7 +10,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-5   col-sm-4 ">
 
         <li class="nav-item  ">
-          <a class="nav-link active text-white" aria-current="page" href="#" routerLink="/home">Accueil</a>
+          <a class="nav-link active text-dark" aria-current="page" href="#" routerLink="/home">Accueil</a>
         </li>
         <!--  <li class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,13 +25,13 @@
           </li> -->
           <!--*ngIf="getAccestouser() && logout() &&  loggedIn()"-->
           <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-white" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link  text-dark" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Entreprise
             </a>
           </li>
           <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-white" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link  text-dark" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Contact
             </a>
@@ -41,27 +43,27 @@
             </a>
           </li> -->
         <li class="nav-item dropdown  " *ngIf="(getAccestoAdmin() || getAccestouser())  &&  loggedIn()" >
-          <a class="nav-link  text-white" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link  text-dark" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{'produits' | translate}}
           </a>
         </li>
        
         <li class="nav-item dropdown  " *ngIf="getAccestoAdmin() &&  loggedIn()">
-          <a class="nav-link  text-white" href="#" routerLink="/adminliste-produit" role="button"
+          <a class="nav-link  text-dark" href="#" routerLink="/adminliste-produit" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             {{'produits' | translate}}
           </a>
 
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-white " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
+          <a class="nav-link  text-dark " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-white " routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
+          <a class="nav-link  text-dark " routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-white " routerLink="/list-personne"
+          <a class="nav-link  text-dark " routerLink="/list-personne"
             *ngIf="getAccestoAdmin() && loggedIn()">{{'Utilisateur'|translate}}</a>
         </li>
       </ul>
@@ -83,14 +85,22 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </button>
-        <button *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Notifications" placement="top"
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-2" tooltip="Notifications" placement="top"
         >
-          <i class="bi bi-bell" routerLink="/"></i>
+          <i class="bi  bi-bell-fill " routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-           +99
+        {{nombreContact}}
             <span class="visually-hidden">unread messages</span>
           </span>
-        </button>
+        </a>
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-2" tooltip="Notifications" placement="top"
+        >
+          <i class="bi  bi-bag-check-fill " routerLink="/notifications"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+         +9
+            <span class="visually-hidden">unread messages</span>
+          </span>
+        </a>
         <button routerLink="/login" class=" btn btn-light text-dark mx-1 " type="submit"
           *ngIf="!loggedIn()">login</button>
         <button routerLink="/register" class=" btn btn-light  text-dark mx-1" type="submit">register</button>

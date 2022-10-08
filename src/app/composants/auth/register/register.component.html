@@ -1,11 +1,11 @@
 <div class="row  color">
   <div class="container  margin"> 
-    <div class="bg-white col-md-6 offset-md-3 card myclass p-1">
+    <div class="bg-white col-md-6 offset-md-3 card myclass p-1 ">
     <h1  class="text-center"><strong>Register</strong></h1>
     <form  #f="ngForm" (ngSubmit)="onRegistre(f)">
      
       <div class="form-group fw-bold ">
-        <label for="fname ">username:</label>
+        <label for="fname ">Username:</label>
         <input class="kl " type="text" id="username" name="username"  required minlength="4" ngModel #username="ngModel">
         <div *ngIf="username.invalid && (username.dirty || username.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
@@ -18,7 +18,7 @@
       </div></div>
       
       <div class="form-group fw-bold">
-        <label for="fname ">password:</label>
+        <label for="fname ">Password:</label>
         <input class="kl" type="password" id="password" name="password" required minlength="4" ngModel #password="ngModel">
         <div *ngIf="password.invalid && (password.dirty || password.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
@@ -31,7 +31,7 @@
       </div>
       </div>
       <div class="form-group fw-bold">
-        <label for="fname ">nom:</label>
+        <label for="fname ">Nom:</label>
         <input class="kl" type="text" id="nom" name="nom" required minlength="4" ngModel #nom="ngModel">
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
@@ -44,7 +44,7 @@
       </div>
       </div>
       <div class="form-group fw-bold">
-        <label for="fname ">prenom:</label>
+        <label for="fname ">Prenom:</label>
         <input class="kl" type="text" id="prenom" name="prenom" required minlength="4" ngModel #prenom="ngModel">
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
@@ -57,7 +57,7 @@
       </div>
       </div>
       <div class="form-group fw-bold ">
-        <label for="fname ">email:</label>
+        <label for="fname ">Email:</label>
         <input class="kl" type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required  ngModel #email="ngModel">
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 

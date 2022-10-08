@@ -3,6 +3,8 @@ import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SecurityService } from '../composants/auth/services/security.service';
+import { ContactService } from '../contact.service';
+import { Contact } from '../models/contact';
 import { Panier } from '../models/panier';
 
 import { Personne } from '../models/personne';
@@ -17,7 +19,9 @@ import { SearchService } from '../produits/search.service';
 export class NavbarComponent implements OnInit {
   helper: any;
   public monpanier: Panier[] = [];
+  public contacts:Contact[]=[]
   public nombredeprod: any;
+  public nombreContact: any;
   //obje:any={}
 //search
 public searchText:string='';
@@ -30,27 +34,29 @@ public page=0;
 
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
-  constructor(private search:SearchService,private route: ActivatedRoute,private router: Router, private panierService: PanierService) {
-
-    
+  constructor(private search:SearchService,private route: ActivatedRoute,private contactService:ContactService,private router: Router, private panierService: PanierService) {
     this.getAllPaniers();
-   
-
-
+    this.getAllContact();
+    
   }
 
   ngOnInit(): void {
    
-    //console.log(this.nombredeprod)
-   // this.nombredeprod;
+   this.nombredeprod;
+   this.nombreContact;
   }
- 
+  public getAllContact(): void {
+    this.contactService.getAllContact().subscribe(data => {
+      this.contacts = data;
+      this.nombreContact= this.contacts.length;
+      this.getAllContact();
 
 
-
-
-  ////
-
+      // console.log(this.monpanier.length)
+    },
+      (error: HttpErrorResponse) => alert(error.message)
+    );
+  }
   public getAllPaniers(): void {
     this.panierService.getAllPanier().subscribe(data => {
       this.monpanier = data;
