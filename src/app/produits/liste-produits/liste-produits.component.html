@@ -75,7 +75,8 @@
                <a class="dropdown-item" href="#">>Something else here</a>   </div>  </div>
               </div>
               
-    </div><div class=" col-md-8 row animate mx-2 p-2  " >
+    </div>
+    <div class=" col-md-8 row animate mx-2 p-2  " >
     <div class="col-md-3 my-2 " *ngFor="let prod of produits; index as i ">
       <div class="card animate ">
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-4 p-2 " alt="...">
@@ -84,8 +85,6 @@
         <h5 class="text-center text-danger">{{prod.prix }} TND</h5>
         <h5 class="text-center">{{prod.paysOrigine}}</h5>
 
-
-      
 
           <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
             <div class="form-group">
@@ -105,34 +104,6 @@
           </form>
 
           <button class="btn btn-secondary my-1 w-100 btn-sm rounded-pill" [routerLink]="['/details/', prod.codeArticle]">Voir details</button>
-          <!--  <button class="btn btn-secondary btn-lg my-1  w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Votre Avis <i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></button>
-                <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title text-center" id="exampleModalLabel">Ajouter votre Avis ici</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form  #f="ngForm" (ngSubmit)="ajouterVotreAvis(f)" > 
-                          <div class="d-flex justify-content-center"><ngx-star-rating  [id]="'rating_'+i"  ></ngx-star-rating></div>
-                         <div class="text-center"><b>Rating: </b>{{form.value.rating}}</div>  
-                    <input class="form-control my-2  " type="text" placeholder="Ajouter Votre Commentaire">
-                     <button type="button" class="btn btn-secondary w-100" data-bs-dismiss="modal">Envoyer Votre Avis</button>
-                    </form>   </div>
-                        
-                     
-                    
-                        
-                        
-                 
-                  </div>
-                </div>
-
-
-
-
-              </div>-->
         </div>
 
       </div>

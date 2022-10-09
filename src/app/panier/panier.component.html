@@ -18,7 +18,7 @@
 
        -->
    
-    <div class="container  card mb-3  " style="max-width: 1000px;" *ngFor="let panier of monpanier">
+    <div class="container  card mb-3  " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
         <div class="row">
           <div class="position-relative"> <div class="position-absolute top-0 end-0 p-1">
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
@@ -81,7 +81,7 @@
     </div> 
    
       <div class=" col-3 mx-5 ">
-        <div class="bg-white p-4"><h5 class="text-center"><p>Nombre d'articles: {{this.nombredeprod}} </p> Le Montant:{{ this.Montant}}</h5>
+        <div class="bg-white p-4"><h5 class="text-center"><p>Nombre d'articles: {{this.nombredeprod}} </p> Le Montant:</h5>
           <div class="d-flex justify-content-center">
              <button type="button" class="btn btn-warning w-100 mb-3">Passer la commande</button> </div></div>
 

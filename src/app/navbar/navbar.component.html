@@ -1,6 +1,6 @@
 
 <!-- fixed-top-->
-<nav class="navbar margintop   navbar-expand-lg ki">
+<nav class="navbar  fixed-top  navbar-expand-lg ki">
   <div class="container ">
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,28 +10,17 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-5 col-xl-5   col-sm-4 ">
 
         <li class="nav-item  ">
-          <a class="nav-link active text-dark" aria-current="page" href="#" routerLink="/home">Accueil</a>
+          <a class="nav-link active text-dark fw-bold " aria-current="page" href="#" routerLink="/home">Accueil</a>
         </li>
-        <!--  <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Role
-            </a>
-            <ul class="dropdown-menu" >
-              <li><a class="dropdown-item" routerLink="/admin">admin</a></li>
-              <li><a class="dropdown-item" routerLink="/employe">employe</a></li>
-             
-            </ul>
-            
-          </li> -->
-          <!--*ngIf="getAccestouser() && logout() &&  loggedIn()"-->
+      
           <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-dark" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link  text-dark fw-bold" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Entreprise
             </a>
           </li>
           <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-dark" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link  text-dark fw-bold" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Contact
             </a>
@@ -43,27 +32,27 @@
             </a>
           </li> -->
         <li class="nav-item dropdown  " *ngIf="(getAccestoAdmin() || getAccestouser())  &&  loggedIn()" >
-          <a class="nav-link  text-dark" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link  text-dark fw-bold" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{'produits' | translate}}
           </a>
         </li>
        
         <li class="nav-item dropdown  " *ngIf="getAccestoAdmin() &&  loggedIn()">
-          <a class="nav-link  text-dark" href="#" routerLink="/adminliste-produit" role="button"
+          <a class="nav-link  text-dark fw-bold" href="#" routerLink="/adminliste-produit" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             {{'produits' | translate}}
           </a>
 
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
+          <a class="nav-link  text-dark fw-bold " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark " routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
+          <a class="nav-link  text-dark  fw-bold" routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark " routerLink="/list-personne"
+          <a class="nav-link  text-dark fw-bold" routerLink="/list-personne"
             *ngIf="getAccestoAdmin() && loggedIn()">{{'Utilisateur'|translate}}</a>
         </li>
       </ul>
@@ -76,16 +65,19 @@
 
       </div>
 
-      <div class="col-md-3 col-sm-4  col-xl-2  mx-1  d-xs-flex justify-content-center    d-flex justify-content-end ">
-        <button *ngIf=" getAccestouser() && loggedIn()" type="button" class="btn btn-light position-relative mx-1" tooltip="Votre Panier" placement="top"
+      <div class="col-md-3 col-sm-4  col-xl-2  mx-3  d-xs-flex justify-content-center    d-flex justify-content-end ">
+        <a routerLink="/Panier" *ngIf=" getAccestouser() && loggedIn()" type="button" class=" position-relative mx-1 mt-2" tooltip="Votre Panier" placement="top"
         >
-          <i class="bi bi-cart3" routerLink="/Panier"></i>
+          <!-- <i class="bi bi-cart3 " routerLink="/Panier"></i> -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+          </svg>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {{this.nombredeprod}}
             <span class="visually-hidden">unread messages</span>
           </span>
-        </button>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-2" tooltip="Notifications" placement="top"
+        </a>
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3" tooltip="Notifications" placement="top"
         >
           <i class="bi  bi-bell-fill " routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -93,7 +85,7 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-2" tooltip="Notifications" placement="top"
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3" tooltip="Notifications" placement="top"
         >
           <i class="bi  bi-bag-check-fill " routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -101,14 +93,40 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <button routerLink="/login" class=" btn btn-light text-dark mx-1 " type="submit"
+        <button routerLink="/login" class=" btn btn-light text-dark mx-1 fw-bold " type="submit"
           *ngIf="!loggedIn()">login</button>
-        <button routerLink="/register" class=" btn btn-light  text-dark mx-1" type="submit">register</button>
-        <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
+        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-light  text-dark mx-1 fw-bold" type="submit">register</button>
+      <!--   <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
         ><i
             class="bi bi-box-arrow-right"></i></button>
-
-
+ -->
+ <!-- <a class="dropdown-toggle" type="button" *ngIf="loggedIn()">
+      <img [src]='convertBase64ToImage(client.images)' class="rounded-circle  " width="50px">
+      </a> -->
+      <!--test-->
+      <div class="btn-group    dropstart mx-3 "  *ngIf="loggedIn()">
+        <a class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img [src]='convertBase64ToImage(client.images)' class="rounded-circle  " width="50px">
+      
+        </a>
+        <ul class="dropdown-menu rounded-3 mt-5  "  style="width: 370px;">
+         <div class="container"><div class=" rounded-4 w-100 mt-2" style="width: 18rem;">
+          <div class="card-body row rounded-4 mx-auto shadow p-3 mb-5 bg-body d-flex ">
+            <h5 class="card-title col-md-3 "> 
+              <img [src]='convertBase64ToImage(client.images)' class="rounded-circle  " width="50px"> </h5>
+            <h6 class="card-subtitle mb-2 text-muted col-md-8 mt-3 fw-bold" >{{client.username}}</h6>
+           <p class="sidebar"></p>
+           <a href="" [routerLink]="['/visualiser-personne', client.id]"><h6 class="text-primary ">Voir Votre Profil</h6></a>
+          </div>
+        </div> </div>
+          <li><a class="p-3  dropdown-item" href="#" (click)="  logout()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg> <strong class="mx-3">Se déconnecter</strong></a></li>
+          <!-- <li><a class="dropdown-item" href="#">Menu item</a></li> -->
+        </ul>
+      </div>
+      <!--fin test-->
       </div>
 
     </div>

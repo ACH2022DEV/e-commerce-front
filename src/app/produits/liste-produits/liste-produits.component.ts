@@ -8,6 +8,7 @@ import { Article } from 'src/app/models/article';
 import { CreatePanier } from 'src/app/models/createPanier';
 import { Picture } from 'src/app/models/mesImages';
 import { Panier } from 'src/app/models/panier';
+import { Personne } from 'src/app/models/personne';
 import { PanierService } from 'src/app/panier/panier.service';
 import { DatabaseService } from 'src/app/services/database.service';
 import { SearchService } from '../search.service';
@@ -24,10 +25,7 @@ export class ListeProduitsComponent implements OnInit {
   public page: number = 0;
   public size: number = 8;
   public monpanier:Panier[]=[];
-  //search
- /*  public searchText:string='';
-  public results:any=[]; */
-  
+ 
 
 
   //fin search
@@ -36,13 +34,15 @@ export class ListeProduitsComponent implements OnInit {
   jsonStringObj: any = {};
 
   obj: any = { email: '', username: '', id: '', roles: '' };
+
   public key: any;
   //public keyword:any;
   public quantity:number=1;
   public produitItem:any;
   public code:any;
   public prodi:boolean=false;
- // public disabled:boolean=false;
+  public ID:any;
+  public nombredeprod: any;
   constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer, private panierService: PanierService,
     private fb: FormBuilder, private avisClient: AvisService,private search:SearchService,private route: ActivatedRoute,private router: Router) {
      //verifier
@@ -68,21 +68,7 @@ export class ListeProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduits();
-    //search
-    /* this.route.params.subscribe(params=>{
-      if(params['searchText'])
-      this.searchText=params['searchText']
     
-    })
-    console.log(this.route.snapshot.params['searchText']);
-    this.search.Search(this.page,this.size,this.route.snapshot.params['searchText']).subscribe(data => {
-      this.results = data;
-  }) */
-
-
-
-    //fin search
-
   }
 
 
@@ -102,8 +88,8 @@ export class ListeProduitsComponent implements OnInit {
 
       this.panierService.addPanier(data).subscribe(data => {
           this.lepanier = new Array<CreatePanier>();
-         
              this.lepanier.push(data);
+             
             
           
          
@@ -116,33 +102,8 @@ export class ListeProduitsComponent implements OnInit {
         
      
   
-     //product exist or not
-    /*  public ajout(){
-     for(let i in this.monpanier){
-      if(this.monpanier[i].article.codeArticle==this.code.paniers.codeArticle){
-        this.monpanier[i].article.quantite++;}
-        else{
-          this. ajouterAuPanier(this.code.paniers.codeArticle);
-        }
-        }
-      } */
-      
-  ///////
- //getPanier
-
- public getAllPaniers(): void {
-  this.panierService.getAllPanier().subscribe(data => {
-    this.monpanier = data;
    
-
-    //console.log(this.monpanier.length)
-  },
-    (error: HttpErrorResponse) => alert(error.message)
-  );
-}
-
-
- ///
+ 
 
   //afficher les produits
   public getAllProduits(): void {

@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CreatePanier } from '../models/createPanier';
 import { Picture } from '../models/mesImages';
 import { Panier } from '../models/panier';
+import { Personne } from '../models/personne';
+import { DatabaseService } from '../services/database.service';
 import { PanierService } from './panier.service';
 
 @Component({
@@ -12,49 +14,53 @@ import { PanierService } from './panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  public monpanier: Panier[] = [];
-  public lepanier: CreatePanier[] = [];
   public nombredeprod: any;
   public Montant: number = 0;
-  constructor(private panierService: PanierService, private sanitizer: DomSanitizer) { }
+  //for panier
+  public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
+public ID:any;
+//
+
+  jsonStringObj: any = {};
+  obj: any = { email: '', username: '', id: '', roles: '' };
+
+  //fin for panier
+  constructor(private personne: DatabaseService,private panierService: PanierService, private sanitizer: DomSanitizer) {
+   
+   }
 
   ngOnInit(): void {
-    this.getAllPaniers();
-    this.getTotal();
-    console.log( this.Montant)
-
+  
+ //get personne(panier)
+ if(sessionStorage.getItem('session')){
+  this.jsonStringObj = sessionStorage.getItem('session'); 
+  console.log('jsonStringObj',this.jsonStringObj)
+  this.obj = JSON.parse(this.jsonStringObj);
+  console.log('obj',this.obj) 
+this.ID=this.obj.id;
+console.log('id',this.ID)
+}
+this.personne.getPersonne(this.ID).subscribe(data=>{
+  this.client=data;
+  this.nombredeprod = this.client.paniers.length;
+ // this.client2=data;
+  console.log('client header',data)})
+ 
+ //fin get personne
 
     
   }
-  public getAllPaniers(): void {
-    this.panierService.getAllPanier().subscribe(data => {
-      this.monpanier = data;
-      this.nombredeprod = this.monpanier.length;
-
-      //console.log(this.monpanier.length)
-    },
-      (error: HttpErrorResponse) => alert(error.message)
-    );
-  }
+ 
   public deleteArticle(id: number) {
     this.panierService.deletePanier(id).subscribe(data => {
-      this.getAllPaniers();
+      this.personne.getPersonne(this.ID).subscribe(data=>{
+        this.client=data;
+        this.nombredeprod = this.client.paniers.length;
+       // this.client2=data;
+        console.log('client header',data)})
     })
   }
-  //ajouter au panier
-  public ajouterAuPanier(f: any) {
-    let data: CreatePanier = f.value;
-    // un objet avec une personne et une liste de panier 
-    this.panierService.addPanier(data).subscribe(data => {
-      this.lepanier = new Array<CreatePanier>();
-      this.lepanier.push(data);
-      console.log(data)
-     
-
-    }
-    )
-  }
-  //
+ 
   //ajouter les images
   convertBase64ToImage(images: Picture[]): any {
 
@@ -66,16 +72,7 @@ export class PanierComponent implements OnInit {
 
   }
 
-  public getTotal(): any {
-  
- if(this.monpanier){
-  this.Montant=0;
-  this.monpanier.forEach((item)=>{
-    this.Montant+=(item.article.quantite*item.article.prix);
-
-  });
- return this.Montant;
-}}
+ 
 
 
 }

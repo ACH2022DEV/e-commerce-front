@@ -15,6 +15,12 @@
     height: 40px;
 
 }
+
+.sidebar{
+    border-top: 2px solid #dddddd;}
+    .gray{
+        background-color: rgb(222, 229, 236);
+    }
 /* :hover {
     background-color: #f2c119;
 }   */
@@ -34,5 +40,9 @@
     background-color: rgb(206, 201, 201);
 } */
 /* .margintop{
-    margin-top: 60px;
+    margin-top: 50px;
 } */
+a{
+    text-decoration: none;
+    color: #000;
+}

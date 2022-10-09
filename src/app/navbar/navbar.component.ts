@@ -1,15 +1,18 @@
 
 import { HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SecurityService } from '../composants/auth/services/security.service';
 import { ContactService } from '../contact.service';
 import { Contact } from '../models/contact';
+import { Picture } from '../models/mesImages';
 import { Panier } from '../models/panier';
 
 import { Personne } from '../models/personne';
 import { PanierService } from '../panier/panier.service';
 import { SearchService } from '../produits/search.service';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +21,7 @@ import { SearchService } from '../produits/search.service';
 })
 export class NavbarComponent implements OnInit {
   helper: any;
-  public monpanier: Panier[] = [];
+ // public monpanier: Panier[] = [];
   public contacts:Contact[]=[]
   public nombredeprod: any;
   public nombreContact: any;
@@ -29,21 +32,39 @@ public results:any=[];
 public size=1000;
 public page=0;
 
-
+public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
+public ID:any;
 //
 
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
-  constructor(private search:SearchService,private route: ActivatedRoute,private contactService:ContactService,private router: Router, private panierService: PanierService) {
-    this.getAllPaniers();
+  constructor(private personne: DatabaseService,private search:SearchService, private sanitizer: DomSanitizer,private route: ActivatedRoute,private contactService:ContactService,private router: Router, private panierService: PanierService) {
+   
     this.getAllContact();
-    
+   // this.nombredeprod;
+    this.nombreContact;
+ 
   }
 
   ngOnInit(): void {
-   
    this.nombredeprod;
    this.nombreContact;
+   //get personne
+   if(sessionStorage.getItem('session')){
+    this.jsonStringObj = sessionStorage.getItem('session'); 
+    console.log('jsonStringObj',this.jsonStringObj)
+    this.obj = JSON.parse(this.jsonStringObj);
+    console.log('obj',this.obj) 
+  this.ID=this.obj.id;
+  console.log('id',this.ID)
+  }
+  this.personne.getPersonne(this.ID).subscribe(data=>{
+    this.client=data;
+    this.nombredeprod = this.client.paniers.length;
+   // this.client2=data;
+    console.log('client header',data)})
+  
+   //fin get personne
   }
   public getAllContact(): void {
     this.contactService.getAllContact().subscribe(data => {
@@ -52,25 +73,11 @@ public page=0;
       this.getAllContact();
 
 
-      // console.log(this.monpanier.length)
     },
       (error: HttpErrorResponse) => alert(error.message)
     );
   }
-  public getAllPaniers(): void {
-    this.panierService.getAllPanier().subscribe(data => {
-      this.monpanier = data;
-      this.nombredeprod = this.monpanier.length;
-      this.getAllPaniers();
-
-
-      // console.log(this.monpanier.length)
-    },
-      (error: HttpErrorResponse) => alert(error.message)
-    );
-  }
-
-  //
+ 
   public logout() {
 
     sessionStorage.clear();
@@ -129,6 +136,14 @@ public page=0;
       return false;
     }
   }
+  convertBase64ToImage(images: Picture[]): any {
 
+    let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+    if (images.length > 0) {
+      base64 = "data:image/png;base64, " + images[0].picbyte;
+    }
+    return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+  }
 
 }
