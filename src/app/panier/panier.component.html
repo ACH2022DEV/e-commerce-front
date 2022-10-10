@@ -1,22 +1,11 @@
-<h1 class="text-center bg-light fst-italic">Votre Panier</h1> 
+<!-- <h1 class="text-center bg-light fst-italic">Votre Panier</h1>  -->
 
-<ng-container *ngIf="true"  >
+
  
-  <div class=" container-fluid bg-light">
-    <button class="btn btn-danger my-1 mx-3 " routerLink="/liste-produits"> Shop More</button>
+  <div class=" container-fluid  mb-3  mt-5" *ngIf="!panierVide">
+    <!-- <button class="btn btn-danger my-1 mx-3 " routerLink="/liste-produits"> Shop More</button> -->
     <div class=" row">
-  
-  
-<div class=" col-8 ms-3">  <!--   <div class="bg-secondary  ">
-        <div class="row">
-        <th class="col-md-4 text-center">Image</th>
-        <th class="col-md-2  text-center">Name of Product </th>
-        <th class="col-md-2  text-center">Quantity</th>
-        <th class=" col-md-2 text-center ">Date</th>
-        </div></div>
-
-
-       -->
+<div class=" col-8 ms-3">  
    
     <div class="container  card mb-3  " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
         <div class="row">
@@ -37,85 +26,55 @@
                  <button  type="button "   class="btn btn-dark my-3 ">UpdateCart</button>
 
                 </div>
-           
-           
-      
-           
-         <!--   
-            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Suppression d'un article</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    Voulez-vous vraiment supprimer cette article?
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal8" (click)="deleteArticle(panier.id)" class="btn btn-primary">Confirmer</button>
-                    <div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Suppression avac succés</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            vous avez supprimé cette produit 
-                          </div>
-                          
-                       
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
+       
         </div>
      </div> 
     
       
     </div> 
    
-      <div class=" col-3 mx-5 ">
+      <div class=" col-md-3 mx-5 shadow-lg  mb-5 bg-body rounded size">
         <div class="bg-white p-4"><h5 class="text-center"><p>Nombre d'articles: {{this.nombredeprod}} </p> Le Montant:</h5>
           <div class="d-flex justify-content-center">
-             <button type="button" class="btn btn-warning w-100 mb-3">Passer la commande</button> </div></div>
-
-
+            <button  class=" search2  btn   text-dark mx-1 btnColor   "  > 
+              <h6 class=" mt-1  " style="color: #fff;">Passer la commande</h6> </button>
+ </div></div>
+           
       </div>
+    </div>
 </div>
-
-
-
-</div>
-  <hr>
-  <div class=" mx-5 p-3 ">
-    <div class="bg-white "><p class="text-center">Voir les recommandations personnalisées</p>
-      <div class="d-flex justify-content-center">
-         <button type="button"  routerLink="/login" class="btn btn-warning  ">Identifiez-vous</button> </div>
-        <p class="text-center">Nouveau client ? <a href="" routerLink="/register" style="text-decoration: none;">Commencer ici.</a></p></div>
-
-
-  </div> <hr>
-
-</ng-container>  
-<ng-container *ngIf="false">
-  <div class="container">
+<div *ngIf="panierVide" class=" mt-5">
+ <!--  <div class="col-8 ms-3">
     <div class="card">
       <h4 class="card-title text-center"> Your Cart</h4>
       <h5 class="card-title text-center">Your Cart Is Empty</h5>
       <h6 class="card-title text-center my-0 ">Add item to it Now</h6>
     </div>
     <div class="center">
-      <img src="../../assets/images/img/emptyCart.webp" class="ms-5">
+      <img src="../../assets/images/img/emptyCart.webp" class="">
      
            <button class="btn btn-primary position-relative" routerLink="/liste-produits"> Shop Now</button>
 
     </div>
-  </div>
+  </div> -->
+<div class="container mt-5 shadow p-3 mb-5 bg-body rounded  ">
+  <div class="d-flex justify-content-center"><img src="../../assets/images/img/paniervide.svg" ></div>
+  
+<p class="fw-bold text-center">Votre panier est vide!</p>
+<p class="text-center"> Parcourez nos catégories et découvrez nos meilleures offres!</p>
+<div class="d-flex justify-content-center"><button  class=" search2  btn   text-dark mx-1 btnColor   "  routerLink="/liste-produits"  > 
+  <h6 class=" mt-1  " style="color: #fff;">Commencer vos Achats</h6> </button></div>
 
-</ng-container>
+</div>
+</div>
+
+
+  
+  <div class=" mx-5  p-3 mb-5 sidebar">
+    <div class="bg-white "><p class="text-center">Voir les recommandations personnalisées</p>
+      <div class="d-flex justify-content-center">
+         <button type="button"  routerLink="/login" class="btn  btnColor "><h6 class=" mt-1  " style="color: #fff;">Identifiez-vous</h6></button> </div>
+        <p class="text-center">Nouveau client ? <a href="" routerLink="/register" style="text-decoration: none;">Commencer ici.</a></p></div>
+        <p class="sidebar mt-3"></p>
+  </div>
+ 

@@ -1,6 +1,6 @@
 
 <!-- fixed-top-->
-<nav class="navbar  fixed-top  navbar-expand-lg ki">
+<nav class="navbar  sticky-top  navbar-expand-lg shadow mb-5 bg-body rounded">
   <div class="container ">
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
       </div>
 
       <div class="col-md-3 col-sm-4  col-xl-2  mx-3  d-xs-flex justify-content-center    d-flex justify-content-end ">
-        <a routerLink="/Panier" *ngIf=" getAccestouser() && loggedIn()" type="button" class=" position-relative mx-1 mt-2" tooltip="Votre Panier" placement="top"
+        <a routerLink="/Panier" *ngIf=" getAccestouser() && loggedIn()" type="button" class=" position-relative mx-1 mt-2" tooltip="Votre Panier" placement="bottom"
         >
           <!-- <i class="bi bi-cart3 " routerLink="/Panier"></i> -->
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
@@ -77,7 +77,7 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"  tooltip="Notifications" placement="top"
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"  tooltip="Notifications" placement="bottom"
         >
           <i class="bi  bi-bell-fill " routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -85,9 +85,9 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3" tooltip="Notifications" placement="top"
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"
         >
-          <i class="bi  bi-bag-check-fill " routerLink="/notifications"></i>
+          <i class="bi  bi-bag-check-fill "  tooltip="Notifications" placement="bottom" routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
          +9
             <span class="visually-hidden">unread messages</span>

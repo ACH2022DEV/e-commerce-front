@@ -16,6 +16,7 @@ import { PanierService } from './panier.service';
 export class PanierComponent implements OnInit {
   public nombredeprod: any;
   public Montant: number = 0;
+  public panierVide:boolean=false;
   //for panier
   public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
 public ID:any;
@@ -30,7 +31,7 @@ public ID:any;
    }
 
   ngOnInit(): void {
-  
+  this.panierVide;
  //get personne(panier)
  if(sessionStorage.getItem('session')){
   this.jsonStringObj = sessionStorage.getItem('session'); 
@@ -43,11 +44,13 @@ console.log('id',this.ID)
 this.personne.getPersonne(this.ID).subscribe(data=>{
   this.client=data;
   this.nombredeprod = this.client.paniers.length;
+  if(this.nombredeprod==0){
+    this.panierVide=true;
+  }
  // this.client2=data;
   console.log('client header',data)})
  
- //fin get personne
-
+ this.panierVide;
     
   }
  
@@ -56,7 +59,7 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
       this.personne.getPersonne(this.ID).subscribe(data=>{
         this.client=data;
         this.nombredeprod = this.client.paniers.length;
-       // this.client2=data;
+     
         console.log('client header',data)})
     })
   }
