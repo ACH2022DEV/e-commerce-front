@@ -3,18 +3,18 @@
  
    
      <div class=" d-flex col-md-6  search-hero mb-2 " >
-      <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchPersonne"  aria-label="Search" >
+      <input class="form-control rounded-pill"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchPersonne"  aria-label="Search" >
       <button class=" search2  btn btn-light  text-dark mx-1" type="submit" [routerLink]="['/searchPersonne/', searchPersonne]"  > 
         <i class="bi bi-search"></i></button> </div>
-    <table class="table table-bordered">
+    <table class="table table-striped shadow p-3 mb-5 bg-body rounded">
      
       <thead>
         <tr>
-          <th scope="col">id</th>
-          <th scope="col">adress</th>
-          <th scope="col">nom</th>
-          <th scope="col">prenom</th>
-          <th scope="col">tel</th>
+          <th scope="col">N° d'dentifiant</th>
+        <th scope="col">Adress</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Numero de Télephone</th>
         </tr>
       </thead>
       <tbody>
@@ -61,9 +61,9 @@
           
           </td>
   
-          <td><button [routerLink]="['/edite-personne/',pers.id]" type="button" class="btn btn-success">Update</button>
+          <td><button [routerLink]="['/edite-personne/',pers.id]" type="button" class="btn btn-success" tooltip="Editer" placement="top"><i class="bi bi-pencil-square"></i></button>
           </td>
-          <td><button  [routerLink]="['/visualiser-personne',pers.id]" type="button" class="btn btn-secondary">visualiser</button></td>
+          <td><button  [routerLink]="['/visualiser-personne',pers.id]" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" tooltip="Visualiser" placement="top"><i class="bi bi-zoom-in"></i></button></td>
         </tr>
       </tbody>
     </table>
@@ -75,11 +75,11 @@
                             </li>
                             
                   </ul></div> -->
-                <div class="d-flex justify-content-center mt-5">  <nav aria-label="Page navigation example " >
+                  <div class="d-flex justify-content-center mt-5">  <nav aria-label="Page navigation example " >
                     <ul class="pagination pointer " >
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous" click=" previous()">
-                          <span aria-hidden="true">&laquo;Prev</span>
+                          <span aria-hidden="true"style="color: black;">&laquo;Prev</span>
                         </a>
                       </li>
                     
@@ -88,12 +88,11 @@
                        </li>
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next"  click="Next()">
-                          <span aria-hidden="true">Next&raquo;</span>
+                          <span aria-hidden="true" style="color: black;">Next&raquo;</span>
                         </a>
                       </li>
                     </ul>
                   </nav></div>
-           
     <!-- <pagination-controls (pageChange)="page = $event" >{{page}}</pagination-controls> -->
     
   </div>

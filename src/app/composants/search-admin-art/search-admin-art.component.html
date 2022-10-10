@@ -1,9 +1,9 @@
 <div class="container mt-5 mb-5">
-    <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end">create</button>
+    <button routerLink="/crer-produits" type="button" class="btn btn-lg btn-dark float-end rounded-2 mb-2">create</button>
    
    
       <div class=" d-flex col-md-6 mb-2 search-hero  " >
-         <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Product"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+         <input class="form-control  rounded-pill" type="search" name="search" placeholder="&#61442; Search for Product"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
          <button class=" search2  btn btn-light  text-dark mx-1" type="submit"   [routerLink]="['/searchAdminPro/', searchText]" > 
            <i class="bi bi-search"></i></button>
        </div>
@@ -11,16 +11,16 @@
      <!-- <div class=" d-flex col-md-6 mb-2 search-hero  " >
       <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Product"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
      </div> -->
-      <table class="table table-bordered">
+      <table class="table table-striped shadow p-3 mb-5 bg-body rounded">
         <thead>
           <tr>
-            <th scope="col"> code_article</th>
-            <th scope="col">description</th>
-            <th scope="col">remise</th>
-            <th scope="col">tva</th>
-            <th scope="col">quantite</th>
-            <th scope="col">prix</th>
-            <th scope="col">paysOrigine</th>
+            <th scope="col"> Code d'article</th>
+            <th scope="col">Description</th>
+            <th scope="col">Remise</th>
+            <th scope="col">Tva</th>
+            <th scope="col">Quantite</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Pays Origine</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +34,7 @@
             <td>{{prod.paysOrigine}}</td>
             <td><button
               class="btn btn-danger "
+              tooltip="Delete" placement="top"
               mwlConfirmationPopover
               [popoverTitle]="popoverTitle"
               [popoverMessage]="popoverMessage"
@@ -44,9 +45,12 @@
             <i class="bi bi-trash3-fill"></i>
             </button> </td>
          
-            <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success">Update</button>
+            <td><button [routerLink]="['/editer-produits/', prod.codeArticle]" type="button" class="btn btn-success"class="btn btn-success"tooltip="Editer" placement="top"
+              ><i class="bi bi-pencil-square"></i>
+            </button>
             </td>
-           <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary">visualiser</button></td>
+           <td><button [routerLink]="['/visualiser-produits/', prod.codeArticle]" type="button" class="btn btn-secondary"tooltip="Visualiser" placement="top"
+            ><i class="bi bi-zoom-in"></i></button></td>
           </tr>
         </tbody>
       </table>
@@ -61,7 +65,7 @@
                       <ul class="pagination pointer " >
                         <li class="page-item">
                           <a class="page-link" href="#" aria-label="Previous" click=" previous()">
-                            <span aria-hidden="true">&laquo;</span>
+                            <span aria-hidden="true"style="color: black;">&laquo;Prev</span>
                           </a>
                         </li>
                       
@@ -70,7 +74,7 @@
                          </li>
                         <li class="page-item">
                           <a class="page-link" href="#" aria-label="Next"  click="Next()">
-                            <span aria-hidden="true">&raquo;</span>
+                            <span aria-hidden="true" style="color: black;">Next&raquo;</span>
                           </a>
                         </li>
                       </ul>

@@ -1,9 +1,9 @@
 
 <div class="container mt-5 mb-5">
-  <button routerLink="/crer-devis" type="button" class="btn btn-dark btn-lg float-end mb-2">create</button>
+  <button routerLink="/crer-devis" type="button" class="btn btn-dark btn-lg float-end mb-2 rounded-2">create</button>
   
     <div class=" d-flex col-md-6  search-hero  " >
-      <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Devis"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
+      <input class="form-control rounded-pill" type="search" name="search" placeholder="&#61442; Search for Devis"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
       <button class=" search2  btn btn-light  text-dark mx-1" type="submit"   > 
          <i class="bi bi-search"></i></button>
      </div>
@@ -11,7 +11,7 @@
    <!-- <div class=" d-flex col-md-6  search-hero  " >
     <input class="form-control" type="search" name="search" placeholder="&#61442; Search for Devis"   ngModel [(ngModel)]="searchText"  aria-label="Search" >
    </div> -->
-    <table class="table table-bordered">
+    <table class="table  table-striped shadow p-3 mb-5 bg-body rounded">
       <thead>
         <tr>
          
@@ -91,7 +91,7 @@
                     <ul class="pagination pointer " >
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous" click=" previous()">
-                          <span aria-hidden="true">&laquo;</span>
+                          <span aria-hidden="true"style="color: black;">&laquo;Prev</span>
                         </a>
                       </li>
                     
@@ -100,7 +100,7 @@
                        </li>
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next"  click="Next()">
-                          <span aria-hidden="true">&raquo;</span>
+                          <span aria-hidden="true" style="color: black;">Next&raquo;</span>
                         </a>
                       </li>
                     </ul>
