@@ -1,11 +1,32 @@
 .animate :hover{
-    transition: 0.1 ease-in-out;
-    transform: scale(1.02);
+    //transition: 0.1 ease-in-out;
+  // transform: scale(1.02);
+   // box-shadow: 0 3px 4px rgba(27, 22, 22, 0.1);
+  // box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+
+    button{
+        visibility:visible;
+    }
   
     
 }
+button{
+    visibility:hidden;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.animate{
+   //box-shadow: 0 3px 4px rgba(27, 22, 22, 0.1);
+   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+//box-shadow:  0 1rem 3rem rgba(black, .175);
 
-
+}
+.card:hover{
+    //box-shadow: 5px 10px 10px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-shadow:  0 1rem 2rem rgba(black, .175);
+}
 /* button[disabled]:hover{
     background-color: gray;
     cursor: none;
@@ -13,25 +34,23 @@
 
 
 
+
+
+
+
+.btnColor{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    background-color: #f68b1e;
+    height: 40px;
+   // color: #fff;
+
+}
+
 .color-bg{
     color: #f68b1e;
     background-color: #feefde;
     font-family: Roboto,Arial,Helvetica,sans-serif;
     
-}
-
-/* .animate2{
-   // border: 1px solid #f1eded;
-   /*  border-radius: 22px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
-   /*  border: 1px solid #f1eded;
-    border-radius: 22px;
-    box-shadow: 0 3px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-}  */
-.animate{
-    border: 1px solid #f1eded;
-    border-radius: 22px;
-    box-shadow: 0 3px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
 .sidebar{
 border-top: 1px solid #dddddd;}
@@ -40,16 +59,3 @@ a,h4{
     font-size: 16px;
     cursor: pointer;
 }
-a:hover{
-    color: #ff9933
-}
- /* div.route:checked{
-    transform: rotate(270deg);
-    transition: all 300ms; 
-     animation-name: example;
-  animation-duration: 4s;
-}
-@keyframes example {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(270deg);}
-  }  */
