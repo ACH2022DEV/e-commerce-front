@@ -1,5 +1,5 @@
-<div class="container row  mt-5  mb-5">
-    <form #f="ngForm" class="col-6 ms-5"(ngSubmit)="UpdateProduit(f)">
+<div class="container row  mt-5  mb-5 ">
+    <form #f="ngForm" class="col-6 ms-5 shadow p-3  mb-5 bg-body rounded "(ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
         <label for="fname"> codeArticle:</label>
         <input class="form-control" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">

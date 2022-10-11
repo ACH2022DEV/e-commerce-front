@@ -45,7 +45,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'entreprise', component: EntrepriseComponent },
   { path: 'contact', component: ContactComponent, canActivate: [GuardService] },
-  { path: 'liste-produits', component: ListeProduitsComponent },
+  { path: 'liste-produits', component: ListeProduitsComponent, canActivate: [GuardService] },
   // { path: 'search/:searchText', component: ListeProduitsComponent },
   { path: 'visualiser-produits/:codeArticle', component: VisualiserProduitsComponent, canActivate: [GuardService] },
   { path: 'crer-produits', component:  CrerProduitsComponent, canActivate: [GuardService] },

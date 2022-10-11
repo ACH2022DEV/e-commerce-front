@@ -23,7 +23,7 @@ export class ListeProduitsComponent implements OnInit {
   public lepanier: CreatePanier[] = [];
   public total: Array<number> | undefined;
   public page: number = 0;
-  public size: number = 8;
+  public size: number = 12;
   public monpanier:Panier[]=[];
  
 

@@ -6,11 +6,28 @@
 }
 
 
-.animate2{
-   // border: 1px solid #f1eded;
-    border-radius: 22px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+/* button[disabled]:hover{
+    background-color: gray;
+    cursor: none;
+} */
+
+
+
+.color-bg{
+    color: #f68b1e;
+    background-color: #feefde;
+    font-family: Roboto,Arial,Helvetica,sans-serif;
+    
 }
+
+/* .animate2{
+   // border: 1px solid #f1eded;
+   /*  border-radius: 22px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
+   /*  border: 1px solid #f1eded;
+    border-radius: 22px;
+    box-shadow: 0 3px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}  */
 .animate{
     border: 1px solid #f1eded;
     border-radius: 22px;

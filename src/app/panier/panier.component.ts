@@ -20,8 +20,9 @@ export class PanierComponent implements OnInit {
   //for panier
   public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
 public ID:any;
+public SousTotal:any=0;
 //
-
+//public quantity:number=1;
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
 
@@ -44,6 +45,9 @@ console.log('id',this.ID)
 this.personne.getPersonne(this.ID).subscribe(data=>{
   this.client=data;
   this.nombredeprod = this.client.paniers.length;
+  this.client.paniers.map(index=>{
+    this.SousTotal+=index.article.prix*index.quantity;
+  })
   if(this.nombredeprod==0){
     this.panierVide=true;
   }
@@ -76,6 +80,8 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
   }
 
  
-
-
+ /* public dimuner(quantity:number){
+ this.quantity=quantity--;
+  }
+ */
 }

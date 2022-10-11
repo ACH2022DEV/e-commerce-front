@@ -10,3 +10,14 @@
 }
 .sidebar{
     border-top: 1px solid #dddddd;}
+    .textColor,a{
+        color: #f68b1e;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .color-bg{
+        color: #f68b1e;
+        background-color: #feefde;
+        font-family: Roboto,Arial,Helvetica,sans-serif;
+        
+    }

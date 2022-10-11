@@ -79,10 +79,14 @@
     <div class=" col-md-8 row animate mx-2 p-2  " >
     <div class="col-md-3 my-2 " *ngFor="let prod of produits; index as i ">
       <div class="card animate ">
+        <div class="position-relative  "> <div class="position-absolute top-0 end-0 mx-2   ">
+          <h3> <span class="badge  color-bg" >-{{prod.remise}}%</span></h3>   </div>
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-4 p-2 " alt="...">
         <div class="card-body ">
-          <p class="card-text text-center">{{prod.description}}</p>
-        <h5 class="text-center text-danger">{{prod.prix }} TND</h5>
+          <h5 class="card-text text-center">{{prod.description}}</h5>
+        <h5 class=" text-danger text-center">{{prod.prix }} TND</h5>
+        <p  class="text-decoration-line-through mx-2 text-center  fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND</p>
+
         <h5 class="text-center">{{prod.paysOrigine}}</h5>
 
 
