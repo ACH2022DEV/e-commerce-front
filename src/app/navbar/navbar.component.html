@@ -1,6 +1,6 @@
 
 <!-- fixed-top-->
-<nav class="navbar  sticky-top  navbar-expand-lg shadow mb-5 bg-body rounded">
+<nav class="navbar  sticky-top  navbar-expand-lg shadow-sm mb-5 bg-body rounded">
   <div class="container ">
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,17 +10,17 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 col-md-5 col-xl-5   col-sm-4 ">
 
         <li class="nav-item  ">
-          <a class="nav-link active text-dark fw-bold " aria-current="page" href="#" routerLink="/home">Accueil</a>
+          <a class="nav-link active hover fst-italic fs-5 " aria-current="page" href="#" routerLink="/home">Accueil</a>
         </li>
       
-          <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-dark fw-bold" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
+          <li class="nav-item dropdown " *ngIf=" getAccestouser() " >
+            <a class="nav-link  fst-italic fs-5 hover" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Entreprise
             </a>
           </li>
           <li class="nav-item dropdown" *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-dark fw-bold" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link  hover fst-italic fs-5" href="#" routerLink="/contact" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Contact
             </a>
@@ -32,34 +32,34 @@
             </a>
           </li> -->
         <li class="nav-item dropdown  " *ngIf=" getAccestouser()  &&  loggedIn()" >
-          <a class="nav-link  text-dark fw-bold" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
+          <a class="nav-link  hover fst-italic fs-5" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             {{'Produits' | translate}}
           </a>
         </li>
        
         <li class="nav-item dropdown  " *ngIf="getAccestoAdmin() &&  loggedIn()">
-          <a class="nav-link  text-dark fw-bold" href="#" routerLink="/adminliste-produit" role="button"
+          <a class="nav-link  hover fst-italic fs-5" href="#" routerLink="/adminliste-produit" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             {{'Produits' | translate}}
           </a>
 
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark fw-bold " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
+          <a class="nav-link  hover fst-italic fs-5 " routerLink="/liste-facture" *ngIf="getAccestoAdmin() && loggedIn()">{{'factures' |translate}} </a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark  fw-bold" routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
+          <a class="nav-link  hover  fst-italic fs-5" routerLink="/liste-devis" *ngIf="getAccestoAdmin() && loggedIn()">{{'devis'|translate}}</a>
         </li>
         <li class="nav-item ">
-          <a class="nav-link  text-dark fw-bold" routerLink="/list-personne"
+          <a class="nav-link hover fst-italic fs-5" routerLink="/list-personne"
             *ngIf="getAccestoAdmin() && loggedIn()">{{'Utilisateur'|translate}}</a>
         </li>
       </ul>
 
       <div class=" d-flex   col-sm-10 col-md-4 col-xl-6  " role="search" *ngIf=" loggedIn()">
         <input class="form-control " type="search" name="search" placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
-        <button  class=" search2  btn   text-dark mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
+        <button  class=" search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
        <h6 class=" mt-1 " style="color: #fff;">RECHERCHER</h6> </button>
 
 
@@ -93,9 +93,9 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <button routerLink="/login" class=" btn btn-light text-dark mx-1 fw-bold " type="submit"
+        <button routerLink="/login" class=" btn btn-light hover mx-1 fw-bold " type="submit"
           *ngIf="!loggedIn()">Login</button>
-        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-light  text-dark mx-1 fw-bold" type="submit">Register</button>
+        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-light  hover mx-1 fw-bold" type="submit">Register</button>
       <!--   <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
         ><i
             class="bi bi-box-arrow-right"></i></button>

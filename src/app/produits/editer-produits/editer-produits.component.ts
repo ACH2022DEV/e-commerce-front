@@ -74,41 +74,11 @@ export class EditerProduitsComponent implements OnInit {
  
      } }}
      removeImage(i: number) {
-      let index = this.userfile.indexOf(this.images);
-      this.userfile.splice.indexOf(this.images,1)
-       this.images.splice(i, 1);
-       
-     }
+      this.images.splice(i, 1);
+      
+    }
  
  
    
-  //this code is for update the new image(check of it)
-/*   public onSelectedFile(event:any){
-    if(event.target.files){
-       const file=event.target.files[0];
-       this.userfile=file;
-        //la nouvelle ligne:
-      var reader=new FileReader();
-      this.imagePath=file;
-      reader.readAsDataURL(file);
-      reader.onload=(event)=>{
-        this.imgURL=reader.result;
-      }
-
-
-      
-      
-      const  fileHan:FileHandle={
-        file:file,
-        url:this.sanitiser.bypassSecurityTrustUrl(
-          window.URL.createObjectURL(file)),
-
-        
-      }
-      this.produit.imageDarticle=fileHan;
-     
-     
-    }
-  }
- */
+  
 }

@@ -1,8 +1,7 @@
 <img src="../../../assets/images/img/carousel-image.jpg" class="ms-3 animate2 marginTop"  height="250px" width="97%"  alt="Mobiliers">
-
-<div class="container-fluid   mt-5 mb-5">
+<div class="container-fluid   mt-5 mb-5 ">
   <div class="row ">
-    <div class="col-md-3 animate  mx-2">
+    <div class="col-md-3 animate  mx-2  bg-white rounded-4">
       <div  class="panel-heading sidebar p-4">
       <h4 class="panel-title fa-play-2  collapsed " data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Mobiliers D'atelier     <i class="bi bi-caret-down-square mx-3  "></i> 
@@ -77,9 +76,9 @@
               
     </div>
    
-    <div class=" col-md-8 row animate mx-2 p-2  " >
+    <div class=" col-md-8 row animate mx-2 p-1 bg-white rounded-4" >
     <div class="col-md-3 my-2 " *ngFor="let prod of produits; index as i ">
-      <div class="card  border-0 ">
+      <div class="card  border-1 rounded-3 ">
         <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
         <div class="position-relative  "> <div class="position-absolute top-0 end-0 mx-2   ">
           <h3> <span class="badge  color-bg" >-{{prod.remise}}%</span></h3>   </div>
@@ -148,3 +147,4 @@
       </ul>
     </nav>
   </div>
+  </div></div>

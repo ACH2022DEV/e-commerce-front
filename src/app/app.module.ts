@@ -14,6 +14,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
@@ -145,6 +146,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationPopoverModule,
     Ng2SearchPipeModule,
     TooltipModule,
+   
+    
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
@@ -164,7 +167,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
 })

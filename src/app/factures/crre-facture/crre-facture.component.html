@@ -1,27 +1,23 @@
-<div class="container  mt-5 mb-5 col-md-6">
-    <form #f="ngForm" (ngSubmit)="addFactures(f)">
+<div class="container-fluid   mt-5 mb-5  p-3  rounded-5">
+  <div class="row ">
+    <div class="col-md-8 mx-2 ">
+    <form #f="ngForm" class="bg-white  p-3" (ngSubmit)="addFactures(f)">
       <div class="form-group">
-        <label for="fname" >personneId:</label>
-       <!--  <input class="form-control" type="number" id="facture.idPersonne" name="idPersonne"   required   ngModel #id="ngModel">
-        <div *ngIf="id.invalid && (id.dirty || id.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
-
-          <div *ngIf="id.errors?.['required']" >
-            Le idPersonne est obligatoire.
-          </div>
-         
-      </div> -->
-      <select class="form-select form-select-lg mb-3" required   name="idPersonne" ngModel  #id="ngModel" aria-label=".form-select-lg example">
-        <option value="" class="text-center">Select your id</option>
+        <div class="form-floating ">
+      <select class="form-select form-select-lg mb-3 h-100 "  required   name="idPersonne" ngModel  #id="ngModel" aria-label=".form-select-lg example">
+        <option value="" class="text-center ">Select your id</option>
        
     <option class="text-center" *ngFor="let per of personnes"  [(ngModel)]="per.id">{{per.id}}</option>
   
-  </select>
+  </select> <label for="floatingSelect">N°Id</label></div>
   
       </div>
       <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
       <div class="form-group">
-        <label for="fname" >CodeArticle:</label>
-        <input class="form-control" type="number" id="codeArticle" name="codeArticle" required   ngModel #codeArticle="ngModel">
+      <div class="form-floating">
+        <input class="form-control text-center" placeholder="CodeArticle" type="number" id="codeArticle" name="codeArticle" required   ngModel #codeArticle="ngModel">
+          <label for="" >CodeArticle</label></div>
+        
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="codeArticle.errors?.['required']" >
@@ -31,9 +27,11 @@
       </div>
       </div>
       <div class="form-group">
-        <label for="fname">Remise:</label>
-        <input class="form-control" type="number" id="remise" name="remise" ngModel required
-          #remise="ngModel">
+        <div class="form-floating">
+          <input class="form-control text-center" placeholder="Remise" type="number" id="remise" name="remise" ngModel required
+          #remise="ngModel">  <label for="">Remise</label></div>
+      
+        
         <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
           class="p-2 my-1 bg-danger text-white rounded-3">
   
@@ -44,8 +42,10 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="fname">quatite:</label>
-        <input class="form-control" type="number" id="facture.articles.quatite" name="quatite" required ngModel #quatite="ngModel">
+        <div class="form-floating"> <input class="form-control text-center" placeholder="Quantité" type="number" id="facture.articles.quatite" name="quatite" required ngModel #quatite="ngModel">
+          <label for="">Quantité</label></div>
+      
+       
         <div *ngIf="quatite.invalid && (quatite.dirty || quatite.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
           <div *ngIf="quatite.errors?.['required']" >
@@ -74,5 +74,16 @@
         </div>
       </div>
       <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
-    </form>
-  </div>
+    </form></div>
+    <!-- <div class="col-md-3  shadow-lg  mb-5 bg-body rounded ">
+      <p class="text-center fs-5 p-1">RÉSUMÉ DU FACTURE </p>
+      <div class="bg-white p-4 sidebar"><span class="text-start fs-5 d-flex">Sous-Total: <h5 class=" mx-1 fw-bold ">.00 TND</h5></span>
+        <div class="d-flex justify-content-center sidebar">
+          <button  class=" search2  btn    mx-1 btnColor  mt-3 "  > 
+            <h6 class=" mt-1  " style="color: #fff;">Passer la commande</h6> </button>
+</div></div> 
+         
+    </div> -->
+  <div class="col-md-3 mx-3 bg-light">dddddddddddddd</div>
+  
+  </div></div>

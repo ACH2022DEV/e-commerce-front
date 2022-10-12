@@ -16,5 +16,8 @@
 a{
   text-decoration: none;
 }
-
+.rating {
+  display: flex;
+  align-items: center;
+}
 
