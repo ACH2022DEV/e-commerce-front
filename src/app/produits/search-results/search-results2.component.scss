@@ -1,0 +1,49 @@
+.animate :hover{
+   
+    button{
+        visibility:visible;
+    }
+  
+
+
+}
+
+button{
+visibility:hidden;
+}
+a{
+text-decoration: none;
+color: #000;
+}
+.animate{
+box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+
+}
+.card:hover{
+
+box-shadow:  0 1rem 2rem rgba(black, .175);
+}
+
+
+.sidebar{
+border-top: 1px solid #dddddd;}
+a,h4{
+color: #898989;
+font-size: 16px;
+cursor: pointer;
+}
+
+.btnColor{
+box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+background-color: #f68b1e;
+height: 40px;
+
+
+}
+
+.color-bg{
+color: #f68b1e;
+background-color: #feefde;
+font-family: Roboto,Arial,Helvetica,sans-serif;
+
+}

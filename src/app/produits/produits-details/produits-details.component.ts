@@ -25,7 +25,7 @@ export class ProduitsDetailsComponent implements OnInit {
   obj: any = { email: '', username: '', id: '', roles: '' };
   public key: any;
   public nombreCommentaire: any;
-  
+public width:number=100;
 
 
   constructor(private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
@@ -77,6 +77,7 @@ export class ProduitsDetailsComponent implements OnInit {
   }
 
   ////////////////////////////////
+ 
   //ajouter un avis d'un client
   public ajouterVotreAvis(f: any) {
     console.log('creer avis', f)

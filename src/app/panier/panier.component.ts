@@ -22,7 +22,7 @@ export class PanierComponent implements OnInit {
 public ID:any;
 public SousTotal:any=0;
 //
-//public quantity:number=1;
+
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
 
@@ -47,6 +47,7 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
   this.nombredeprod = this.client.paniers.length;
   this.client.paniers.map(index=>{
     this.SousTotal+=index.article.prix*index.quantity;
+
   })
   if(this.nombredeprod==0){
     this.panierVide=true;
@@ -63,7 +64,6 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
       this.personne.getPersonne(this.ID).subscribe(data=>{
         this.client=data;
         this.nombredeprod = this.client.paniers.length;
-     
         console.log('client header',data)})
     })
   }
