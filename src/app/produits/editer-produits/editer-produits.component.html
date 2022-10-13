@@ -1,9 +1,9 @@
-<div class="container   mt-5  mb-5 ">
+<div class="container   mt-5  mb-5  ">
   <div class="row">
     <form #f="ngForm" class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100 "(ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
         <div class="form-floating"> 
-        <input class="form-control " placeholder="CodeArticle" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
+        <input class="form-control text-center " placeholder="CodeArticle" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
         <label for="" > CodeArticle</label></div>
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
@@ -15,7 +15,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating">
-        <input class="form-control" placeholder="Description" type="text" id="description" [(ngModel)]="produit.description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel"> 
+        <input class="form-control text-center" placeholder="Description" type="text" id="description" [(ngModel)]="produit.description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel"> 
         <label for=""> Description</label></div>
 
         
@@ -41,8 +41,8 @@
       </div> -->
       <div class="form-group">
         <div class="form-floating"> 
-        <input class="form-control" placeholder="Remise" type="number" id="remise" [(ngModel)]="produit.remise" name="remise" ngModel required  #remise="ngModel" >
-        <label for="">Remise</label></div>
+        <input class="form-control text-center" placeholder="Remise" type="number" id="remise" [(ngModel)]="produit.remise" name="remise" ngModel required  #remise="ngModel" >
+        <label for="">Remise(%)</label></div>
        
         <div *ngIf="remise.invalid && (remise.dirty || remise.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
@@ -54,7 +54,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating">        
-        <input class="form-control" placeholder="TVA" type="number" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel  required  #tva="ngModel">
+        <input class="form-control text-center" placeholder="TVA" type="number" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel  required  #tva="ngModel">
         <label for="">TVA</label> </div>
  <div *ngIf="tva.invalid && (tva.dirty || tva.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
@@ -66,7 +66,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating">
-          <input class="form-control" placeholder="Quantité" type="number" id="quantite" [(ngModel)]="produit.quantite" name="quantite" ngModel  required  #quantite="ngModel">
+          <input class="form-control text-center" placeholder="Quantité" type="number" id="quantite" [(ngModel)]="produit.quantite" name="quantite" ngModel  required  #quantite="ngModel">
         <label for="">Quantité</label></div>
         <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
           <div *ngIf="quantite.errors?.['required']" >
@@ -76,7 +76,7 @@
       </div> </div>
       <div class="form-group">
         <div class="form-floating">
-          <input class="form-control" placeholder="Prix" type="number" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel   required  #prix="ngModel">
+          <input class="form-control text-center" placeholder="Prix" type="number" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel   required  #prix="ngModel">
         <label for="">Prix</label></div>
        
         <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
@@ -89,7 +89,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating">
-           <input class="form-control" placeholder="Pays Origine" type="text" id="paysOrigine" [(ngModel)]="produit.paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
+           <input class="form-control text-center" placeholder="Pays Origine" type="text" id="paysOrigine" [(ngModel)]="produit.paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
         <label for="">Pays Origine</label></div>
        
        <div *ngIf="paysOrigine.invalid && (paysOrigine.dirty || paysOrigine.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
@@ -131,12 +131,12 @@
       <button routerLink="/adminliste-produit" class="btn btn-dark text-white shadow-lg col-md-5" >Retour</button></div>
   
     </form>
-    <div class="col-md-4 offset-md-1 border border-secondary bg- rounded-3  bg-white">
+    <div class="col-md-3 offset-md-1 border border-secondary bg- rounded-3  bg-white">
       <div class="d-flex flex-column "> 
        <h1 class="fst-italic text-center">Images</h1>
        <div  *ngFor="let url of images; let i=index">
        <div class="position-relative"> <div class="position-absolute  p-2 mt-0">
-           <button class="btn bg-light rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
+           <button class="btn text-white rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
     </div>
-          <img   [src]="url" class="rounded-5 my-1 mx-1 " width="350px" ></div></div>
+          <img   [src]="url" class="rounded-5 my-1 mx-1 " width="250px" ></div></div>
    </div></div></div>

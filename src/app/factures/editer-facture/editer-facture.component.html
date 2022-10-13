@@ -19,12 +19,10 @@
               <div *ngIf="codeArticle.errors?.['required']">
                 Le codeArticle est obligatoire.
               </div>
-  
-  
             </div>
           </div>
           <div class="form-group">
-            <label for="fname">Remise:</label>
+            <label for="fname">Remise(%):</label>
             <input class="form-control" type="number" [id]="i+'.remise'" [(ngModel)]="facture.articles[i].remise"
               name="remise" ngModel required #remise="ngModel">
             <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"

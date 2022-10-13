@@ -2,12 +2,12 @@
 <div class="container col-md-3 mt-5 mb-5">
     <div class="row" >
         <h2 class="text-danger">Detail d'une facture:{{facture.id}}</h2>
-        <p><strong class="text-danger">montantTotal: {{facture.montantTotal}}</strong> </p>
-        <p><strong class="text-danger">dateEdition: {{facture.dateEdition |  date:'short'}}</strong> </p>
+        <!-- <p><strong class="text-danger">montantTotal: {{facture.montantTotal}}</strong> </p> -->
+        <!-- <p><strong class="text-danger">dateEdition: {{facture.dateEdition |  date:'short'}}</strong> </p> -->
 
         <div *ngFor="let f of facture.articles">
             <p><strong class="text-danger">id: {{f.id}}</strong> </p>
-            <p><strong class="text-danger">montantTotal: {{f.montantTotal}}</strong> </p>
+            <!-- <p><strong class="text-danger">montantTotal: {{f.montantTotal}}</strong> </p> -->
             <p><strong class="text-danger">codeArticle: {{f.article.codeArticle}}</strong> </p>
             <p><strong class="text-danger">description: {{f.article.description}}</strong> </p>
             <p><strong class="text-danger">paysOrigine: {{f.article.paysOrigine}}</strong> </p>
@@ -21,12 +21,11 @@
             <hr>
 
         </div>
-        
+        <p><strong class="text-danger">montantTotal: {{montantTotal}}</strong> </p>
+
             
         
     
-       
-        
         
     </div>
     <button routerLink="/liste-facture" class="btn btn-secondary" >retour</button>

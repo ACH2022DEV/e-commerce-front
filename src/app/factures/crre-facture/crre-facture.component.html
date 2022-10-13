@@ -1,7 +1,7 @@
-<div class="container-fluid   mt-5 mb-5  p-3  rounded-5">
-  <div class="row ">
-    <div class="col-md-8 mx-2 ">
-    <form #f="ngForm" class="bg-white  p-3" (ngSubmit)="addFactures(f)">
+<div class="container   mt-5 mb-5  p-3  rounded-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 mx-5  ">
+    <form #f="ngForm" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3" (ngSubmit)="addFactures(f)">
       <div class="form-group">
         <div class="form-floating ">
       <select class="form-select form-select-lg mb-3 h-100 "  required   name="idPersonne" ngModel  #id="ngModel" aria-label=".form-select-lg example">
@@ -12,6 +12,18 @@
   </select> <label for="floatingSelect">N°Id</label></div>
   
       </div>
+      <!--Pour Lutilisateur-->
+     <!--  <div class="form-group" *ngIf="bolean">
+        <div class="form-floating ">
+      <select class="form-select form-select-lg mb-3 h-100 "  required   name="idPersonne" ngModel  #id="ngModel" aria-label=".form-select-lg example">
+        <option value="" class="text-center ">Select your id</option>
+       
+    <option class="text-center" *ngFor="let per of personnes"  [(ngModel)]="per.id">{{per.id}}</option>
+  
+  </select> <label for="floatingSelect">N°Id</label></div>
+  
+      </div> -->
+      <!----->
       <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
       <div class="form-group">
       <div class="form-floating">
@@ -29,8 +41,8 @@
       <div class="form-group">
         <div class="form-floating">
           <input class="form-control text-center" placeholder="Remise" type="number" id="remise" name="remise" ngModel required
-          #remise="ngModel">  <label for="">Remise</label></div>
-      
+          #remise="ngModel">  <label for="">Remise(%)</label></div>
+     
         
         <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
           class="p-2 my-1 bg-danger text-white rounded-3">
@@ -52,10 +64,11 @@
             la quantite est obligatoire.
           </div>
           
-      </div>
+      </div> 
+      <!-- <p>Sub Total <input type="text" name="ff" [value]=remise.value*quatite.value ngModel></p> -->
       </div>
     </div>
-     
+   
       <hr>
       <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
       <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
@@ -75,15 +88,16 @@
       </div>
       <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
     </form></div>
-    <!-- <div class="col-md-3  shadow-lg  mb-5 bg-body rounded ">
-      <p class="text-center fs-5 p-1">RÉSUMÉ DU FACTURE </p>
-      <div class="bg-white p-4 sidebar"><span class="text-start fs-5 d-flex">Sous-Total: <h5 class=" mx-1 fw-bold ">.00 TND</h5></span>
+ <!--    <div class="col-md-3 mx-3 bg-white  p-3 shadow  mb-5 bg-body rounded-3 h-100 ">
+      <h1 class="text-center fs-5 p-1">RÉSUMÉ DU FACTURE </h1>
+      <div class="bg-white p-4 sidebar"><span class="text-start fs-5 d-flex">Sous-Total:<h5 class=" mx-1 fw-bold ">.00 TND</h5></span>
         <div class="d-flex justify-content-center sidebar">
           <button  class=" search2  btn    mx-1 btnColor  mt-3 "  > 
-            <h6 class=" mt-1  " style="color: #fff;">Passer la commande</h6> </button>
+            <h6 class=" mt-1  text-white"> <p>montantTotal</p></h6> </button>
+         
 </div></div> 
          
     </div> -->
-  <div class="col-md-3 mx-3 bg-light">dddddddddddddd</div>
+  
   
   </div></div>

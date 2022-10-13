@@ -1,10 +1,10 @@
 <div class="container   mt-5 mb-5">
 <div class="row">
-    <form #f="ngForm" class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100" (ngSubmit)="addProduit(f)">
+    <form #f="ngForm" class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100 " (ngSubmit)="addProduit(f)">
       
       <div class="form-group  ">
         <div class="form-floating">
-          <input class="form-control mt-2 "  placeholder="description" type="text" id="description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel">
+          <input class="form-control mt-2 text-center"  placeholder="description" type="text" id="description" name="description" ngModel required pattern="[a-zA-Z]{3,25}" #description="ngModel">
           <label for="floatingInput">Description</label>
         </div>
        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
@@ -28,8 +28,8 @@
       </div></div> -->
       <div class="form-group">
         <div class="form-floating">
-        <input class="form-control" type="number" placeholder="Remise" id="remise" name="remise" ngModel required  #remise="ngModel" >
-        <label for="">Remise</label>
+        <input class="form-control text-center" type="number" placeholder="Remise" id="remise" name="remise" ngModel required  #remise="ngModel" >
+        <label for="">Remise(%)</label>
       </div>
         
         <div *ngIf="remise.invalid && (remise.dirty || remise.touched)" class="p-2  mt-2 bg-danger text-white rounded-1 text-center">
@@ -42,7 +42,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating"> 
-        <input class="form-control" placeholder="TVA" type="number" id="tva" name="tva" ngModel  required  #tva="ngModel">
+        <input class="form-control text-center" placeholder="TVA" type="number" id="tva" name="tva" ngModel  required  #tva="ngModel">
          <label for="">TVA</label></div>
         <div *ngIf="tva.invalid && (tva.dirty || tva.touched)" class="p-2  mt-2 bg-danger text-white rounded-1 text-center">
 
@@ -53,7 +53,7 @@
       </div>
       </div><div class="form-group">
         <div class="form-floating">
-        <input class="form-control" type="number" id="quantite" placeholder="quantite" name="quantite" ngModel  required  #quantite="ngModel"> <label for="">Quantité</label> </div>
+        <input class="form-control text-center" type="number" id="quantite" placeholder="quantite" name="quantite" ngModel  required  #quantite="ngModel"> <label for="">Quantité</label> </div>
         <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)" class="p-2  mt-2 bg-danger text-white rounded-1 text-center">
           <div *ngIf="quantite.errors?.['required']" >
             La quantite est obligatoire.
@@ -62,7 +62,7 @@
       </div>
       </div>
       <div class="form-group">
-        <div class="form-floating"> <input class="form-control" placeholder="Prix" type="number" id="prix" name="prix" ngModel   required  #prix="ngModel">
+        <div class="form-floating"> <input class="form-control text-center" placeholder="Prix" type="number" id="prix" name="prix" ngModel   required  #prix="ngModel">
         <label for="fname">Prix</label></div>
        
         <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="p-2  mt-2 bg-danger text-white rounded-1 text-center">
@@ -75,7 +75,7 @@
       </div>
       <div class="form-group">
         <div class="form-floating">
-           <input class="form-control" placeholder="Pays Origine" type="text" id="paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
+           <input class="form-control text-center" placeholder="Pays Origine" type="text" id="paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
         <label for="fname">Pays Origine</label></div>
        
        <div *ngIf="paysOrigine.invalid && (paysOrigine.dirty || paysOrigine.touched)" class="p-2 mt-2 bg-danger text-white rounded-1 text-center">
@@ -116,14 +116,14 @@
     </div>
       <button routerLink="/adminliste-produit" class="btn btn-dark col-md-5 shadow-lg" >retour</button></div>
     </form>
-    <div class="col-md-4 offset-md-1 border border-secondary bg- rounded-3  bg-white">
+    <div class="col-md-3 offset-md-1 border border-secondary bg- rounded-3  bg-white ">
        <div class="d-flex flex-column "> 
         <h1 class="fst-italic text-center">Images</h1>
         <div  *ngFor="let url of images; let i=index">
         <div class="position-relative"> <div class="position-absolute  p-2 mt-0">
-            <button class="btn bg-light rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
+            <button class="btn  rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
      </div>
-           <img   [src]="url" class="rounded-5 my-1 mx-1 " width="350px" ></div></div>
+           <img   [src]="url" class="rounded-5 my-1 mx-1 " width="250px" ></div></div>
     </div></div></div></div>
  
  

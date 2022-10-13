@@ -17,7 +17,7 @@ public elements : Array<any> = [];
 public personnes:any=[];
 public size:any;
 public page:any;
-
+ public bolean:boolean=false;
   constructor(private factureService: DatabaseService,private router: Router) { }
 
   ngOnInit(): void {
@@ -59,6 +59,7 @@ public getAllPersonne(){
         factureArticle.remise = f.controls[ctrl].controls['remise'].value;
         factureArticle.quatite = f.controls[ctrl].controls['quatite'].value
         data.articles.push(factureArticle);
+        
       }
     }
     this.factureService.addfacture(data).subscribe(
