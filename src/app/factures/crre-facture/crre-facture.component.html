@@ -24,11 +24,12 @@
   
       </div> -->
       <!----->
+      
       <div *ngFor="let el of elements;let index = index" [ngModelGroup]="index+''">
       <div class="form-group">
       <div class="form-floating">
-        <input class="form-control text-center" placeholder="CodeArticle" type="number" id="codeArticle" name="codeArticle" required   ngModel #codeArticle="ngModel">
-          <label for="" >CodeArticle</label></div>
+        <input class="form-control text-center" placeholder="Reférence" type="number" id="codeArticle" name="codeArticle" required   ngModel #codeArticle="ngModel">
+          <label for="" >Reférence</label></div>
         
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 my-1 bg-danger text-white rounded-3">
 
@@ -70,23 +71,26 @@
     </div>
    
       <hr>
-      <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
-      <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
-      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Creation avac succés</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      
+    
+       <button class="btn  large mx-4 btnColor text-white " type="button" (click)="addArticle()" >Ajout article</button>
+        <button class="btn btn-dark mx-1 meduim text-white" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save</button>
+          <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Creation avac succés</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  vous avez creé une facture
+                </div>
+               
+              </div>
             </div>
-            <div class="modal-body">
-              vous avez creé une facture
-            </div>
-           
           </div>
-        </div>
-      </div>
-      <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
+        <button routerLink="/liste-facture" class="btn btn-dark meduim text-white" >Retour</button>
+     
     </form></div>
  <!--    <div class="col-md-3 mx-3 bg-white  p-3 shadow  mb-5 bg-body rounded-3 h-100 ">
       <h1 class="text-center fs-5 p-1">RÉSUMÉ DU FACTURE </h1>

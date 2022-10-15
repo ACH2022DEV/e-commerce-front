@@ -11,7 +11,15 @@ import { DatabaseService } from 'src/app/services/database.service';
 export class VisualiserFactureComponent implements OnInit {
   // public facture: any = { id:'' };
   public facture: Facture = { id: 0, personne: {} as any, articles: {} as any,montantTotal:0 };
-  public montantTotal=0;
+  public montantSRemise=0;
+  public montantARemise=0;
+  public remise=0;
+  public montant:any;
+  public montanttva:any;
+  public Tva:any;
+  public TTC:number=0;
+  public timbre:any=0.600;
+  public TTCFinal:any=0;
   constructor(private factureService: DatabaseService, private route: ActivatedRoute,
     private router: Router) { }
 
@@ -23,7 +31,20 @@ export class VisualiserFactureComponent implements OnInit {
       //this.facture = (data as any).recordset;
       this.facture=data;
       this.facture.articles.map(index => {
-        this.montantTotal+=index.quatite*index.article.prix
+        this.montantSRemise+=index.quatite*index.article.prix
+      });
+      this.facture.articles.map(index => {
+        this.montantARemise+= index.quatite*(index.article.prix-(index.article.prix*index.remise/100));
+      });
+      this.facture.articles.map(index => {
+        this.remise+= index.quatite*(index.article.prix*index.remise/100);
+       this.montant=this.remise.toFixed(2);
+       this.montanttva=this.montantARemise*19/100;
+       this.Tva=this.montanttva.toFixed(2);
+       this.TTC= Number.parseFloat(this.Tva.toString()) + Number.parseFloat(this.montantARemise.toString())+Number.parseFloat(this.timbre);
+       this.TTCFinal=this.TTC.toFixed(2);
+
+
       });
       console.log('facture',data)
 

@@ -1,32 +1,104 @@
 
-<div class="container col-md-3 mt-5 mb-5">
-    <div class="row" >
-        <h2 class="text-danger">Detail d'une facture:{{facture.id}}</h2>
-        <!-- <p><strong class="text-danger">montantTotal: {{facture.montantTotal}}</strong> </p> -->
-        <!-- <p><strong class="text-danger">dateEdition: {{facture.dateEdition |  date:'short'}}</strong> </p> -->
 
-        <div *ngFor="let f of facture.articles">
-            <p><strong class="text-danger">id: {{f.id}}</strong> </p>
-            <!-- <p><strong class="text-danger">montantTotal: {{f.montantTotal}}</strong> </p> -->
-            <p><strong class="text-danger">codeArticle: {{f.article.codeArticle}}</strong> </p>
-            <p><strong class="text-danger">description: {{f.article.description}}</strong> </p>
-            <p><strong class="text-danger">paysOrigine: {{f.article.paysOrigine}}</strong> </p>
-            <p><strong class="text-danger">prix: {{f.article.prix}}</strong> </p>
-            <p><strong class="text-danger">tva: {{f.article.tva}}</strong> </p>
-            <p><strong class="text-danger">remise: {{f.article.remise}}</strong> </p>
-            <p><strong class="text-danger">quantite: {{f.quatite}}</strong> </p>
-            <p><strong class="text-danger">remises: {{f.remise}}</strong> </p>
-            <p><strong class="text-danger">dateEdition: {{f.dateEdition |  date:'short'}}</strong> </p>
 
-            <hr>
+<!-- <p><strong class="text-danger">dateTime: {{facture.articles[0].dateEdition}}</strong> </p> -->
 
-        </div>
-        <p><strong class="text-danger">montantTotal: {{montantTotal}}</strong> </p>
+<div class=" container d-flex justify-content-center mt-5 mb-5">
+    <div class="row  col-md-8">
+<div class=" mx-5">   
+    <div class="row">
+           <div class="receipt-main ">
+               <div class="row">
+                 
+               </div>
+               
+               <div class="row ">
+                   <div class="">
+                    <div class="container">
+                       <div class=" text-left row">
+                           <div class="receipt-right col-md-8 mt-5">
+                               <h5>Nom & Prénom:{{facture.personne.nom}} {{facture.personne.prenom}} </h5>
+                               <p><b>Mobile :</b> {{facture.personne.tel}}</p>
+                               <p><b>Email :</b> {{facture.personne.email}}</p>
+                               <p><b>Address :</b> {{facture.personne.adress}}</p>
+                               <p class="mt-3"><b>Date :</b><strong>{{facture.articles[0].dateEdition |  date:'fullDate'}}</strong> </p>
 
-            
-        
-    
-        
-    </div>
-    <button routerLink="/liste-facture" class="btn btn-secondary" >retour</button>
-</div>
+                           </div>
+                           <div class=" col-md-4 mt-5 p-0"> 
+                            <p class="fs-6  text-start"><strong> Mohammed Hachicha</strong> </p>
+							<p class="fs-6 text-start"> <i class="fa fa-phone"></i> 58 850 421</p>
+							<p class="fs-6  text-start"><i class="fa fa-envelope-o"></i> hachicha98@gmail.com </p>
+							<p class="fs-6  text-start"><i class="fa fa-location-arrow"></i> Tunisie </p> </div>
+                       </div></div>
+                       <div>
+                           <div class="text-center">
+                               <h3>Facture N°{{facture.id}}</h3>
+                           </div>
+                       </div>
+                       <div class="invoice-items">
+                        <div class="table-responsive" style="overflow: hidden; outline: none;" tabindex="0">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr >
+                                        <th class="per70 text-center text-white">Description</th>
+                                        <th class="per5 text-center text-white">Qty</th>
+                                        <th class="per25 text-center text-white"> TOTAL/Produit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let f of facture.articles">
+                                        <td>{{f.article.description}}</td>
+                                        <td class="text-center">{{f.quatite}}</td>
+                                        <td class="text-center">{{f.quatite*f.article.prix}} TND</td>
+                                    </tr>
+                                  
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colspan="2" class="text-right">Totale </th>
+                                        <th class="text-center">{{montantSRemise}} TND</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-right">Remise</th>
+                                        <th class="text-center">{{montant}} TND</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-right"> Totale Net</th>
+                                        <th class="text-center">{{montantARemise}} TND</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-right"> T.V.A(19%)</th>
+                                        <th class="text-center">{{Tva}} TND</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-right"> Timbre</th>
+                                        <th class="text-center">0.600 TND</th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="2" class="text-right"> TOTAL TTC</th>
+                                        <th class="text-center">{{TTCFinal}} TND</th>
+                                    </tr>
+                                    
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                   </div>
+               </div>
+               
+               <div>
+                 
+               </div>
+               
+               <div class="row d-flex justify-content-center">
+                 <div class="rounded-3 border border-dark col-md-5 mx-1"> 
+                    <p class="text-center p-4">Signature Client</p>
+                 </div>
+                 <div class="rounded-3 border border-dark col-md-5"> 
+                    <p class="text-center p-4">Signature et Cachet</p>
+                 </div>
+               </div>
+               
+           </div>    
+       </div>
+   </div></div></div>

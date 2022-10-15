@@ -10,6 +10,9 @@
   
     
 }
+p{margin: 0px;
+}
+
 a.active{
     background-color: rgb(19, 15, 15);
     color: rgb(249, 237, 237);
@@ -30,6 +33,8 @@ a{
 .card:hover{
     //box-shadow: 5px 10px 10px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     box-shadow: 0 2rem 2rem rgba(black, .250);
+    transition: 0.5 ease-in-out;
+  transform: scale(1.05);
 }
 /* button[disabled]:hover{
     background-color: gray;

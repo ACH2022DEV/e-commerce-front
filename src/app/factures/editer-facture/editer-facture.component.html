@@ -1,18 +1,24 @@
-<div class="container  mt-5 mb-5  col-md-6">
-    <form #f="ngForm" (ngSubmit)="UpdateFacture(f)">
+<div class="container  mt-5 mb-5  rounded-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6 mx-5  ">
+    <form #f="ngForm" (ngSubmit)="UpdateFacture(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3">
       <div class="form-group">
-        <label for="fname"> code:</label>
-        <input class="form-control" type="number" id=" code" [(ngModel)]=" facture.id"   disabled   name="id" ngModel #code="ngModel">
+        <div class="form-floating ">
+        <input class="form-control text-center" placeholder="N° ID" type="number" id=" code" [(ngModel)]=" facture.id"   disabled   name="code" ngModel #code="ngModel">
+        <label for=""> N° ID</label></div>
+
        
       </div>
       <div *ngFor="let articleFacture of facture.articles; let i = index;">
 
         <div [ngModelGroup]="i+''">
           <div class="form-group">
-            <label for="fname">codeArticle:</label>
-            <input class="form-control" type="number" [id]="i+'.codeArticle'"
+            <div class="form-floating "><input class="form-control text-center" placeholder="Reference" type="number" [id]="i+'.codeArticle'"
               [(ngModel)]="facture.articles[i].article.codeArticle" name="codeArticle" ngModel required
-              #codeArticle="ngModel">
+              #codeArticle="ngModel"><label for="">Reference</label></div>
+
+            
+            
             <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
               class="p-2 my-1 bg-danger text-white rounded-3">
   
@@ -22,9 +28,11 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="fname">Remise(%):</label>
-            <input class="form-control" type="number" [id]="i+'.remise'" [(ngModel)]="facture.articles[i].remise"
+            <div class="form-floating "> <input class="form-control text-center" placeholder="Remise(%)" type="number" [id]="i+'.remise'" [(ngModel)]="facture.articles[i].remise"
               name="remise" ngModel required #remise="ngModel">
+              <label for="">Remise(%):</label></div>
+           
+
             <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
               class="p-2 my-1 bg-danger text-white rounded-3">
   
@@ -36,9 +44,11 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="fname">quantite:</label>
-            <input class="form-control" type="number" [id]="i+'.quantite'" [(ngModel)]="facture.articles[i].quatite"
+            <div class="form-floating "><input class="form-control text-center" placeholder="Quantité" type="number" [id]="i+'.quantite'" [(ngModel)]="facture.articles[i].quatite"
               name="quantite" ngModel required #quantite="ngModel">
+              <label for="">Quantité:</label></div>
+            
+
             <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
               class="p-2 my-1 bg-danger text-white rounded-3">
   
@@ -60,8 +70,8 @@
       
       
       <hr>
-      <button class="btn btn-primary mx-2" type="button" (click)="addArticle()" >ajout article</button>
-      <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+      <button class="btn btnColor text-white large" type="button" (click)="addArticle()" >ajout article</button>
+      <button class="btn btn-dark mx-2 meduim text-white" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
       <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -76,7 +86,7 @@
           </div>
         </div>
       </div>
-      <button routerLink="/liste-facture" class="btn btn-primary" >retour</button>
+      <button routerLink="/liste-facture" class="btn btn-dark meduim text-white" >retour</button>
   
     </form>
-  </div>
+  </div></div></div>

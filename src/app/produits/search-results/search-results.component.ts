@@ -16,7 +16,7 @@ export class SearchResultsComponent implements OnInit {
   
 public searchText:any='';
 public results:Article[]=[];
-public size=8;
+public size=12;
 public page=0;
 public code:any;
 public ProductNotFound:boolean=false;
