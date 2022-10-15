@@ -63,8 +63,20 @@ a{
 }
 .sidebar{
 border-top: 1px solid #dddddd;}
+.sidebutton{
+    border-bottom: 1px solid #dddddd;}
 a,h4{
     color: #898989;
     font-size: 16px;
     cursor: pointer;
 }
+.checked {
+    color: orange; 
+    margin: 4px;
+    
+  }
+  .color{
+  color:gray;
+  margin: 4px;
+  
+  }

@@ -43,6 +43,7 @@ export class ListeProduitsComponent implements OnInit {
   public prodi:boolean=false;
   public ID:any;
   public nombredeprod: any;
+  public lenght:any;
   constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer, private panierService: PanierService,
     private fb: FormBuilder, private avisClient: AvisService,private search:SearchService,private route: ActivatedRoute,private router: Router) {
      //verifier
@@ -109,7 +110,8 @@ export class ListeProduitsComponent implements OnInit {
   public getAllProduits(): void {
     this.produitService.getAllArticles(this.page, this.size).subscribe((data: any) => {
       this.produits = data['content'];
-      console.log(data);
+      this.lenght=data['totalElements'];
+      console.log( data['totalElements']);
       this.total = new Array(data['totalPages']);
     },
       (error: HttpErrorResponse) => alert(error.message)

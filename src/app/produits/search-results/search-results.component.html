@@ -6,7 +6,7 @@
 
 <div class="container-fluid   mt-5 mb-5">
   <div class="row ">
-    <div class="col-md-3 animate  mx-2 bg-white rounded-1 h-100">
+    <div class="col-md-3  ms-5 w-50 animate  bg-white rounded-1 h-100">
       <div  class="panel-heading sidebar p-4">
       <p class="panel-title fa-play-2  collapsed " data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Mobiliers D'atelier   <i class="bi bi-caret-down-fill m-2"></i>
@@ -80,22 +80,28 @@
               </div>
               
     </div>
-    <div class=" col-md-8 row animate mx-2 p-2  bg-white rounded-1" >
-      <h3 class="p-2">Les Produits</h3>
-      <p class="sidebar p-2"> 455 résultats</p>
-      <div class="col-md-3 my-2 sidebar" *ngFor="let prod of results; index as i ">
+    <div class=" col-md-8 mx-2 row animate   p-2  bg-white rounded-1" >
+      <h3 class="p-2 ">Les Produits</h3>
+      <p class="sidebutton p-2 sidebar"> {{lenght}} résultats</p>
+      <div class="col-md-3 my-2 " *ngFor="let prod of results; index as i ">
         <div class="card   border-0  ">
           <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
-          <div class="position-relative  "> <div class="position-absolute top-0 end-0 mx-2   ">
-            <h3> <span class="badge  color-bg" >-{{prod.remise}}%</span></h3>   </div>
+          <div class="position-relative  ">
+             
             <a [routerLink]="['/details/', prod.codeArticle]" href="">
-          <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-4 p-3  " alt="..."> </a>
+          <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-4 p-3 mt-1 " alt="..."> </a>
           <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
-            <p class="card-text text-center">{{prod.description}}</p>
-          <p class=" text-danger text-center">{{prod.prix }} TND</p>
-          <p>Reférence:{{prod.codeArticle}}</p>
-          <p  class="text-decoration-line-through mx-2 text-center  fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND</p>
-          <p class="text-center">{{prod.paysOrigine}}</p>
+            <p class="card-text text-start ms-2">{{prod.description}}</p>
+          <p class=" text-danger text-start ms-2">{{prod.prix }} TND</p>
+          <p class="text-start ms-2">Reférence:{{prod.codeArticle}}</p>
+          <p><span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span></p> 
+           
+          <p  class="text-decoration-line-through mx-2 text-start ms-2  fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND <span class="badge  color-bg" >-{{prod.remise}}%</span></p>
+          <p class="text-start ms-2">{{prod.paysOrigine}}</p>
         </a>
   
             <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">

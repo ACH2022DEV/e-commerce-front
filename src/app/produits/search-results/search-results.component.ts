@@ -23,6 +23,8 @@ public ProductNotFound:boolean=false;
 public lepanier: CreatePanier[] = [];
 public quantity:number=1;
 jsonStringObj: any = {};
+public lenght:any;
+public nombreDavis:any;
 
 obj: any = { email: '', username: '', id: '', roles: '' };
 public key: any;
@@ -42,6 +44,12 @@ this.route.params.subscribe(params=>{
   this.searchText=params['searchText']
   this.searchservice.Search(this.page,this.size, this.searchText).subscribe((data:any)=> {
     this.results = data['content'];
+   /*  this.nombreDavis =  this.results.map(index=>{
+      this.nombreDavis+=index.avis
+      
+    })
+    console.log('nombreDavis',this.nombreDavis.lenght) */
+    this.lenght=this.results.length;
     console.log('this.results',data)
     this.total = new Array(data['totalPages']);
    

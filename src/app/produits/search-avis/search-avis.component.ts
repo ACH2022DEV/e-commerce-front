@@ -16,7 +16,7 @@ export class SearchAvisComponent implements OnInit {
   public size=8;
   public page=0;
   public total: Array<number> | undefined;
-
+public lenght:any;
   constructor(private sanitizer: DomSanitizer,private route: ActivatedRoute, private router: Router,private searchservice:SearchService) { }
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ export class SearchAvisComponent implements OnInit {
       this.searchservice.SearchAvis(this.page,this.size,this.searchAvis).subscribe((data:any)=> {
         this.results = data['content'];
         console.log('this.avis',data)
+          this.lenght=  this.results.length;
         this.total = new Array(data['totalPages']);
        
     

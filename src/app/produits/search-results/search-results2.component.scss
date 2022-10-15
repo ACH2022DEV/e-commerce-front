@@ -42,8 +42,18 @@ box-shadow:  0 1rem 2rem rgba(black, .175);
 transition: 0.5 ease-in-out;
   transform: scale(1.05);
 }
-
-
+.checked {
+    color: orange; 
+    margin: 4px;
+    
+  }
+  .color{
+  color:gray;
+  margin: 4px;
+  
+  }
+.sidebutton{
+    border-bottom: 1px solid #dddddd;}
 .sidebar{
 border-top: 1px solid #e5e3e3;}
 a,h4{
