@@ -42,8 +42,9 @@
 } */
 a{
     text-decoration: none;
-    color: #000;
+    color:inherit;
 }
+
 .hover:hover{
     color: rgb(240, 131, 30);
 }
@@ -51,4 +52,7 @@ a{
     float: right;
     margin-top: 0px;
 
+}
+.height{
+    height: 130px;
 }

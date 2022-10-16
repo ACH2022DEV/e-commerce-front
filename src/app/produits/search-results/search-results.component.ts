@@ -15,6 +15,7 @@ import { SearchService } from '../search.service';
 export class SearchResultsComponent implements OnInit {
   
 public searchText:any='';
+public searchforAvis:any='';
 public results:Article[]=[];
 public size=12;
 public page=0;
@@ -39,25 +40,18 @@ public total: Array<number> | undefined;
   }
 
   ngOnInit(): void {
+
 this.route.params.subscribe(params=>{
   if(params['searchText'])
   this.searchText=params['searchText']
   this.searchservice.Search(this.page,this.size, this.searchText).subscribe((data:any)=> {
     this.results = data['content'];
-   /*  this.nombreDavis =  this.results.map(index=>{
-      this.nombreDavis+=index.avis
-      
-    })
-    console.log('nombreDavis',this.nombreDavis.lenght) */
     this.lenght=this.results.length;
     console.log('this.results',data)
     this.total = new Array(data['totalPages']);
-   
-
-
-
 })
-}) 
+})  
+
 }
 
 public ajouterAuPanier(f: any) {
@@ -97,7 +91,6 @@ public ajouterAuPanier(f: any) {
     })
 
   }
-
 
 
 }

@@ -15,10 +15,11 @@ import { DatabaseService } from '../services/database.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  
   ngOnInit(): void {
    
   }
- 
+
   
 
 }

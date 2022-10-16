@@ -71,6 +71,8 @@ import { TooltipModule } from 'ng2-tooltip-directive';
 import { SearchAvisComponent } from './produits/search-avis/search-avis.component';
 import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { NotificationsComponent } from './notifications/notifications.component';
+import { NextDirective } from './next.directive';
+import { PrevDirective } from './prev.directive';
 
 
 
@@ -125,6 +127,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SearchAvisComponent,
     EntrepriseComponent,
     NotificationsComponent,
+    NextDirective,
+    PrevDirective,
     
     
   ],
@@ -146,7 +150,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationPopoverModule,
     Ng2SearchPipeModule,
     TooltipModule,
-   
+    
     
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here

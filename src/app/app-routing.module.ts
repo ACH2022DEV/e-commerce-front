@@ -67,6 +67,8 @@ const routes: Routes = [
   { path: 'details/:codeArticle', component: ProduitsDetailsComponent },
   { path: 'avisSearch/:searchAvis', component: SearchAvisComponent },
   { path: 'searchProduct/:searchText', component: SearchResultsComponent },
+  //nouveau ligne
+  // { path: 'searchProduct/:searchforAvis', component: SearchResultsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', component: LoginComponent },
