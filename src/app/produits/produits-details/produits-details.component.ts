@@ -7,6 +7,7 @@ import { AvisService } from 'src/app/avis.service';
 import { Avis } from 'src/app/models/avis';
 import { AvisDto } from 'src/app/models/avisDto';
 import { CreateAvis } from 'src/app/models/createAvis';
+import { CreatePanier } from 'src/app/models/createPanier';
 import { Picture } from 'src/app/models/mesImages';
 import { PanierService } from 'src/app/panier/panier.service';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -26,9 +27,12 @@ export class ProduitsDetailsComponent implements OnInit {
   public key: any;
   public nombreCommentaire: any;
 public width:number=100;
+public nombreDavis:any;
+public lepanier: CreatePanier[] = [];
+public code:any;
+public quantity:number=1;
 
-
-  constructor(private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
+constructor( private panierService: PanierService,private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
     private router: Router, private avisService: AvisService, private fb: FormBuilder) {
     this.getAllAvis();
     this.nombreCommentaire;
@@ -58,6 +62,8 @@ public width:number=100;
   ngOnInit(): void {
     this.produitService.getarticle(this.route.snapshot.params['codeArticle']).subscribe(data => {
       this.produit = data;
+      //this.nombreDavis=this.produit.article.avis.lenght;
+     // console.log('nomavis',this.nombreDavis)
       this.nombreCommentaire;
 
 
@@ -98,7 +104,25 @@ public width:number=100;
   }
 
 
-  ///
+  public ajouterAuPanier(f: any) {
+    console.log('le nouveau panier',f.value)
+    let data: CreatePanier = {}as any;
+      console.log(data)
+      data.idPersonne=f.value.idPersonne;
+      data.paniers={}as any;
+      data.paniers.codeArticle=f.value.codeArticle;
+      data.paniers.quantity=f.value.quantity;
+      this.code=data.paniers.codeArticle;
+
+      this.panierService.addPanier(data).subscribe(data => {
+          this.lepanier = new Array<CreatePanier>();
+             this.lepanier.push(data);
+             
+            
+          
+         
+        })
+      }
 
 
 

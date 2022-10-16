@@ -17,19 +17,40 @@ a{
   text-decoration: none;
   color: inherit;
 }
+.btnColor{
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  background-color: #f68b1e;
+  height: 40px;
+
+}
 .rating {
   display: flex;
   align-items: center;
 }
-
-
+.form-control{
+  background-color:rgb(224, 224, 224);
+}
+.checked1 {
+  color: orange; 
+  margin: 2px;
+  
+}
+.warning{
+  color: orange; 
+}
+.sidebutton{
+  border-bottom: 1px solid #dddddd;
+}
+.sidetop{
+  border-top: 1px solid #dddddd;
+}
 .checked {
   color: orange; 
   margin: 8px;
   
 }
 .color{
-color:gray;
+color:rgb(184, 184, 184);
 margin: 8px;
 
 }
@@ -49,7 +70,24 @@ input[type="radio"] {
 
   border-radius: 50%;
 }
+.btnshadow{
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+ 
 
+}
+.btnshadow:hover{
+  background-color: #e4811c;
+}
+.stylebtn{
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.color-bg{
+  color: #f68b1e;
+  background-color: #feefde;
+  font-family: Roboto,Arial,Helvetica,sans-serif;
+  
+}
 /* appearance for checked radiobutton */
 input[type="radio"]:checked {
   background-color: #fc8c03;

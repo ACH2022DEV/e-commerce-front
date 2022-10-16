@@ -47,7 +47,7 @@ export class ListeProduitsComponent implements OnInit {
   constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer, private panierService: PanierService,
     private fb: FormBuilder, private avisClient: AvisService,private search:SearchService,private route: ActivatedRoute,private router: Router) {
      //verifier
-     for(let i in this.monpanier){
+     /* for(let i in this.monpanier){
       if(this.monpanier[i].article.codeArticle==this.code.paniers.codeArticle){
         this.monpanier[i].article.quantite++;
         this.poductExist=true;
@@ -55,7 +55,7 @@ export class ListeProduitsComponent implements OnInit {
         else{
           this.poductExist=false;
         }
-        }
+        } */
 
 
      ///

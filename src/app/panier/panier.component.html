@@ -6,8 +6,8 @@
     <!-- <button class="btn btn-danger my-1 mx-3 " routerLink="/liste-produits"> Shop More</button> -->
     <div class=" row">
 <div class=" col-md-8 ms-5">  
-   <div class="shadow p-2  bg-body rounded fs-3  mb-2 "><p>Panier({{this.nombredeprod}})</p></div>
-    <div class="container  shadow mb-2  bg-body rounded sidebar  " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
+   <div class="shadow p-1  bg-body rounded fs-3  mb-0 text-center"><p>Panier({{this.nombredeprod}})</p></div>
+    <div class="container  shadow-sm mb-1  bg-body rounded sidebar rounded-3 " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
         <div class="row  ">
          <!--  <div class="position-relative"> <div class="position-absolute top-0 end-0 p-1">
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
@@ -24,7 +24,7 @@
                 <div class="position-absolute bottom-0 mx-3 textColor"><a  (click)="deleteArticle(panier.id)" class="d-flex"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></div> 
                 </div>
                 <div class="col-md-4 text-end mt-3 "> 
-                   <span class="d-block  text-dark fs-4 fst-normal"><p>  {{panier.article.prix}}.00 TND</p> </span>
+                   <span class="d-block  text-dark fs-4 fst-normal "><p>  {{panier.article.prix}}.00 TND</p> </span>
                   <div class="d-flex position-absolute mt-3 end-0 translate-middle-y">  
                     <p  class="text-decoration-line-through mx-2  fs-5">{{panier.article.prix*(1+panier.article.remise/100)}} TND</p>
                     <p> <span class="badge  color-bg fs-4 " >-{{panier.article.remise}}%</span></p>  
@@ -45,7 +45,7 @@
       
     </div> 
    
-      <div class=" col-md-3  shadow-lg  mb-5 bg-body rounded size">
+      <div class=" col-md-3  shadow-sm  mb-5 bg-body rounded-3 size">
         <p class="text-center fs-5 p-1">RÉSUMÉ DU PANIER </p>
         <div class="bg-white p-4 sidebar"><span class="text-start fs-5 d-flex">Sous-Total: <h5 class=" mx-1 fw-bold ">{{SousTotal}}.00 TND</h5></span>
           <div class="d-flex justify-content-center sidebar">
@@ -83,7 +83,7 @@
 
 
   
-  <div class=" mx-5  p-3 mb-5 sidebar">
+  <div class=" mx-5  p-3 mb-5 sidebar shadow-sm   rounded-2 ">
     <div class="bg-white p-4"><p class="text-center">Voir les recommandations personnalisées</p>
       <div class="d-flex justify-content-center">
          <button type="button"  routerLink="/login" class="btn  btnColor "><h6 class=" mt-1  " style="color: #fff;">Identifiez-vous</h6></button> </div>
