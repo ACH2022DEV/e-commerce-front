@@ -10,7 +10,9 @@ export class PrevDirective {
   PrevFunc(){
     var elm=this.el.nativeElement.parentElement.children[0];
     var item=elm.getElementsByClassName("item");
-    elm.prepend(item[item.lenght -1]);
-    console.log(item)
+   
+       elm.prepend(item[item.lenght-1]);
+      console.log(item)
+ 
   }
 }

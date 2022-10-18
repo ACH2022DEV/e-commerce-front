@@ -172,29 +172,29 @@
 
 
       <!----------------------qqqqqqqqqqqqqq------------------------->
-      <div class="product"> 
-        <div class="container-fluid">
-        <div class="slider-wrap">
-          <div class="slider-main ">
-            <div class="item "  *ngFor="let prod of results; index as i ">
-              <div class="text " >
+      <div class="product  "> 
+        <div class="container-fluid  ">
+        <div class="slider-wrap ">
+          <div class="d-flex justify-content-center ">
+          <div class="slider-main   ">
+            <div class="item   "  *ngFor="let prod of results; index as i ">
+              <div class="text card   shadow-lg  bg-body rounded-4 " >
                     <a [routerLink]="['/details/', prod.codeArticle]" href="">
-                  <img [src]='convertBase64ToImage(prod.images)' width="200px" class=" " alt="..."> </a>
+                  <img [src]='convertBase64ToImage(prod.images)' width="200px" class="p-2" alt="..."> </a>
                   <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
                     <p class="card-text text-start ms-3">{{prod.description}}</p>
                   <p class=" text-danger text-start ms-3">{{prod.prix }} TND</p>
                   <p class="text-start ms-3">Reférence:{{prod.codeArticle}}</p>
-                  <p class="ms-3"><span class="fa fa-star checked"></span>
+                <!--   <p class="ms-3"><span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span></p> 
-                   
+                    <span class="fa fa-star checked"></span></p>  -->
                   <p  class="text-decoration-line-through  text-start ms-3  fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND <span class="badge ms-3  color-bg" >-{{prod.remise}}%</span></p>
-                  <p class="text-start ms-3">{{prod.paysOrigine}}</p>
+                  <!-- <p class="text-start ms-3">{{prod.paysOrigine}}</p> -->
                 </a>
           
-                    <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
+                   <!--  <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
                       <div class="form-group">
                         <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel
                           name="idPersonne">
@@ -213,21 +213,88 @@
                            
                      
                     </form>
-          
+           -->
                   </div>
           
                
              
             </div>
             </div>
-          </div>
-          <button class="carousel-control-prev visibility1 carousel carousel-dark  " appPrev type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+          </div></div>
+          <button class=" visibility1  carousel-control-prev  carousel carousel-dark mx-5 " appNext type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill " viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+            </svg>
+           
           </button>
-          <button class="carousel-control-next carousel carousel-dark background visibility1" appNext type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+          <button class="carousel-control-next  carousel carousel-dark background visibility1" appNext type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+            </svg>
+          </button></div>
+        
+        </div>
+      </div>  
+     <div><img src="../../../assets/maison.jpg" width="100%" height="400px" class="rounded-5 container-fluid" alt=""></div>
+      <div class="product  "> 
+        <div class="container-fluid  ">
+        <div class="slider-wrap  ">
+          <div class=" d-flex justify-content-center">
+          <div class="slider-main   ">
+            <div class="item   "  *ngFor="let prod of results; index as i ">
+              <div class="text card   shadow-lg  bg-body rounded-4 " >
+                    <a [routerLink]="['/details/', prod.codeArticle]" href="">
+                  <img [src]='convertBase64ToImage(prod.images)' width="200px" class="p-2" alt="..."> </a>
+                  <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
+                    <p class="card-text text-start ms-3">{{prod.description}}</p>
+                  <p class=" text-danger text-start ms-3">{{prod.prix }} TND</p>
+                  <p class="text-start ms-3">Reférence:{{prod.codeArticle}}</p>
+                <!--   <p class="ms-3"><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span></p>  -->
+                  <p  class="text-decoration-line-through  text-start ms-3  fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND <span class="badge ms-3  color-bg" >-{{prod.remise}}%</span></p>
+                  <!-- <p class="text-start ms-3">{{prod.paysOrigine}}</p> -->
+                </a>
+          
+                   <!--  <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
+                      <div class="form-group">
+                        <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel
+                          name="idPersonne">
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="prod.codeArticle" ngModel
+                          name="codeArticle">
+                      </div>
+                      <div class="form-group">
+                        <input class="form-control my-1 float-Start w-30  " type="hidden" [(ngModel)]="this.quantity" ngModel
+                          name="quantity">
+                      </div>
+                      <div class="d-flex justify-content-center mb-2">
+                        <button  type="submit" class="btn   text-white mx-1 btnColor w-100  "  > 
+                          <p class="fs-6 "  > Ajouter au panier<i class="bi bi-cart4 "></i></p> </button></div>
+                           
+                     
+                    </form>
+           -->
+                  </div>
+          
+               
+             
+            </div>
+            </div>
+          </div></div>
+          <button class=" visibility1  carousel-control-prev  carousel carousel-dark mx-5 " appNext type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill " viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+            </svg>
+           
+          </button>
+          <button class="carousel-control-next  carousel carousel-dark background visibility1" appNext type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+              <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+            </svg>
           </button></div>
         
         </div>
