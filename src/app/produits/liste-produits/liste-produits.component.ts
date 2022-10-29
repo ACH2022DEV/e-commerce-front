@@ -77,14 +77,14 @@ export class ListeProduitsComponent implements OnInit {
   /////
 
   //ajouter au panier
-  public ajouterAuPanier(f: any) {
-    console.log('le nouveau panier',f.value)
+  public ajouterPanier(f2: any) {
+    console.log('le nouveau panier',f2.value)
     let data: CreatePanier = {}as any;
       console.log(data)
-      data.idPersonne=f.value.idPersonne;
+      data.idPersonne=f2.value.idPersonne;
       data.paniers={}as any;
-      data.paniers.codeArticle=f.value.codeArticle;
-      data.paniers.quantity=f.value.quantity;
+      data.paniers.codeArticle=f2.value.codeArticle;
+      data.paniers.quantity=f2.value.quantity;
       this.code=data.paniers.codeArticle;
 
       this.panierService.addPanier(data).subscribe(data => {

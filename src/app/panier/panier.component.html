@@ -6,8 +6,8 @@
     <!-- <button class="btn btn-danger my-1 mx-3 " routerLink="/liste-produits"> Shop More</button> -->
     <div class=" row">
 <div class=" col-md-8 ms-5">  
-   <div class="shadow p-1  bg-body rounded fs-3  mb-0 text-center"><p>Panier({{this.nombredeprod}})</p></div>
-    <div class="container  shadow-sm mb-1  bg-body rounded sidebar rounded-3 " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
+   <div class=" shadow p-1  bg-body rounded fs-3  mb-0 text-center"><p>Panier({{this.nombredeprod}})</p></div>
+    <div class="container mt-1  shadow mb-1  bg-body rounded sidebar rounded-4  " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
         <div class="row  ">
          <!--  <div class="position-relative"> <div class="position-absolute top-0 end-0 p-1">
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
@@ -45,7 +45,7 @@
       
     </div> 
    
-      <div class=" col-md-3  shadow-sm  mb-5 bg-body rounded-3 size">
+      <div class=" col-md-3  shadow  mb-5 bg-body rounded-3 size">
         <p class="text-center fs-5 p-1">RÉSUMÉ DU PANIER </p>
         <div class="bg-white p-4 sidebar"><span class="text-start fs-5 d-flex">Sous-Total: <h5 class=" mx-1 fw-bold ">{{SousTotal}}.00 TND</h5></span>
           <div class="d-flex justify-content-center sidebar">

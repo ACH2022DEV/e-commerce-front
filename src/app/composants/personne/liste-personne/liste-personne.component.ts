@@ -15,7 +15,7 @@ export class ListePersonneComponent implements OnInit {
  
  public total: Array<number> | undefined;
  public page:number=0;
- public size:number=5;
+ public size:number=8;
  
   public searchPersonne:string='';
 public currentPage:any;

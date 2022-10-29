@@ -12,7 +12,9 @@ p{
     font-size: 17px;
 }
 
-
+.margin{
+  width: 50px;
+}
 
 
 p a {
@@ -82,7 +84,7 @@ font-family: Roboto,Arial,Helvetica,sans-serif;
 }
 /*******************************************/
 
-    .sidebar{
+   /*  .sidebar{
       border-top: 2px solid #dddddd;}
       .gray{
           background-color: rgb(222, 229, 236);
@@ -104,45 +106,35 @@ font-family: Roboto,Arial,Helvetica,sans-serif;
 
   .slider-wrap{
     position: relative;
- // height: 500px;
  height:  490px;
   max-height: 85%;
- //background-color: rgb(245, 245, 245);
   overflow: hidden;
  border-radius: 10px;
 
-//margin-bottom: 50px;
   }
   .slider-main{
     position: absolute;
     width: 200%;
    
-   // background-color:white;
   
   }
   .item{
     display: inline-block;
    width: 100ps;
    border-radius: 10px;
-   // height: 500px;
-   height:  300px;
+   
     position: relative;
   
-   /// padding: 20px;
-    //background-color: #0f0b08;
+   
    margin: 102px;
-    //margin-bottom: 300px;
-   //margin-left: 22px;
-   // display: flex;
+    
   }
  
   .text{
 position: absolute;
 background-color: white;
 border-radius: 5px;
-//top: 50%;
-//left: 50%;
-//margin:60px; 
+
 width: 200px;
 height: 300px;
   }
@@ -156,15 +148,10 @@ visibility:visible;
   
   }
   .carousel-control-prev{
-   // width: 55px;
     margin-left: 0;
   }
   .carousel-control-next{
     width: -55px;
    
   }
-  /* .product{
-   
-    background-color: #f68b1e;
-    height:  300px;
-  } */
+  */

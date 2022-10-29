@@ -1,6 +1,6 @@
 <div class="container  mt-5 mb-5 " >
 
-  <button  routerLink="/creer-personne" type="button" class="btn btn-dark btn-lg float-end mb-2 rounded-2" >create</button>
+  <button  routerLink="/creer-personne" type="button" class="btn btn-danger btn-lg float-end mb-2 rounded-pill " >create</button>
   
     <div class=" d-flex col-md-6  search-hero  " >
       <input class="form-control rounded-pill "  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchPersonne"  aria-label="Search" >
@@ -12,7 +12,6 @@
     <input class="form-control"  autocomplete="off" type="search" name="search" placeholder="&#61442; Search for personnes "   ngModel [(ngModel)]="searchText"  aria-label="Search" >
    </div> -->
   <table class="table shadow p-3 mb-5 bg-body rounded-1 table-hover ">
-   
     <thead>
       <tr>
         <th scope="col"> N°Identifiant</th>
@@ -66,12 +65,13 @@
         
         </td>
 
-        <td><button [routerLink]="['/edite-personne/', pers.id]" type="button" class="btn btn-success" tooltip="Editer" placement="top"><i class="bi bi-pencil-square"></i></button>
+        <td><a [routerLink]="['/edite-personne/', pers.id]" type="button" class=" " tooltip="Editer" placement="top"><i class="bi bi-pencil-square"></i></a>
         </td>
-        <td><button  [routerLink]="['/visualiser-personne', pers.id]" type="button" class="btn btn-secondary" data-bs-toggle="tooltip" tooltip="Visualiser" placement="top"><i class="bi bi-zoom-in"></i></button></td>
+        <td><a  [routerLink]="['/visualiser-personne', pers.id]" type="button" class="" data-bs-toggle="tooltip" tooltip="Visualiser" placement="top"><i class="bi bi-zoom-in"></i></a></td>
       </tr>
     </tbody>
   </table>
+  
  <!--  <div class="btn-group">
     <ul class=" nav nav-pills pointer " *ngFor="let p of total ; let i=index">
                           <li class="nav-item p-1">

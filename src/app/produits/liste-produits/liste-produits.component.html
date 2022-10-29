@@ -80,7 +80,7 @@
       <h3 class="p-2 ">Les Produits</h3>
       <p class="sidebar p-2 sidebutton"> {{lenght}} résultats</p>
     <div class="col-md-3 my-2  " *ngFor="let prod of produits; index as i ">
-      <div class="card  border-0  ">
+      <div class="card  shadow border border-1  ">
         <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
@@ -98,25 +98,22 @@
         <p class="text-start ms-3 fs-6">{{prod.paysOrigine}}</p>
       </a>
 
-          <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
+          <form #f2="ngForm" (ngSubmit)="ajouterPanier(f2)">
             <div class="form-group">
-              <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel
+              <input class="form-control my-1 float-Start w-30" type="hidden" [(ngModel)]="this.key" ngModel
                 name="idPersonne">
             </div>
             <div class="form-group">
-              <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="prod.codeArticle" ngModel
+              <input class="form-control my-1 float-Start w-30" type="hidden" [(ngModel)]="prod.codeArticle" ngModel
                 name="codeArticle">
             </div>
             <div class="form-group">
-              <input class="form-control my-1 float-Start w-30  " type="hidden" [(ngModel)]="this.quantity" ngModel
+              <input class="form-control my-1 float-Start w-30" type="hidden" [(ngModel)]="this.quantity" ngModel
                 name="quantity">
             </div>
             <div class="d-flex justify-content-center mb-2">
-            <button  type="submit" class="btn   text-white mx-1 btnColor w-100  "  > 
-              <p class="fs-6"  >Ajouter au panier<i class="bi bi-cart4 "></i></p> </button></div>
-               
-           
-                  
+            <button  type="submit" class="btn   text-white mx-1 btnColor w-100 "> 
+              <p class="fs-6" >Ajouter au panier<i class="bi bi-cart4 "></i></p></button></div>
           </form>
 
         </div>
