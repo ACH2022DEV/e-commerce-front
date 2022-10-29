@@ -1,22 +1,28 @@
 .size{
     font-size:  65px;
 }
-.form-control{
-background: rgba(227,227,227,0.8);
+/* .form-control{
+background: rgba(248, 248, 248, 0.8);
 
+} */
+button[disabled]{
+    cursor: none;
 }
-
+button[disabled]:hover{
+    background-color: gray;
+    cursor: none;
+}
 .style{
-    border: none;
+    //border: none;
     background: #f88200;
-    border-radius: 9px;
-    font-family: 'robotobold';
+    //border-radius: 9px;
+    //font-family: 'robotobold';
     font-size: 20px;
     text-transform: capitalize;
     color: #fff;
     text-align: center;
     margin-top: 11px;
-    width: 106px;
+    //width: 106px;
     height: 45px;
     float: right;
 }

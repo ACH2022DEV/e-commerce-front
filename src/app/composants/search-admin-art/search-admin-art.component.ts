@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
+import { Picture } from 'src/app/models/mesImages';
 import { SearchService } from 'src/app/produits/search.service';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -22,7 +24,7 @@ export class SearchAdminArtComponent implements OnInit {
  cancelClicked = false;
  //
 
-  constructor(private route: ActivatedRoute, private router: Router,private searchservice:SearchService,private produitService: DatabaseService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private sanitizer: DomSanitizer,private searchservice:SearchService,private produitService: DatabaseService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
@@ -44,6 +46,15 @@ export class SearchAdminArtComponent implements OnInit {
       }) })
        
     }
+    convertBase64ToImage(images: Picture[]): any {
+
+      let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+      if (images.length > 0) {
+        base64 = "data:image/png;base64, " + images[0].picbyte;
+      }
+      return this.sanitizer.bypassSecurityTrustUrl(base64);
+    
+    }  
 
     setPage(i: number,event:any){
       this.page = i;

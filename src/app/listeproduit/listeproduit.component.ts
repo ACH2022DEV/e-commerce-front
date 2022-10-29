@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Article } from '../models/article';
+import { Picture } from '../models/mesImages';
 import { DatabaseService } from '../services/database.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class ListeproduitComponent implements OnInit {
   public produits:Article[]= [];
   public total: Array<number> | undefined;
   public page:number=0;
-  public size:number=5;
+  public size:number=8;
   public searchText:string='';
   //pop up 
  public popoverTitle :string= 'Confirmation';
@@ -20,7 +22,7 @@ export class ListeproduitComponent implements OnInit {
  confirmClicked = false;
  cancelClicked = false;
  //
-  constructor(private produitService: DatabaseService) { }
+  constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getAllProduits();
@@ -43,5 +45,13 @@ export class ListeproduitComponent implements OnInit {
     this.page = i;
     this.getAllProduits();
 }
+convertBase64ToImage(images: Picture[]): any {
 
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if (images.length > 0) {
+    base64 = "data:image/png;base64, " + images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}  
 }

@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { Facture } from 'src/app/models/facture';
+import { Picture } from 'src/app/models/mesImages';
 import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
@@ -15,7 +17,7 @@ export class FactureComponent implements OnInit {
   //
   public total: Array<number> | undefined;
  public page:number=0;
- public size:number=5;
+ public size:number=8;
  public searchText:string='';
  //public tablesizes:any=[5,10,15,20];
  //public count:number=10; 
@@ -26,7 +28,7 @@ export class FactureComponent implements OnInit {
  cancelClicked = false;
  //
 
-  constructor(private factureService: DatabaseService) { }
+  constructor(private factureService: DatabaseService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getAllFacture();
@@ -68,4 +70,15 @@ export class FactureComponent implements OnInit {
 public searchTerm(f:any){
 
 }
+
+convertBase64ToImage(images: Picture[]): any {
+
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if (images.length > 0) {
+    base64 = "data:image/png;base64, " + images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}  
+
 }

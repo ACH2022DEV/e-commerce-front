@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Picture } from 'src/app/models/mesImages';
 import { Personne } from 'src/app/models/personne';
 import { SearchService } from 'src/app/produits/search.service';
 
@@ -15,7 +17,7 @@ export class SearchPersonneComponent implements OnInit {
   public page=0;
   public total: Array<number> | undefined;
 
-  constructor(private route: ActivatedRoute,private router: Router,private searchservice:SearchService) { }
+  constructor(private route: ActivatedRoute,private router: Router,private searchservice:SearchService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params=>{
@@ -41,5 +43,13 @@ export class SearchPersonneComponent implements OnInit {
   })
 
 }
+convertBase64ToImage(images: Picture[]): any {
 
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if (images.length > 0) {
+    base64 = "data:image/png;base64, " + images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}  
 }

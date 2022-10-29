@@ -1,12 +1,11 @@
 
 
 
-<div class="container mt-5">
-  <h1 class="text-center fw-light  p-5 size">CONTACT </h1>
+<div class="container-fluid mt-5 mb-5">
     <div class="row justify-content-evenly">
-        <div class="col-3">
-         <h6>Maison Moderne</h6>
-         <p>Route de Tunis Km 10.5 CP - 3021 - Sfax Tunisie<br>
+        <div class="col-md-4 bg-white shadow rounded-4 mb-5 mt-5 p-5">
+         <h3 class="fw-bold text-center mx-2 "><img src="../../assets/maison.jpg" alt="" width="70px" class="rounded-circle">  Maison Moderne</h3>
+         <p class="fw-semibold mt-3">Route de Tunis Km 10.5 CP - 3021 - Sfax Tunisie<br>
             Tél.: (+216) 74 358 403 - 74 861 842<br>
             Fax: (+216) 74 861 208<br>
             E-mail: Maison.Moderne@gnet.tn contact@MaisonModerne.tn<br></p>
@@ -21,22 +20,24 @@
                 </li>
              </ul>
         </div>
-        <div class="col-6">
-          <form #f="ngForm" (ngSubmit)="Createcontact(f)"><div class="col-12">
-            <input class="form-control" type="hidden" placeholder="desitinateur" [(ngModel)]="this.key" ngModel name="idPersonne">
-            <input class="form-control" placeholder="desitinateur" name="destinateur" ngModel></div>
+        <div class="col-md-6 bg-white shadow mt-5 rounded-5">
+          <h1 class="text-center fs-1  text-dark  mt-2 mb-2 ">CONTACT </h1>
+          <form #f="ngForm" class="mt-2" (ngSubmit)="Createcontact(f)"><div class="col-12">
+            <input class="form-control " type="hidden" placeholder="desitinateur" [(ngModel)]="this.key" ngModel name="idPersonne">
+            <input class="form-control  rounded-pill border-dark" placeholder="desitinateur" name="destinateur" ngModel></div>
             <div class="d-flex justify-content-evenly mt-2">
-                <input class="form-control mx-3" name="nom"  placeholder="Nom & Prénom"> 
-                <input class="form-control mx-3 " name="email"  placeholder="E-mail">
-                 <input class="form-control mx-3" name="Tel"  placeholder="Tel"></div>
+                <input class="form-control mx-3 rounded-pill border-dark" name="nom"  placeholder="Nom & Prénom"> 
+                <input class="form-control mx-3 rounded-pill border-dark" name="email"  placeholder="E-mail">
+                 <input class="form-control mx-3 rounded-pill border-dark" name="Tel"  placeholder="N° de téléphone"></div>
                 <div class="row mt-2">
-                    <div class="col-4"><input class="form-control mx-3" name="sujet" ngModel placeholder="Sujet"></div>
-                    <div class="col-7"><input class="form-control mx-4 "name="Adress"  placeholder="Adress"></div>
+                    <div class="col-4"><input class="form-control mx-3 rounded-pill border-dark" name="sujet" ngModel placeholder="Sujet"></div>
+                    <div class="col-7"><input class="form-control mx-4 rounded-pill border-dark "name="Adress"  placeholder="Adress"></div>
                 </div>
                 <div class=" container mb-3 mt-2">
-                    <textarea class="form-control" name="message" ngModel id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
-                  </div>
-                  <button class="btn  position-relative mb-3 style"  type="submit" [disabled]="f.invalid" > Envoyer</button>  
+                    <textarea class="form-control rounded-pill border-dark p-3" name="message" ngModel id="exampleFormControlTextarea1" rows="3" placeholder="Message"></textarea>
+                  </div><div class="d-flex justify-content-center container-fluid">    
+      <button class="btn   position-relative mb-3 style rounded-5  w-50 shadow"  type="submit" [disabled]="f.invalid" > Envoyer</button>  
+</div>
           </form>
         </div>
       </div>

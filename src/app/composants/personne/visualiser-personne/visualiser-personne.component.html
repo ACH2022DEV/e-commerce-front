@@ -1,17 +1,7 @@
-<button routerLink="/list-personne" class="btn btn-dark style mt-5 ms-5" ><i class="bi bi-arrow-left"></i></button>
+<!-- <button routerLink="/list-personne" class="btn btn-dark style mt-5 ms-5" ><i class="bi bi-arrow-left"></i></button>
 <div class="container col-md-3 mt-5 mb-5">
  
- <!--    <div class="row bg-light">
-     
 
-       <img  [src]='convertBase64ToImage(personne.images)' class="rounded-circle">
-     
-        <p><strong class=" text-danger ">id:</strong> {{personne.id}}</p> 
-        <p><strong class="text-danger">Adress:</strong> {{personne.adress}}</p>
-        <p><strong class="text-danger ">Nom:</strong>  {{personne.nom}}</p>
-        <p><strong class="text-danger ">Prenom:</strong> {{personne.prenom}}</p>
-        <p><strong class="text-danger ">Tel:</strong> {{personne.tel}}</p>
-</div> -->
 </div>
 <div class="card mb-3 col-md-6 offset-md-3 bg-light border border-5 rounded" >
   <div class="row g-0">
@@ -46,17 +36,77 @@
         </div>
 
         <p>Commenté le {{avis.dateAvis | date:'fullDate'}}</p>
-        <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
         <p class="card-text">Message: {{avis.message}}.</p>
 
       </div>
     </div>
 
 </div>
+ -->
+
+ <button routerLink="/list-personne" class="btn bg-white style mt-5 ms-5" ><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+</svg></button>
+ <div class="container  mb-5">
+  <div class="profile-page ">
+      <div class="row">
+          <div class="col-12 ">
+              <div class="mt-0 ">
+                  <div class=" border-5 " >
+                      <figure class="mb-0 ">
+                        <img [src]='convertBase64ToImage(personne.images)' class="col-md-12  shadow"   height="400px"  alt="profile cover">
+
+                      </figure>
+                      <div class="cover-body d-flex justify-content-between align-items-center">
+                          <div >
+                              <img class="rounded-circle img-thumbnail p-2"width="250px" [src]='convertBase64ToImage(personne.images)' alt="profile">
+                          </div>
+                          <div class="mx-5">
+                              <button class="btn btn-light btn-icon-text btn-edit-profile rounded-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
+                                  <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1v6zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4H2z"/>
+                                  <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5zm0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                </svg> Changer la photo de couverture
+                              </button>
+                          </div>
+                      </div>
+                      <span ><h1 class="mt-4  nomPrenom">{{personne.nom}} {{personne.prenom}}</h1></span>
+
+                  </div> </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-5 mx-4 mt-5 shadow bg-white h-100 rounded-2">
+                        <h3 class="fw-bold text-center mt-2">A propos </h3>
+                        <div class="d-flex"><p class="fw-bold mx-2"> Email:</p> <span class="card-text ">{{personne.email}}</span></div>
+                        <div class="d-flex"><p class="fw-bold mx-2"> Adress:</p> <span class="card-text ">{{personne.adress}}</span></div>
+                        <div class="d-flex"><p class="fw-bold mx-2">Numero de téléphone:</p> <span class="card-text ">{{personne.tel}}</span></div>
 
 
-
-
+                      </div>
+                      <div class="col-md-6   mt-5 ">
+                        <div class="p-4 shadow bg-white rounded-2">
+                          <h5 class="card-title">Activité:</h5>
+                          <p class="card-text"><h2>{{this.avislenght}} <span class="text-muted fs-4">Commentaires</span> </h2>
+                        </div>
+                        <div class="  mt-2 p-3 shadow bg-white rounded-1"  *ngFor="let avis of personne.avis; index as i">
+                          <div>
+       
+                            <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-1"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
+                              height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5></a>
+                            <div class="stars d-flex justify-content-start ">
+                              <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
+                            </div>
+                    
+                            <p>Commenté le {{avis.dateAvis | date:'fullDate'}}</p>
+                            <p class="card-text">Message: {{avis.message}}.</p>
+                    
+                          </div>
+                        </div>
+                        </div>
+                      
+                      </div>
+                    </div></div>
+              </div>
 
 
 

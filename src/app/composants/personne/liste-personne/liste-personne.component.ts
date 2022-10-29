@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Picture } from 'src/app/models/mesImages';
 import { Personne } from 'src/app/models/personne';
 import { DatabaseService } from 'src/app/services/database.service';
 
@@ -27,7 +29,7 @@ public currentPage:any;
 
 //public searchText2:any;
 
-  constructor(private pesonneService: DatabaseService) {
+  constructor(private pesonneService: DatabaseService, private sanitizer: DomSanitizer) {
    
    
    }
@@ -69,6 +71,15 @@ public previous(): void {
 }
 
 
+convertBase64ToImage(images: Picture[]): any {
+
+  let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  if (images.length > 0) {
+    base64 = "data:image/png;base64, " + images[0].picbyte;
+  }
+  return this.sanitizer.bypassSecurityTrustUrl(base64);
+
+}  
 
 
 

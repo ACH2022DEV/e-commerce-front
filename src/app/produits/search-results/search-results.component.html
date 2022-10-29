@@ -6,21 +6,21 @@
 
 <div class="container-fluid   mt-5 mb-5">
   <div class="row ">
-    <div class="col-md-3  ms-5 w-50 animate  bg-white rounded-1 h-100">
+    <div class="col-md-3 animate  ms-5  bg-white rounded-1 h-100">
       <div  class="panel-heading sidebar p-4">
       <p class="panel-title fa-play-2  collapsed " data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier   <i class="bi bi-caret-down-fill m-2"></i>
+        Mobiliers D'atelier     <i class="bi bi-caret-down-square mx-3  "></i> 
       </p>
      
     <div class="collapse" id="collapseExample">
       <div class=" card-body">
       <a class="dropdown-item" href="#" [routerLink]="['/searchProduct/','sss']">Action</a>
-     <a class="dropdown-item" href="#"  [routerLink]="['/searchProduct/','4']">SearchParAvis</a>
+     <a class="dropdown-item" href="#">Another action</a>
        <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
     </div>
     <div  class="panel-heading sidebar p-4 ">
       <h4 class="panel-title fa-play-2 collapsed "  data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier2<i class="bi bi-caret-down-fill m-2"></i>
+        Mobiliers D'atelier2<i class="bi bi-caret-down-square mx-3"></i>
       </h4>
     <div class="collapse" id="collapseExample2">
       <div class=" card-body">
@@ -30,7 +30,7 @@
     </div>
     <div  class="panel-heading sidebar p-4">
       <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier2   <i class="bi bi-caret-down-fill m-2"></i>
+        Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
       </h4>
     <div class="collapse" id="collapseExample3">
       <div class=" card-body">
@@ -40,7 +40,7 @@
       </div> 
       <div  class="panel-heading sidebar p-4">
         <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
-          Mobiliers D'atelier2   <i class="bi bi-caret-down-fill m-2"></i>
+          Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
         </h4>
       <div class="collapse" id="collapseExample4">
         <div class=" card-body">
@@ -50,7 +50,7 @@
         </div>
         <div  class="panel-heading sidebar p-4">
           <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample">
-            Mobiliers D'atelier2  <i class="bi bi-caret-down-fill m-2"></i>
+            Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
           </h4>
         <div class="collapse" id="collapseExample5">
           <div class=" card-body">
@@ -60,7 +60,7 @@
           </div>
           <div  class="panel-heading sidebar p-4">
             <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample">
-              Mobiliers D'atelier2   <i class="bi bi-caret-down-fill m-2"></i>
+              Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
             </h4>
           <div class="collapse" id="collapseExample6">
             <div class=" card-body">
@@ -70,19 +70,19 @@
             </div>
             <div  class="panel-heading sidebar p-4 ">
               <h4 class="panel-title fa-play-2 collapsed accordion-button  "  data-bs-toggle="collapse" data-bs-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample">
-                Mobiliers D'atelier2  <i class="bi bi-caret-down-fill m-2"></i>
+                Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
               </h4>
             <div class="collapse" id="collapseExample7">
               <div class=" card-body">
-              <a class="dropdown-item" href="#">>Action</a>
-             <a class="dropdown-item" href="#">>Another action</a>
-               <a class="dropdown-item" href="#">>Something else here</a>   </div>  </div>
+              <a class="dropdown-item" href="#">Action</a>
+             <a class="dropdown-item" href="#">Another action</a>
+               <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
               </div>
               
     </div>
-    <div class=" col-md-8 mx-2 row animate   p-2  bg-white rounded-1" >
-      <h3 class="p-2 ">Les Produits</h3>
-      <p class="sidebutton p-2 sidebar "> {{lenght}} résultats</p>
+    <div class=" col-md-8 mx-2 row animate   p-1  bg-white rounded-1" >
+     <div> <h3 class="p-2 ">Les Produits</h3>
+      <p class="sidebutton p-2 sidebar "> {{lenght}} résultats</p></div>
       <div class="col-md-3 my-2 " *ngFor="let prod of results; index as i ">
         <div class="card    shadow border border-1 ">
           <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
@@ -118,7 +118,7 @@
                   name="quantity">
               </div>
               <div class="d-flex justify-content-center mb-2">
-                <button  type="submit" class="btn   text-white mx-1 btnColor w-100  "  > 
+                <button  type="submit" class="btn   text-white mx-1 btnColor w-100  rounded-pill"  > 
                   <p class="fs-6 "  > Ajouter au panier<i class="bi bi-cart4 "></i></p> </button></div>
                    
              

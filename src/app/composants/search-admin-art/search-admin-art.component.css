@@ -16,3 +16,9 @@
   .marginTop{
     margin-top: 100px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
+.color{
+background-color: #f68b1e;}
