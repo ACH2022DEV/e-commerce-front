@@ -4,3 +4,5 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+.sidebar{
+  border-top: 5px solid #dddddd;}

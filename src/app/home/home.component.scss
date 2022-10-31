@@ -6,7 +6,7 @@
     /* .shadow{
         box-shadow: 2px 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
     } */
-    .sidebar{
+   /*  .sidebar{
         border-top: 2px solid #dddddd;}
         .gray{
             background-color: rgb(222, 229, 236);
@@ -95,4 +95,78 @@ justify-content: space-between;
     border-radius: 10px;
    
 
+  } */
+
+  button{
+    visibility:hidden;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+.animate{
+   //box-shadow: 0 3px 4px rgba(27, 22, 22, 0.1);
+   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+//box-shadow:  0 1rem 3rem rgba(black, .175);
+
+}
+.width{
+  width: 400px;
+}
+.box {
+  
+  margin: 5px;
+}
+.hover:hover{
+    //box-shadow: 5px 10px 10px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-shadow: 0 2rem 2rem rgba(black, .250);
+    transition: 0.5 ease-in-out;
+  transform: scale(1.05);
+}
+/* button[disabled]:hover{
+    background-color: gray;
+    cursor: none;
+} */
+
+
+
+
+
+
+
+.btnColor{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    background-color: #f68b1e;
+    height: 40px;
+   // color: #fff;
+
+}
+
+.color-bg{
+    color: #f68b1e;
+    background-color: #feefde;
+    font-family: Roboto,Arial,Helvetica,sans-serif;
+    
+}
+.margin1{
+  width: 200px;
+}
+.sidebar{
+border-top: 1px solid #dddddd;}
+.sidebutton{
+    border-bottom: 1px solid #dddddd;}
+a,h4{
+    color: #898989;
+    font-size: 16px;
+    cursor: pointer;
+}
+.checked {
+    color: orange; 
+    margin: 4px;
+    
+  }
+  .color{
+  color:gray;
+  margin: 4px;
+  
   }
