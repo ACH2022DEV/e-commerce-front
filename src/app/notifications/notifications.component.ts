@@ -4,6 +4,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ContactService } from '../contact.service';
 import { Contact } from '../models/contact';
 import { Picture } from '../models/mesImages';
+import { Personne } from '../models/personne';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-notifications',
@@ -13,10 +15,15 @@ import { Picture } from '../models/mesImages';
 export class NotificationsComponent implements OnInit {
 public contacts:Contact[]=[];
 public nombreContact:any;
-  constructor(private contactService:ContactService, private sanitizer: DomSanitizer) { }
+public personnes: Personne[] = [];
+public total: Array<number> | undefined;
+public page:number=0;
+public size:number=100;
+  constructor(private pesonneService: DatabaseService,private contactService:ContactService, private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.getAllContact();
+    this.getAllPersonne();
   }
   public getAllContact(): void {
     this.contactService.getAllContact().subscribe(data => {
@@ -39,5 +46,15 @@ public nombreContact:any;
     return this.sanitizer.bypassSecurityTrustUrl(base64);
 
   }
-
+  public getAllPersonne(): void {
+    this.pesonneService.getAllPersonne(this.page,this.size).subscribe((response:any) => {
+      this.personnes =response['content'];
+      console.log(response);
+       this.total =new Array(response['totalPages']);//il faut utiliser le totalPages
+      //  this.totalitems =new Array(response['totalElements']);
+     
+    },
+      (error: HttpErrorResponse) => alert(error.message)
+    );
+  }
 }

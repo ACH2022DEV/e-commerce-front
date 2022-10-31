@@ -20,7 +20,23 @@
       </div>
     </div>
   </div></div> -->
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 mx-2 rounded-1 mt-2 mb-5 shadow  bg-body    " > 
+      <p class="fw-bold text-center mt-2 fs-4 ">Tous les Profils</p>
+      <div class="d-flex rounded-pill shadow my-2 bg-white hover"  [routerLink]="['/visualiser-personne', pers.id]"  *ngFor="let pers of personnes" >
+      
+          <div class=" p-1" ><img [src]='convertBase64ToImage(pers.images)' class="ms-1  shadow rounded-circle"   width="50px" ></div>
+        <p class="text-center mt-3 mx-3 fw-semibold fs-6"   >{{pers.nom}} {{pers.prenom}}</p> 
+     
+     
+      
+      </div>
+    </div>
+    <div class="col-md-4 mx-3 rounded-1 mt-2 mb-5  shadow-sm bg-white"> fffff</div>
+    <div class="col-md-4 rounded-1 shadow-sm mt-2 mb-5  bg-white"> fffff</div>
+  </div>
+</div>
 
 
   

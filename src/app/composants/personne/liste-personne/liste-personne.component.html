@@ -29,7 +29,7 @@
       <!-- | paginate: { itemsPerPage: 7, currentPage: pageNo, totalItems: total } -->
       <tr *ngFor="let pers of personnes">
         <th scope="row">{{pers.id}}</th>
-        <td>  <img [src]='convertBase64ToImage(pers.images)' class="  shadow rounded-circle"   width="50px"  alt="profile cover">
+        <td>  <img [src]='convertBase64ToImage(pers.images)' class="  shadow rounded-circle"   width="50px" >
         </td>
         <td>{{pers.nom}}</td>
         <td>{{pers.prenom}}</td>
