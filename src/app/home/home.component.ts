@@ -19,7 +19,7 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HomeComponent implements OnInit {
   public results:Article[]=[];
-public size=12;
+public size=6;
 public page=0;
 public searchText:any='s';
 public lenght:any;
