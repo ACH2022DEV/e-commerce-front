@@ -96,7 +96,9 @@ justify-content: space-between;
    
 
   } */
-
+.container{
+ margin: auto;
+}
   button{
     visibility:hidden;
 }
@@ -114,10 +116,10 @@ a{
   margin: 2px;
 }
 .width{
-  width: 400px;
+  width: 450px;
 }
 .box {
-  margin-left: 100px;
+  //margin-left: 100px;
   margin: 5px;
 }
 .hover:hover{
