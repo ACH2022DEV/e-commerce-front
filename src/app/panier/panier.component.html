@@ -13,8 +13,8 @@
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
           </div></div>
  -->
-          <div class="col-md-3 p-1 mt-2">
-            <div> <img [src]='convertBase64ToImage(panier.article.images)' class="img-fluid rounded-1 w-50 ms-5 h-50" alt="...">
+          <div class="col-md-3 p-1 mt-2 ">
+            <div> <img [src]='convertBase64ToImage(panier.article.images)' class="img-fluid rounded-1 imagewidth  ms-5 " alt="...">
            </div>
        <div class=" mt-2  mx-5 textColor "><a  (click)="deleteArticle(panier.id)" class="d-flex"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></div> 
                        
@@ -22,7 +22,7 @@
           </div>
           
           <div class="col-md-5 mt-3 align-items-center m-0 ">
-              <span class="d-block mt-2 m-0"><h5>{{panier.article.description}}</h5> </span>
+              <span class="d-block mt-2 m-0 text-start"><h5>{{panier.article.description}}</h5> </span>
               <span class="d-block m-0 "><h5>{{panier.article.paysOrigine}}</h5> </span>
                  <!-- <span class="d-block  p-1"> <p class="card-text"><small class="text-muted"><b>Commandé le:</b>  {{panier.date |  date:'short' }}</small></p></span> -->
               
@@ -33,7 +33,7 @@
                     <p  class="text-decoration-line-through  text-muted fs-5 mx-1">{{panier.article.prix*(1+panier.article.remise/100)}} TND</p>
                     <p> <span class="badge color-bg fs-4" >-{{panier.article.remise}}%</span></p>  
                   </div> 
-                   <div class=" position-absolute bottom-0 end-0  me-3 mb-3 float-end">
+                   <div class=" position-absolute bottom-0 end-0  me-3 mb-4 float-end">
                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash-square-fill mx-2 " viewBox="0 0 16 16">
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
                   </svg> <span>{{panier.quantity}}</span> <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi bi-plus-square-fill mx-2" viewBox="0 0 16 16">
@@ -93,8 +93,8 @@
   <div class="  row d-flex bg-white   ">
     <div style="background-color:  #f68b1e;" class="  rounded-1"><h3 class="ms-4 p-2 text-start  text-white"> les Plus Recommandés</h3></div>
 
-    <div class="col-md-2 mb-3 mt-1 hover shadow-sm  " *ngFor="let prod of lesPlusRecomndes">
-      <div class="card     border border-0  ">
+    <div class="col-md-2 mb-3 mt-1  shadow-sm  " *ngFor="let prod of lesPlusRecomndes">
+      <div class="  hover   border border-0  ">
         <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.article.codeArticle]" href="">

@@ -32,11 +32,14 @@
         
     }
     .hover:hover{
-        box-shadow: 3rem 3rem 3rem rgba(black, .250);
+        box-shadow: 1px 0.5rem 1.5rem rgba(black, .200);
       
-        transition: 0.5 ease-in-out;
-      transform: scale(1.05);
+      
+      transform: scale(1.07);
     
     
+}
+.imagewidth{
+    width: 140px;
 }
    
