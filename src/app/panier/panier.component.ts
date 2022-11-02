@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Article } from '../models/article';
 import { CreatePanier } from '../models/createPanier';
 import { Picture } from '../models/mesImages';
 import { Panier } from '../models/panier';
@@ -14,6 +15,7 @@ import { PanierService } from './panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
+  public lesPlusRecomndes:Panier[]=[];
   public nombredeprod: any;
   public Montant: number = 0;
   public panierVide:boolean=false;
@@ -32,6 +34,7 @@ public SousTotal:any=0;
    }
 
   ngOnInit(): void {
+    this.getAllPanier()
   this.panierVide;
  //get personne(panier)
  if(sessionStorage.getItem('session')){
@@ -58,7 +61,11 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
  this.panierVide;
     
   }
- 
+ public getAllPanier(){
+  this.panierService.getAllPanier().subscribe(data=>{
+    this.lesPlusRecomndes=data;
+  })
+ }
   public deleteArticle(id: number) {
     this.panierService.deletePanier(id).subscribe(data => {
       this.personne.getPersonne(this.ID).subscribe(data=>{
