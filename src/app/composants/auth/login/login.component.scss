@@ -1,51 +1,14 @@
-.myclass {
-    border: 1px solid #f1eded;
-    border-radius: 22px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 
-
-}
-
-
-
-.kl {
-    background-color: #fff;
-    border: 2px solid #ced4da;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin: 6px 0;
-    padding: 14px 16px;
-    width: 100%;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-}
 .margin{
    margin-top:5%;
     margin-bottom: 10%;
 }
-form {
-    padding: 30px;
-    width: 70%;
-    margin: auto;
-
-}
-
- button {
-    
-    color: #fff;
-    border-radius: 25px;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Source Sans Pro, sans-serif;
-    font-size: 18px;
-   
 
 
-} 
 
-button:hover {
+/*button:hover {
     background-color: #f2c119;
-}
+}*/
 
 
 a {
@@ -54,6 +17,8 @@ a {
     outline: none !important;
 
 }
+.sidebutton{
+    border-top: 1px solid #999595;}
 
 button[disabled]{
     cursor: none;

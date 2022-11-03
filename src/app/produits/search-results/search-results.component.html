@@ -4,7 +4,7 @@
 
 
 
-<div class="container-fluid   mt-5 mb-5">
+<div class="container-fluid ms-5   mt-5 mb-5">
   <div class="row ">
     <div class="col-md-3 animate  ms-5  bg-white rounded-1 h-100">
       <div  class="panel-heading sidebar p-4">
@@ -83,8 +83,8 @@
     <div class=" col-md-8 mx-2 row animate   p-1  bg-white rounded-1" >
      <div> <h3 class="p-2 ">Les Produits</h3>
       <p class="sidebutton p-2 sidebar "> {{lenght}} résultats</p></div>
-      <div class="col-md-3 my-2  " *ngFor="let prod of results; index as i ">
-        <div class="card    shadow border border-1 ">
+      <div class="col-md-3  my-2  " *ngFor="let prod of results; index as i ">
+        <div class="card     border border-0 ">
           <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
           <div class="position-relative  ">
              
@@ -118,7 +118,7 @@
                   name="quantity">
               </div>
               <div class="d-flex justify-content-center mb-2">
-                <button  type="submit" class="btn   text-white mx-1 btnColor w-100  rounded-pill"  > 
+                <button  type="submit" class="btn   text-white mx-1 btnColor w-100  rounded-2"  > 
                   <p class="fs-6 "  > Ajouter au panier<i class="bi bi-cart4 "></i></p> </button></div>
                    
              

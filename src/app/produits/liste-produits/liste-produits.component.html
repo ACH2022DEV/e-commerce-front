@@ -1,7 +1,7 @@
 <img src="../../../assets/images/img/carousel-image.jpg" class="ms-3 animate2 marginTop"  height="250px" width="97%"  alt="Mobiliers">
-<div class="container-fluid   mt-5 mb-5 ">
+<div class="container-fluid ms-5  mt-5 mb-5 ">
   <div class="row ">
-    <div class="col-md-3 animate  ms-5  bg-white rounded-1 h-100">
+    <div class="col-md-3  animate  ms-5  bg-white rounded-1 h-100">
       <div  class="panel-heading sidebar p-4">
       <p class="panel-title fa-play-2  collapsed " data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
         Mobiliers D'atelier     <i class="bi bi-caret-down-square mx-3  "></i> 
@@ -80,7 +80,7 @@
       <h3 class="p-2 ">Les Produits</h3>
       <p class="sidebar p-2 sidebutton"> {{lenght}} résultats</p>
     <div class="col-md-3 my-2  " *ngFor="let prod of produits; index as i ">
-      <div class="card  shadow border border-1  ">
+      <div class="card   border border-0  ">
         <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
@@ -112,7 +112,7 @@
                 name="quantity">
             </div>
             <div class="d-flex justify-content-center mb-2">
-            <button  type="submit" class="btn   text-white mx-1 btnColor w-100 rounded-pill "> 
+            <button  type="submit" class="btn shadow  text-white text-semibold mx-1 btnColor w-100 rounded-2 "> 
               <p class="fs-6" >Ajouter au panier<i class="bi bi-cart4 "></i></p></button></div>
           </form>
 

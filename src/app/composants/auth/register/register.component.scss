@@ -1,71 +1,23 @@
-.myclass {
-   // border: 1px solid #eeeaea;
-   // border-radius: 22px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 
 
-}
-.margin{
-    margin-top:5%;
-    margin-bottom: 10%;
+
+
+
+
+.color{
+   background-color: orange;
 }
 
-.color {
-    background-color: #f0f2f6;
-}
-
-.kl {
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin: 2px 0;
-    padding: 9px;
-    width: 100%;
-}
-
-form {
-    width: 80%;
-    margin: auto;
-
-}
-
-button {
-  
-    color: #fff;
-    width: 40%;
-    border-radius: 25px;
-    box-sizing: border-box;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Source Sans Pro, sans-serif;
-    font-size: 18px;
-  
-}
 
 button:hover {
     background-color: #f2c119;
 }
-
+.sidebutton{
+    border-top: 1px solid #999595;}
 
 //@at-root
 
-button{
 
-    &:hover{
-
-    }
-
-    [disabled]{
-
-        sdgfqs
-        &.toto{
-
-        }
-
-    }
-
-}
 button[disabled]{
     cursor: none;
 }

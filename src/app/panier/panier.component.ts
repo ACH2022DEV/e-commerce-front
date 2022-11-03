@@ -27,7 +27,8 @@ public SousTotal:any=0;
 
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
-
+//
+public quantity1:any=1;
   //fin for panier
   constructor(private personne: DatabaseService,private panierService: PanierService, private sanitizer: DomSanitizer) {
    
@@ -87,8 +88,10 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
   }
 
  
- /* public dimuner(quantity:number){
- this.quantity=quantity--;
+  public augmenter(){
+    console.log("ggggggggggggggg")
+
+ this.quantity1++;
   }
- */
+
 }
