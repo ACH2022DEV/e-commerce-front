@@ -226,9 +226,9 @@
         </div>
       </div>
     </div>
-   <div class="col-md-3 h-100 " >
+   <div class="col-md-3 h-100 sticky-top " style="top: 100px; z-index: 4;" >
    
-      <div class="  rounded-4 bg-white  shadow p-3 bg-body ">
+      <div class="    rounded-4 bg-white  shadow p-3 bg-body  "  >
     <form #f1="ngForm" (ngSubmit)="ajouterVotreAvis(f1)">
       <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne">
       <input class="form-control my-2 float-Start w-30  " type="hidden" [(ngModel)]="produit.codeArticle" ngModel
@@ -249,7 +249,7 @@
       <button type="submit" class="  btn btnColor text-white rounded-pill w-75 ms-4  mb-2 ">Envoyer </button></div>
     </form>
   </div>
-  <div class="bg-white  shadow mt-3  mb-5  p-2 bg-body  rounded-pill ">
+  <div class="   bg-white  shadow mt-3  mb-5  p-2 bg-body  rounded-pill " >
     <P class="text-center mt-2">Avez-vous des questions?</P>
  <a href="" routerLink="/contact"> <p class="warning text-center fw-bold"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
     <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>

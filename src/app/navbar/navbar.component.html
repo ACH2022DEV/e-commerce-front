@@ -93,9 +93,9 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <button routerLink="/login" class=" btn btn-light hover mx-1 fw-bold " type="submit"
+        <button routerLink="/login" class=" btn btn-primary rounded-1 shadow-lg  mx-1 fw-bold " type="submit"
           *ngIf="!loggedIn()">Login</button>
-        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-light  hover mx-1 fw-bold" type="submit">Register</button>
+        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-dark shadow-lg  rounded-1  mx-1 fw-bold" type="submit">Register</button>
       <!--   <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
         ><i
             class="bi bi-box-arrow-right"></i></button>
