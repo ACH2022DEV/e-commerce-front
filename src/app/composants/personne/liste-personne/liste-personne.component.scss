@@ -1,10 +1,7 @@
 .pointer{
     cursor: pointer;
 }
-.search-hero {
-    max-width: 500px;
-   margin:0;
-  }
+
   
  
   .form-control::placeholder  {
@@ -18,5 +15,14 @@
     text-decoration: none;
     color: black;
 }
-.color{
-  background-color: #f68b1e;}
+/* .color{
+  background-color: #f68b1e;
+  height: 40px;}
+   */
+
+ .shadow1{ 
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+   background-color: #f68b1e;
+    color: #fff;
+    height: 45px;
+  }

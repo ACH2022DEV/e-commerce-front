@@ -73,6 +73,7 @@ import { EntrepriseComponent } from './entreprise/entreprise.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { NextDirective } from './next.directive';
 import { PrevDirective } from './prev.directive';
+import { ListeCommandesComponent } from './liste-commandes/liste-commandes.component';
 
 
 
@@ -129,6 +130,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotificationsComponent,
     NextDirective,
     PrevDirective,
+    ListeCommandesComponent,
     
     
   ],

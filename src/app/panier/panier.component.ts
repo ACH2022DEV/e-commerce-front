@@ -20,7 +20,7 @@ export class PanierComponent implements OnInit {
   public Montant: number = 0;
   public panierVide:boolean=false;
   //for panier
-  public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
+  public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any, cammandes:{}as any};
 public ID:any;
 public SousTotal:any=0;
 //

@@ -21,6 +21,7 @@ import { FactureComponent } from './factures/liste-facture/facture.component';
 import { VisualiserFactureComponent } from './factures/visualiser-facture/visualiser-facture.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { ListeCommandesComponent } from './liste-commandes/liste-commandes.component';
 import { ListeproduitComponent } from './listeproduit/listeproduit.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
@@ -60,6 +61,7 @@ const routes: Routes = [
   { path: 'crer-devis', component: CrerDevisComponent, canActivate: [GuardService] },
   { path: 'visualiser-devis/:codedevis', component: VisualiserDevisComponent, canActivate: [GuardService] },
   { path: 'admin', component: PageAdminComponent, canActivate: [GuardService] },
+  { path: 'ListedesCommandes/:id', component: ListeCommandesComponent, canActivate: [GuardService] },
   { path: 'employe', component: PageEmployeComponent, canActivate: [GuardService] },
   { path: 'adminliste-produit', component: ListeproduitComponent, canActivate: [GuardService] },
   { path: 'searchAdminPro/:searchText', component: SearchAdminArtComponent, canActivate: [GuardService] },

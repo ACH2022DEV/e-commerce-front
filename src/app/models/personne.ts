@@ -1,4 +1,5 @@
 import { Avis } from "./avis";
+import { Commandes } from "./commande";
 import { Picture } from "./mesImages";
 import { Panier } from "./panier";
 
@@ -15,4 +16,5 @@ export interface Personne {
    paniers:Panier[];
    images:Picture[];
    avis:Avis[];
+   cammandes: Commandes[]
 }

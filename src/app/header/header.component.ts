@@ -12,7 +12,7 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HeaderComponent implements OnInit {
      jsonStringObj:any={};
-     public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any};
+     public client:Personne={id:0,nom:'string',prenom:'string',avis:{}as any,  adress:'string', tel:'', username:'string', email:'string', password:'', paniers:{}as any, images:{}as any, cammandes:{}as any};
   obj: any={email:'',username:'',id:'',roles:''};
   public ID:any;
   constructor(private personne: DatabaseService, private sanitizer: DomSanitizer) { 

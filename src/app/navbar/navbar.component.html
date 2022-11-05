@@ -77,25 +77,27 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"  tooltip="Notifications" placement="bottom"
+        <a *ngIf=" getAccestoAdmin() && loggedIn()" routerLink="/notifications" type="button" class="  position-relative me-3 mt-2"  tooltip="Notifications" placement="bottom"
         >
-          <i class="bi  bi-bell-fill " routerLink="/notifications"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bell " viewBox="0 0 16 16">
+            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+          </svg>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         {{nombreContact}}
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-        <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"
+     <!--    <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"
         >
           <i class="bi  bi-bag-check-fill "  tooltip="Notifications" placement="bottom" routerLink="/notifications"></i>
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
          +9
             <span class="visually-hidden">unread messages</span>
           </span>
-        </a>
-        <button routerLink="/login" class=" btn btn-primary rounded-1 shadow-lg  mx-1 fw-bold " type="submit"
+        </a> -->
+        <button routerLink="/login" class=" btn btn-primary rounded-1 shadow1  mx-1 fw-bold " type="submit"
           *ngIf="!loggedIn()">Login</button>
-        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-dark shadow-lg  rounded-1  mx-1 fw-bold" type="submit">Register</button>
+        <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-dark shadowNoir  rounded-1  mx-1 fw-bold" type="submit">Register</button>
       <!--   <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
         ><i
             class="bi bi-box-arrow-right"></i></button>
@@ -122,6 +124,9 @@
         <li><a class="dropdown-item p-3 hover" href="#" [routerLink]="['/visualiser-personne/',client.id]"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
           <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
         </svg><strong class="mx-3">Votre Liste d'envies</strong></a></li>
+        <li><a class="dropdown-item p-3 hover" href="#" [routerLink]="['/ListedesCommandes',client.id]"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bag-fill mb-1" viewBox="0 0 16 16">
+          <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5z"/>
+        </svg><strong class="mx-3">Votre Liste de Commandes</strong></a></li>
           <li><a class="p-3  dropdown-item hover" href="#" (click)="  logout()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
             <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>

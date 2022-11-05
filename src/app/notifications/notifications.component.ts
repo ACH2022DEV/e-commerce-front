@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CommandesService } from '../commandes.service';
 import { ContactService } from '../contact.service';
+import { Commandes } from '../models/commande';
 import { Contact } from '../models/contact';
 import { Picture } from '../models/mesImages';
 import { Personne } from '../models/personne';
@@ -14,12 +16,15 @@ import { DatabaseService } from '../services/database.service';
 })
 export class NotificationsComponent implements OnInit {
 public contacts:Contact[]=[];
+public commandes:Commandes[]=[];
 public nombreContact:any;
 public personnes: Personne[] = [];
 public total: Array<number> | undefined;
 public page:number=0;
 public size:number=100;
-  constructor(private pesonneService: DatabaseService,private contactService:ContactService, private sanitizer: DomSanitizer) { }
+private id:any;
+  constructor(private pesonneService: DatabaseService,private contactService:ContactService, private sanitizer: DomSanitizer,
+    private commandeService:CommandesService) { }
 
   ngOnInit(): void {
     this.getAllContact();
@@ -37,6 +42,16 @@ public size:number=100;
       (error: HttpErrorResponse) => alert(error.message)
     );
   }
+  //getCommandes
+  public getCommandes(): void {
+    this.commandeService.getCommande(this.id).subscribe(data => {
+      this.commandes.push(data);
+    },
+      (error: HttpErrorResponse) => alert(error.message)
+    );
+  }
+
+  //finGetCommandes
   convertBase64ToImage(images: Picture[]): any {
 
     let base64 = "data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
