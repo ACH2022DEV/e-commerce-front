@@ -1,39 +1,23 @@
-<div class="container mt-5 mb-5 rounded-3 d-flex justify-content-center ">
-    <div class="bg-white shadow w-75  rounded-3  ">
-        <table class="table ">
-        <thead  class="table-light   rounded-3">
-         <tr >
-            <th scope="col " class="col-7" ><p class=" ms-3 mt-2">Produit</p>  </th>
-            <th scope="col "class="col-3"  ><p class=" ms-5 mt-2">Prix</p> </th>
-            <th scope="col " class="col-1" ><p class=" ms-5 mt-2">quantité</p> </th>
-            <th scope="col" class="col-1" ><p class=" ms-5 mt-2">Total/Produit</p> </th>
-          </tr> 
-        </thead>
-        <tbody>
-            <tr *ngFor="let com of personne.cammandes" >
-                <td  scope="row" > 
-                    <div class=" d-flex">  
-                        <div class=" col-md-6 "> 
-                             <img [src]='convertBase64ToImage(com.article.images)' class="rounded-1  " width="170px">
-                            </div>
-                  <div class="d-block  mt-4  col-md-6">  <p class="card border-0 fs-4  m-0  ">{{com.article.description}}</p>
-                    <p class="card border-0 fs-4 m-0">Made IN {{com.article.stringff}}</p>
-                    <a type="button" class=" fw-bold  mt-5  text-danger" (click)="deleteCommande(com.id)"><i class="bi bi-trash"></i>  Supprimer
+<div class="container bg-white shadow-sm mt-5 mb-5 rounded-2 w-50">
+    <div class="row ">
+        <div class="bg rounded-2 "><p class="fw-semibold text-center text-font fs-1">Liste des Commandes</p> </div>
+    </div>
+    <div class="row my-1 sidebar " *ngFor="let com of personne.cammandes" >
+       
+            <div class="row offset-md-1">
+                 <div class="d-flex  col-md-12  ">
+         <img [src]='convertBase64ToImage(com.article.images)' class="rounded-circle h-100 mx-3   mb-1 p-1 " width="170px">  
+                <div class="  mt-4   ">  <p class="card border-0 fs-4   m-0  fw-semibold ">{{com.article.description}}</p>
+                    <p class="card border-0 fs-5 m-0">Made IN {{com.article.stringff}}</p>
+                    <p class="card border-0 fs-5 m-0">Prix {{com.article.prix}} TND</p>
+                    <p class="card border-0 fs-5 m-0">quantity: {{com.quantity}}</p>
+                    <p class="card border-0 fs-5 m-0">Montant {{com.article.prix*com.quantity}} TND </p>
+
+                    <a type="button" class=" fw-bold mt-2 mb-1 text-danger" (click)="deleteCommande(com.id)"><i class="bi bi-trash"></i>  Supprimer
                     </a>
                 </div>
-                    </div> 
-                    </td>
-                    <td>   <div class="ms-5 mt-5 fw-semibold "> {{com.article.prix}} TND</div> </td>
-                    <td>   <div class="ms-5 mt-5 fw-semibold">  {{com.quantity}}  </div> </td>
-                    <td>   <div class="ms-5 mt-5 fw-semibold"><p> {{com.article.prix*com.quantity}} TND </p>
-                       </div> </td>
-              </tr>
-              
-        </tbody>
-        
-      </table>
-   <div class="text-center fw-semibold fs-3"><p>Total: {{this.TotalParProduit}} TND</p></div>
+            </div>
+            </div>
     </div>
+    <div class="container fw-bold fs-3 text-center p-2  Font">Total =  {{this.TotalParProduit}} TND</div>
 </div>
-
-

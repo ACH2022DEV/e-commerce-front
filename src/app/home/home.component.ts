@@ -19,9 +19,12 @@ import { DatabaseService } from '../services/database.service';
 })
 export class HomeComponent implements OnInit {
   public results:Article[]=[];
+  public promotions:Article[]=[];
+
 public size=6;
 public page=0;
 public searchText:any='s';
+public remise:any=70;
 public lenght:any;
 public total: Array<number> | undefined;
 
@@ -35,6 +38,12 @@ public total: Array<number> | undefined;
       console.log('this.results',data)
       this.total = new Array(data['totalPages']);
   })
+  this.searchservice.SearchbyRemise(this.page,this.size, this.remise).subscribe((data:any)=> {
+    this.promotions = data['content'];
+    this.lenght=this.promotions.length;
+    console.log('this.results',data)
+    this.total = new Array(data['totalPages']);
+})
   }
   convertBase64ToImage(images: Picture[]): any {
 

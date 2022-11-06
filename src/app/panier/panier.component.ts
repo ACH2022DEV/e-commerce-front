@@ -1,4 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Article } from '../models/article';
@@ -29,6 +30,8 @@ public SousTotal:any=0;
   obj: any = { email: '', username: '', id: '', roles: '' };
 //
 public quantity1:any=1;
+public number:any;
+ 
   //fin for panier
   constructor(private personne: DatabaseService,private panierService: PanierService, private sanitizer: DomSanitizer) {
    
@@ -62,6 +65,11 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
  this.panierVide;
     
   }
+  public PasserCommande(formc:any){
+    let data=formc.value;
+    console.log('form44',data)
+
+  }
  public getAllPanier(){
   this.panierService.getAllPanier().subscribe(data=>{
     this.lesPlusRecomndes=data;
@@ -86,12 +94,35 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
     return this.sanitizer.bypassSecurityTrustUrl(base64);
 
   }
-
  
-  public augmenter(){
-    console.log("ggggggggggggggg")
-
- this.quantity1++;
+ 
+  public incremente(){
+    this.personne.getPersonne(this.ID).subscribe(data=>{
+      this.client=data;
+      this.quantity1++
+      this.client.paniers.map(index=>{
+      index.quantity=this.quantity1;
+      
+       
+        //console.log(' this.quantity1', this.quantity1)
+       
+      })
+     // this.quantity1++
+    }) 
   }
+  public decremente(){
+    this.personne.getPersonne(this.ID).subscribe(data=>{
+      this.client=data;
+      this.quantity1--
+      this.client.paniers.map(index=>{
+        index.quantity=this.quantity1;
+        console.log('  index.quantity',  index.quantity)
+      })
+    
+    }) 
+ }
+public plus(){
+
+}
 
 }

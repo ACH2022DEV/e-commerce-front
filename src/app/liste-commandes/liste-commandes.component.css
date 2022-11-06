@@ -1,0 +1,17 @@
+.bg{
+    background-color: rgb(83, 159, 218);
+}
+.text-font{
+    font-family: "Brush Script MT", cursive;
+}
+
+.sidebar{
+    border-bottom: 0.5px solid #a09e9e;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .Font{
+    font-family: serif;
+   
+    
+  }

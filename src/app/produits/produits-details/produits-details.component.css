@@ -9,7 +9,11 @@
    
     
 }
-
+.sidebar{
+  border-bottom: 1px solid #a09e9e;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 .stars {
   text-shadow: 0.8px 0.8px 0 #a2a2a2;
   

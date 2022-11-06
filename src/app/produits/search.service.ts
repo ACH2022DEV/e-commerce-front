@@ -18,6 +18,9 @@ export class SearchService {
   public Search(pageNo:number,size:number,search:string): Observable<Article[]>{
     return this.http.get<Article[]>(`${this.url}/search?page=${pageNo}&size=${size}&search=${search}`);
   }
+  public SearchbyRemise(pageNo:number,size:number,remise:number): Observable<Article[]>{
+    return this.http.get<Article[]>(`${this.url}/searchByRemise?page=${pageNo}&size=${size}&remise=${remise}`);
+  }
   public SearchPersonne(pageNo:number,size:number,searchPersonne:string): Observable<Personne[]>{
     return this.http.get<Personne[]>(`${this.url2}/search?page=${pageNo}&size=${size}&search=${searchPersonne}`);
   }

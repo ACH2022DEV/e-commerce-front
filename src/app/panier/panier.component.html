@@ -7,7 +7,7 @@
     <div class=" row">
 <div class=" col-md-8 ms-5">  
    <div class=" shadow-sm p-1  bg-white rounded fs-3   mb-0 text-start fw-semibold"><p class="ms-5 ">Panier({{this.nombredeprod}})</p></div>
-    <div class="container-fluid   shadow-sm   bg-body rounded sidebar rounded-4  " style="max-width: 1000px;" *ngFor="let panier of client.paniers">
+    <div class="container-fluid   shadow-sm   bg-body rounded sidebar rounded-4  " style="max-width: 1000px;" *ngFor="let panier of client.paniers; let index = index">
         <div class="row  ">
          <!--  <div class="position-relative"> <div class="position-absolute top-0 end-0 p-1">
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
@@ -28,63 +28,210 @@
               
                 </div>
                 <div class="col-md-4 text-end mt-3  "> 
-                   <span class="d-block  text-dark fs-4 fw-bold  me-2 "><p>  {{panier.article.prix}}.00 TND</p> </span>
+                   <span class="d-block  text-dark fs-4 fw-semibold  me-2 "><p>  {{panier.article.prix}}.00 TND</p> </span>
                   <div class="d-flex position-absolute mt-3  me-3 end-0 translate-middle-y">  
                     <p  class="text-decoration-line-through  text-muted fs-5 mx-1">{{panier.article.prix*(1+panier.article.remise/100)}} TND</p>
                     <p> <span class="badge color-bg fs-4" >-{{panier.article.remise}}%</span></p>  
                   </div> 
-                   <div class=" position-absolute bottom-0 end-0  me-3 mb-4 float-end">
+                   <div class=" position-absolute bottom-0 end-0  me-3 mb-4 float-end d-flex">
                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-dash-square-fill mx-2 " viewBox="0 0 16 16">
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm2.5 7.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1z"/>
                   </svg> <span>{{panier.quantity}}</span> <svg xmlns="http://www.w3.org/2000/svg"  width="30" height="30" fill="currentColor" class="bi bi-plus-square-fill mx-2" viewBox="0 0 16 16">
                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z"/>
                   </svg> -->
-    <input type="number"[(ngModel)]="panier.quantity" style="width: 70px;" class="form-control rounded-pill  border-1  text-center   "> 
-  </div>
+  
+                  <!-- <input type="number"[(ngModel)]="panier.quantity" style="width: 70px;" class="form-control1 rounded-pill  border-1  text-center   ">  -->
+                  <!-- <input type="number"value="1" name="ah" value="1">  -->
+
+  <button type="button "  class="btn rounded-1 btnColor1"(click)="incremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-plus-lg text-white" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+  </svg></button>
+ <input type="number" id="'id'+index" name="'ap'+index" [(ngModel)]="panier.quantity" style="width: 70px;" class="form-control border-0  text-center   "> 
+
+    <!-- <h4 class="mx-3 " name="aa">{{this.quantity1}}</h4> -->
+  <button type="button " class="btn rounded-1 btnColor1 "(click)="decremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-dash-lg text-white" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+  </svg></button>
+  
+                </div>
                   
                   </div>
         </div>
      </div> 
-    
-      
     </div> 
    
       <div class="col-md-3 h-100">
         <div class=" shadow-sm  mb-2 bg-body rounded-3  ">
      <p class="text-center fs-5 p-1">RÉSUMÉ DU PANIER </p>
-        <div class="p-4 sidebar  "><span class="text-start fs-5 d-flex  ">Sous-Total: <h5 class=" mx-1 mt-1 fw-bold">{{SousTotal}}.00 TND</h5></span>
+        <div class="p-4 sidebar  "><span class="text-start fs-5 d-flex  ">Sous-Total: <h5 class=" mx-1 mt-1 fw-semibold">{{SousTotal}}.00 TND</h5></span>
           <p class="text-muted text-start fs-6">Frais de livraison non inclus à ce stade.</p>
           <div class=" ">
             <button  class=" container-fluid   btn  w-100   btnColor  " data-bs-toggle="modal" data-bs-target="#staticBackdrop"  > 
               <h6 class=" mt-1   " style="color: #fff;">Passer la commande</h6> </button>
 <!-- Modal -->
 <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class=" modal-dialog modal-dialog-scrollable modal-xl widthm">
+  <div class=" modal-dialog  modal-lg w-50 h-100 widthm">
     <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class=" headerColor ">
+        <h1 class=" fs-5" id="staticBackdropLabel">
+           <p class="text-white text-center fs-3 p-2"> Passer Votre Commande</p></h1>
+        <div class="position-absolute top-0 end-0 me-2 mt-2"><button type="button" class="btn-close bg-white  p-2 sidebar" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        
       </div>
       <div class="container-fluid">
-        <div class="row">
-        <div class="col-md-5 mx-2" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-        <div class="col-md-5" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
+        <div class="row d-flex justify-content-center">
+        <div class=" col-md-8" >
+        <div class="bg-body rounded  rounded-4  " >
+              <div class=" p-1 mt-2 ">
+                <div><form #formC1="ngForm" (ngSubmit)="PasserCommande(formC1)"> 
+                 
+                 <div class="form-group  " *ngFor="let pan of client.paniers; let index = index">
+                   <input  class="form-control " type="hidden"  ngModel  name="codeArticle"[(ngModel)]=pan.article.codeArticle>
+                  </div>
+                  <!-- <input  class="form-control" type="number" ngModel name="quantity" [(ngModel)]={{pan.quantity}}> -->
+                  <div class="form-group " >
+                    <input class="form-control" type="hidden" ngModel name="Id"  value={{client.id}}>
+                  </div>
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="adress" type="text" id="adress" name="adress" ngModel required pattern="[a-zA-Z]{3,25}" #adress="ngModel">
+                      <label for="floatingInput">Adress</label>
+                    </div>
+                   <div *ngIf="adress.invalid && (adress.dirty || adress.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+              
+                      <div *ngIf="adress.errors?.['required']" >
+                        L'adress est obligatoire.
+                      </div>
+                      <div *ngIf="adress.errors?.['pattern']"  >
+                        La adress doit avoir  au moins  3 caractéres!
+                      </div>
+                  </div>
+                  </div>
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="tel" type="number" id="tel" name="tel" ngModel required   pattern="\d{8}" #tel="ngModel">
+                      <label for="floatingInput">Numéro Téléphone</label>
+                    </div>
+                   <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+              
+                      <div *ngIf="tel.errors?.['required']" >
+                        Le numéro de téléphone tel est obligatoire.
+                      </div>
+                      <div *ngIf="tel.errors?.['pattern']"  >
+                        Le numéro de téléphone tel doit avoir   8 chiffres!
+                      </div>
+                  </div>
+                  </div>
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="ville" type="text" id="ville" name="ville" ngModel required  pattern="[a-zA-Z]{3,25}"  #ville="ngModel">
+                      <label for="floatingInput">Pays</label>
+                    </div>
+                   <div *ngIf="ville.invalid && (ville.dirty || ville.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+              
+                      <div *ngIf="ville.errors?.['required']" >
+                        Le nom de votre Pays  est obligatoire.
+                      </div>
+                      <div *ngIf="ville.errors?.['pattern']"  >
+                        Le nom de votre Pays  doit avoir  au moins  3 caractéres!
+                      </div>
+                  </div>
+                  </div>
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="dateLivraison" type="date" id="dateLivraison" name="dateLivraison" ngModel required    #dateLivraison="ngModel">
+                      <label for="floatingInput">dateLivraison</label>
+                    </div>
+                   <div *ngIf="dateLivraison.invalid && (dateLivraison.dirty || dateLivraison.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+                      <div *ngIf="dateLivraison.errors?.['required']" >
+                        La dateLivraison Pays  est obligatoire.
+                      </div>
+                  </div>
+                  </div> 
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="codePostal" type="number" id="codePostal" name="codePostal" ngModel required  pattern="\d{4}"   #codePostal="ngModel">
+                      <label for="floatingInput">codePostal</label>
+                    </div>
+                   <div *ngIf="codePostal.invalid && (codePostal.dirty || codePostal.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+              
+                      <div *ngIf="codePostal.errors?.['required']" >
+                        Le codePostal   est obligatoire.
+                      </div>
+                      <div *ngIf="codePostal.errors?.['pattern']"  >
+                        Le codePostal  doit avoir   4 chiffres!
+                      </div>
+                  </div>
+                  </div>
+                  <div class="d-flex container">
+                    <div class="me-5"><div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                      <label class="form-check-label" for="inlineRadio1"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-paypal" viewBox="0 0 16 16">
+                        <path d="M14.06 3.713c.12-1.071-.093-1.832-.702-2.526C12.628.356 11.312 0 9.626 0H4.734a.7.7 0 0 0-.691.59L2.005 13.509a.42.42 0 0 0 .415.486h2.756l-.202 1.28a.628.628 0 0 0 .62.726H8.14c.429 0 .793-.31.862-.731l.025-.13.48-3.043.03-.164.001-.007a.351.351 0 0 1 .348-.297h.38c1.266 0 2.425-.256 3.345-.91.379-.27.712-.603.993-1.005a4.942 4.942 0 0 0 .88-2.195c.242-1.246.13-2.356-.57-3.154a2.687 2.687 0 0 0-.76-.59l-.094-.061ZM6.543 8.82a.695.695 0 0 1 .321-.079H8.3c2.82 0 5.027-1.144 5.672-4.456l.003-.016c.217.124.4.27.548.438.546.623.679 1.535.45 2.71-.272 1.397-.866 2.307-1.663 2.874-.802.57-1.842.815-3.043.815h-.38a.873.873 0 0 0-.863.734l-.03.164-.48 3.043-.024.13-.001.004a.352.352 0 0 1-.348.296H5.595a.106.106 0 0 1-.105-.123l.208-1.32.845-5.214Z"/>
+                      </svg></label>
+                    </div>
+                   </div>
+                    <div class="mx-5"> <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-postcard" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"/>
+                      </svg></label>
+                    </div></div>
+                    <div class="mx-5"> <div class="form-check form-check-inline">
+                      <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                      <label class="form-check-label" for="inlineRadio2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">
+                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                        <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
+                      </svg></label>
+                    </div></div>
+                  </div>
+                  <div class="form-group  ">
+                    <div class="form-floating">
+                      <input class="form-control mt-2 text-center" placeholder="lepayment" type="number" id="lepayment" name="lepayment" ngModel required pattern="\d{9}"   #lepayment="ngModel">
+                      <label for="floatingInput">lepayment</label>
+                    </div>
+                   <div *ngIf="lepayment.invalid && (lepayment.dirty || lepayment.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
+              
+                      <div *ngIf="lepayment.errors?.['required']" >
+                        La methode de lepayment   est obligatoire.
+                      </div>
+                      <div *ngIf="lepayment.errors?.['pattern']"  >
+                        Le code de lepayment  avoir   9 chifres!
+                      </div>
+                  </div>
+                  </div>
+                 <div class="d-flex justify-content-center">
+                   <button type="submit" [disabled]="formC1.invalid" class="btn mb-2 shadow btn-primary w-75 rounded-pill">Validation</button></div>
+                 </form> 
+               
+                </div>
+        
+                           
+               
+              </div>
+              
+            
+                  <!--   <div class="col-md-4   "> 
+                       <div class=" mt-5  float-end d-flex">
+      <button type="button " class="btn rounded-1 btnColor1"(click)="incremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-plus-lg text-white" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+      </svg></button>
+        <h4 class="mx-3 ">{{this.quantity1}}</h4>
+      <button type="button " class="btn rounded-1 btnColor1 "(click)="decremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-dash-lg text-white" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+      </svg></button>
+    
+      
+                    </div>
+                      
+                      </div> -->
+           
+         </div>  
        
+        </div>
+ 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
-      </div>
+      
     </div></div>
   </div>
 </div>

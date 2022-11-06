@@ -83,3 +83,46 @@ a,h4{
   margin: 4px;
   
   }
+  .form-check-input:hover{
+    box-shadow: 8 4px 8px 0 rgba(240, 128, 7, 0.2);
+  }
+  .form-check-input{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+  }
+  .form-check-input:checked{
+    background-color: #f68b1e;
+    width: 20px;
+    height: 20px;
+    
+  }
+  .checked {
+    color: orange; 
+    margin: 5px;
+    
+  }
+  .color{
+    color:rgb(184, 184, 184);
+    margin: 5px;
+  
+  }
+  input[type="radio"]:checked {
+    background-color: #fc8c03;
+  }
+  input[type="radio"] {
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 3px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 3px solid #bbbbbb;
+  
+    border-radius: 50%;
+  }

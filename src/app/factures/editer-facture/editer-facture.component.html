@@ -4,17 +4,18 @@
     <form #f="ngForm" (ngSubmit)="UpdateFacture(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3">
       <div class="form-group">
         <div class="form-floating ">
-        <input class="form-control text-center" placeholder="N° ID" type="number" id=" code" [(ngModel)]=" facture.id"   disabled   name="code" ngModel #code="ngModel">
+        <input class="form-control text-center" placeholder="N° ID" type="number" id="id" [(ngModel)]="facture1.id"   disabled  
+         name="id" ngModel #idPersonne="ngModel">
         <label for=""> N° ID</label></div>
 
        
       </div>
-      <div *ngFor="let articleFacture of facture.articles; let i = index;">
+      <div *ngFor="let articleFacture of facture1.articles; let i = index;">
 
         <div [ngModelGroup]="i+''">
           <div class="form-group">
             <div class="form-floating "><input class="form-control text-center" placeholder="Reference" type="number" [id]="i+'.codeArticle'"
-              [(ngModel)]="facture.articles[i].article.codeArticle" name="codeArticle" ngModel required
+              [(ngModel)]="facture1.articles[i].article.codeArticle" name="codeArticle" ngModel required
               #codeArticle="ngModel"><label for="">Reference</label></div>
 
             
@@ -28,7 +29,7 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="form-floating "> <input class="form-control text-center" placeholder="Remise(%)" type="number" [id]="i+'.remise'" [(ngModel)]="facture.articles[i].remise"
+            <div class="form-floating "> <input class="form-control text-center" placeholder="Remise(%)" type="number" [id]="i+'.remise'" [(ngModel)]="facture1.articles[i].remise"
               name="remise" ngModel required #remise="ngModel">
               <label for="">Remise(%):</label></div>
            
@@ -44,7 +45,7 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="form-floating "><input class="form-control text-center" placeholder="Quantité" type="number" [id]="i+'.quantite'" [(ngModel)]="facture.articles[i].quatite"
+            <div class="form-floating "><input class="form-control text-center" placeholder="Quantité" type="number" [id]="i+'.quantite'" [(ngModel)]="facture1.articles[i].quatite"
               name="quantite" ngModel required #quantite="ngModel">
               <label for="">Quantité:</label></div>
             

@@ -4,8 +4,43 @@
     height: 40px;
 
 }
+.headerColor{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    background-color: #f68b1e;
+    height: 50px;
+}
+.btnColor1{
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    background-color: #f68b1e;
+    height: 39px;
+    
+}
+button[disabled]{
+    cursor: none;
+}
+button[disabled]:hover{
+    background-color: gray;
+    cursor: none;
+}
+input[type="radio"] {
+    /* remove standard background appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 1px;
+    /* background-color only for content */
+    background-clip: content-box;
+ border: 3px solid #bbbbbb;
+  
+    border-radius: 50%;
+  }
+  
 
-.form-control{
+.form-control1{
     
     border-color: #fd7f01;
 }

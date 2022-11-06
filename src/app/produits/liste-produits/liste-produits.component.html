@@ -1,78 +1,91 @@
-<!-- <img src="../../../assets/images/img/carousel-image.jpg" class="ms-3 animate2 shadow rounded-2"  height="250px" width="97%"  alt="Mobiliers"> -->
 <div class="container-fluid ms-5  mt-5 mb-5 ">
   <div class="row ">
     <div class="col-md-3  animate  ms-5  bg-white rounded-1 h-100">
-      <div  class="panel-heading sidebar p-4">
-      <p class="panel-title fa-play-2  collapsed " data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier     <i class="bi bi-caret-down-square mx-3  "></i> 
-      </p>
-     
-    <div class="collapse" id="collapseExample">
-      <div class=" card-body">
-      <a class="dropdown-item" href="#" [routerLink]="['/searchProduct/','sss']">Action</a>
-     <a class="dropdown-item" href="#">Another action</a>
-       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+    <div class=" ">
+    <h4 class="text-muted mt-1">Catégories</h4>
+   <div class="mx-3 sidebutton"> <p class="fw-semibold text-dark my-1">touniv</p>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+    <a href=""><p class="my-1 fw-semibold text-dark">ddddddddddddd</p></a>
+  </div>
+  <h4 class="text-muted">Marque</h4>
+ <div class="mx-2 sidebutton">
+   <div class="form-check">
+    <input class="form-check-input border-2  border-secondary " type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Default checkbox
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input border-2  border-secondary" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Default checkbox
+    </label>
+  </div>
+</div>
+<!------------>
+
+<div class=" margin ">
+  <div class="stars d-flex justify-content-center  "size="25">
+    <div class="flex">
+      <input [routerLink]="['/liste-produits/',5]" type="radio" name="radio" id="radio1" />
+      <label for="radio1"></label>
     </div>
-    <div  class="panel-heading sidebar p-4 ">
-      <h4 class="panel-title fa-play-2 collapsed "  data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier2<i class="bi bi-caret-down-square mx-3"></i>
-      </h4>
-    <div class="collapse" id="collapseExample2">
-      <div class=" card-body">
-      <a class="dropdown-item" href="#">Action</a>
-     <a class="dropdown-item" href="#">Another action</a>
-       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
+    <a  >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    </a></div>
+  <div class="stars d-flex justify-content-center ms-0  ">
+    <div class="flex">
+      <input [routerLink]="['/avisSearch/', 4]" type="radio" name="radio" id="radio3" />
+      <label for="radio3"></label>
+    </div><a >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star color"></span> </a> </div>
+  <div class="stars d-flex justify-content-center ms-0 "><div class="flex">
+    <input [routerLink]="['/avisSearch/', 3]" type="radio" name="radio" id="radio1" />
+    <label for="radio1"></label>
+  </div><a >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>          </a></div>
+  <div class="stars d-flex justify-content-center ms-0 "><div class="flex">
+    <input [routerLink]="['/avisSearch/', 2]" type="radio" name="radio" id="radio1" />
+    <label for="radio1"></label>
+  </div><a >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>
+              </a></div>
+  <div class="stars d-flex justify-content-center ms-0 "><div class="flex">
+    <input [routerLink]="['/avisSearch/', 1]" type="radio" name="radio" id="radio1" />
+    <label for="radio1"></label>
+  </div>
+  <a >
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>
+    <span class="fa fa-star color"></span>
+              </a></div>
+</div>
+               
+
+<!----------->
     </div>
-    <div  class="panel-heading sidebar p-4">
-      <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">
-        Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
-      </h4>
-    <div class="collapse" id="collapseExample3">
-      <div class=" card-body">
-      <a class="dropdown-item" href="#">Action</a>
-     <a class="dropdown-item" href="#">Another action</a>
-       <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
-      </div> 
-      <div  class="panel-heading sidebar p-4">
-        <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample">
-          Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
-        </h4>
-      <div class="collapse" id="collapseExample4">
-        <div class=" card-body">
-        <a class="dropdown-item" href="#">Action</a>
-       <a class="dropdown-item" href="#">Another action</a>
-         <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
-        </div>
-        <div  class="panel-heading sidebar p-4">
-          <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample5" aria-expanded="false" aria-controls="collapseExample">
-            Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
-          </h4>
-        <div class="collapse" id="collapseExample5">
-          <div class=" card-body">
-          <a class="dropdown-item" href="#">Action</a>
-         <a class="dropdown-item" href="#">Another action</a>
-           <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
-          </div>
-          <div  class="panel-heading sidebar p-4">
-            <h4 class="panel-title fa-play-2 collapsed"  data-bs-toggle="collapse" data-bs-target="#collapseExample6" aria-expanded="false" aria-controls="collapseExample">
-              Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
-            </h4>
-          <div class="collapse" id="collapseExample6">
-            <div class=" card-body">
-            <a class="dropdown-item" href="#">Action</a>
-           <a class="dropdown-item" href="#">Another action</a>
-             <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
-            </div>
-            <div  class="panel-heading sidebar p-4 ">
-              <h4 class="panel-title fa-play-2 collapsed accordion-button  "  data-bs-toggle="collapse" data-bs-target="#collapseExample7" aria-expanded="false" aria-controls="collapseExample">
-                Mobiliers D'atelier2   <i class="bi bi-caret-down-square mx-3"></i>
-              </h4>
-            <div class="collapse" id="collapseExample7">
-              <div class=" card-body">
-              <a class="dropdown-item" href="#">Action</a>
-             <a class="dropdown-item" href="#">Another action</a>
-               <a class="dropdown-item" href="#">Something else here</a>   </div>  </div>
-              </div>
               
     </div>
    

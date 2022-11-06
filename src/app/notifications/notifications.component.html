@@ -35,13 +35,13 @@
     </div>
    
 
-    <div class="col-md-7 mx-3 rounded-1 mt-2 mb-5  h-100  shadow-sm bg-white"> 
+    <div class="col-md-7 mx-3 rounded-1 mt-2 mb-5  h-100  shadow-sm  bg-white "> 
     
-      <div class="con mb-3 mt-5 mb-5 hover " *ngFor="let contact of contacts">
-        <div class="row g-5 sidebar h-100">
-          <div class=" col-md-3 mb-3  ">
+      <div class="con mb-3 mt-5 mb-5 " *ngFor="let contact of contacts">
+        <div class="row g-5  h-100 ">
+          <div class=" col-md-2 mb-5 ms-5  ">
             
-            <img [src]='convertBase64ToImage(contact.personne.images)' class="ms-4 h-100 img-fluid rounded-2  " alt="...">
+            <img [src]='convertBase64ToImage(contact.personne.images)' class="float-end h-50 img-fluid rounded-circle  " alt="...">
            
         </div>
           <div class="col-md-8  ">
@@ -49,7 +49,7 @@
                <p class="  fs-3 fw-semibold">{{contact.personne.nom}} {{contact.personne.prenom}}</p>
               <p class=" text-start fs-0 card border-0 m-0" ><strong class="">Sujet:</strong>  {{contact.sujet}}</p>
               <p class="card-text card border-0 m-0" ><strong class=" " >messages: </strong>  {{contact.message}}  </p>
-              <p class="card-text m-0"> <strong>Vers destinateur:</strong> {{contact.destinateur}}</p>
+              <!-- <p class="card-text m-0"> <strong>Vers destinateur:</strong> {{contact.destinateur}}</p> -->
               <p class="card-text m-0"><strong> DATE:</strong> {{contact.dateContact |date:'medium'}}</p>
              
               

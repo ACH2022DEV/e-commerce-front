@@ -129,9 +129,8 @@ a{
   margin-right: 150px;
 }
 .hover:hover{
-    //box-shadow: 5px 10px 10px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    
     box-shadow: 1px 0.5rem 1.5rem rgba(black, .200);
-  //  transition: 0.5 ease-in-out;
   transform: scale(1.01);
 }
 /* button[disabled]:hover{

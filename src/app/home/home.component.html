@@ -34,7 +34,22 @@
     </div>
   </div>
 
-
+  <div class="marginl bg-white rounded-2  shadow-sm  mb-2 mt-5 ">
+  <div class="  bg-white p-0 rounded-1  "><p class="ms-4 p-1 text-center fs-4 fw-semibold mt-2">En partenariat avec  </p>
+    </div>
+  <div class=" box  d-flex bg-white   ">
+   <div class="col-md-4 ">
+    <a href="https://acem.tn/presentation/#"><img src="../../assets/images/img/acem-entre.jpg" class="w-100 h-100 shadow hover" alt=""></a>
+   </div>
+   <div class="col-md-4">
+   <a href="http://www.mhirsi.com/products.htm"><img src="../../assets/images/img/mhirlogo.png"class="w-100 h-100 shadow mb-2 hover" alt=""></a> 
+   </div>
+   <div class="col-md-4">
+    <a href="http://www.made-in-tunisia.net/vitrine/2_infos_generales.php?tc1=lKqYmqqY">
+      <img src="../../assets/images/img/sogemlogo.png" class="w-100 h-100 shadow hover" alt=""></a>
+   </div>
+   
+</div></div>
 <div class="marginl bg-white rounded-2  shadow-sm  mb-2 mt-5 ">
   <div class="  bg-white p-0 rounded-1  "><p class="ms-4 p-1 text-start fs-3 fw-semibold"> les products <a href="" routerLink="/liste-produits"><span class="float-end text-dark mt-2 fs-5 me-3" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
     </div>
@@ -62,11 +77,12 @@
 </div></div>
 <!----->
 <div class="marginl bg-white rounded-2  shadow-sm  mb-2 mt-5 ">
-  <div class="  bg-warning p-0 rounded-1  "><p class="ms-4 p-1 text-start fs-3 fw-semibold"> les products <a href=""  routerLink="/liste-produits"><span class="float-end text-white mt-2 fs-5 me-3" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
+  <div class="  bg-warning p-0 rounded-1  ">
+    <p class="ms-4 p-1 text-start fs-3 fw-semibold"> Promotions |<span class="fw-normal mx-2">jusqu'a -70%</span>  <a href=""  routerLink="/liste-produits"><span class="float-end text-white mt-2 fs-5 me-3" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
     </div>
   <div class=" box  d-flex bg-white   ">
    
-    <div class="w-100  mb-3 mt-1  marginb shadow-sm  " *ngFor="let prod of results">
+    <div class="w-100  mb-3 mt-1  marginb shadow-sm  " *ngFor="let prod of promotions">
       <div class=" hover    border border-0  ">
         <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
         <div class="position-relative  "> 
