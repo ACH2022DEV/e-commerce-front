@@ -26,7 +26,7 @@ public quantity:number=1;
 jsonStringObj: any = {};
 public lenght:any;
 public nombreDavis:any;
-
+public quantity1:any=1;
 obj: any = { email: '', username: '', id: '', roles: '' };
 public key: any;
 public total: Array<number> | undefined;
@@ -91,6 +91,16 @@ public ajouterAuPanier(f: any) {
     })
 
   }
-
+  public incremente(){
+  
+       
+     
+    this.quantity1++
+   
+   }
+   public decremente(){
+     this.quantity1--
+    
+  }
 
 }

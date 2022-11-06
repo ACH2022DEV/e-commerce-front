@@ -25,7 +25,7 @@ export class ListeProduitsComponent implements OnInit {
   public page: number = 0;
   public size: number = 12;
   public monpanier:Panier[]=[];
- 
+ public quantity1:any=1
 
 
   //fin search
@@ -132,7 +132,17 @@ export class ListeProduitsComponent implements OnInit {
     this.getAllProduits();
   }
 
-
+  public incremente(){
+  
+       
+     
+   this.quantity1++
+  
+  }
+  public decremente(){
+    this.quantity1--
+   
+ }
 
 
 }
