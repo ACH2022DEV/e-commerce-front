@@ -64,6 +64,14 @@ a{
     font-family: Roboto,Arial,Helvetica,sans-serif;
     
 }
+.sidebutton {
+  a{
+    color: #000;
+  }
+  a:hover{
+color: #f58a07;
+  }
+}
 .sidebar{
 border-top: 1px solid #dddddd;}
 .sidebutton{
@@ -79,7 +87,7 @@ a,h4{
     
   }
   .color{
-  color:gray;
+  color:rgb(220, 216, 216);
   margin: 4px;
   
   }
