@@ -67,9 +67,9 @@ export class FactureComponent implements OnInit {
 //
 
 
-public searchTerm(f:any){
+/* public searchTerm(f:any){
 
-}
+} */
 
 convertBase64ToImage(images: Picture[]): any {
 
