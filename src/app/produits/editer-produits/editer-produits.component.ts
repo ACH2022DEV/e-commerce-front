@@ -40,7 +40,6 @@ export class EditerProduitsComponent implements OnInit {
   }
   public UpdateProduit(f: any) {
     const productFormdata=this.prepareFormdata(this.produit);
-
     this.produitService.Updatearticle(productFormdata).subscribe(
       data => {
         this.produit2=data;

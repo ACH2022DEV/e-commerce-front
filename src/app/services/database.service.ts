@@ -33,8 +33,8 @@ export class DatabaseService {
     return this.http.post<FormData>(`${this.url}/personne`, personne);
 
   }
-  public UpdatePersonne( personne:Personne): Observable<Personne> {
-    return this.http.put<Personne>(`${this.url}/personne`, personne);
+  public UpdatePersonne( personne:FormData): Observable<FormData> {
+    return this.http.put<FormData>(`${this.url}/personne`, personne);
   }
   
   public deletePersonne(id:number): Observable<void> {

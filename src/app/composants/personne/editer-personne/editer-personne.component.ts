@@ -18,9 +18,10 @@ export class EditerPersonneComponent implements OnInit {
     
   //nouveau Modification pour l'image de personne
   userfile: any;
- /*  imagePath: any;
+  imagePath: any;
   imgURL: any;
-  sanitiser: any; */
+  sanitiser: any; 
+  public personne2:FormData | undefined;
 
   constructor(private pesonneService: DatabaseService,
     private route: ActivatedRoute,
@@ -36,14 +37,23 @@ export class EditerPersonneComponent implements OnInit {
   }
 
   public UpdatePersonne(f: any) {
-    this.pesonneService.UpdatePersonne(this.personne).subscribe(
+    const personneFormdata=this.prepareFormdata(this.personne);
+    this.pesonneService.UpdatePersonne(personneFormdata).subscribe(
       data => {
-        this.personne = data;
+        this.personne2=data;
         this.router.navigate(['/list-personne']);
       }
     )
   }
-  /* public onSelectedFile(event:any){
+  prepareFormdata(personne:Personne):FormData{
+    const formData=new FormData();
+    formData.append('personne',new Blob([JSON.stringify(personne)],{type:'application/json'}));
+   
+      formData.append('files',this.userfile );
+      
+    return formData;
+  }
+   public onSelectedFile(event:any){
     if(event.target.files){
        const file=event.target.files[0];
        this.userfile=file;
@@ -65,13 +75,13 @@ export class EditerPersonneComponent implements OnInit {
 
         
       }
-      this.personne.imagepersonne=fileHan;
+    //  this.personne.imagepersonne=fileHan;
      
      
     }
   }
 
- */
+ 
 
 
 

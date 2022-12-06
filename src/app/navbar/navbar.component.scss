@@ -16,7 +16,15 @@
 .hover:hover{
     color: rgb(240, 131, 30);
 }
-
+.left{
+    border-right: 2px solid #dddddd;
+}
+.nav-item {
+    .hover{
+        border-right: 1px solid #797777;
+      
+    }
+}
 /* .hover:hover{
     background-size: 100% 2px;
     color: #de1b76;
