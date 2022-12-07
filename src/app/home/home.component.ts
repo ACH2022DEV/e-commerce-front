@@ -20,11 +20,21 @@ import { DatabaseService } from '../services/database.service';
 export class HomeComponent implements OnInit {
   public results:Article[]=[];
   public promotions:Article[]=[];
+  public TotalProducts:Article[]=[];
+  public AcemProducts:Article[]=[];
+  public Postes:Article[]=[];
 
-public size=6;
+
+public size=8;
 public page=0;
-public searchText:any='s';
-public remise:any=70;
+public searchText:any='outils';
+public Total:any='TOTAL';
+public Acem:any='Acem';
+public Poste:any='Poste';
+
+
+
+public remise:any=30;
 public lenght:any;
 public total: Array<number> | undefined;
 
@@ -38,6 +48,24 @@ public total: Array<number> | undefined;
       console.log('this.results',data)
       this.total = new Array(data['totalPages']);
   })
+  this.searchservice.Search(this.page,this.size, this.Total).subscribe((data:any)=> {
+    this.TotalProducts = data['content'];
+    this.lenght=this.results.length;
+    console.log('this.results',data)
+    this.total = new Array(data['totalPages']);
+})
+this.searchservice.Search(this.page,this.size, this.Poste).subscribe((data:any)=> {
+  this.Postes = data['content'];
+  this.lenght=this.results.length;
+  console.log('this.results',data)
+  this.total = new Array(data['totalPages']);
+})
+this.searchservice.Search(this.page,this.size, this.Acem).subscribe((data:any)=> {
+  this.AcemProducts = data['content'];
+  this.lenght=this.results.length;
+  console.log('this.results',data)
+  this.total = new Array(data['totalPages']);
+})
   this.searchservice.SearchbyRemise(this.page,this.size, this.remise).subscribe((data:any)=> {
     this.promotions = data['content'];
     this.lenght=this.promotions.length;

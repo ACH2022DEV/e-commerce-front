@@ -20,6 +20,8 @@ export class VisualiserFactureComponent implements OnInit {
   public TTC:number=0;
   public timbre:any=0.600;
   public TTCFinal:any=0;
+  public MontantNet:any;
+
   constructor(private factureService: DatabaseService, private route: ActivatedRoute,
     private router: Router) { }
 
@@ -35,6 +37,7 @@ export class VisualiserFactureComponent implements OnInit {
       });
       this.facture.articles.map(index => {
         this.montantARemise+= index.quatite*(index.article.prix-(index.article.prix*index.remise/100));
+        this.MontantNet=this.montantARemise.toFixed(2);
       });
       this.facture.articles.map(index => {
         this.remise+= index.quatite*(index.article.prix*index.remise/100);

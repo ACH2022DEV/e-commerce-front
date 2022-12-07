@@ -20,6 +20,8 @@ export class VisualiserDevisComponent implements OnInit {
   public TTC:number=0;
   public timbre:any=0.600;
   public TTCFinal:any=0;
+  public MontantNet:any;
+
 
    //public devis:Devis[]=[]
   constructor(private devisService: DatabaseService, private route: ActivatedRoute,
@@ -32,10 +34,12 @@ export class VisualiserDevisComponent implements OnInit {
       console.log(data)
       this.devis = data;
       this.devis.articles.map(index => {
-        this.montantSRemise+=index.quatite*index.article.prix
+        this.montantSRemise+=index.quatite*index.article.prix;
+        
       });
       this.devis.articles.map(index => {
         this.montantARemise+= index.quatite*(index.article.prix-(index.article.prix*index.remise/100));
+        this.MontantNet=this.montantARemise.toFixed(2)
       });
       this.devis.articles.map(index => {
         this.remise+= index.quatite*(index.article.prix*index.remise/100);

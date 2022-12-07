@@ -31,6 +31,7 @@ public nombreDavis:any;
 public lepanier: CreatePanier[] = [];
 public code:any;
 public quantity:number=1;
+public Commentaire=true;
 
 constructor( private panierService: PanierService,private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
     private router: Router, private avisService: AvisService, private fb: FormBuilder) {
@@ -69,13 +70,16 @@ constructor( private panierService: PanierService,private produitService: Databa
 
 
     })
+    
   }
   //Afficher les Avis de client
   public getAllAvis(): void {
     this.avisService.getAllAvis().subscribe(data => {
       this.lesAvis = data;
       this.nombreCommentaire = this.lesAvis.length;
-
+      if(this.nombreCommentaire==0){
+        this.Commentaire=false;
+      }
 
     },
       (error: HttpErrorResponse) => alert(error.message)

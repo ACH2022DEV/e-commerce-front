@@ -1,6 +1,5 @@
 
 
-
 <div class="container-fluid  ">
   <div class="row d-flex justify-content-center">
     <div class="m-5 col-md-8 ms-5  bg-white  mt-3  mb-3  rounded-1 shadow p-3 bg-body">
@@ -30,8 +29,10 @@
                
               <p class="card-text fs-4 m-0"> <b>{{produit.prix}} TND.</b></p>
               <p  class="text-decoration-line-through  text-secondary   fs-6 m-0 ">{{produit.prix*(1+produit.remise/100)}} TND  <span class="badge  color-bg text-start ms-2 fs-6 " >-{{produit.remise}}%</span></p>
-           <div class="d-flex"><p class="card-text " style="color:burlywood ;">Articles restants : </p><span class="mx-2">{{produit.quantite}}</span></div> 
-              <p class="m-0 card-text text-muted">+ livraison à partir de 4.00 TND vers route du mahdiyya km 5.5</p>
+              <p class="m-0">PaysOrigine: {{produit.paysOrigine}}</p> 
+
+              <div class="d-flex"><p class="card-text " style="color:burlywood ;">Articles restants : </p><span class="mx-2">{{produit.quantite}}</span></div> 
+           <p class="m-0 card-text text-muted">+ livraison à partir de 4.00 TND vers route du mahdiyya km 5.5</p>
               <form #f="ngForm" (ngSubmit)=" ajouterAuPanier(f)">
                 <div class="form-group">
                   <input class="form-control my-1 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel
@@ -91,13 +92,13 @@
  
   
 </div></div>
-<div id="carouselExampleIndicators" class="carousel  carousel-dark  slide  mt-2 mb-5 bg-white  shadow-sm rounded-2 container" data-bs-ride="carousel">
+<!--Carousel-->
+<!-- <div id="carouselExampleIndicators" class="carousel  carousel-dark  slide  mt-2 mb-5 bg-white  shadow-sm rounded-2 container" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button *ngFor="let image of produit.images; let index = index" type="button"
       data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="index" class="active" aria-current="true"
       [attr.aria-label]="'Slide'+ index"></button>
-    <!--button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button-->
+   
   </div>
   <div class="carousel-inner">
     <div class="col-6 d-flex justify-content-center">
@@ -115,7 +116,7 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
+</div> -->
 <div class="container-fluid">
   <div class="row">
    
@@ -208,8 +209,8 @@
                         <span class="fa fa-star color"></span>
                                   </a></div>
                     </div> -->
-    
-    <div class="col-md-6 mx-5  bg-white shadow-sm  rounded-2 mb-5">
+    <div  class="col-md-6 mx-5 "  *ngIf="Commentaire">
+    <div class=" bg-white shadow-sm  rounded-2 mb-5">
       <div class="  mb-3    rounded-3 p-3  " *ngFor="let avis of produit.avis; index as i">
         <div class="p-3 m-0 ">
          
@@ -227,6 +228,14 @@
         </div>
       </div>
     </div>
+   
+  </div>
+ <!--  <div  class=" " *ngIf="Commentaire==false">
+    <div class="bg-white shadow-sm bg-white ">Les clients ayant acheté ce produit n'ont pas encore émis d'avis.
+
+    </div>
+  </div>  -->
+    <!-- <div *ngIf='!this.nombreCommentaire'>commentaires introuvables</div> -->
    <div class="col-md-4 h-100 sticky-top " style="top: 100px; z-index: 4;" >
    
       <div class="    rounded-3 bg-white  shadow-sm p-3 bg-body  "  >

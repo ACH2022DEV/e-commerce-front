@@ -3,25 +3,25 @@
     <div class="col-md-3  shadow-sm  ms-5 mx-3 bg-white rounded-1 h-100">
     <div class=" ">
     <h3 class="text-dark mt-1 ms-4">Nos Catégories</h3>
-   <div class="ms-4 sidebutton"> 
-    <a href=""><p class="">Outillages </p></a>
-    <a href=""><p>Netoyage Haute Pression</p></a>
-    <a href=""><p>Disques</p></a>
-    <a href=""><p>Cadnas</p></a>
-    <a href=""><p>Sécurité</p></a>
-    <a href=""><p>Batiment</p></a>
-    <a href=""> <p>Pinces</p></a>
-    <a href=""> <p class="">Clé male</p></a>
-  </div>
+    <div class="ms-4 sidebutton  "> 
+      <a href="" [routerLink]="['/searchProduct/','Escabeau']"><p class="">Acem Escabeau </p></a>
+     <a href="" [routerLink]="['/searchProduct/','Jeux']"><p>Jeux de Tournevis</p></a>
+     <a href="" [routerLink]="['/searchProduct/','disque']"><p>Disques</p></a>
+     <a href="" [routerLink]="['/searchProduct/','Cadenas']"><p>Cadnas</p></a>
+     <a href="" [routerLink]="['/searchProduct/','outils']"><p>Outils Plastique</p></a>
+     <a href="" [routerLink]="['/searchProduct/','Clés']"><p>Des Clés</p></a>
+     <a href="" [routerLink]="['/searchProduct/','Scie']"> <p>Scie</p></a>
+     <a href="" [routerLink]="['/searchProduct/','brosse']"> <p class="">Des brosses </p></a>
+   </div>
   <h3 class="text-dark ms-4">Marque</h3>
  <div class="ms-4 sidebutton mt-2 ">
-   <div class="form-check">
+   <div class="form-check" [routerLink]="['/searchProduct/','Acem']">
     <input class="form-check-input border-2  border-secondary " type="checkbox" value="" id="flexCheckDefault">
     <label class="form-check-label fw-semibold" for="flexCheckDefault">
      Acem
     </label>
   </div>
-  <div class="form-check mt-2 mb-2">
+  <div class="form-check mt-2 mb-2" [routerLink]="['/searchProduct/','TOTAL']">
     <input class="form-check-input border-2  border-secondary" type="checkbox" value="" id="flexCheckDefault">
     <label class="form-check-label fw-semibold" for="flexCheckDefault">
       Total
@@ -85,7 +85,7 @@
     <span class="fa fa-star color"></span>
               </a></div>
 </div>
-<h5 class="text-dark">Search By Prix<span class=" me-2 p-2 fs-6">(TND)</span> <a href=""> <span class="fs-5 ms-5 color-bg bg-white">OK</span></a></h5>
+<h5 class="text-dark">Search By Prix<span class=" me-2 p-2 fs-6">(TND)</span> <a href="" [routerLink]="['/searchProduct/',this.quantity1]"> <span class="fs-5 ms-5 color-bg bg-white">OK</span></a></h5>
 <div class="d-flex  mx-3 mb-5 mt-3">
   <a type="button "  class="btn rounded-1 btnColor1"(click)="incremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-plus-lg text-white" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
@@ -115,15 +115,17 @@
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-4 p-3  " alt="..."> </a>
         <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
           <p class="card-text text-start ms-3">{{prod.description}}</p>
-        <p class=" text-danger  text-start ms-3">{{prod.prix }} TND</p>
-        <p class="text-start ms-3">Reférence:{{prod.codeArticle}}</p>
+         
+        <p class=" text-danger fw-semibold fs-4  text-start ms-3">{{prod.prix }} TND</p>
         <p class="ms-3"><span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span> </p> 
+        <p class="text-start ms-3">Reférence:{{prod.codeArticle}}</p>
+     
         <p  class="text-decoration-line-through   text-start ms-3 fs-6 ">{{prod.prix*(1+prod.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
-        <p class="text-start ms-3 fs-6">{{prod.paysOrigine}}</p>
+        <!-- <p class="text-start ms-3 fs-6">{{prod.paysOrigine}}</p> -->
       </a>
 
           <form #f2="ngForm" (ngSubmit)="ajouterPanier(f2)">
