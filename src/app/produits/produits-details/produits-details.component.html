@@ -211,7 +211,7 @@
     
     <div class="col-md-6 mx-5  bg-white shadow-sm  rounded-2 mb-5">
       <div class="  mb-3    rounded-3 p-3  " *ngFor="let avis of produit.avis; index as i">
-        <div class="p-3 m-0 sidebar">
+        <div class="p-3 m-0 ">
          
           <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-1 m-0"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
             height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5></a>
@@ -219,9 +219,10 @@
             <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
           </div>
 
-          <p class="m-0" ><strong>Commenté le {{avis.dateAvis | date:'fullDate'}}</strong> </p>
+         
           <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
-          <p class="card-text m-0"><strong> Message:</strong>  {{avis.message}}.</p>
+          <p class="card-text m-0"><strong> Avis:</strong>  {{avis.message}}.</p>
+          <p class="m-0" >Commenté le {{avis.dateAvis | date:'fullDate'}} </p>
 
         </div>
       </div>

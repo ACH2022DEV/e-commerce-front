@@ -118,15 +118,15 @@
                     </div></div>
                 </div>
                 <div class=" container mb-3 mt-2">
-                    <textarea class="form-control   p-3" name="message" ngModel id="exampleFormControlTextarea1" rows="3" placeholder="Message" required pattern="[a-zA-Z_0-9]{10,}"  ngModel #message="ngModel"></textarea>
+                    <textarea class="form-control   p-3" name="message" ngModel id="exampleFormControlTextarea1" rows="3" placeholder="Message" required   ngModel #message="ngModel"></textarea>
                     <div *ngIf="message.invalid && (message.dirty || message.touched)" class="p-2 w-100 my-1 bg-danger  text-white  rounded-1 ">
 
                       <div *ngIf="message.errors?.['required']" >
                         Le message  est obligatoire.
                       </div>
-                      <div *ngIf="message.errors?.['pattern']" > 
+                     <!--  <div *ngIf="message.errors?.['pattern']" > 
                         Le message  doit avoir au minumum 10 chiffres
-                      </div>
+                      </div> -->
                       
               
                   </div></div><div class="d-flex justify-content-center container-fluid">    
