@@ -1,5 +1,4 @@
 
-<!-- fixed-top-->
 <nav class="navbar    sticky-top  navbar-expand-lg shadow mb-5 bg-light rounded">
   <div class="container ">
     <button class="navbar-toggler btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -9,11 +8,11 @@
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav  me-auto mb-2 mb-lg-0 col-md-5 col-xl-5   col-sm-4 ">
 
-        <li class="nav-item d-flex justify-content-center ">
+        <li class="nav-item d-flex justify-content-center d-sm-flex  justify-content-sm-center ">
           <a class="nav-link  active hover  fs-5 " aria-current="page" href="#" routerLink="/home"><i class="bi bi-house-fill"></i>Home</a>
         </li>
       
-          <li class="nav-item dropdown d-flex justify-content-center " *ngIf=" getAccestouser() " >
+          <li class="nav-item dropdown d-flex justify-content-center  " *ngIf=" getAccestouser() " >
             <a class="nav-link  fs-5 hover" href="#" routerLink="/entreprise" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
              Entreprise
@@ -25,12 +24,7 @@
              Contact
             </a>
           </li>
-         <!--  <li *ngIf=" getAccestouser() " >
-            <a class="nav-link  text-white" href="https://www.acem.tn/Catalogue"  role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-             Catalogue
-            </a>
-          </li> -->
+        
         <li class="nav-item dropdown d-flex justify-content-center  " *ngIf=" getAccestouser()  &&  loggedIn()" >
           <a class="nav-link  hover  fs-5" href="#" routerLink="/liste-produits" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -57,7 +51,7 @@
         </li>
       </ul>
 
-      <div class=" d-flex    col-sm-10 col-md-4 col-xl-6  " role="search" *ngIf=" loggedIn()">
+      <div class=" d-flex col-12   col-sm-12 col-md-12  col-lg-6 " role="search" *ngIf=" loggedIn()">
         <input class="form-control " type="search" name="search"  placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
         <button  class=" search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
        <h6 class=" mt-1 " style="color: #fff;">RECHERCHER</h6> </button>
@@ -68,7 +62,6 @@
       <div class="col-md-3 col-sm-4  col-xl-2  mx-3  d-xs-flex justify-content-center    d-flex justify-content-end ">
         <a routerLink="/Panier" *ngIf=" getAccestouser() && loggedIn()" type="button" class=" position-relative mx-1 mt-2" tooltip="Votre Panier" placement="bottom"
         >
-          <!-- <i class="bi bi-cart3 " routerLink="/Panier"></i> -->
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
           </svg>
@@ -87,26 +80,12 @@
             <span class="visually-hidden">unread messages</span>
           </span>
         </a>
-     <!--    <a *ngIf=" getAccestoAdmin() && loggedIn()" type="button" class="  position-relative mx-2 mt-3"
-        >
-          <i class="bi  bi-bag-check-fill "  tooltip="Notifications" placement="bottom" routerLink="/notifications"></i>
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-         +9
-            <span class="visually-hidden">unread messages</span>
-          </span>
-        </a> -->
+    
         <button routerLink="/login" class=" btn btn-primary rounded-1 shadow1  mx-1 fw-bold " type="submit"
           *ngIf="!loggedIn()">Login</button>
         <button   *ngIf="!loggedIn()" routerLink="/register" class=" btn btn-dark shadowNoir  rounded-1  mx-1 fw-bold" type="submit">Register</button>
-      <!--   <button *ngIf="loggedIn()" (click)="  logout()" type="button" class="btn btn-light mx-1" tooltip="Déconnection" placement="top"
-        ><i
-            class="bi bi-box-arrow-right"></i></button>
- -->
- <!-- <a class="dropdown-toggle" type="button" *ngIf="loggedIn()">
-      <img [src]='convertBase64ToImage(client.images)' class="rounded-circle  " width="50px">
-      </a> -->
-      <!--test-->
-      <div class="btn-group    dropstart mx-3  "  *ngIf="loggedIn()">
+   
+      <div class="btn-group d-flex justify-content-end    dropstart mx-3  "  *ngIf="loggedIn()">
         <a class="" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <img [src]='convertBase64ToImage(client.images)' class="rounded-circle  " width="50px">
          
@@ -133,7 +112,6 @@
           </svg> <strong class="mx-3">Se déconnecter</strong></a></li>
         </ul>
       </div>
-      <!--fin test-->
       </div>
 
     </div>

@@ -13,7 +13,7 @@
                         <button  type="button" data-bs-toggle="modal" data-bs-target="#exampleModal1" class="btn btn-dark" (click)="deleteArticle(panier.id)" ><i class="bi bi-x-lg"></i></button>
           </div></div>
  -->
-          <div class="col-md-3 col-6 p-1 mt-2 ">
+          <div class="col-md-4 col-6 p-1 mt-2 ">
             <div> <img [src]='convertBase64ToImage(panier.article.images)' class="img-fluid rounded-1" alt="...">
            </div>
        <div class=" mt-2  mx-5 textColor "><a  (click)="deleteArticle(panier.id)" class="d-flex"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></div> 
@@ -33,7 +33,7 @@
                     <p  class="text-decoration-line-through  text-muted fs-5 me-5">{{panier.article.prix*(1+panier.article.remise/100)}} TND</p>
                     <p> <span class="badge color-bg fs-4 ms-2" >-{{panier.article.remise}}%</span></p>  
                   </div> 
-                   <div class="   mb-4 float-end d-flex ">
+                   <div class="   mb-4 float-center d-flex ">
                   
 
   <button type="button "  class="btn rounded-1 btnColor1"(click)="incremente()"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor" class="bi bi-plus-lg text-white" viewBox="0 0 16 16">
@@ -53,7 +53,7 @@
      </div> 
     </div> 
    
-      <div class="col-md-3 h-100 my-2">
+      <div class="col-md-4 h-100 my-2">
         <div class=" shadow-sm  mb-2 bg-body rounded-3  ">
      <p class="text-center fs-5 p-1">RÉSUMÉ DU PANIER </p>
         <div class="p-4 sidebar  "><span class="text-start fs-5 d-flex  ">Sous-Total: <h5 class=" mx-1 mt-1 fw-semibold">{{SousTotal}}.00 TND</h5></span>
