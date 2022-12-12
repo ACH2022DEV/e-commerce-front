@@ -12,7 +12,7 @@ import { DatabaseService } from '../services/database.service';
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.css']
+  styleUrls: ['./notification.scss']
 })
 export class NotificationsComponent implements OnInit {
 public contacts:Contact[]=[];

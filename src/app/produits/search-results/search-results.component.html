@@ -4,9 +4,9 @@
 
 
 
-<div class="container-fluid ms-5   mt-5 mb-5">
+<div class="container-fluid  mt-5 mb-5">
   <div class="row ">
-    <div class="col-md-3  shadow-sm  ms-5 mx-3 bg-white rounded-1 h-100">
+    <div class="col-md-3 col-lg-3 d-none d-sm-none d-md-block d-lg-block  shadow-sm  ms-5   bg-white rounded-1 h-100">
       <div class=" ">
       <h3 class="text-dark mt-1 ms-4">Nos Catégories</h3>
      <div class="ms-4 sidebutton  "> 
@@ -166,10 +166,10 @@
       </div>
               
     
-    <div class=" col-md-8 mx-2 row animate   p-1  bg-white rounded-1" >
+    <div class=" col-md-7  mx-auto col-12 col-lg-8 col-sm-12  row animate   p-1  bg-white rounded-1" >
      <div> <h3 class="p-2 ">Les Produits</h3>
       <p class="sidebutton p-2 sidebar "> {{lenght}} résultats</p></div>
-      <div class="col-md-3  my-2  " *ngFor="let prod of results; index as i ">
+      <div class="col-md-6 col-lg-3 col-6 col-sm-4 my-2  " *ngFor="let prod of results; index as i ">
         <div class="card     border border-0 ">
           <!-- <a [routerLink]="['/details/', prod.codeArticle]" href=""> -->
           <div class="position-relative  ">

@@ -13,7 +13,7 @@ import { PanierService } from './panier.service';
 @Component({
   selector: 'app-panier',
   templateUrl: './panier.component.html',
-  styleUrls: ['./panier.component.css']
+  styleUrls: ['./panier.scss']
 })
 export class PanierComponent implements OnInit {
   public lesPlusRecomndes:Panier[]=[];

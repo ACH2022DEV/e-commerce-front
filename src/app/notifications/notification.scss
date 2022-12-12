@@ -1,0 +1,32 @@
+.hover:hover{
+    box-shadow: 0 2rem 2rem rgba(black, .250);
+    transition: 0.5 ease-in-out;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+.sidebar{
+  border-top: 0.5px solid #a09e9e;
+}
+  .col-9{
+    img{
+        margin-left: 50px;
+    }
+  }
+  .col-2{
+    margin: auto;
+    
+    img{
+        padding: 2px;
+        margin: auto;
+    }
+    div{
+        box-shadow: none;
+       }
+   
+  }
+  
+   .col-md-2 {
+  
+   }
+    
+  
