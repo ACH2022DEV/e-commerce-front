@@ -89,8 +89,16 @@ a{
 .height{
     height: 130px;
 }
-/* @media (max-width: 767.98px) { 
-    .dropdown-menu {
-    float: right;
-} }
- */
+  @media (max-width: 991.98px) { 
+  
+.visible{
+    /* float: right;
+  
+    margin-left: 250px; */
+    visibility: hidden;
+}
+.panier{
+    visibility: hidden;
+}
+ } 
+  

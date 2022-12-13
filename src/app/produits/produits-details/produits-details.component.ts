@@ -31,7 +31,7 @@ public nombreDavis:any;
 public lepanier: CreatePanier[] = [];
 public code:any;
 public quantity:number=1;
-public Commentaire=true;
+public Commentaire:boolean=true;
 
 constructor( private panierService: PanierService,private produitService: DatabaseService, private route: ActivatedRoute, private sanitizer: DomSanitizer,
     private router: Router, private avisService: AvisService, private fb: FormBuilder) {
@@ -58,6 +58,9 @@ constructor( private panierService: PanierService,private produitService: Databa
     this.key = this.obj.id;
     console.log(this.key)
 
+
+    
+
   }
 
   ngOnInit(): void {
@@ -65,21 +68,28 @@ constructor( private panierService: PanierService,private produitService: Databa
       this.produit = data;
       //this.nombreDavis=this.produit.article.avis.lenght;
      // console.log('nomavis',this.nombreDavis)
-      this.nombreCommentaire;
-
-
-
     })
-    
+    if(this.nombreCommentaire==0){
+      this.Commentaire=false;
+    }else{
+      this.Commentaire = true;
+    }
   }
+
+  /* public  existe():any{
+    if(this.nombreCommentaire==0){
+      this.Commentaire =false;
+    }else{
+      this.Commentaire = true;
+    }
+  } */
   //Afficher les Avis de client
   public getAllAvis(): void {
     this.avisService.getAllAvis().subscribe(data => {
       this.lesAvis = data;
       this.nombreCommentaire = this.lesAvis.length;
-      if(this.nombreCommentaire==0){
-        this.Commentaire=false;
-      }
+      this.nombreCommentaire; 
+     
 
     },
       (error: HttpErrorResponse) => alert(error.message)

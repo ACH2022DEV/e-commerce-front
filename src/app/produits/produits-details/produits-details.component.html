@@ -209,9 +209,9 @@
                         <span class="fa fa-star color"></span>
                                   </a></div>
                     </div> -->
-    <div  class="col-md-6 mx-5 "  *ngIf="Commentaire">
-    <div class=" bg-white shadow-sm  rounded-2 mb-5">
-      <div class="  mb-3    rounded-3 p-3  " *ngFor="let avis of produit.avis; index as i">
+    <div  class="col-md-6 mx-5 "  *ngIf="Commentaire==true">
+    <div class=" bg-white shadow-sm  rounded-2 mb-5"  >
+      <div class="  mb-3    rounded-3 p-3  " *ngFor="let avis of produit.avis; index as i"  >
         <div class="p-3 m-0 ">
          
           <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-1 m-0"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
@@ -228,14 +228,21 @@
         </div>
       </div>
     </div>
-   
+   <!---test-->
+ 
+
+   <!--fin-->
   </div>
- <!--  <div  class=" " *ngIf="Commentaire==false">
-    <div class="bg-white shadow-sm bg-white ">Les clients ayant acheté ce produit n'ont pas encore émis d'avis.
+  <!-- <div class="col-md-6 mx-5  bg-white shadow-sm" *ngIf="!Commentaire"><p>commentaires introuvables</p> </div> -->
+ <!--  <div  class=" col-md-6 mx-5 bg-white shadow-sm" *ngIf="this.Commentaire==false">
+    <div class=" bg-white "><p>Les clients ayant acheté ce produit n'ont pas encore émis d'avis.</p> 
 
     </div>
-  </div>  -->
-    <!-- <div *ngIf='!this.nombreCommentaire'>commentaires introuvables</div> -->
+  </div>   -->
+
+
+
+
    <div class="col-md-4 h-100 sticky-top " style="top: 100px; z-index: 4;" >
    
       <div class="    rounded-3 bg-white  shadow-sm p-3 bg-body  "  >
@@ -269,3 +276,4 @@
   
   </div>
 </div>
+
