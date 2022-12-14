@@ -5,7 +5,7 @@
   <div class=" container-fluid mx-auto mb-3  mt-5" *ngIf="!panierVide">
     <!-- <button class="btn btn-danger my-1 mx-3 " routerLink="/liste-produits"> Shop More</button> -->
     <div class=" row">
-<div class=" col-md-8 col-12 col-sm-12 mx-auto col-lg-8 col-xl-6 col-md-12">  
+<div class=" col-md-8 col-12 col-sm-12 mx-auto col-lg-8 col-xl-7 col-md-12">  
    <div class=" shadow-sm p-1  bg-white rounded   mb-0 text-start fw-semibold"><h5 class="ms-5 ">Panier({{this.nombredeprod}})  </h5></div>
     <div class="container-fluid   shadow-sm   bg-body rounded sidebar rounded-4  " *ngFor="let panier of client.paniers; let index = index">
         <div class="row  ">
@@ -16,14 +16,14 @@
           <div class="col-md-4 col-sm-5 col-10 p-1 mt-2 ">
             <div> <img [src]='convertBase64ToImage(panier.article.images)' class="img-fluid rounded-1" alt="...">
            </div>
-       <div class=" mt-sm-2  ms-3 textColor "><a  (click)="deleteArticle(panier.id)" class="d-flex"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></div> 
+       <div class=" mt-sm-2  ms-3 textColor d-none d-sm-block"><a  (click)="deleteArticle(panier.id)" class="d-flex"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></div> 
                        
            
           </div>
           
           <div class="col-md-5 col-sm-5 col-11 align-items-center m-0 mt-2 ">
               <span class="d-block mt-xl-2 m-0 text-start"><p>{{panier.article.description}}</p> </span>
-              <span class="d-block m-0 text-danger "><h5>{{panier.article.paysOrigine}}</h5> </span>
+              <span class="d-none d-md-block m-0 text-danger "><h5>{{panier.article.paysOrigine}}</h5> </span>
                  <!-- <span class="d-block  p-1"> <p class="card-text"><small class="text-muted"><b>Commandé le:</b>  {{panier.date |  date:'short' }}</small></p></span> -->
               
                
@@ -47,7 +47,7 @@
   </svg></button>
   
                 </div>
-                  
+                <h5><a  (click)="deleteArticle(panier.id)" class="d-flex d-block  d-sm-none textColor"><i class="bi bi-trash"></i> <p class="mx-2"> Supprimer</p></a></h5>
                   </div> </div>
         </div>
      </div> 
@@ -252,7 +252,7 @@
 
     </div>
   </div> -->
-<div class="container mt-5 shadow p-3 mb-5 bg-body rounded  ">
+<div class="container mt-5 shadow p-3 mb-5 bg-body rounded col-11 ">
   <div class="d-flex justify-content-center"><img src="../../assets/images/img/paniervide.svg" ></div>
   
 <p class="fw-bold text-center">Votre panier est vide!</p>
@@ -287,20 +287,20 @@
 </div>
 </div> -->
 
-<div class="container-fluid     rounded-2    mb-2 mt-5 ">
+<div class="container  bg-white   rounded-2    mb-2 mt-5 ">
   <div class="   ">
     <p class="text-danger   col-10  rounded-2  p-1  fs-4 fw-semibold">les Plus Recommandés</p>
     </div>
    <div class="row">
-    <div class=" col-lg-3 col-md-4 my-1 col-sm-6 col-12 col-xl-3 " *ngFor="let prod of lesPlusRecomndes">
-      <div class=" hover card shadow  border border-0  ">
+    <div class=" col-lg-3 col-md-4 my-1 col-sm-6 col-12 col-xl-2 " *ngFor="let prod of lesPlusRecomndes">
+      <div class=" hover card shadow-sm  border border-0  ">
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.article.codeArticle]" href="">
         <img [src]='convertBase64ToImage(prod.article.images)' class="card-img-top rounded-0 p-2 " alt="..."> </a>
         <div class=" ">  <a [routerLink]="['/details/', prod.article.codeArticle]" href="">
           <p class="container card-text text-start text-truncate  m-0">{{prod.article.description}}</p>
         <p class="container text-danger  text-start  m-0">{{prod.article.prix }} TND</p>
-        <p  class="text-decoration-line-through   text-start  container m-0 mb-2 ">{{prod.article.prix*(1+prod.article.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.article.remise}}%</span></p>
+        <h6  class="text-decoration-line-through   text-start  container m-0 mb-2 ">{{prod.article.prix*(1+prod.article.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.article.remise}}%</span></h6>
       
       </a>
 
