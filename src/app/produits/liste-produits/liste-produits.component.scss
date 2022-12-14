@@ -151,3 +151,9 @@ a,h4{
       font-size: .875rem;
       }
    }
+   @media (max-width: 340px) {
+    .checked{
+      //margin: 1px;
+      width: 8px;
+    }
+    }

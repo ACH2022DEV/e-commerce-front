@@ -4,7 +4,7 @@
 <div class="container-fluid mt-5 mb-5">
     <div class="row justify-content-evenly">
         <div class="col-md-10 col-lg-4 col-11 col-sm-11 mx-auto bg-white shadow-sm rounded-2 mb-5 mt-5 p-5 h-100">
-         <h3 class="fw-bold text-center mx-2 "><img src="../../assets/maison.jpg" alt="" width="70px" class="rounded-circle">  Maison Moderne</h3>
+         <h3 class="fw-bold text-center mx-2 "><img src="../../assets/maison.jpg" alt="" width="70px" class="rounded-circle"><p>Maison Moderne</p>  </h3>
          <p class="fw-semibold mt-3">Route de Tunis Km 10.5 CP - 3021 - Sfax Tunisie<br>
             Tél.: (+216) 74 358 403 - 74 861 842<br>
             Fax: (+216) 74 861 208<br>
@@ -32,7 +32,7 @@
           <h1 class="text-center fs-1  text-dark  mt-2 mb-2 ">CONTACT </h1>
           <form #f="ngForm" class="mt-2" (ngSubmit)="Createcontact(f)"><div class="col-12">
             <input class="form-control " type="hidden" placeholder="desitinateur" [(ngModel)]="this.key" ngModel name="idPersonne">
-            <div class="form-floating mb-3">
+            <div class="form-floating mb-3  ">
               <input class="form-control  " placeholder="desitinateur" name="destinateur" required pattern="[a-zA-Z_0-9]{4,10}" ngModel #destinateur="ngModel">
               <label >desitinateur</label>
               <div *ngIf="destinateur.invalid && (destinateur.dirty || destinateur.touched)" class="p-2 my-1 bg-danger  text-white  rounded-1 ">
