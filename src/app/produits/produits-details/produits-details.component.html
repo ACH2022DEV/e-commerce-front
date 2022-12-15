@@ -253,21 +253,21 @@
                         <span class="fa fa-star color"></span>
                                   </a></div>
                     </div> -->
-    <div  class="col-md-7 ms-5"  *ngIf="Commentaire==true">
+    <div  class="col-md-6 col-lg-6 ms-xl-5"  *ngIf="Commentaire==true">
     <div class="    rounded-2 mb-5"  >
-      <div class="  mb-3 bg-white shadow  rounded-3 p-3  " *ngFor="let avis of produit.avis; index as i"  >
-        <div class="p-3 m-0 ">
+      <div class="  mb-3 bg-white shadow  rounded-3  py-1 " *ngFor="let avis of produit.avis; index as i"  >
+        <div class=" m-0 ">
          
-          <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-1 m-0"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
+          <a [routerLink]="['/visualiser-personne/',avis.personne.id]"><h5 class="p-2 m-0"><img   [src]='convertBase64ToImage(avis.personne.images)' class="rounded-circle" width="50"
             height="50"> {{avis.personne.nom}} {{avis.personne.prenom}}</h5></a>
-          <div class="stars d-flex justify-content-start ">
+          <div class=" d-flex justify-content-start  ">
             <ngx-star-rating [(ngModel)]=avis.etoile [id]="'rating1'+i" [disabled]="true"></ngx-star-rating>
           </div>
 
          
-          <!-- <p class="d-flex justify-content-start fw-bold">Rating: {{avis.etoile}}</p> -->
-          <p class="card-text m-0"><strong> Avis:</strong>  {{avis.message}}.</p>
-          <p class="m-0" >Commenté le {{avis.dateAvis | date:'fullDate'}} </p>
+          <!-- <p class="d-flex justify-content-center fw-bold">Rating: {{avis.etoile}}</p> -->
+          <p class="card-text mx-0 container"><strong> Avis:</strong>  {{avis.message}}.</p>
+          <p class="container mx-0" >Commenté le {{avis.dateAvis | date:'fullDate'}} </p>
 
         </div>
       </div>
@@ -287,26 +287,26 @@
 
 
 
-   <div class="col-md-4  h-100 sticky-top mb-5" style="top: 100px; z-index: 4;" >
-   
-      <div class="    rounded-3 bg-white  shadow-sm p-3 bg-body  "  >
+   <div class=" col-md-6 col-lg-6 col-12 col-xl-5  h-100 sticky-top mb-5" style="top: 100px; z-index: 4;" >
+ 
+      <div class="    rounded-3 bg-white  shadow-sm  bg-body  "  >
     <form #f1="ngForm" (ngSubmit)="ajouterVotreAvis(f1)">
       <input class="form-control my-2 float-Start w-30 " type="hidden" [(ngModel)]="this.key" ngModel name="idPersonne">
       <input class="form-control my-2 float-Start w-30  " type="hidden" [(ngModel)]="produit.codeArticle" ngModel
         name="codeArticle">
-      <form [formGroup]="form">
-        <div class=" d-flex justify-content-center">
-          <ngx-star-rating formControlName="rating" [id]="'rating'"></ngx-star-rating>
+      <form [formGroup]="form" class=" ">
+        <div class="d-flex justify-content-center "><!--d-sm-flex justify-content-sm-center-->
+          <ngx-star-rating formControlName="rating"  [id]="'rating'"></ngx-star-rating>
         </div>
       </form>
-  
-      <input class="form-control my-2  " type="hidden"  [(ngModel)]="form.value.rating" ngModel name="etoile">
-      <div class="d-flex">
-      <img src="../../../assets/maison.jpg" width="50px" height="45px" class="rounded-circle">
+  <div class="d-flex justify-content-center">
+      <input class="form-control my-2  " type="hidden"  [(ngModel)]="form.value.rating" ngModel name="etoile"></div>
+      <div class="d-flex col-12">
+      <img src="../../../assets/maison.jpg" width="50px" height="45px" class="rounded-circle d-none d-sm-block">
       <input class="form-control my-2 text-center mx-2 rounded-pill " type="text" placeholder="écrivez un Commentaire" ngModel
         name="message"></div>
-        <div class="d-flex justify-content-center">
-      <button type="submit" class="  btn btnColor text-white rounded-pill w-75 ms-4  mb-2 ">Envoyer </button></div>
+        <div class="d-flex justify-content-center ">
+      <button type="submit" class="  btn btnColor text-white rounded-pill w-50 ms-md-4  mb-2 ">Envoyer </button></div>
     </form>
   </div>
  

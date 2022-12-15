@@ -1,6 +1,6 @@
-<div class="container mb-5  mx-auto ">
+<div class="container-xl mb-5  mx-auto ">
   <div class="row ">
-    <div class="col-lg-3  col-xl-3   bg-white rounded-2 shadow-sm card text-center  d-none d-sm-none d-md-none d-xl-block  ">
+    <div class="col-lg-2  col-xl-3   bg-white rounded-2 shadow-sm card text-center  d-none d-sm-none d-md-none d-xl-block  ">
      <p class="mt-3 fw-bold fs-5 text-danger">Voir Nos Catégories</p>
      <a href=""  [routerLink]="['/searchProduct/','Escabeau']"><p class="">Acem Escabeau </p></a>
      <a href="" [routerLink]="['/searchProduct/','Jeux ']"><p>Jeux de Tournevis</p></a>
@@ -71,12 +71,12 @@
   </div>
 
 </div>
-  <div class="container mx-auto bg-white rounded-2 row shadow-sm  mb-1 mt-5 ">
+  <div class="container-xl mx-auto bg-white rounded-2 row shadow-sm  mb-1 mt-5 ">
     <div class="   p-0 rounded-1  ">
       <p class="ms-4 p-1 text-start fs-3 fw-semibold"> TOTAL Products <a href="" routerLink="/liste-produits"><span class="float-end text-dark mt-2 fs-5 me-3 d-none d-sm-none d-md-block" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
       </div>
      
-      <div class="  col-md-3 my-1 col-sm-6 col-12  " *ngFor="let prod of TotalProducts">
+      <div class="  col-md-3 my-1 col-sm-6 col-12 col-lg-2 " *ngFor="let prod of TotalProducts">
         <div class=" hover card    border border-0  ">
           <div class="position-relative  "> 
             <a [routerLink]="['/details/', prod.codeArticle]" href="">
@@ -97,12 +97,12 @@
   <!-- </div> -->
   </div>
 <!----->
-<div class="container mx-auto  bg-white rounded-2 row shadow-sm  mb-2 mt-5 ">
+<div class="container-xl mx-auto  bg-white rounded-2 row shadow-sm  mb-2 mt-5 ">
   <div class="   rounded-1  ">
     <p class="ms-4 p-1 text-start fs-3 fw-semibold"> Promotions |<span class="fw-normal mx-2">jusqu'a -30%</span>  <a href=""  routerLink="/liste-produits"><span class="float-end text-white mt-2 fs-5 me-3" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
   </div>
    
-    <div class="  col-md-3 my-1 col-sm-6 col-12 " *ngFor="let prod of promotions">
+    <div class="  col-md-3 my-1 col-sm-6 col-12 col-lg-2" *ngFor="let prod of promotions">
       <div class=" hover card   border border-0  ">
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
@@ -122,7 +122,7 @@
   </div>
 <!-- </div> -->
 </div>
-<div class="container mx-auto  bg-white rounded-2  shadow-sm  mb-2 mt-5 ">
+<div class="container-xl mx-auto  bg-white rounded-2  shadow-sm  mb-2 mt-5 ">
   <div class="  bg-white p-0 rounded-1  "><p class="ms-4 p-1 text-center fs-4 fw-semibold mt-2">En partenariat avec  </p>
     </div>
   <div class=" box  d-md-flex bg-white   ">
@@ -140,13 +140,13 @@
 </div>
 </div>
 <!----->
-<div class="container mx-auto  bg-white rounded-2 row shadow-sm  mb-2 mt-5 ">
+<div class="container-xl mx-auto  bg-white rounded-2 row shadow-sm  mb-2 mt-5 ">
   <div class="  bg-white p-0 rounded-1  ">
     <p class="ms-4 p-1 text-start fs-3 fw-semibold"> ACEM Products <a href="" routerLink="/liste-produits"><span class="float-end text-dark mt-2 fs-5 me-3 d-none d-sm-none d-md-block" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
     </div>
    
-    <div class="  col-md-3 my-1 col-sm-6 col-11 " *ngFor="let prod of AcemProducts">
-      <div class="container hover card   border border-1  ">
+    <div class="  col-md-3 my-1 col-sm-6 col-11 col-lg-2 " *ngFor="let prod of AcemProducts">
+      <div class="container hover card    border border-0  ">
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-0 p-2 " alt="..."> </a>
@@ -166,13 +166,13 @@
 <!-- </div> -->
 </div>
 <!---->
-<div class="container mx-auto  bg-white rounded-2 row shadow-sm  mb-5 mt-5 ">
+<div class="container-xl mx-auto  bg-white rounded-2 row shadow-sm  mb-5 mt-5 ">
   <div class="  bg-white p-0 rounded-1  ">
     <p class="ms-4 p-1 text-start fs-3 fw-semibold"> Les Postes <a href="" routerLink="/liste-produits"><span class="float-end text-dark mt-2 fs-5 me-3 d-none d-sm-none d-md-block" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
     </div>
    
-    <div class="  col-md-3 my-1 col-sm-6 col-12 " *ngFor="let prod of Postes">
-      <div class=" hover card   border border-1  ">
+    <div class="  col-md-3 my-1 col-sm-6 col-12 col-lg-2 " *ngFor="let prod of Postes">
+      <div class=" hover card   border border-0  ">
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-0 p-2 " alt="..."> </a>

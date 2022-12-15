@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   public Postes:Article[]=[];
 
 
-public size=8;
+public size=12;
 public page=0;
 public searchText:any='outils';
 public Total:any='TOTAL';

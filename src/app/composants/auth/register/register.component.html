@@ -1,12 +1,12 @@
-<div class="row  ">
+<div class="  ">
   <div class="container mb-5  mt-3"> 
-    <div class="bg-white col-md-11 col-lg-8 col-11 col-sm-11 mx-auto offset-md-3 shadow rounded-1 card  p-1 ">
+    <div class="bg-white col-md-11 col-lg-10 col-xl-8 col-12 col-sm-12 mx-auto offset-md-3 shadow rounded-1 card  p-1 ">
     <h1  class="text-center"><strong>Register</strong></h1>
    <div class="d-flex justify-content-center"> <form  #f="ngForm" (ngSubmit)="onRegistre(f)" class="w-75">
      
       <div class="form-group fw-bold ">
         <div class="form-floating mb-3">
-           <input class="form-control rounded-0" type="text" placeholder="Username" id="username" name="username"  required minlength="4" ngModel #username="ngModel">
+           <input class="form-control rounded-0  " type="text" placeholder="Username" id="username" name="username"  required minlength="4" ngModel #username="ngModel">
           <label for=" ">Username</label></div>
       
         <div *ngIf="username.invalid && (username.dirty || username.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">

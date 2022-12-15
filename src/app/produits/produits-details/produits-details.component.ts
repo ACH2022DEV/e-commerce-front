@@ -15,7 +15,7 @@ import { DatabaseService } from 'src/app/services/database.service';
 @Component({
   selector: 'app-produits-details',
   templateUrl: './produits-details.component.html',
-  styleUrls: ['./produits-details.component.css']
+  styleUrls: ['./produits-details.scss']
 })
 export class ProduitsDetailsComponent implements OnInit {
   public produit: any = { codeArticle: '' };

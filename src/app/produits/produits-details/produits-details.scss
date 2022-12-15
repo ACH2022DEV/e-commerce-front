@@ -1,0 +1,109 @@
+/* .pointer{
+    cursor: pointer;
+} */
+
+
+
+.carousel-item{
+    height: 400px;
+   
+    
+}
+.sidebar{
+  border-bottom: 1px solid #a09e9e;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.stars {
+  text-shadow: 0.8px 0.8px 0 #a2a2a2;
+  
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+.btnColor{
+  /*box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);*/
+  box-shadow: 0 4px 9px -4px #913b06;
+  background-color: #f68b1e;
+  height: 40px;
+
+}
+/* .rating {
+  display: flex;
+  align-items: center;
+} */
+.form-control{
+  background-color:rgb(224, 224, 224);
+}
+.checked1 {
+  color: orange; 
+  margin: 2px;
+  
+}
+.warning{
+  color: orange; 
+}
+.sidebutton{
+  border-bottom: 1px solid #dddddd;
+}
+.sidetop{
+  border-top: 1px solid #dddddd;
+}
+.checked {
+  color: orange; 
+  margin: 8px;
+  
+}
+.color{
+color:rgb(184, 184, 184);
+margin: 8px;
+
+}
+/* input[type="button"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  padding: 3px;
+  background-clip: content-box;
+  border: 3px solid #bbbbbb;
+
+  border-radius: 50%;
+} */
+input.star ~ label.star{
+  color: pink !important;
+padding: 1px;
+/*font-size: medium;*/
+
+}
+.btnshadow{
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+ 
+
+}
+.btnshadow:hover{
+  background-color: #e4811c;
+}
+.stylebtn{
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.color-bg{
+  color: #f68b1e;
+  background-color: #feefde;
+  font-family: Roboto,Arial,Helvetica,sans-serif;
+  
+}
+/* appearance for checked radiobutton */
+/* input[type="radio"]:checked {
+  background-color: #fc8c03;
+} */
+
+/* optional styles, I'm using this for centering radiobuttons */
+.flex {
+  display: flex;
+  align-items: center;
+}
