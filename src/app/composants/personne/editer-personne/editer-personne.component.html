@@ -1,6 +1,6 @@
-<div class="container   mt-5  mb-5">
-  <div class="row d-flex justify-content-center">
-  <form #f="ngForm"  class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100" (ngSubmit)="UpdatePersonne(f)">
+<div class="container-fluid   mt-5  mb-5">
+  <div class="row d-flex justify-content-center ">
+  <form #f="ngForm"  class="col-md-6 col-sm-10 mx-auto col-12 bg-white shadow p-3  bg-body rounded-2 h-100" (ngSubmit)="UpdatePersonne(f)">
     <div class="form-group">
       <div class="form-floating"> 
         <input class="form-control text-center" placeholder="N°Id:" type="number" id="id" [(ngModel)]="personne.id"  disabled name="id" ngModel   #id="ngModel">
@@ -78,7 +78,7 @@
     </div>
     <hr> 
     <div class="row d-flex justify-content-evenly">
-    <button class="btn btnColor text-white shadow-lg col-md-5" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
+    <button class="btn btnColor text-white shadow-lg col-md-5 col-10 my-1 col-sm-5" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
       <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -93,7 +93,7 @@
           </div>
         </div>
       </div>
-    <button routerLink="/list-personne" class="btn btn-dark col-md-5 shadow-lg" >Retour</button></div>
+    <button routerLink="/list-personne" class="btn btn-dark col-md-5 shadow-lg col-10  my-1 col-sm-5" >Retour</button></div>
 
   </form>
  <!--  <img  class="py-2 col-3 min-vw-70  " [src]="imgURL" width="100"  height="500"  *ngIf="imgURL" > -->

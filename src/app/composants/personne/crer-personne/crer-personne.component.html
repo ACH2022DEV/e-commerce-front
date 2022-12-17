@@ -1,6 +1,6 @@
-<div class="container    mt-5  mb-5">
+<div class="container-fluid    mt-5  mb-5">
   <div class="row d-flex justify-content-center">
-  <form #f="ngForm" class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100 " (ngSubmit)="addPersonne(f)">
+  <form #f="ngForm" class="col-md-8 col-xl-6 mx-auto col-12 col-sm-8 bg-white shadow p-3  bg-body rounded-2 h-100 " (ngSubmit)="addPersonne(f)">
     <!--div class="form-group">
       <label for="fname">id:</label>
       <input class="form-control" type="text" id="id" name="id" ngModel>
@@ -72,7 +72,7 @@
     </div>
     <hr>
     <div class="row d-flex justify-content-evenly">
-    <button class="btn btnColor text-white shadow-lg col-md-5" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
+    <button class="btn btnColor text-white shadow-lg col-md-5 col-10 col-sm-5  my-1" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -87,9 +87,9 @@
         </div>
       </div>
     </div>
-    <button routerLink="/list-personne" class="btn btn-dark col-md-5 shadow-lg" >Retour</button></div>
-  </form>  <div class="col-md-3 offset-md-1 border border-secondary  rounded-3  bg-white  "> 
-    <img  class="   " [src]="imgURL" width="250"  height="250"  *ngIf="imgURL" >
+    <button routerLink="/list-personne" class="btn btn-dark col-md-5 shadow-lg col-10 col-sm-5 my-1" >Retour</button></div>
+  </form>  <div class="col-md-2 col-xl-2  col-10 col-sm-3 my-2 mx-auto  border border-secondary  rounded-3  bg-white  "> 
+    <img  class="  w-100 rounded-1 mt-2 " [src]="imgURL" width="250"  height="250"  *ngIf="imgURL" >
 </div>
  
 </div></div>

@@ -1,7 +1,7 @@
-<div class="container  mt-5 mb-5  rounded-5">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-6 mx-5  ">
-  <form #f="ngForm" (ngSubmit)="UpdateDevis(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3">
+<div class="container-fluid  mt-5 mb-5  rounded-5">
+  <div class="row d-flex justify-content-center ">
+    <div class="col-md-8 col-xl-6 mx-auto col-12 col-sm-10">
+  <form #f="ngForm" (ngSubmit)="UpdateDevis(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3 ">
     <div class="form-group">
       <div class="form-floating "> <input class="form-control text-center" placeholder="N° ID" type="number" id="codedevis" [(ngModel)]="devis.codedevis" name="codedevis" ngModel
         disabled #codedevis="ngModel"> <label for="">N° ID </label></div>
@@ -65,9 +65,9 @@
 
 
 
-    <hr>
-    <button class="btn btnColor mx-2 text-white large" type="button" (click)="addArticle()">ajout article</button>
-    <button class="btn btn-dark mx-2 text-white meduim" data-bs-toggle="modal" data-bs-target="#exampleModal3"
+    <hr><div class="row">
+    <button class="btn btnColor text-white large col-10 col-sm-5 my-1 mx-auto" type="button" (click)="addArticle()">ajout article</button>
+    <button class="btn btn-dark  mx-auto text-white meduim col-10 col-sm-3 my-1" data-bs-toggle="modal" data-bs-target="#exampleModal3"
       type="submit">Save</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -83,7 +83,7 @@
         </div>
       </div>
     </div>
-    <button routerLink="/liste-devis" class="btn btn-dark text-white meduim">Retour</button>
+    <button routerLink="/liste-devis" class="btn btn-dark text-white meduim col-10 col-sm-3 my-1  mx-auto ">Retour</button></div>
 
   </form>
 </div></div></div>

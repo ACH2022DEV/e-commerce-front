@@ -1,6 +1,6 @@
-<div class="container   mt-5 mb-5">
+<div class="container-fluid   mt-5 mb-5">
 <div class="row">
-    <form #f="ngForm" class="col-md-6 ms-5 bg-white shadow p-3  bg-body rounded-2 h-100 " (ngSubmit)="addProduit(f)">
+    <form #f="ngForm" class="col-md-8 col-12 col-sm-10 col-xl-6 mx-auto bg-white shadow p-3  bg-body rounded-2 h-100 " (ngSubmit)="addProduit(f)">
       
       <div class="form-group  ">
         <div class="form-floating">
@@ -99,7 +99,7 @@
       <hr>
       <!-- <button class="btn btn-primary mx-2" type="button" (click)="addimage()" >add image</button> -->
       <div class="row d-flex justify-content-evenly">
-      <button class="btn btnColor text-white shadow-lg col-md-5" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
+      <button class="btn btnColor text-white shadow-lg col-md-5 col-10 col-sm-5 my-1" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -114,16 +114,16 @@
         </div>
       </div>
     </div>
-      <button routerLink="/adminliste-produit" class="btn btn-dark col-md-5 shadow-lg" >Retour</button></div>
+      <button routerLink="/adminliste-produit" class="btn btn-dark col-md-5 shadow-lg col-10 col-sm-5 my-1" >Retour</button></div>
     </form>
-    <div class="col-md-3 offset-md-1 border border-secondary bg- rounded-3  bg-white ">
+    <div class="col-md-3 col-xl-2   col-11 my-2 mx-auto col-sm-10 w-100  border border-secondary bg- rounded-3  bg-white ">
        <div class="d-flex flex-column "> 
         <h1 class="fst-italic text-center">Images</h1>
         <div  *ngFor="let url of images; let i=index">
-        <div class="position-relative"> <div class="position-absolute  p-2 mt-0">
+        <div class="position-relative  "> <div class="position-absolute  p-2 mt-0">
             <button class="btn  rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
      </div>
-           <img   [src]="url" class="rounded-5 my-1 mx-1 " width="250px" ></div></div>
+           <img   [src]="url" class="rounded-2 w-100 my-1" width="250px" ></div></div>
     </div></div></div></div>
  
  

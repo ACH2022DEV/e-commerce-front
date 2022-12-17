@@ -32,7 +32,7 @@
       {{this.nombredeprod}}
       <span class="visually-hidden">unread messages</span>
     </span>
-  </a> <span class="ms-3  fs-5 ">Panier</span> 
+  </a> <span class="ms-3  fs-5 "  *ngIf=" getAccestouser() && loggedIn()" >Panier</span> 
 </li>
 <!--finP-->
         <li class="nav-item d-flex justify-content-center d-sm-flex  justify-content-sm-center ">

@@ -3,8 +3,8 @@
 
 <!-- <p><strong class="text-danger">dateTime: {{facture.articles[0].dateEdition}}</strong> </p> -->
 
-<div class=" container d-flex justify-content-center mt-5 mb-2">
-    <div class="row  col-md-8 ">
+<div class=" container-fluid d-flex justify-content-center mt-5 mb-2">
+    <div class="row mx-auto col-md-8 col-12 ">
 <div class=" mx-5">   
     <div class="row">
            <div class="receipt-main ">
@@ -14,16 +14,16 @@
                
                <div class="row ">
                    <div class="">
-                    <div class="container">
-                       <div class=" text-left row">
-                           <div class="receipt-right col-md-5  mt-5">
+                    <div class="container-fluid">
+                       <div class=" text-left row mx-auto">
+                           <div class=" col-md-5 col-3  mt-5">
                                <h5>Nom & Prénom:<span class="fw-normal">{{devis.personne.nom}} {{devis.personne.prenom}} </span> </h5>
                                <p><b>Mobile :</b> {{devis.personne.tel}}</p>
                                <p><b>Email :</b> {{devis.personne.email}}</p>
                                <p><b>Address :</b> {{devis.personne.adress}}</p>
                                <p class="mt-3"><strong>{{devis.articles[0].dateEdition |  date:'fullDate'}}</strong> </p>
                            </div>
-                           <div class="col-md-3 mt-5 ">
+                           <div class="col-md-3 col-3 mt-5 ">
                             <img src="../../../assets/maison.jpg" alt="" width="100px" height="100px" class="rounded-circle ">
                             <p class="fw-bold">Maison Moderne</p>  
                            </div>

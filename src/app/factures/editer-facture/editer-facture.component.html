@@ -1,6 +1,6 @@
 <div class="container-fluid  mt-5 mb-5  rounded-5">
   <div class="row d-flex justify-content-center">
-    <div class="col-md-6 mx-5 col-sm-12 col-md-12 col-lg-8 col-xl-6">
+    <div class="col-md-8 mx-auto col-sm-10 col-12 col-12  col-xl-6">
     <form #f="ngForm" (ngSubmit)="UpdateFacture(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3">
       <div class="form-group">
         <div class="form-floating ">
@@ -71,9 +71,9 @@
       
       
       <hr>
-      <div class="d-flex justify-content-evenly">
-      <button class="btn btnColor mx-1 text-white large " type="button" (click)="addArticle()" >ajout article</button>
-      <button class="btn btn-dark mx-1 meduim text-white" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
+      <div class="row">
+      <button class="btn btnColor mx-auto text-white large col-10 my-1 col-sm-5 " type="button" (click)="addArticle()" >ajout article</button>
+      <button class="btn btn-dark mx-auto meduim text-white col-10 my-1 col-sm-3" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">save</button>
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-      <button routerLink="/liste-facture" class="btn btn-dark meduim text-white" >retour</button> </div>
+      <button routerLink="/liste-facture" class="btn btn-dark meduim text-white mx-auto col-10 my-1 col-sm-3" >retour</button> </div>
   
     </form>
   </div></div></div>
