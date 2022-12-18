@@ -3,31 +3,27 @@
 
 <!-- <p><strong class="text-danger">dateTime: {{facture.articles[0].dateEdition}}</strong> </p> -->
 
-<div class=" container-fluid d-flex justify-content-center mt-5 mb-2">
-    <div class="row mx-auto col-md-8 col-12 ">
-<div class=" mx-5">   
+<div class=" container-fluid  mt-5 mb-2 ">
+    <div class="row  ">
+<div class=" container-fluid col-md-8 col-12  mx-auto">   
     <div class="row">
-           <div class="receipt-main ">
-               <div class="row">
-                 
-               </div>
-               
+           <div class="receipt-main ">               
                <div class="row ">
                    <div class="">
                     <div class="container-fluid">
                        <div class=" text-left row mx-auto">
-                           <div class=" col-md-5 col-3  mt-5">
+                           <div class=" col-md-5 col-12   mt-5 mx-auto">
                                <h5>Nom & Prénom:<span class="fw-normal">{{devis.personne.nom}} {{devis.personne.prenom}} </span> </h5>
                                <p><b>Mobile :</b> {{devis.personne.tel}}</p>
                                <p><b>Email :</b> {{devis.personne.email}}</p>
                                <p><b>Address :</b> {{devis.personne.adress}}</p>
                                <p class="mt-3"><strong>{{devis.articles[0].dateEdition |  date:'fullDate'}}</strong> </p>
                            </div>
-                           <div class="col-md-3 col-3 mt-5 ">
+                           <div class="col-md-3 col-12  mt-5  mx-auto">
                             <img src="../../../assets/maison.jpg" alt="" width="100px" height="100px" class="rounded-circle ">
                             <p class="fw-bold">Maison Moderne</p>  
                            </div>
-                           <div class=" col-md-4 mt-5 p-0"> 
+                           <div class=" col-md-4 col-12  mt-5 p-0 mx-auto"> 
                             <p class="fs-6  text-start"><strong> Mohammed Hachicha</strong> </p>
 							<p class="fs-6 text-start"> <i class="fa fa-phone"></i> 58 850 421</p>
 							<p class="fs-6  text-start"><i class="fa fa-envelope-o"></i> hachicha98@gmail.com </p>
@@ -94,10 +90,10 @@
                </div>
                
                <div class="row d-flex justify-content-center">
-                 <div class="rounded-3 border border-dark col-md-5 mx-1"> 
-                    <p class="text-center p-4">Signature Client</p>
+                 <div class="rounded-3 border border-dark col-md-5 mx-1 my-1"> 
+                    <p class="text-center p-4 ">Signature Client</p>
                  </div>
-                 <div class="rounded-3 border border-dark col-md-5"> 
+                 <div class="rounded-3 border border-dark col-md-5 my-1"> 
                     <p class="text-center p-4">Signature et Cachet</p>
                  </div>
                </div>
@@ -105,7 +101,7 @@
            </div>    
        </div>
    </div></div></div>
-   <div class="d-flex justify-content-center mb-5 offset-md-5"><button type="button" class="btn btn-secondary w-25 ">Imprimer Cette Page <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
+   <div class="d-flex justify-content-center mb-5 offset-md-5"><button type="button" class="btn btn-secondary w-25 col-10 col-md-5 ">Imprimer Cette Page <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-printer-fill" viewBox="0 0 16 16">
     <path d="M5 1a2 2 0 0 0-2 2v1h10V3a2 2 0 0 0-2-2H5zm6 8H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1z"/>
     <path d="M0 7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v-2a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2H2a2 2 0 0 1-2-2V7zm2.5 1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
   </svg></button></div>

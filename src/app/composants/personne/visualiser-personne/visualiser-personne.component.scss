@@ -26,22 +26,27 @@ a{
    margin-left: 275px;
    
 } */
-  @media (min-width: 495px) { 
-.d-block{
+  @media (min-width: 280px) { 
+.cover-body{
   
   z-index: 2;
-   margin-top: 280px;
+   margin-top: 300px;
     position: absolute;
 } 
 
+
 }
 .cover-body {
-    position: absolute;
+    //position: absolute;
     
   
-   top: 200px;
+  // top: 200px;
     left: 20px;
     z-index: 2;
     width: 100%;
     position: absolute;
 }
+@media (min-width: 2200) {
+    .apropos{
+    margin-top: 400px;
+} }

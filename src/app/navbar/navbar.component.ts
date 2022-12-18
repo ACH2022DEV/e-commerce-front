@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   public contacts:Contact[]=[]
   public nombredeprod: any;
   public nombreContact: any;
+  public deconnecter:boolean=true;
   //obje:any={}
 //search
 public searchText:string='';

@@ -33,14 +33,14 @@ img:hover{
     color: #de1b76;
 
 }
-.hover:active{
+.nav-link::after{
     background-image: linear-gradient(180deg,rgba(222,27,118,.9),rgba(222,27,118,.9));
     background-position: 0 2.625rem;
     background-repeat: no-repeat;
     background-size: 0 2px;
     color: #de1b76;
     font-weight: 500;
-    border-bottom: #171514;
+    border-bottom: #171514 5px;
 } */
 .shadow1{
     box-shadow: 0 4px 9px -4px #025def;
