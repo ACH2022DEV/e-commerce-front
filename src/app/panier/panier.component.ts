@@ -53,7 +53,7 @@ this.personne.getPersonne(this.ID).subscribe(data=>{
   this.client=data;
   this.nombredeprod = this.client.paniers.length;
   this.client.paniers.map(index=>{
-    this.SousTotal+=index.article.prix*index.quantity;
+    this.SousTotal+=index.article.prix*this.quantity1;
 
   })
   if(this.nombredeprod==0){
