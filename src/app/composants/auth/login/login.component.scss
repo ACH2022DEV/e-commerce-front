@@ -2,6 +2,7 @@
 .margin{
    margin-top:5%;
     margin-bottom: 10%;
+
 }
 .height{
     height: 60px;
@@ -39,4 +40,8 @@ button[disabled]{
 button[disabled]:hover{
     background-color: gray;
     cursor: none;
+}
+h4,h2{
+    text-shadow: 2px 2px 4px #bdb9b9; 
+
 }

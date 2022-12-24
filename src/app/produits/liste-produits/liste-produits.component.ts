@@ -44,6 +44,8 @@ export class ListeProduitsComponent implements OnInit {
   public ID:any;
   public nombredeprod: any;
   public lenght:any;
+ // public nombre1:any=1;
+//  public nombre:any;
   constructor(private produitService: DatabaseService, private sanitizer: DomSanitizer, private panierService: PanierService,
     private fb: FormBuilder, private avisClient: AvisService,private search:SearchService,private route: ActivatedRoute,private router: Router) {
      //verifier
@@ -69,6 +71,7 @@ export class ListeProduitsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllProduits();
+   // this.nombre=this.nombre1.toFixed(2);
     
   }
 
