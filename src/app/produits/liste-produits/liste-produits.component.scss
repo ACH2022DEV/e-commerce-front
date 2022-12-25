@@ -13,16 +13,20 @@
 p{margin: 0px;
 }
 
-a.active{
-    background-color: rgb(19, 15, 15);
-    color: rgb(249, 237, 237);
-  }
+
 /* button{
     visibility:hidden;
 } */
-a{
-    text-decoration: none;
-    color: #000;
+.page-link.active{
+  background-color: rgb(255, 255, 255);
+  color: rgb(5, 4, 4);
+}
+.page-link{
+  text-decoration: none;
+  color: rgb(253, 251, 251);
+  background-color: #f68b1e;
+  margin: 3px;
+ cursor: pointer;
 }
 .animate{
    //box-shadow: 0 3px 4px rgba(27, 22, 22, 0.1);
@@ -86,6 +90,7 @@ a,h4{
     color: #898989;
     font-size: 16px;
     cursor: pointer;
+    text-decoration: none;
 }
 .checked {
     color: orange; 

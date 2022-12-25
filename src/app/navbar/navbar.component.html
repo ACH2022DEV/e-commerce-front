@@ -1,12 +1,27 @@
 
 <nav class="navbar    sticky-top  navbar-expand-lg shadow mb-5 bg-light rounded">
   <div class="container-fluid">
-    <button class="navbar-toggler btn btn-light border border-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    <div class="container-fluid">
+      <div class="d-flex ">
+    <button class=" navbar-toggler btn btn-light border border-2 col-3 col-sm-2 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <span class="navbar-toggler-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg></span> 
-    </button><a class="d-block  d-sm-block d-md-block d-lg-none mx-auto"  routerLinkActive="active-link"  href="#"><h6> Maison Moderne</h6></a>
+     </button><span class="w-100 col-10 col-sm-10 ms-1 me-1 d-flex"><input class="form-control w-100  mx-auto  d-lg-none rounded-2 " type="search" name="search"  placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
+  <a  class=" ms-2 d-none d-sm-block d-lg-none  search2  btn   hover  btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
+        <h6 class="  mt-1" style="color: #fff;"><i class="bi bi-search"></i></h6> </a> </span>
+   <!--    <div class=" d-flex col-10  col-sm-10 col-md-12  col-lg-5 col-xl-5 " role="search" *ngIf=" loggedIn()">
+      <span class="col-9 col-sm-9 mx-auto "> 
+         <input class="form-control w-100  d-lg-none rounded-pill " type="search" name="search"  placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
+      </span>
+     
+     </div> -->
+    </div>
+       <!-- <button  class="   d-lg-none d-xl-none search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
+      <h6 class=" mt-1 " style="color: #fff;"><i class="bi bi-search"></i></h6> </button> -->
+   <!--<a class="d-block  d-sm-block d-md-block d-lg-none mx-auto"  routerLinkActive="active-link"  href="#"><h6> Maison Moderne</h6></a> -->
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav  me-auto mb-2 mb-lg-0 col-md-4 col-xl-5 col-lg-6   col-sm-4  ">
 <!--userProfile-->
@@ -84,11 +99,11 @@
         </li>
       </ul>
 
-      <div class=" d-flex col-12   col-sm-12 col-md-12  col-lg-5 col-xl-5 " role="search" *ngIf=" loggedIn()">
-        <input class="form-control " type="search" name="search"  placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
+      <div class=" d-flex col-12  col-sm-12 col-md-12  col-lg-5 col-xl-5 " role="search" *ngIf=" loggedIn()">
+        <input class="form-control d-none d-lg-block " type="search" name="search"  placeholder="&#61442; Search for Products,Mark and category" [(ngModel)]="searchText" [value]="searchText" aria-label="Search" >
         <button  class="d-none d-xl-block d-xxl-block search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
        <h6 class=" mt-1 " style="color: #fff;">RECHERCHER</h6> </button>
-       <button  class=" d-sm-block d-md-block d-lg-block d-xl-none search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
+        <button  class=" d-none  d-lg-block d-xl-none search2  btn   hover mx-1 btnColor   "  type="submit" [routerLink]="['/searchProduct/', searchText]"  > 
         <h6 class=" mt-1 " style="color: #fff;"><i class="bi bi-search"></i></h6> </button>
         
       </div>
@@ -128,7 +143,7 @@
           <div class="card-body row rounded-4 mx-auto shadow p-3 mb-2 bg-body d-flex  height "> 
             <h5 class="card-title col-md-3 col-3 col-sm-3"> 
               <img [src]='convertBase64ToImage(client.images)' class="rounded-circle visible" width="50px"> </h5>
-            <h6 class="card-subtitle mb-2 text-muted col-md-8 col-8 col-sm-8 mt-3 fw-bold" >{{client.username}}</h6>
+            <h6 class="card-subtitle mb-2 text-dark col-md-8 col-8 col-sm-8 mt-3 fw-bold" >{{client.username}}</h6>
            <p class="sidebar"></p>
            <a href=""  routerLinkActive="active-link"  [routerLink]="['/visualiser-personne', client.id]"><h6 class="text-primary ">Voir Votre Profil</h6></a>
           </div>
@@ -148,7 +163,7 @@
       </div>
 
     </div>
-  </div>
+  </div></div>
 
 </nav>
 

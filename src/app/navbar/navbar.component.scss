@@ -21,6 +21,8 @@
     border-bottom: 5px solid rgb(15, 12, 14);
     border-radius: 5px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  //  transition: 1 ease-in-out;
+    transform: scale(1.08);
   
   }
 /* .nav-item{
@@ -34,6 +36,9 @@
 }
 .hover2:hover{
     background-color: #e9e8e8;
+    border-radius: 5px;
+   width: 95%;
+    margin: auto;
 }
 .hover:hover{
     color: #0d0b0b;

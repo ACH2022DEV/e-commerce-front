@@ -23,9 +23,16 @@ p a {
 }
 
 a.active{
-    background-color: rgb(19, 15, 15);
-    color: rgb(249, 237, 237);
-  }
+  background-color: rgb(255, 255, 255);
+  color: rgb(5, 4, 4);
+}
+.page-link{
+  text-decoration: none;
+  color: rgb(253, 251, 251);
+  background-color: #f68b1e;
+  margin: 3px;
+ cursor: pointer;
+}
 
 /* button{
 visibility:hidden;
