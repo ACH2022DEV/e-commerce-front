@@ -27,7 +27,7 @@
               <span class="fa fa-star checked1"></span><span >(avis vérifieé )</span></p>
              
             <p class="card-text fs-4 m-0"> <b>{{produit.prix}} TND.</b></p>
-            <p  class="text-decoration-line-through  text-secondary   fs-6 m-0 ">{{produit.prix*(1+produit.remise/100)}} TND  <span class="badge  color-bg text-start ms-2 fs-6 " >-{{produit.remise}}%</span></p>
+            <p  class="text-decoration-line-through  text-secondary   fs-6 m-0 ">{{(produit.prix*(1+produit.remise/100)).toFixed(2)}} TND  <span class="badge  color-bg text-start ms-2 fs-6 " >-{{produit.remise}}%</span></p>
             <p class="card-text">Articles restants :{{produit.quantite}}</p>
             <p class="m-0 card-text text-muted">+ livraison à partir de 4.00 TND vers route du mahdiyya km 5.5</p>
           

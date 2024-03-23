@@ -6,15 +6,16 @@
   <!-- <img src="../../../../assets/images/img/logo.jpg" class=" rounded-4 " width="300px" height="250px"> -->
   <h4 class=" fst-normal text-muted mt-2">Avec Maison Moderne  Suivez,Achetez En Ligne</h4>
   </div><!--offset-md-4-->
-  <div class="          bg-white col-md-10 col-lg-8 col-xl-6   offset-lg-2  col-sm-12 col-11 mx-auto card shadow offset-md-2   rounded-2 mt-2" >
+  <div class="          bg-white col-md-10 col-lg-8 col-xl-6   offset-lg-2  col-sm-12 col-11 mx-auto card  offset-md-2   rounded-2 mt-2" >
     <h1 class="text-center p-3 text-dark "><strong>Login</strong></h1>
-    <div class="d-flex justify-content-center"><form #f="ngForm" (ngSubmit)="entrerlogin(f)" class="p-1 w-100 " >
+    <div class="d-flex justify-content-center">
+      <form #f="ngForm" (ngSubmit)="entrerlogin(f)" class="p-1 w-100 " >
       <div class="form-group col-md-10 mx-auto">
-        <div class="form-floating mb-2  "> 
+        <div class="form-floating mb-2  ">
            <input class="form-control " placeholder="Username" type="text" id="username" name="username" required minlength="4" ngModel #username="ngModel">
          <label for="">Username</label></div>
 
-       
+
         <div *ngIf="username.invalid && (username.dirty || username.touched)"
           class="p-2 fs-6 text bg-danger text-white rounded-3">
 
@@ -30,11 +31,11 @@
 
       <div class="form-group  ">
         <!-- <label for="fname">password</label> -->
-        <div class="form-floating col-md-10 mx-auto "> 
+        <div class="form-floating col-md-10 mx-auto ">
           <input class="form-control border-2 rounded-0 w-100" placeholder="password" type="password" id="password" name="password" required minlength="4" ngModel
           #password="ngModel">
         <label for="" class="ms-2">password</label></div>
-       
+
         <div *ngIf="password.invalid && (password.dirty || password.touched)"
           class="p-2 mb-2 fs-6 text bg-danger text-white rounded-3">
 
@@ -50,20 +51,94 @@
         <span class="text-danger">login ou mot de passe erroné</span>
       </div>
     <hr>
-<div class="d-flex justify-content-center mx-auto col-md-10 col-12 ">     
+<div class="d-flex justify-content-center mx-auto col-md-10 col-12 ">
    <button class=" btn btn-primary w-100 rounded-1  fs-4 fw-semibold shadow1" type="submit" [disabled]="f.invalid">Se connecter</button>
 </div>
 
       <a routerLink="/register">
         <p class="text-center my-2 text-primary">Forgot password?</p>
       </a>
-    
+
     </form>
-  
+
   </div>
   <p class="sidebutton"></p>
- <div class="d-flex justify-content-center  mx-auto col-md-10 col-12 "> 
-  <button class=" btn color text-white mb-5 w-100 rounded-1  fw-semibold  height" routerLink="/register"><h5>Créer nouveau compte</h5> </button></div>
+ <div class="d-block justify-content-center  mx-auto col-md-10 col-12 ">
+  <button class=" btn color text-white mb-5 w-100 rounded-1  fw-semibold  height" routerLink="/register"><h5>Créer nouveau compte</h5> </button>
+<!---connexion avec facebook-->
+<div class="col-12 mb-2  justify-content-center">
+  <button (click)="signInWithFB()" type="button" style="background: #3b5999" class="btn  btn-block rounded-1 ">
+    <div class="d-flex align-items-center"> <!-- Utilisez la classe "d-flex" pour afficher les éléments en ligne et "align-items-center" pour les aligner verticalement -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="text-white bi bi-facebook ms-2" viewBox="0 0 16 16">
+        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+      </svg><div class="ms-5"></div>
+      <p class=" mb-0 fst-6 fw-bold text-white">Facebook</p> <!-- Utilisez la classe "ms-2" pour ajouter une marge à gauche (espacement) -->
+    </div>
+  </button>
+</div>
+<!---connexion avec google-->
+<!-- <div class="col-12 mb-2  justify-content-center">
+  <button (click)="signInWithGoogle()" type="button" style="background: #797979" class="btn  btn-block rounded-1 ">
+    <div class="d-flex align-items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-google text-white" viewBox="0 0 16 16">
+        <path d="M9.568 7.346v2.73h4.497c-.222 1.448-1.577 4.224-4.497 4.224-2.699 0-4.91-2.257-4.91-5.049s2.211-5.05 4.91-5.05c1.546 0 2.59.671 3.189 1.24l2.173-2.094c-1.502-1.413-3.43-2.27-5.361-2.27-4.331 0-7.86 3.471-7.86 7.751s3.53 7.751 7.86 7.751c4.967 0 7.537-3.599 7.537-7.248 0-.483-.049-.864-.125-1.233H9.568z"/>
+      </svg><div class="ms-5"></div>
+      <p class=" mb-0 fst-6 fw-bold text-white">Google</p>
+    </div>
+  </button>
+</div> -->
+<div  class="col-12 mb-2  justify-content-center"  id="google-button">
+
+</div>
+<!-- <div id="g_id_onload"
+     data-client_id="941760382433-pk47mr7h0rj1o8lnha3qibqs1gckg5km.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="http://localhost:4200/"
+     data-nonce=""
+     data-auto_select="true"
+     data-itp_support="true">
+</div>
+
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="rectangular"
+     data-theme="filled_blue"
+     data-text="signin_with"
+     data-size="large"
+     data-logo_alignment="left"
+     data-width="500">
+</div> -->
+<!---connexion avec microsoft-->
+<div class="col-12 mb-2  justify-content-center">
+  <button (click)="signInWithMicrosoft()" type="button" style="background: #000000" class="btn  btn-block rounded-1 ">
+    <div class="d-flex align-items-center"> <!-- Utilisez la classe "d-flex" pour afficher les éléments en ligne et "align-items-center" pour les aligner verticalement -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-google text-white" viewBox="0 0 16 16">
+        <path d="M9.568 7.346v2.73h4.497c-.222 1.448-1.577 4.224-4.497 4.224-2.699 0-4.91-2.257-4.91-5.049s2.211-5.05 4.91-5.05c1.546 0 2.59.671 3.189 1.24l2.173-2.094c-1.502-1.413-3.43-2.27-5.361-2.27-4.331 0-7.86 3.471-7.86 7.751s3.53 7.751 7.86 7.751c4.967 0 7.537-3.599 7.537-7.248 0-.483-.049-.864-.125-1.233H9.568z"/>
+      </svg><div class="ms-5"></div>
+      <p class=" mb-0 fst-6 fw-bold text-white">Microsoft</p> <!-- Utilisez la classe "ms-2" pour ajouter une marge à gauche (espacement) -->
+    </div>
+  </button>
+</div>
+
+</div>
 
   </div>
 </div></div>
+
+<!-- <div class="container-fluid">
+  <form #f="ngForm" (ngSubmit)="addOffer(f)" class="bg-white  p-3 shadow  mb-5 bg-body rounded-3">
+
+    <input class="form-control text-center" placeholder="" type="text" id="codeArticle" name="name" ngModel
+    required #codeArticle="ngModel">
+    <input class="form-control text-center" placeholder="" type="number" id="codeArticle" name="nbdays" ngModel
+          required #codeArticle="ngModel">
+          <input class="form-control text-center" placeholder="" type="number" id="codeArticle" name="nbproduct" ngModel
+          required >
+          <button type="submit" class="btn">ajouter</button>
+  </form>
+</div> -->
+
+
+
+

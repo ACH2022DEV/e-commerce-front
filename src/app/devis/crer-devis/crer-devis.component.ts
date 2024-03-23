@@ -13,6 +13,8 @@ import { DatabaseService } from 'src/app/services/database.service';
 })
 export class CrerDevisComponent implements OnInit {
   createdevis: CreateDevis[] = [];
+  offer: any[] = [];
+
   public elements: Array<any> = [];
   public personnes:any=[];
 public size:any;
@@ -46,13 +48,13 @@ public page:any;
         data.articles.push(devisArticle);
       }
     }
-    
+
     this.devisService.adddevis(data).subscribe(
       data => {
         this.createdevis = new Array<CreateDevis>();
         this.createdevis.push(data);
         this.router.navigate(['/liste-devis']);
-        // redirection 
+        // redirection
       }
     )
   }

@@ -1,14 +1,14 @@
 <div class="  ">
-  <div class="container mb-5  mt-3"> 
+  <div class="container mb-5  mt-3">
     <div class="bg-white col-md-11 col-lg-10 col-xl-8 col-12 col-sm-12 mx-auto offset-md-3 shadow rounded-1 card  p-1 ">
     <h1  class="text-center"><strong>Register</strong></h1>
    <div class="d-flex justify-content-center"> <form  #f="ngForm" (ngSubmit)="onRegistre(f)" class="w-75">
-     
+
       <div class="form-group fw-bold ">
         <div class="form-floating mb-3">
            <input class="form-control rounded-0  " type="text" placeholder="Username" id="username" name="username"  required minlength="4" ngModel #username="ngModel">
           <label for=" ">Username</label></div>
-      
+
         <div *ngIf="username.invalid && (username.dirty || username.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
           <div *ngIf="username.errors?.['required']" >
@@ -18,12 +18,12 @@
             Le pseudo doit avoir au moin 4 caractères
           </div>
       </div></div>
-      
+
       <div class="form-group ">
-        <div class="form-floating mb-3">     
+        <div class="form-floating mb-3">
              <input class="form-control rounded-0" type="password" placeholder="Password" id="password" name="password" required minlength="4" ngModel #password="ngModel">
           <label for=" ">Password</label> </div>
-       
+
         <div *ngIf="password.invalid && (password.dirty || password.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
           <div *ngIf="password.errors?.['required']" >
@@ -35,11 +35,11 @@
       </div>
       </div>
       <div class="form-group">
-        <div class="form-floating mb-3"> 
+        <div class="form-floating mb-3">
            <input class="form-control rounded-0" type="text" placeholder="Nom" id="nom" name="nom" required minlength="4" ngModel #nom="ngModel">
            <label for="">Nom</label></div>
-       
-      
+
+
         <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
           <div *ngIf="nom.errors?.['required']" >
@@ -54,8 +54,8 @@
         <div class="form-floating mb-3">
           <input class="form-control rounded-0" type="text" id="prenom" placeholder="Prenom" name="prenom" required minlength="4" ngModel #prenom="ngModel">
           <label for=" ">Prenom</label> </div>
-     
-    
+
+
         <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
           <div *ngIf="prenom.errors?.['required']" >
@@ -71,7 +71,7 @@
           <input class="form-control rounded-0" type="email" placeholder="Email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required  ngModel #email="ngModel">
           <label for=" ">Email</label>
         </div>
-      
+
         <div *ngIf="email.invalid && (email.dirty || email.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
           <div *ngIf="email.errors?.['required']" >
@@ -80,7 +80,7 @@
           <div *ngIf="email.errors?.['pattern']" >
             l'email n'est pas valide
           </div>
-         
+
       </div>
       </div>
       <div class="form-group  ">
@@ -88,10 +88,27 @@
          <input class="form-check-input" type="radio" id="html" name="role" required value="{{pow.value}}" ngModel #role="ngModel">
         <label class="form-check-label" >{{pow.value}}</label>
     </div> -->
+
+
+    <!---new exemple
+    <h4>mat-select</h4>
+<mat-form-field>
+ <mat-label>Choose an option</mat-label>
+  <mat-select >
+   <mat-option value="" class="text-center">Select your Role</mat-option>
+    <mat-option *ngFor="let pow of powers" value="{{pow.value}}">{{pow.value}}</mat-option>
+
+  </mat-select>
+</mat-form-field>-->
+ <!---new exemple-->
+ <!--exemple for année
+ <input [(ngModel)]="valeurNumerique" matInput maxlength="4" (keypress)="validerSaisie($event)" (ngModelChange)="limiterLongueur()" />
+-->
+ <!--fin exemple for année -->
     <select class="form-select form-select-lg mb-3 rounded-0" required   name="role" ngModel #role="ngModel" aria-label=".form-select-lg example">
       <option value="" class="text-center">Select your Role</option>
   <option class="text-center" *ngFor="let pow of powers" value="{{pow.value}}">{{pow.value}}</option>
- 
+
 </select>
 <div *ngIf="role.invalid && (role.dirty || role.touched)" class="p-2 mb-2 bg-danger text-white rounded-3">
 
@@ -105,13 +122,36 @@
 
     </div>
 
-    
+
 
       <p class="sidebutton"></p>
       <div class="d-flex justify-content-center mb-2">
          <button class=" btn color w-50  mx-1 text-white" type="submit" [disabled]="f.invalid"> Register</button>
       <button routerLink="/login" class="   btn btn-dark w-50" >Retour</button></div>
-     
+
     </form></div></div>
   </div>
   </div>
+
+
+
+  <!----essai pour date   Previous méthode-->
+
+<!--   <div class="container mt-4">
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="datedebut">Start Date</label>
+        <input type="date" name="datedebut" [(ngModel)]="relation.datedebut"  class="form-control" id="datedebut" formControlName="datedebut">
+      </div>
+      <div class="form-group">
+        <label for="datefin">End Date</label>
+        <input type="date" name="datefin" [(ngModel)]="relation.datefin" class="form-control" id="datefin" formControlName="datefin">
+<mat-error >
+  <div *ngIf="message"> {{message}}</div>
+</mat-error>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div> -->
+
+

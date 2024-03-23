@@ -30,7 +30,7 @@
                 <div class="  m-0  "> 
                    <span class="d-block  text-dark fs-4 fw-semibold  me-2 "><p>  {{panier.article.prix}}.00 TND</p> </span>
                   <div class="d-flex">  
-                    <p  class="text-decoration-line-through  text-muted fs-5 me-5">{{panier.article.prix*(1+panier.article.remise/100)}} TND</p>
+                    <p  class="text-decoration-line-through  text-muted fs-5 me-5">{{(panier.article.prix*(1+panier.article.remise/100)).toFixed(2)}} TND</p>
                     <p> <span class="badge color-bg fs-4 ms-2" >-{{panier.article.remise}}%</span></p>  
                   </div> 
                    <div class="   mb-4 float-center d-flex ">
@@ -308,7 +308,7 @@
         <div class=" ">  <a [routerLink]="['/details/', prod.article.codeArticle]" href="">
           <p class="container card-text text-start text-truncate fw-normal m-0">{{prod.article.description}}</p>
         <p class="container text-danger  text-start fs-5 m-0">{{prod.article.prix }} TND</p>
-        <p  class="text-decoration-line-through fs-6  text-start fw-normal  container m-0 mb-2 ">{{prod.article.prix*(1+prod.article.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.article.remise}}%</span></p>
+        <p  class="text-decoration-line-through fs-6  text-start fw-normal  container m-0 mb-2 ">{{(prod.article.prix*(1+prod.article.remise/100)).toFixed(2)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.article.remise}}%</span></p>
       
       </a>
 

@@ -74,8 +74,20 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { NextDirective } from './next.directive';
 import { PrevDirective } from './prev.directive';
 import { ListeCommandesComponent } from './liste-commandes/liste-commandes.component';
+import { TestComponent } from './test/test.component';
+import {MatSelectModule} from '@angular/material/select';
 
-
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+//for social login
+import { SocialLoginModule, SocialAuthServiceConfig, MicrosoftLoginProvider } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -99,7 +111,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListeArticleComponent,
     HeaderComponent,
     NavbarComponent,
-    
+
     ContactComponent,
     LoginComponent,
     RegisterComponent,
@@ -107,7 +119,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CrreFactureComponent,
     VisualiserFactureComponent,
     EditerFactureComponent,
-    
+
     ListeProduitsComponent,
     EditerProduitsComponent,
     CrerProduitsComponent,
@@ -131,8 +143,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NextDirective,
     PrevDirective,
     ListeCommandesComponent,
-    
-    
+    TestComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -152,8 +165,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ConfirmationPopoverModule,
     Ng2SearchPipeModule,
     TooltipModule,
-    
-    
+    MatSelectModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    SocialLoginModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger', // set defaults here
     }),
@@ -164,16 +182,43 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
       }
   })
-    
-    
-    
+
+
+
    /* RouterModule.forRoot([
       {path:'',component:''}])*/
-    
+
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptorService, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptorService, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+           {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.googleLoginProvider
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(environment.facebookLoginProvider)
+          }, {
+            id: MicrosoftLoginProvider.PROVIDER_ID,
+            provider: new MicrosoftLoginProvider(
+              environment.microsoftLoginProvider
+            ),
+          },
+
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })

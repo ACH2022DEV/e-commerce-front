@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { Subject } from 'rxjs';
 import { Facture } from 'src/app/models/facture';
 import { Picture } from 'src/app/models/mesImages';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -11,7 +11,8 @@ import { DatabaseService } from 'src/app/services/database.service';
   templateUrl: './facture.component.html',
   styleUrls: ['./facture.component.scss']
 })
-export class FactureComponent implements OnInit {
+export class FactureComponent implements OnDestroy, OnInit {
+
   public factures: Facture[] = [];
   public facture:Facture={}as any;
   //
@@ -20,8 +21,8 @@ export class FactureComponent implements OnInit {
  public size:number=8;
  public searchText:string='';
  //public tablesizes:any=[5,10,15,20];
- //public count:number=10; 
- //pop up 
+ //public count:number=10;
+ //pop up
  public popoverTitle :string= 'Confirmation';
  public popoverMessage :string= 'Are you sure?';
  confirmClicked = false;
@@ -29,26 +30,30 @@ export class FactureComponent implements OnInit {
  //
 
   constructor(private factureService: DatabaseService, private sanitizer: DomSanitizer) { }
+  ngOnDestroy(): void {
+  }
 
   ngOnInit(): void {
     this.getAllFacture();
+
   }
   public deleteFacture(code:number):void{
     //confirm("Press a button!");
     this.factureService.deletefacture(code).subscribe(data=>{
       this.getAllFacture();
+
     }
       )
   }
- 
 
-  
+
+
 
   public getAllFacture(): void {
     this.factureService.getAllfactures(this.page,this.size).subscribe((data:any) => {
       this.factures = data['content'];
       this.total =new Array(data['totalPages']);
-      console.log(data)
+      console.log(data);
     },
       (error: HttpErrorResponse) => alert(error.message)
     );
@@ -57,7 +62,7 @@ export class FactureComponent implements OnInit {
     this.page = i;
     this.getAllFacture();
 }
-//pagination 
+//pagination
 /* public onchangePage(event:any){
   this.tablesize=event.target.value;
   this.page=1;
@@ -79,6 +84,6 @@ convertBase64ToImage(images: Picture[]): any {
   }
   return this.sanitizer.bypassSecurityTrustUrl(base64);
 
-}  
+}
 
 }

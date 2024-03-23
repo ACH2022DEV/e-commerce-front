@@ -10,20 +10,26 @@ import { Register } from '../../../models/register';
 })
 export class SecurityService {
   private url1 = "http://localhost:8080/e-commerce-back/api/v1/auth";
- 
+
   constructor(private http: HttpClient) { }
 
-  
-  public login(login: Login): Observable<Login> {
-    return this.http.post<Login>(`${this.url1}/login`, login);
 
+  public login(login: Login): Observable<Login> {
+    return this.http.post<Login>(`${this.url1}/login`, login
+//,{ withCredentials: true }
+);
   }
   public register(register: Register): Observable<Register> {
     return this.http.post<Register>(`${this.url1}/register`, register);
 
   }
-  
- 
-  
+
+
+
+
+
+
+
+
 
 }

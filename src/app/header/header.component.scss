@@ -1,6 +1,6 @@
 .bg {
     background-color: #f68b1e;
-    
+
 }
 .se_fonr1 {
     justify-content: flex-end;
@@ -11,7 +11,13 @@ ul.social_icon {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-   
+
+}
+.text-facebook{
+  color: #005fc6 !important;
+}
+.text-purple {
+  color: #006ee3 !important;
 }
 .shadow{
     box-shadow:2rem 2rem rgba(black, 0.15);

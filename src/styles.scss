@@ -1,4 +1,5 @@
 @import"~@angular/material/prebuilt-themes/indigo-pink.css";
+
 input.star:checked ~ label.star:before {
     color: rgb(255, 222, 10) !important;
     margin: 0px;

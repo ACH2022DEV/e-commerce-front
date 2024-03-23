@@ -5,13 +5,13 @@
     <div class="form-group">
       <div class="form-floating "> <select class="form-select form-select-lg mb-3 h-100" required   name="idPersonne" ngModel  #id="ngModel" aria-label=".form-select-lg example">
         <option value="" class="text-center">Select your id</option>
-       
+
     <option class="text-center" *ngFor="let per of personnes"  [(ngModel)]="per.id">{{per.id}}</option>
-  
+
   </select> <label for="">N° Id</label></div>
-     
-     
-     
+
+
+
     </div>
 
 
@@ -21,7 +21,7 @@
       <div class="form-group">
         <div class="form-floating"><input class="form-control text-center" placeholder="Référence" type="number" id="codeArticle" name="codeArticle" ngModel
           required #codeArticle="ngModel">  <label for="">Référence</label></div>
-        
+
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)"
           class="p-2 my-1 bg-danger text-white rounded-1">
 
@@ -34,8 +34,8 @@
        <div class="form-group">
         <div class="form-floating"><input class="form-control text-center" placeholder="Remise" type="number" id="remise" name="remise" ngModel required
           #remise="ngModel">  <label for="">Remise</label></div>
-    
-   
+
+
       <div *ngIf="remise.invalid && (remise.dirty || remise.touched)"
         class="p-2 my-1 bg-danger text-white rounded-1">
 
@@ -48,7 +48,7 @@
       <div class="form-group">
         <div class="form-floating"><input class="form-control text-center" placeholder="Quantité" type="number" id="createdevis.articles.quantite" name="quantite" ngModel required
           #quantite="ngModel"> <label for="">Quantité</label></div>
-        
+
         <div *ngIf="quantite.invalid && (quantite.dirty || quantite.touched)"
           class="p-2 my-1 bg-danger text-white rounded-1">
 
@@ -58,7 +58,7 @@
 
         </div>
       </div>
-     
+
 
     </div>
 
@@ -84,3 +84,5 @@
     <button routerLink="/liste-devis" class="btn btn-dark  text-white meduim col-10 mx-auto col-sm-3 my-1">retour</button></div>
   </form>
 </div></div></div>
+
+

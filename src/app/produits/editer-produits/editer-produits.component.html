@@ -2,7 +2,7 @@
   <div class="row">
     <form #f="ngForm" class="col-md-8  col-12  bg-white shadow p-3  bg-body rounded-2 h-100 "(ngSubmit)="UpdateProduit(f)">
       <div class="form-group">
-        <div class="form-floating"> 
+        <div class="form-floating">
         <input class="form-control text-center " placeholder="CodeArticle" type="number" id=" code" [(ngModel)]="produit.codeArticle"  disabled  name="codeArticle" required ngModel  #codeArticle="ngModel">
         <label for="" > CodeArticle</label></div>
         <div *ngIf="codeArticle.invalid && (codeArticle.dirty || codeArticle.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
@@ -10,15 +10,15 @@
           <div *ngIf="codeArticle.errors?.['required']" >
             Le codeArticle est obligatoire.
           </div>
-          
+
       </div>
       </div>
       <div class="form-group">
         <div class="form-floating">
-        <input class="form-control text-center" placeholder="Description" type="text" id="description" [(ngModel)]="produit.description" name="description" ngModel required  #description="ngModel"> 
+        <input class="form-control text-center" placeholder="Description" type="text" id="description" [(ngModel)]="produit.description" name="description" ngModel required  #description="ngModel">
         <label for=""> Description</label></div>
 
-        
+
         <div *ngIf="description.invalid && (description.dirty || description.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
           <div *ngIf="description.errors?.['required']" >
@@ -40,20 +40,20 @@
       </div>
       </div> -->
       <div class="form-group">
-        <div class="form-floating"> 
+        <div class="form-floating">
         <input class="form-control text-center" placeholder="Remise" type="number" id="remise" [(ngModel)]="produit.remise" name="remise" ngModel required  #remise="ngModel" >
         <label for="">Remise(%)</label></div>
-       
+
         <div *ngIf="remise.invalid && (remise.dirty || remise.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
           <div *ngIf="remise.errors?.['required']" >
             La remis est obligatoire.
           </div>
-          
+
       </div>
       </div>
       <div class="form-group">
-        <div class="form-floating">        
+        <div class="form-floating">
         <input class="form-control text-center" placeholder="TVA" type="number" id="tva" [(ngModel)]="produit.tva" name="tva" ngModel  required  #tva="ngModel">
         <label for="">TVA</label> </div>
  <div *ngIf="tva.invalid && (tva.dirty || tva.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
@@ -61,7 +61,7 @@
           <div *ngIf="tva.errors?.['required']" >
             Le tva est obligatoire.
           </div>
-          
+
       </div>
       </div>
       <div class="form-group">
@@ -72,26 +72,26 @@
           <div *ngIf="quantite.errors?.['required']" >
             La quantite est obligatoire.
           </div>
-         
+
       </div> </div>
       <div class="form-group">
         <div class="form-floating">
           <input class="form-control text-center" placeholder="Prix" type="number" id="prix" [(ngModel)]="produit.prix" name="prix" ngModel   required  #prix="ngModel">
         <label for="">Prix</label></div>
-       
+
         <div *ngIf="prix.invalid && (prix.dirty || prix.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
           <div *ngIf="prix.errors?.['required']" >
             Le prix est obligatoire.
           </div>
-          
+
       </div>
       </div>
       <div class="form-group">
         <div class="form-floating">
            <input class="form-control text-center" placeholder="Pays Origine" type="text" id="paysOrigine" [(ngModel)]="produit.paysOrigine" name="paysOrigine" ngModel required pattern="[a-zA-Z]{3,10}" #paysOrigine="ngModel">
         <label for="">Pays Origine</label></div>
-       
+
        <div *ngIf="paysOrigine.invalid && (paysOrigine.dirty || paysOrigine.touched)" class="p-2 mt-2 bg-danger text-white text-center rounded-1">
 
           <div *ngIf="paysOrigine.errors?.['required']" >
@@ -101,15 +101,15 @@
             La paysOrigine doit avoir  au moins  3 caractéres!
           </div>
       </div></div>
-<!-- 
+<!--
       <div class="form-group my-2" *ngFor="let prod of produit.images" >
-     
+
         <input #input class="form-control"  type="file" [value]="prod.picbyte" (change)="onSelectedFile($event)" [(ngModel)] ="prod.picbyte" ngModel #file="ngModel" />
 
       </div>  -->
         <div class="form-group my-2">
         <input type="file"multiple class="form-control" value="select"(change)="onSelectedFile($event)" ngModel name="file"  #file="ngModel">
-      </div> 
+      </div>
       <hr>
       <div class="row d-flex justify-content-evenly ">
       <button class="btn btnColor text-white shadow-lg col-md-5 col-10 my-1" data-bs-toggle="modal" data-bs-target="#exampleModal3" type="submit" [disabled]="f.invalid">Save Changes
@@ -124,19 +124,19 @@
           <div class="modal-body">
             vous avez modifié  un produit
           </div>
-         
+
         </div>
       </div>
     </div>
       <button routerLink="/adminliste-produit" class="btn btn-dark text-white shadow-lg col-md-5 col-10  my-1" >Retour</button></div>
-  
+
     </form>
     <div class="col-md-3 ms-md-5   border border-secondary bg- rounded-3  bg-white">
-      <div class="d-flex flex-column "> 
+      <div class="d-flex flex-column ">
        <h1 class="fst-italic text-center">Images</h1>
        <div  *ngFor="let url of images; let i=index">
        <div class="position-relative"> <div class="position-absolute  p-2 mt-0">
-           <button class="btn text-white rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button> 
+           <button class="btn text-white rounded-circle" (click)=" removeImage(i)"><i class="bi bi-x-lg"></i></button>
     </div>
           <img   [src]="url" class="rounded-1 my-1 mx-1 col-12 col-md-12 " width="150px" ></div></div>
    </div></div></div>

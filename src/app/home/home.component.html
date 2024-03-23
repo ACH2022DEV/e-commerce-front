@@ -84,7 +84,7 @@
           <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
             <p class="card-text text-start mx-3 m-0   text-truncate">{{prod.description}}</p>
           <p class=" text-danger  text-start mx-3 m-0 fs-5 fw-bold">{{prod.prix }} TND</p>
-          <p  class="text-decoration-line-through   text-start  mx-3 m-0 mb-2 ">{{prod.prix*(1+prod.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
+          <p  class="text-decoration-line-through   text-start  mx-3 m-0 mb-2 ">{{(prod.prix*(1+prod.remise/100)).toFixed(2)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
         
         </a>
   
@@ -109,8 +109,8 @@
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-0 p-2 " alt="..."> </a>
         <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
           <p class="card-text text-start mx-3 m-0 text-truncate">{{prod.description}}</p>
-        <p class=" text-danger  text-start mx-3 m-0 fw-bold">{{prod.prix }} TND</p>
-        <p  class="text-decoration-line-through   text-start fs-5 mx-3 m-0 mb-2 ">{{prod.prix*(1+prod.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
+        <p class=" text-danger  text-start mx-3 fs-5 m-0 fw-bold">{{prod.prix }} TND</p>
+        <p  class="text-decoration-line-through   text-start  mx-3 m-0 mb-2 ">{{(prod.prix*(1+prod.remise/100)).toFixed(2)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
       
       </a>
 
@@ -152,8 +152,8 @@
         <img [src]='convertBase64ToImage(prod.images)' class="card-img-top rounded-0 p-2 " alt="..."> </a>
         <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
           <h6 class="card-text   text-truncate">{{prod.description}}</h6>
-        <h4 class=" text-danger my-0 text-start  fw-bold">{{prod.prix }} TND</h4>
-        <h6  class="text-decoration-line-through    mb-2 ">{{prod.prix*(1+prod.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></h6>
+        <p class=" text-danger my-0 text-start fs-5 fw-bold">{{prod.prix }} TND</p>
+        <h6  class="text-decoration-line-through    mb-2 ">{{(prod.prix*(1+prod.remise/100)).toFixed(2)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></h6>
       
       </a>
 
@@ -171,7 +171,7 @@
     <p class="ms-4 p-1 text-start fs-3 fw-semibold"> Les Postes <a href="" routerLink="/liste-produits"><span class="float-end text-dark mt-2 fs-5 me-3 d-none d-sm-none d-md-block" > Voir Plus <i class="bi bi-chevron-right"></i></span></a> </p>
     </div>
    
-    <div class="  col-md-3 my-1 col-sm-6 col-12 col-lg-2 " *ngFor="let prod of Postes">
+    <div class="  col-md-3 my-1 col-sm-6 col-12  col-lg-2 " *ngFor="let prod of Postes">
       <div class=" hover card   border border-0  ">
         <div class="position-relative  "> 
           <a [routerLink]="['/details/', prod.codeArticle]" href="">
@@ -179,7 +179,7 @@
         <div class=" ">  <a [routerLink]="['/details/', prod.codeArticle]" href="">
           <p class="card-text text-start mx-3 m-0 text-truncate">{{prod.description}}</p>
         <p class=" text-danger  text-start mx-3 m-0 fw-bold">{{prod.prix }} TND</p>
-        <p  class="text-decoration-line-through   text-start  mx-3 m-0 mb-2 ">{{prod.prix*(1+prod.remise/100)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
+        <p  class="text-decoration-line-through   text-start  mx-3 m-0 mb-2 ">{{(prod.prix*(1+prod.remise/100)).toFixed(2)}} TND  <span class="badge ms-3  color-bg text-start ms-2" >-{{prod.remise}}%</span></p>
       
       </a>
 

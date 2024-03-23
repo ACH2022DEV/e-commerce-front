@@ -18,7 +18,13 @@ export class DatabaseService {
   private url = "http://localhost:8080/e-commerce-back/api/v1";
 
   constructor(private http: HttpClient) { }
+//juste pour faire le test
+public addoffer(offer:any): Observable<any> {
+  return this.http.post<any>(`http://127.0.0.1:8002/offer/new`, offer);
 
+}
+
+//end test
 //les api de personne//
   public getAllPersonne(pageNo:number,size:number): Observable<Personne[]> {
     return this.http.get<Personne[]>(`${this.url}/personne?page=${pageNo}&size=${size}`);
@@ -36,7 +42,7 @@ export class DatabaseService {
   public UpdatePersonne( personne:FormData): Observable<FormData> {
     return this.http.put<FormData>(`${this.url}/personne`, personne);
   }
-  
+
   public deletePersonne(id:number): Observable<void> {
     return this.http.delete<void>(`${this.url}/personne/${id}`);
 
@@ -77,7 +83,7 @@ export class DatabaseService {
     return this.http.post<FormData>(`${this.url}/article`, articl);
 
   }
-  
+
   public Updatearticle( articl: FormData): Observable<FormData> {
     return this.http.put<FormData>(`${this.url}/article`, articl);
 
@@ -131,6 +137,6 @@ export class DatabaseService {
     return this.http.delete<void>(`${this.url}/devis/${codedevis}`);
 
   }
- 
-  // développer une méthode qui va appeler le controleur et qui permet de retourner une personne 
+
+  // développer une méthode qui va appeler le controleur et qui permet de retourner une personne
 }

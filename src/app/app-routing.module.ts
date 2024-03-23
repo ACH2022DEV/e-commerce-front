@@ -34,6 +34,7 @@ import { ProduitsDetailsComponent } from './produits/produits-details/produits-d
 import { SearchAvisComponent } from './produits/search-avis/search-avis.component';
 import { SearchResultsComponent } from './produits/search-results/search-results.component';
 import { VisualiserProduitsComponent } from './produits/visualiser-produits/visualiser-produits.component';
+import { TestComponent } from './test/test.component';
 
 //import { MenuComponent } from './menu/menu.component';
 
@@ -75,7 +76,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: '**', component: LoginComponent },
 
-  
+
 
 
 

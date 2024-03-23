@@ -14,6 +14,7 @@ import { PanierService } from '../panier/panier.service';
 import { SearchService } from '../produits/search.service';
 import { DatabaseService } from '../services/database.service';
 
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -40,11 +41,11 @@ public ID:any;
   jsonStringObj: any = {};
   obj: any = { email: '', username: '', id: '', roles: '' };
   constructor(private personne: DatabaseService,private search:SearchService, private sanitizer: DomSanitizer,private route: ActivatedRoute,private contactService:ContactService,private router: Router, private panierService: PanierService) {
-   
+
     this.getAllContact();
    // this.nombredeprod;
     this.nombreContact;
- 
+
   }
 
   ngOnInit(): void {
@@ -52,10 +53,10 @@ public ID:any;
    this.nombreContact;
    //get personne
    if(sessionStorage.getItem('session')){
-    this.jsonStringObj = sessionStorage.getItem('session'); 
+    this.jsonStringObj = sessionStorage.getItem('session');
     console.log('jsonStringObj',this.jsonStringObj)
     this.obj = JSON.parse(this.jsonStringObj);
-    console.log('obj',this.obj) 
+    console.log('obj',this.obj)
   this.ID=this.obj.id;
   console.log('id',this.ID)
   }
@@ -64,7 +65,7 @@ public ID:any;
     this.nombredeprod = this.client.paniers.length;
    // this.client2=data;
     console.log('client header',data)})
-  
+
    //fin get personne
   }
   public getAllContact(): void {
@@ -75,10 +76,13 @@ public ID:any;
 
 
     },
-      (error: HttpErrorResponse) => alert(error.message)
+      (error: HttpErrorResponse) => {
+        // Gérer l'erreur ici si nécessaire, sans afficher d'alerte
+       console.error("Une erreur s'est produite : ", error);
+      }
     );
   }
- 
+
   public logout() {
 
     sessionStorage.clear();
