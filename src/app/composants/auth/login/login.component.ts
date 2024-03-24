@@ -10,6 +10,7 @@ import { MicrosoftLoginProvider, SocialAuthService, SocialUser } from "@abacritt
 import { GoogleLoginProvider } from "@abacritt/angularx-social-login";
 import { FacebookLoginProvider } from "@abacritt/angularx-social-login";
 import { SocialService } from '../social.service';
+import { environment } from 'src/environments/environment';
 declare const google: any;
 @Component({
   selector: 'app-login',
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
     );
     if (typeof google !== 'undefined' && google.accounts) {
     google.accounts.id.initialize({
-      client_id:'941760382433-pk47mr7h0rj1o8lnha3qibqs1gckg5km.apps.googleusercontent.com',
+      client_id:environment.googleLoginProvider,
       callback: (respo:any)=>{
         console.log(respo)
 console.log(respo.credential)
@@ -52,6 +53,7 @@ console.log(respo.credential)
 this.social.loginWithGoogle(respo.credential).subscribe(
   res => {
     console.log(res["body"]);
+    //encoder cette data !!!!!!!!!!!!!!!!!!!!!!!!!!
     sessionStorage.setItem('session', JSON.stringify(res["body"]));
     this.router.navigate(['/home']).then(() => {
       window.location.reload();
